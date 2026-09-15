@@ -1,41 +1,41 @@
 # recm0708.github.io
 
-Personal website, professional portfolio and bilingual CV hub for **Rubén Enrique Cañizares Miranda**.
+Sitio personal, portafolio profesional y centro bilingüe de currículum vitae de **Rubén Enrique Cañizares Miranda**.
 
-The root site is intentionally designed as a first-person personal portfolio rather than a résumé landing page. It introduces Rubén, his current path in Computer Networks, his Electrical Systems & Automation background, technical focus areas, public GitHub projects and professional contact channels.
+La raíz del sitio está concebida como un **portafolio profesional personal**, no como una simple página para descargar currículos. Su objetivo es presentar quién soy, mi trayectoria, mis áreas técnicas, proyectos públicos, infraestructura de laboratorio, perfiles profesionales y canales de contacto.
 
-A separate `/cv/` hub contains three specialized web CV experiences. Each profile has its own visual language and content hierarchy instead of reusing one template with different colors.
+El directorio `/cv/` funciona como entrada independiente a tres versiones especializadas de mi currículum. Cada perfil tiene estructura, jerarquía de contenido e identidad visual propias; no se reutiliza una misma plantilla cambiando únicamente colores.
 
-## Current status
+## Estado actual
 
-**Active development — all three bilingual web CV profiles are now available.**
+El sitio se encuentra en desarrollo continuo y actualmente incluye:
 
-Available now:
+- Página personal bilingüe redactada en primera persona.
+- Identidad visual principal orientada a redes, infraestructura y automatización.
+- Integración de fotografía de perfil.
+- Secciones de perfil personal, trayectoria, áreas técnicas, laboratorio, proyectos, currículum y contacto.
+- Perfiles sociales oficiales reunidos en la portada.
+- Centro independiente de Currículum Vitae.
+- CV de Sistemas Eléctricos y Automatización — español / inglés.
+- CV de Redes Informáticas e Infraestructura — español / inglés.
+- CV General / Multidisciplinario — español / inglés.
+- Diseño adaptable para escritorio, tablet y móvil.
+- Modo oscuro y modo claro.
+- Paletas claras suavizadas, evitando fondos blancos puros cuando no son necesarios.
+- Función de impresión / Guardar como PDF para los currículos.
+- Navegación de retorno al inicio en páginas extensas.
+- Página 404 personalizada.
+- Metadatos básicos para SEO, `robots.txt` y `sitemap.xml`.
 
-- First-person bilingual personal homepage
-- Network / infrastructure visual identity with inline SVG iconography
-- GitHub profile portrait integration
-- About, technical areas, public projects and contact sections
-- Dedicated Curriculum Vitae hub
-- Electrical Systems & Automation CV — Spanish / English
-- Computer Networks & Infrastructure CV — Spanish / English
-- General / Multidisciplinary CV — Spanish / English
-- Responsive layouts
-- Light/dark appearance
-- Print / Save as PDF presentation for CV pages
-- Accessibility baseline
-- Custom 404 page
-- SEO essentials, robots policy and sitemap
+Las versiones web de los currículos son deliberadamente más amplias que los documentos ATS. Pueden incluir proyectos, herramientas, infraestructura, laboratorios, credenciales, experiencia complementaria y contexto técnico que no resulta práctico incluir en un currículo ATS breve. Los PDF ATS se mantendrán por separado.
 
-The web CVs are intentionally broader than ATS documents. They may include technical projects, labs, tools, context, infrastructure, credentials and complementary experience that would not reasonably fit in a concise ATS résumé. ATS PDFs will be maintained separately when added to the site.
-
-## Architecture
+## Arquitectura
 
 ```text
 /
-├── index.html                 # Personal website / portfolio
+├── index.html                 # Página personal / portafolio
 ├── cv/
-│   └── index.html             # Curriculum Vitae profile selector
+│   └── index.html             # Selector de perfiles de Currículum Vitae
 ├── es/
 │   ├── electrica/
 │   │   └── index.html
@@ -71,71 +71,95 @@ The web CVs are intentionally broader than ATS documents. They may include techn
     └── documents/
 ```
 
-## Design strategy
+## Estrategia visual
 
-The site deliberately avoids using one UI system for every page.
+El sitio evita deliberadamente imponer un único sistema visual a todas las páginas.
 
-- **Personal homepage:** networking / infrastructure identity, first-person narrative, topology graphics and an evolving project portfolio.
-- **CV hub:** neutral editorial selector that routes visitors to the appropriate professional profile.
-- **Electrical CV:** electrical / energy / control identity focused on installations, maintenance, low voltage and automation.
-- **Networks CV:** networking / systems identity built around topology, CLI, routing, switching, infrastructure, SDN and observability.
-- **General CV:** editorial multidisciplinary dossier combining electrical, technology, support and infrastructure experience.
+- **Página personal:** identidad inspirada en redes, infraestructura, topologías y operación técnica, combinada con una narrativa personal en primera persona.
+- **Centro de CV:** selector editorial neutral que dirige al visitante hacia el perfil profesional apropiado.
+- **CV Eléctrico:** identidad relacionada con energía, instalaciones, mantenimiento, baja tensión, control y automatización.
+- **CV de Redes:** identidad basada en topología, CLI, routing, switching, sistemas, infraestructura, SDN y observabilidad.
+- **CV General:** presentación editorial multidisciplinaria que integra electricidad, tecnología, soporte e infraestructura.
 
-Shared behavior such as language preference, appearance and print support is reused where appropriate without forcing the same visual composition across sections.
+Las funciones compartidas —como preferencia de idioma, apariencia, impresión y retorno al inicio— se reutilizan cuando corresponde, sin obligar a que las páginas se vean iguales.
 
-## Current CV URLs
+## URL actuales
 
-### Electrical Systems & Automation
+### Sistemas Eléctricos y Automatización
 
 - ES: <https://recm0708.github.io/es/electrica/>
 - EN: <https://recm0708.github.io/en/electrical/>
 
-### Computer Networks & Infrastructure
+### Redes Informáticas e Infraestructura
 
 - ES: <https://recm0708.github.io/es/redes/>
 - EN: <https://recm0708.github.io/en/networks/>
 
-### General / Multidisciplinary Profile
+### Perfil General / Multidisciplinario
 
 - ES: <https://recm0708.github.io/es/general/>
 - EN: <https://recm0708.github.io/en/general/>
 
-## Technology
+## Tecnologías
 
-- Semantic HTML5
-- Modern CSS3
-- Inline SVG iconography
-- Vanilla JavaScript
-- Responsive layouts
-- Light/dark theme support
-- Spanish/English experience
-- Print-optimized CV layouts
-- GitHub Pages
-- No runtime framework or third-party UI dependency
+- HTML5 semántico.
+- CSS3 moderno.
+- Iconografía SVG en línea.
+- JavaScript nativo.
+- Diseño responsive.
+- Temas claro y oscuro.
+- Experiencia en español e inglés.
+- Diseños de CV optimizados para impresión.
+- GitHub Pages.
+- Sin framework de interfaz ni dependencia de ejecución de terceros.
 
-## Publishing model
+## Convenciones de mantenimiento
 
-GitHub Pages deploys directly from the `main` branch at the repository root.
+A partir de esta versión se aplican las siguientes reglas al código y documentación del repositorio:
 
-- Personal site: <https://recm0708.github.io/>
-- Curriculum Vitae hub: <https://recm0708.github.io/cv/>
+1. **README, documentación técnica y comentarios internos del código se redactan en español.**
+2. Los textos que formen parte de la interfaz bilingüe pueden existir en español e inglés cuando sea necesario.
+3. Los nombres técnicos propios de tecnologías, protocolos, productos, clases CSS, atributos HTML o APIs se conservan en su forma apropiada cuando traducirlos afectaría claridad o funcionamiento.
+4. Los bloques importantes de HTML, CSS y JavaScript deben incluir comentarios en español que expliquen su propósito cuando esto facilite mantenimiento futuro.
+5. El portal se presenta como un **sitio y portafolio profesional**. No se describe públicamente como proyecto educativo, académico o demostrativo.
+6. La información personal publicada debe ser intencional y pertinente. No se deben incorporar documentos sensibles ni datos privados innecesarios.
+7. Los perfiles sociales y enlaces externos deben corresponder a cuentas confirmadas por el propietario del sitio.
+8. Los cambios importantes de recursos estáticos pueden utilizar un parámetro de versión (`?v=`) para evitar que el navegador conserve CSS o JavaScript obsoleto en caché.
 
-## Planned next
+## Modelo de publicación
 
-- Expand the Electrical web CV beyond its initial ATS-oriented structure so it matches the richer web-content policy used by Networks and General
-- Add a dedicated credentials / certificates section
-- Publish approved certificate and diploma PDFs
-- Add ATS résumé PDFs as separate downloadable documents
-- Replace the GitHub avatar with an approved local professional portrait
-- Add richer project pages as public repositories become presentation-ready
-- Add final Open Graph / social preview artwork and favicon assets
+GitHub Pages publica directamente desde la rama `main` y desde la raíz del repositorio.
 
-## Privacy and document policy
+- Sitio personal: <https://recm0708.github.io/>
+- Centro de Currículum Vitae: <https://recm0708.github.io/cv/>
 
-This repository is public. Only professional information intentionally approved for public distribution should be committed. Sensitive identification documents, private records, confidential employer information and unnecessary personal data must not be published.
+## Próximas ampliaciones
 
-PDF files are reserved for approved professional documents such as ATS résumés, certificates, diplomas, licenses and supporting credentials when their public publication is appropriate.
+Entre las ampliaciones previstas se encuentran:
 
-## Maintenance
+- Enriquecer la página personal con historia, metas, intereses, pasatiempos, viajes, experiencias y otros elementos personales que se aprueben para publicación.
+- Ampliar el CV Eléctrico más allá de su estructura inicial derivada del formato ATS.
+- Crear una sección dedicada de credenciales y certificaciones.
+- Publicar certificados y diplomas aprobados en formato PDF.
+- Incorporar los currículos ATS como documentos descargables independientes.
+- Sustituir la fotografía de GitHub por una fotografía profesional local aprobada.
+- Crear páginas más completas para proyectos destacados.
+- Incorporar arte final para Open Graph, vista previa social y favicon.
 
-The site remains static to minimize dependencies, simplify long-term maintenance and preserve fast loading across desktop and mobile devices.
+## Privacidad y documentos
+
+Este repositorio es público. Solo debe almacenarse información profesional o personal que haya sido aprobada expresamente para publicación abierta.
+
+No deben publicarse documentos de identificación sensibles, registros privados, información confidencial de empleadores, contraseñas, direcciones privadas ni otros datos innecesarios.
+
+Los archivos PDF quedan reservados principalmente para documentos profesionales aprobados, tales como:
+
+- currículos ATS;
+- certificados;
+- diplomas;
+- licencias o idoneidades;
+- credenciales de respaldo cuya publicación sea apropiada.
+
+## Mantenimiento técnico
+
+El sitio se mantiene estático para reducir dependencias, simplificar mantenimiento a largo plazo, conservar tiempos de carga bajos y permitir que el contenido permanezca portable y fácil de editar.
