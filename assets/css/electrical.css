@@ -1,4 +1,4 @@
-/* Electrical & Automation résumé layer */
+/* Identidad visual del CV de Sistemas Eléctricos y Automatización. */
 .cv-electrical {
   --cv-accent: #f4bd4f;
   --cv-accent-2: #ffdf84;
@@ -6,6 +6,7 @@
   --cv-accent-line: rgba(244, 189, 79, .34);
 }
 
+/* Cabecera fija y navegación del currículo. */
 .cv-header {
   position: sticky;
   top: 0;
@@ -65,6 +66,7 @@
 .cv-action:hover { border-color: var(--cv-accent-line); }
 .cv-lang.active { background: var(--cv-accent-soft); color: var(--cv-accent); border-color: var(--cv-accent-line); }
 
+/* Presentación superior: nombre, rol, contacto y emblema gráfico. */
 .cv-hero { padding: 88px 0 72px; border-bottom: 1px solid var(--line); }
 .cv-hero-grid { display: grid; grid-template-columns: 1fr 310px; gap: 70px; align-items: center; }
 .cv-kicker {
@@ -115,6 +117,7 @@
 .cv-primary:hover,
 .cv-secondary:hover { transform: translateY(-1px); }
 
+/* Emblema decorativo asociado al área eléctrica. */
 .cv-emblem {
   position: relative;
   min-height: 310px;
@@ -163,6 +166,7 @@
   letter-spacing: .08em;
 }
 
+/* Estructura principal en dos columnas: contenido y barra lateral. */
 .cv-layout { display: grid; grid-template-columns: minmax(0, 1fr) 310px; gap: 68px; padding: 78px 0 100px; }
 .cv-main { min-width: 0; }
 .cv-sidebar { min-width: 0; }
@@ -179,6 +183,7 @@
 }
 .cv-summary { margin: 0; color: var(--text-soft); font-size: 1.02rem; line-height: 1.82; }
 
+/* Competencias presentadas como etiquetas compactas. */
 .cv-skill-cloud { display: flex; flex-wrap: wrap; gap: 9px; }
 .cv-skill-cloud span {
   padding: 8px 11px;
@@ -191,6 +196,7 @@
 }
 .cv-skill-cloud span:hover { border-color: var(--cv-accent-line); color: var(--text); }
 
+/* Línea de tiempo de experiencia profesional. */
 .cv-timeline { position: relative; }
 .cv-timeline::before {
   content: "";
@@ -222,6 +228,7 @@
 .cv-entry li { margin: 7px 0; padding-left: 4px; }
 .cv-entry li::marker { color: var(--cv-accent); }
 
+/* Tarjetas de la barra lateral: herramientas, credenciales e información complementaria. */
 .cv-side-card {
   margin-bottom: 18px;
   padding: 22px;
@@ -248,6 +255,7 @@
 .cv-credential strong { display: block; color: var(--cv-accent); font-size: .78rem; }
 .cv-credential span { display: block; margin-top: 5px; color: var(--text-soft); font-size: .73rem; line-height: 1.45; }
 
+/* Formación académica. */
 .cv-education-grid { display: grid; gap: 13px; }
 .cv-education-item {
   padding: 18px 20px;
@@ -259,6 +267,7 @@
 .cv-education-item h3 { margin: 6px 0 2px; font-size: 1rem; }
 .cv-education-item p { margin: 0; color: var(--text-soft); font-size: .8rem; }
 
+/* Cursos y certificaciones. */
 .cv-cert-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px; }
 .cv-cert {
   min-height: 132px;
@@ -271,17 +280,20 @@
 .cv-cert h3 { margin: 7px 0 5px; font-size: .91rem; line-height: 1.25; }
 .cv-cert p { margin: 0; color: var(--text-soft); font-size: .75rem; }
 
+/* Información complementaria. */
 .cv-additional { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px; }
 .cv-additional article { padding: 18px; border: 1px solid var(--line); border-radius: 15px; }
 .cv-additional h3 { margin: 0; font-size: .9rem; }
 .cv-additional p { margin: 5px 0 0; color: var(--text-soft); font-size: .77rem; }
 
+/* Pie del currículo. */
 .cv-footer { border-top: 1px solid var(--line); padding: 34px 0 44px; }
 .cv-footer-grid { display: flex; justify-content: space-between; align-items: center; gap: 24px; }
 .cv-footer p { margin: 0; color: var(--text-soft); font-size: .77rem; }
 .cv-footer a { color: var(--text-soft); text-decoration: none; font-size: .77rem; }
 .cv-footer a:hover { color: var(--cv-accent); }
 
+/* Adaptación para tablet. */
 @media (max-width: 980px) {
   .cv-hero-grid,
   .cv-layout { grid-template-columns: 1fr; }
@@ -292,6 +304,7 @@
   .cv-side-card { margin: 0; }
 }
 
+/* Adaptación para móvil. */
 @media (max-width: 680px) {
   .cv-nav { min-height: 62px; }
   .cv-back span:last-child { display: none; }
@@ -309,6 +322,7 @@
   .cv-footer-grid { display: grid; }
 }
 
+/* Versión de impresión: elimina navegación y decoración para conservar un CV limpio. */
 @media print {
   :root { --bg:#fff; --surface:#fff; --text:#111; --text-soft:#444; --line:#d6d6d6; }
   body.cv-electrical { background:#fff !important; color:#111 !important; font-size: 10.5pt; }
