@@ -11,9 +11,27 @@ The site is designed as a single professional portal with specialized profiles f
 
 ## Current status
 
-**Foundation in active development.**
+**Active development.**
 
-The initial release includes the bilingual landing page, responsive design system, light/dark appearance, accessibility baseline, custom 404 page, SEO essentials and GitHub Pages static deployment structure.
+Available now:
+
+- Bilingual professional landing page
+- Electrical Systems & Automation résumé — Spanish
+- Electrical Systems & Automation résumé — English
+- Responsive design system
+- Light/dark appearance
+- Print / Save as PDF presentation
+- Accessibility baseline
+- Custom 404 page
+- SEO essentials, robots policy and sitemap
+
+Planned next:
+
+- Computer Networks résumé — Spanish / English
+- General multidisciplinary résumé — Spanish / English
+- Professional credentials section
+- Approved certificate and diploma PDFs
+- Final social preview assets and professional imagery
 
 ## Architecture
 
@@ -24,25 +42,32 @@ The initial release includes the bilingual landing page, responsive design syste
 ├── robots.txt
 ├── sitemap.xml
 ├── .nojekyll
+├── es/
+│   └── electrica/
+│       └── index.html
+├── en/
+│   └── electrical/
+│       └── index.html
 └── assets/
     ├── css/
-    │   └── global.css
+    │   ├── global.css
+    │   └── electrical.css
     ├── js/
-    │   └── main.js
+    │   ├── main.js
+    │   └── cv.js
     ├── images/      # added as professional assets are approved
     └── documents/   # certificates/diplomas only when approved for publication
 ```
-
-Specialized Spanish and English résumé sections will be added incrementally after content validation.
 
 ## Technology
 
 - Semantic HTML5
 - Modern CSS3
 - Vanilla JavaScript
-- Responsive layout
+- Responsive layouts
 - Light/dark theme support
-- Spanish/English interface
+- Spanish/English experience
+- Print-optimized résumé layout
 - GitHub Pages
 - No runtime framework or third-party UI dependency
 
@@ -51,6 +76,11 @@ Specialized Spanish and English résumé sections will be added incrementally af
 GitHub Pages deploys directly from the `main` branch at the repository root.
 
 Live site: <https://recm0708.github.io/>
+
+Electrical résumé:
+
+- ES: <https://recm0708.github.io/es/electrica/>
+- EN: <https://recm0708.github.io/en/electrical/>
 
 ## Privacy and document policy
 
