@@ -6,4 +6,6 @@
   <url><loc>https://recm0708.github.io/en/electrical/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://recm0708.github.io/es/redes/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://recm0708.github.io/en/networks/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://recm0708.github.io/es/general/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://recm0708.github.io/en/general/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
 </urlset>
