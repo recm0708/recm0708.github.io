@@ -1,13 +1,10 @@
 # recm0708.github.io
 
-Professional portfolio and bilingual CV website for **Rubén Enrique Cañizares Miranda**.
+Personal website and professional portfolio for **Rubén Enrique Cañizares Miranda**.
 
-The site is designed as a single professional portal with specialized profiles for:
+The root site is intentionally designed as a first-person personal portfolio rather than a résumé landing page. It introduces Rubén, his current path in Computer Networks, his Electrical Systems & Automation background, technical focus areas, public GitHub projects and professional contact channels.
 
-- Electrical Systems & Automation
-- Computer Networks & IT Infrastructure
-- General / Multidisciplinary Profile
-- Professional credentials and supporting documents
+A separate `/cv/` hub contains the specialized résumé experience.
 
 ## Current status
 
@@ -15,54 +12,79 @@ The site is designed as a single professional portal with specialized profiles f
 
 Available now:
 
-- Bilingual professional landing page
+- First-person bilingual personal homepage
+- Network / infrastructure visual identity with inline SVG iconography
+- GitHub profile portrait integration
+- About, technical areas, public projects and contact sections
+- Dedicated Curriculum Vitae hub
 - Electrical Systems & Automation résumé — Spanish
 - Electrical Systems & Automation résumé — English
-- Responsive design system
+- Responsive layouts
 - Light/dark appearance
-- Print / Save as PDF presentation
+- Print / Save as PDF presentation for résumé pages
 - Accessibility baseline
 - Custom 404 page
 - SEO essentials, robots policy and sitemap
 
 Planned next:
 
-- Computer Networks résumé — Spanish / English
-- General multidisciplinary résumé — Spanish / English
+- Computer Networks résumé — Spanish / English, with a visual system distinct from Electrical
+- General multidisciplinary résumé — Spanish / English, with its own neutral professional visual system
 - Professional credentials section
 - Approved certificate and diploma PDFs
-- Final social preview assets and professional imagery
+- More public GitHub projects as repositories become ready for presentation
+- Dedicated professional portrait stored as a local site asset
+- Final social preview assets
 
 ## Architecture
 
 ```text
 /
-├── index.html
-├── 404.html
-├── robots.txt
-├── sitemap.xml
-├── .nojekyll
+├── index.html                 # personal website / portfolio
+├── cv/
+│   └── index.html             # Curriculum Vitae profile selector
 ├── es/
 │   └── electrica/
 │       └── index.html
 ├── en/
 │   └── electrical/
 │       └── index.html
+├── 404.html
+├── robots.txt
+├── sitemap.xml
+├── .nojekyll
 └── assets/
     ├── css/
+    │   ├── home.css
+    │   ├── cv-hub.css
     │   ├── global.css
     │   └── electrical.css
     ├── js/
+    │   ├── home.js
+    │   ├── cv-hub.js
     │   ├── main.js
     │   └── cv.js
-    ├── images/      # added as professional assets are approved
-    └── documents/   # certificates/diplomas only when approved for publication
+    ├── images/
+    └── documents/
 ```
+
+## Design strategy
+
+The site does **not** use one visual template for every page.
+
+- **Personal homepage:** network / infrastructure / engineering identity with editorial layout, topology graphics and first-person narrative.
+- **CV hub:** neutral editorial index that routes visitors to the appropriate professional résumé.
+- **Electrical CV:** electrical / energy / control identity.
+- **Networks CV:** will use a networking / systems visual identity independent from the Electrical page.
+- **General CV:** will use a distinct multidisciplinary professional identity.
+
+Shared behavior such as language preference and appearance is persisted without forcing the same visual composition across sections.
 
 ## Technology
 
 - Semantic HTML5
 - Modern CSS3
+- Inline SVG iconography
 - Vanilla JavaScript
 - Responsive layouts
 - Light/dark theme support
@@ -77,6 +99,8 @@ GitHub Pages deploys directly from the `main` branch at the repository root.
 
 Live site: <https://recm0708.github.io/>
 
+Curriculum Vitae hub: <https://recm0708.github.io/cv/>
+
 Electrical résumé:
 
 - ES: <https://recm0708.github.io/es/electrica/>
@@ -90,4 +114,4 @@ PDF files are reserved primarily for professional credentials and supporting doc
 
 ## Maintenance
 
-The portal is maintained as a static site to minimize dependencies, simplify long-term maintenance and preserve fast loading across desktop and mobile devices.
+The site remains static to minimize dependencies, simplify long-term maintenance and preserve fast loading across desktop and mobile devices.
