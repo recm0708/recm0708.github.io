@@ -25,7 +25,8 @@ El sitio se encuentra en desarrollo continuo y actualmente incluye:
 - Función de impresión / Guardar como PDF para los currículos.
 - Navegación de retorno al inicio en páginas extensas.
 - Página 404 personalizada.
-- Metadatos básicos para SEO, `robots.txt` y `sitemap.xml`.
+- Metadatos básicos para SEO, vista previa social, `robots.txt` y `sitemap.xml`.
+- Licencia propia del portafolio con todos los derechos reservados.
 
 Las versiones web de los currículos son deliberadamente más amplias que los documentos ATS. Pueden incluir proyectos, herramientas, infraestructura, laboratorios, credenciales, experiencia complementaria y contexto técnico que no resulta práctico incluir en un currículo ATS breve. Los PDF ATS se mantendrán por separado.
 
@@ -51,6 +52,8 @@ Las versiones web de los currículos son deliberadamente más amplias que los do
 │   └── general/
 │       └── index.html
 ├── 404.html
+├── LICENSE                    # Licencia del portafolio
+├── README.md                  # Documentación principal
 ├── robots.txt
 ├── sitemap.xml
 ├── .nojekyll
@@ -83,7 +86,7 @@ El sitio evita deliberadamente imponer un único sistema visual a todas las pág
 
 Las funciones compartidas —como preferencia de idioma, apariencia, impresión y retorno al inicio— se reutilizan cuando corresponde, sin obligar a que las páginas se vean iguales.
 
-## URL actuales
+## URLs actuales
 
 ### Sistemas Eléctricos y Automatización
 
@@ -106,7 +109,7 @@ Las funciones compartidas —como preferencia de idioma, apariencia, impresión 
 - CSS3 moderno.
 - Iconografía SVG en línea.
 - JavaScript nativo.
-- Diseño responsive.
+- Diseño adaptable.
 - Temas claro y oscuro.
 - Experiencia en español e inglés.
 - Diseños de CV optimizados para impresión.
@@ -125,6 +128,8 @@ A partir de esta versión se aplican las siguientes reglas al código y document
 6. La información personal publicada debe ser intencional y pertinente. No se deben incorporar documentos sensibles ni datos privados innecesarios.
 7. Los perfiles sociales y enlaces externos deben corresponder a cuentas confirmadas por el propietario del sitio.
 8. Los cambios importantes de recursos estáticos pueden utilizar un parámetro de versión (`?v=`) para evitar que el navegador conserve CSS o JavaScript obsoleto en caché.
+9. Los mensajes de commit creados durante el mantenimiento del portal se redactan preferentemente en español, manteniendo únicamente términos técnicos en inglés cuando sean nombres propios o convenciones ampliamente reconocidas.
+10. Las cadenas de la interfaz inglesa se conservan en inglés porque forman parte de la funcionalidad bilingüe; no se consideran documentación interna del repositorio.
 
 ## Modelo de publicación
 
@@ -159,6 +164,12 @@ Los archivos PDF quedan reservados principalmente para documentos profesionales 
 - diplomas;
 - licencias o idoneidades;
 - credenciales de respaldo cuya publicación sea apropiada.
+
+## Licencia
+
+Este repositorio utiliza una licencia propia de **todos los derechos reservados**. El código y el contenido se encuentran públicamente visibles para revisión, referencia profesional y mantenimiento autorizado, pero su publicación en GitHub no concede permiso general para copiar, modificar, redistribuir o reutilizar el sitio o sus materiales.
+
+Las condiciones completas se encuentran en el archivo [`LICENSE`](./LICENSE).
 
 ## Mantenimiento técnico
 
