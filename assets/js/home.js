@@ -1,6 +1,14 @@
 (() => {
   'use strict';
 
+  /* ==========================================================
+     PORTADA PERSONAL — LÓGICA GENERAL
+     Este archivo controla idioma, apariencia, navegación móvil,
+     secciones complementarias, redes sociales y retorno al inicio.
+     Los comentarios técnicos se mantienen en español.
+     ========================================================== */
+
+  /* Textos bilingües de la página principal. */
   const i18n = {
     es: {
       skip: 'Saltar al contenido principal',
@@ -12,12 +20,13 @@
       heroPre: 'DESDE PANAMÁ · CONSTRUYENDO EN RED',
       heroHello: 'Hola, soy',
       heroIntro: 'Soy un profesional de sistemas eléctricos y automatización que decidió ampliar su campo hacia las redes informáticas. Hoy conecto dos mundos que me apasionan: la infraestructura física que hace funcionar un entorno y la infraestructura digital que permite que todo se comunique.',
-      heroIntroStrong: 'Este sitio es mi espacio para mostrar quién soy, qué estoy aprendiendo y qué estoy construyendo.',
+      heroIntroStrong: 'Este sitio es mi espacio para mostrar quién soy, qué estoy construyendo y hacia dónde estoy llevando mi perfil profesional.',
       heroAbout: 'Conóceme',
       heroProjects: 'Ver proyectos',
       portraitRole: 'Redes Informáticas · Sistemas Eléctricos',
       portraitSignal: 'EN LÍNEA',
       sideLabel: 'routing · switching · linux · automation',
+
       aboutIndex: '01 / ACERCA DE MÍ',
       aboutTitle: 'Mi camino empezó con la energía. Hoy también pasa por la red.',
       aboutLead: 'No veo la electricidad y las redes como caminos separados. Para mí son capas distintas de una misma infraestructura: energía, control, conectividad, servicios y operación.',
@@ -60,7 +69,7 @@
 
       labIndex: '04 / LABORATORIO',
       labTitle: 'Mi laboratorio no cabe en una sola herramienta.',
-      labLead: 'Uso entornos reales y simulados para unir redes, sistemas, almacenamiento, observabilidad y automatización. La meta no es acumular nombres de herramientas, sino entender cómo se comportan juntas.',
+      labLead: 'Uso entornos físicos, virtualizados y simulados para unir redes, sistemas, almacenamiento, observabilidad y automatización. Mi objetivo es comprender cómo se comportan juntas estas capas de infraestructura.',
       labNetTitle: 'Networking',
       labNetText: 'Cisco Packet Tracer, IPv4, VLAN, trunking, routing estático, OSPF, ACL, DHCP, NAT/PAT y diagnóstico de conectividad.',
       labSystemsTitle: 'Sistemas y virtualización',
@@ -73,8 +82,8 @@
       labAutomationText: 'Python, YAML, Git/GitHub, validación de intención, detección de drift y flujos declarativos para infraestructura.',
 
       projectsIndex: '05 / PROYECTOS',
-      projectsTitle: 'Aprendo mejor cuando tengo algo real que construir.',
-      projectsLead: 'Aquí iré conectando los repositorios y proyectos que representen mejor mi evolución. La lista crecerá a medida que publique más trabajo en GitHub.',
+      projectsTitle: 'Me gusta convertir ideas y problemas reales en proyectos que pueda construir, probar y mejorar.',
+      projectsLead: 'Aquí conecto los repositorios y proyectos que representan mejor mi evolución técnica. La selección irá creciendo a medida que publique más trabajo en GitHub.',
       projectAppType: 'APLICACIÓN',
       projectAppTitle: 'Mi Retiro Proyectado',
       projectAppDesc: 'Proyecto de software en evolución continua, con arquitectura, pruebas, diseño y mantenimiento versionado en GitHub.',
@@ -82,22 +91,25 @@
       projectSiteTitle: 'Este sitio',
       projectSiteDesc: 'Mi espacio profesional en GitHub Pages, construido en HTML, CSS y JavaScript y pensado para crecer junto con mis proyectos.',
       projectNote: 'Más proyectos se irán incorporando aquí a medida que sus repositorios estén listos para mostrarse públicamente.',
+
       cvCode: '06 / CV',
       cvTitle: 'Mi experiencia, según el contexto.',
       cvText: 'No utilizo un único currículo para todo. Organicé mi experiencia en tres perfiles distintos para que cada versión destaque lo realmente relevante para la oportunidad: Eléctrica y Automatización, Redes Informáticas y Perfil General.',
       cvEnter: 'Entrar a Currículum Vitae',
+
       contactIndex: '07 / CONTACTO',
       contactTitle: 'Si algo de lo que hago conecta contigo, hablemos.',
-      contactLead: 'Puedes escribirme por correo, revisar mi actividad en GitHub o encontrar mi perfil profesional en LinkedIn. Para oportunidades laborales, colaboración técnica o simplemente conversar sobre infraestructura y redes, estos son mis canales principales.',
+      contactLead: 'Puedes escribirme por correo, revisar mi actividad en GitHub o encontrar mi perfil profesional en LinkedIn. Para oportunidades laborales, colaboración técnica o conversar sobre infraestructura y redes, estos son mis canales principales.',
       contactEmail: 'Correo',
       contactLinkedin: 'LinkedIn',
       contactGithub: 'GitHub',
       socialTitle: 'También me encuentras aquí.',
-      socialLead: 'Además de mis canales profesionales, mantengo presencia en otras plataformas. Prefiero dejar todos los perfiles oficiales reunidos aquí para que sea fácil distinguirlos.',
+      socialLead: 'Además de mis canales profesionales, mantengo presencia en otras plataformas. Prefiero reunir aquí mis perfiles oficiales para que sea fácil identificarlos.',
       socialVisit: 'Abrir perfil',
       footerText: 'Diseñado y construido por mí, con ayuda de buenas herramientas y muchas pruebas.',
       backTop: 'Volver arriba'
     },
+
     en: {
       skip: 'Skip to main content',
       navAbout: 'About me',
@@ -108,12 +120,13 @@
       heroPre: 'FROM PANAMA · BUILDING IN NETWORK',
       heroHello: "Hi, I'm",
       heroIntro: 'I am an Electrical Systems and Automation professional who decided to expand into computer networks. Today I connect two fields I genuinely enjoy: the physical infrastructure that keeps an environment running and the digital infrastructure that allows everything to communicate.',
-      heroIntroStrong: 'This site is my space to show who I am, what I am learning and what I am building.',
+      heroIntroStrong: 'This site is my space to show who I am, what I am building and where I am taking my professional profile.',
       heroAbout: 'Get to know me',
       heroProjects: 'View projects',
       portraitRole: 'Computer Networks · Electrical Systems',
       portraitSignal: 'ONLINE',
       sideLabel: 'routing · switching · linux · automation',
+
       aboutIndex: '01 / ABOUT ME',
       aboutTitle: 'My path started with power. Today it also runs through the network.',
       aboutLead: 'I do not see electrical systems and networking as separate paths. To me, they are different layers of the same infrastructure: power, control, connectivity, services and operations.',
@@ -156,7 +169,7 @@
 
       labIndex: '04 / LAB',
       labTitle: 'My lab does not fit inside a single tool.',
-      labLead: 'I use real and simulated environments to connect networking, systems, storage, observability and automation. The goal is not to collect tool names, but to understand how they behave together.',
+      labLead: 'I use physical, virtualized and simulated environments to connect networking, systems, storage, observability and automation. My goal is to understand how these infrastructure layers behave together.',
       labNetTitle: 'Networking',
       labNetText: 'Cisco Packet Tracer, IPv4, VLANs, trunking, static routing, OSPF, ACLs, DHCP, NAT/PAT and connectivity troubleshooting.',
       labSystemsTitle: 'Systems & virtualization',
@@ -169,8 +182,8 @@
       labAutomationText: 'Python, YAML, Git/GitHub, intent validation, drift detection and declarative infrastructure workflows.',
 
       projectsIndex: '05 / PROJECTS',
-      projectsTitle: 'I learn better when I have something real to build.',
-      projectsLead: 'This is where I will connect the repositories and projects that best represent my progress. The list will grow as I publish more work on GitHub.',
+      projectsTitle: 'I like turning real ideas and problems into projects I can build, test and improve.',
+      projectsLead: 'This is where I connect the repositories and projects that best represent my technical progress. The selection will grow as I publish more work on GitHub.',
       projectAppType: 'APPLICATION',
       projectAppTitle: 'Mi Retiro Proyectado',
       projectAppDesc: 'An evolving software project with architecture, testing, design and maintenance versioned on GitHub.',
@@ -178,24 +191,27 @@
       projectSiteTitle: 'This website',
       projectSiteDesc: 'My professional space on GitHub Pages, built with HTML, CSS and JavaScript and designed to grow alongside my projects.',
       projectNote: 'More projects will be added here as their repositories become ready for public presentation.',
+
       cvCode: '06 / CV',
       cvTitle: 'My experience, matched to the context.',
       cvText: 'I do not use one résumé for everything. I organized my experience into three distinct profiles so each version can emphasize what truly matters for the opportunity: Electrical & Automation, Computer Networks and General Profile.',
       cvEnter: 'Open Curriculum Vitae',
+
       contactIndex: '07 / CONTACT',
       contactTitle: 'If something I do connects with you, let’s talk.',
-      contactLead: 'You can email me, review my GitHub activity or find my professional profile on LinkedIn. For career opportunities, technical collaboration or simply a conversation about infrastructure and networks, these are my main channels.',
+      contactLead: 'You can email me, review my GitHub activity or find my professional profile on LinkedIn. For career opportunities, technical collaboration or conversations about infrastructure and networks, these are my main channels.',
       contactEmail: 'Email',
       contactLinkedin: 'LinkedIn',
       contactGithub: 'GitHub',
       socialTitle: 'You can also find me here.',
-      socialLead: 'Beyond my professional channels, I maintain profiles on other platforms. I prefer keeping all official accounts together here so they are easy to identify.',
+      socialLead: 'Beyond my professional channels, I maintain profiles on other platforms. I prefer keeping my official accounts together here so they are easy to identify.',
       socialVisit: 'Open profile',
       footerText: 'Designed and built by me, with good tools and a lot of testing.',
       backTop: 'Back to top'
     }
   };
 
+  /* Referencias principales del documento. */
   const root = document.documentElement;
   const langBtn = document.querySelector('[data-lang-toggle]');
   const themeBtn = document.querySelector('[data-theme-toggle]');
@@ -208,6 +224,7 @@
   let language = localStorage.getItem('portfolio-language') || (navigator.language?.toLowerCase().startsWith('en') ? 'en' : 'es');
   let theme = localStorage.getItem('portfolio-theme') || (window.matchMedia?.('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
 
+  /* Iconografía SVG reutilizada por secciones generadas desde JavaScript. */
   const icons = {
     network: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="5" cy="12" r="2"/><circle cx="19" cy="6" r="2"/><circle cx="19" cy="18" r="2"/><path d="M7 12h5l5-5M12 12l5 5"/></svg>',
     server: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="4" y="3" width="16" height="6" rx="1"/><rect x="4" y="15" width="16" height="6" rx="1"/><path d="M8 6h.01M8 18h.01M12 9v6"/></svg>',
@@ -216,7 +233,9 @@
     code: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="m8 8-4 4 4 4M16 8l4 4-4 4M14 5l-4 14"/></svg>'
   };
 
-  function installEnhancementStyles() {
+  /* Estilos de las secciones que se insertan dinámicamente en la portada. */
+  function instalarEstilosComplementarios() {
+    if (document.querySelector('#home-enhancement-styles')) return;
     const style = document.createElement('style');
     style.id = 'home-enhancement-styles';
     style.textContent = `
@@ -241,8 +260,8 @@
       .social-card{min-height:128px;padding:20px;display:grid;grid-template-columns:34px 1fr 18px;gap:13px;align-items:start;border-right:1px solid var(--line);border-bottom:1px solid var(--line);text-decoration:none;transition:background .18s ease,transform .18s ease}
       .social-card:hover{background:var(--signal-dim);transform:translateY(-2px)}.social-card svg{width:23px;height:23px;color:var(--signal)}
       .social-card strong{display:block;font-size:.88rem}.social-card small{display:block;color:var(--muted);font-size:.72rem;margin-top:5px;overflow-wrap:anywhere}.social-card .out{color:var(--muted);width:16px;height:16px}
-      .site-back-top{position:fixed;right:18px;bottom:18px;z-index:1300;display:flex;align-items:center;gap:8px;min-height:42px;padding:0 13px;border:1px solid rgba(255,255,255,.18);background:rgba(5,15,14,.9);backdrop-filter:blur(12px);color:#eafff8;font:800 .68rem/1 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.04em;cursor:pointer;opacity:0;pointer-events:none;transform:translateY(10px);transition:opacity .2s ease,transform .2s ease,border-color .2s ease}
-      .site-back-top.is-visible{opacity:1;pointer-events:auto;transform:none}.site-back-top:hover{border-color:#72f5cf}.site-back-top svg{width:16px;height:16px}
+      .site-back-top{position:fixed;right:18px;bottom:18px;z-index:1300;display:flex;align-items:center;gap:8px;min-height:42px;padding:0 13px;border:1px solid var(--line-strong);background:color-mix(in srgb,var(--bg-alt) 93%,transparent);backdrop-filter:blur(12px);color:var(--ink);font:800 .68rem/1 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.04em;cursor:pointer;opacity:0;pointer-events:none;transform:translateY(10px);transition:opacity .2s ease,transform .2s ease,border-color .2s ease}
+      .site-back-top.is-visible{opacity:1;pointer-events:auto;transform:none}.site-back-top:hover{border-color:var(--signal)}.site-back-top svg{width:16px;height:16px;color:var(--signal)}
       @media(max-width:900px){.lab-grid{grid-template-columns:repeat(2,1fr)}.lab-card,.lab-card:nth-child(4),.lab-card:nth-child(5){grid-column:span 1}.social-grid{grid-template-columns:repeat(2,1fr)}.journey-item{grid-template-columns:100px 42px 1fr}.social-head{grid-template-columns:1fr}}
       @media(max-width:620px){.journey-item{grid-template-columns:1fr;gap:10px}.journey-node{display:none}.lab-grid,.social-grid{grid-template-columns:1fr}.site-back-top span{display:none}.site-back-top{width:44px;padding:0;justify-content:center}.social-card{min-height:108px}}
       @media print{.site-back-top{display:none!important}}
@@ -250,9 +269,11 @@
     document.head.appendChild(style);
   }
 
-  function injectJourneyAndLab() {
+  /* Inserta la cronología profesional y el bloque de laboratorio técnico. */
+  function insertarTrayectoriaYLaboratorio() {
     const about = document.querySelector('#acerca');
     const areas = document.querySelector('#areas');
+
     if (about && !document.querySelector('#trayectoria')) {
       about.insertAdjacentHTML('afterend', `
         <section class="section" id="trayectoria">
@@ -295,7 +316,8 @@
     }
   }
 
-  function socialIcon(type) {
+  /* Devuelve el SVG apropiado para cada red social. */
+  function iconoSocial(type) {
     const map = {
       x: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M5 4l14 16M19 4 5 20"/></svg>',
       linkedin: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 10v7M7 7h.01M11 17v-4a3 3 0 0 1 6 0v4M11 10v7"/></svg>',
@@ -310,9 +332,11 @@
     return map[type] || map.github;
   }
 
-  function injectSocials() {
+  /* Inserta los perfiles sociales confirmados por Rubén. */
+  function insertarRedesSociales() {
     const contact = document.querySelector('#contacto .section-index > div:last-child');
     if (!contact || document.querySelector('.social-block')) return;
+
     const profiles = [
       ['x', 'X', '@recm0708', 'https://x.com/recm0708'],
       ['linkedin', 'LinkedIn', 'linkedin.com/in/recm0708', 'https://www.linkedin.com/in/recm0708'],
@@ -324,12 +348,14 @@
       ['facebook', 'Facebook', 'recm0708', 'https://www.facebook.com/recm0708'],
       ['youtube', 'YouTube', 'UCFbg9mH-XKQMbUwdUxxnz6g', 'https://www.youtube.com/channel/UCFbg9mH-XKQMbUwdUxxnz6g']
     ];
-    const cards = profiles.map(([type,name,user,url]) => `
+
+    const cards = profiles.map(([type, name, user, url]) => `
       <a class="social-card" href="${url}" target="_blank" rel="noopener noreferrer" aria-label="${name}: ${user}">
-        ${socialIcon(type)}
+        ${iconoSocial(type)}
         <span><strong>${name}</strong><small>${user}</small></span>
         <svg class="out" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="m7 17 10-10M9 7h8v8"/></svg>
       </a>`).join('');
+
     contact.insertAdjacentHTML('beforeend', `
       <div class="social-block reveal">
         <div class="social-head"><h3 data-i18n="socialTitle"></h3><p data-i18n="socialLead"></p></div>
@@ -337,50 +363,80 @@
       </div>`);
   }
 
-  function installBackToTop() {
+  /*
+   * Retorno al inicio.
+   * No se usa scrollIntoView sobre la cabecera sticky porque algunos
+   * navegadores consideran que ya está visible y no desplazan la página.
+   * En su lugar se fuerza la posición 0 del documento.
+   */
+  function volverAlInicio() {
+    const previousBehavior = document.documentElement.style.scrollBehavior;
+    document.documentElement.style.scrollBehavior = 'auto';
+
+    if (window.location.hash === '#top') {
+      history.replaceState(null, document.title, window.location.pathname + window.location.search);
+    }
+
+    window.scrollTo(0, 0);
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+
+    requestAnimationFrame(() => {
+      document.documentElement.style.scrollBehavior = previousBehavior;
+    });
+  }
+
+  function instalarVolverArriba() {
     document.querySelectorAll('a[href="#top"]').forEach((link) => {
       link.addEventListener('click', (event) => {
         event.preventDefault();
-        window.scrollTo({ top: 0, behavior: window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+        volverAlInicio();
       });
     });
+
     if (document.querySelector('[data-site-back-top]')) return;
+
     const btn = document.createElement('button');
     btn.type = 'button';
     btn.className = 'site-back-top';
     btn.dataset.siteBackTop = '';
     btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m6 15 6-6 6 6"/></svg><span data-back-label>Volver arriba</span>';
-    btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' }));
+    btn.addEventListener('click', volverAlInicio);
     document.body.appendChild(btn);
-    const update = () => btn.classList.toggle('is-visible', window.scrollY > 520);
-    window.addEventListener('scroll', update, { passive: true });
-    update();
+
+    const actualizarVisibilidad = () => btn.classList.toggle('is-visible', window.scrollY > 520);
+    window.addEventListener('scroll', actualizarVisibilidad, { passive: true });
+    actualizarVisibilidad();
   }
 
-  installEnhancementStyles();
-  injectJourneyAndLab();
-  injectSocials();
-  installBackToTop();
-
+  /* Aplica el idioma activo a cualquier nodo con data-i18n. */
   function applyLanguage(next) {
     language = i18n[next] ? next : 'es';
     root.lang = language;
+
     document.querySelectorAll('[data-i18n]').forEach((el) => {
       const key = el.dataset.i18n;
       if (i18n[language][key]) el.textContent = i18n[language][key];
     });
+
     const backLabel = document.querySelector('[data-back-label]');
     if (backLabel) backLabel.textContent = i18n[language].backTop;
     if (langBtn) langBtn.textContent = language === 'es' ? 'ES / EN' : 'EN / ES';
+
     document.title = language === 'es'
       ? 'Rubén Cañizares | Redes, Infraestructura y Automatización'
       : 'Rubén Cañizares | Networks, Infrastructure & Automation';
-    if (metaDescription) metaDescription.content = language === 'es'
-      ? 'Sitio personal de Rubén Enrique Cañizares Miranda: redes informáticas, infraestructura, automatización, sistemas eléctricos, proyectos y currículum vitae.'
-      : 'Personal website of Rubén Enrique Cañizares Miranda: computer networks, infrastructure, automation, electrical systems, projects and curriculum vitae.';
+
+    if (metaDescription) {
+      metaDescription.content = language === 'es'
+        ? 'Portafolio profesional de Rubén Enrique Cañizares Miranda: redes informáticas, infraestructura, automatización, sistemas eléctricos, proyectos y currículum vitae.'
+        : 'Professional portfolio of Rubén Enrique Cañizares Miranda: computer networks, infrastructure, automation, electrical systems, projects and curriculum vitae.';
+    }
+
     localStorage.setItem('portfolio-language', language);
   }
 
+  /* Aplica y conserva el tema visual seleccionado. */
   function applyTheme(next) {
     theme = next === 'light' ? 'light' : 'dark';
     root.dataset.theme = theme;
@@ -388,26 +444,23 @@
     themeBtn?.setAttribute('aria-label', theme === 'dark' ? 'Cambiar a tema claro' : 'Cambiar a tema oscuro');
   }
 
-  langBtn?.addEventListener('click', () => applyLanguage(language === 'es' ? 'en' : 'es'));
-  themeBtn?.addEventListener('click', () => applyTheme(theme === 'dark' ? 'light' : 'dark'));
-
+  /* Control del menú móvil. */
   function setMenu(open) {
     if (!menuBtn || !mobileNav) return;
     menuBtn.setAttribute('aria-expanded', String(open));
     mobileNav.hidden = !open;
   }
-  menuBtn?.addEventListener('click', () => setMenu(menuBtn.getAttribute('aria-expanded') !== 'true'));
-  mobileNav?.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setMenu(false)));
 
-  const updateHeader = () => header?.classList.toggle('scrolled', window.scrollY > 12);
-  window.addEventListener('scroll', updateHeader, { passive: true });
-  updateHeader();
+  /* Hace visible cada bloque con una entrada progresiva al desplazarse. */
+  function instalarAnimaciones() {
+    const reduced = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+    const reveal = [...document.querySelectorAll('.reveal')];
 
-  const reduced = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
-  const reveal = [...document.querySelectorAll('.reveal')];
-  if (reduced || !('IntersectionObserver' in window)) {
-    reveal.forEach((el) => el.classList.add('is-visible'));
-  } else {
+    if (reduced || !('IntersectionObserver' in window)) {
+      reveal.forEach((el) => el.classList.add('is-visible'));
+      return;
+    }
+
     const observer = new IntersectionObserver((entries, obs) => {
       entries.forEach((entry) => {
         if (!entry.isIntersecting) return;
@@ -415,10 +468,31 @@
         obs.unobserve(entry.target);
       });
     }, { threshold: .12, rootMargin: '0px 0px -40px' });
+
     reveal.forEach((el) => observer.observe(el));
   }
 
+  /* Inicialización de la portada. */
+  instalarEstilosComplementarios();
+  insertarTrayectoriaYLaboratorio();
+  insertarRedesSociales();
+  instalarVolverArriba();
+
+  /* Garantiza que el nombre no lleve punto final aunque exista HTML antiguo en caché. */
+  const surname = document.querySelector('.surname');
+  if (surname) surname.textContent = 'Cañizares';
+
+  langBtn?.addEventListener('click', () => applyLanguage(language === 'es' ? 'en' : 'es'));
+  themeBtn?.addEventListener('click', () => applyTheme(theme === 'dark' ? 'light' : 'dark'));
+  menuBtn?.addEventListener('click', () => setMenu(menuBtn.getAttribute('aria-expanded') !== 'true'));
+  mobileNav?.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setMenu(false)));
+
+  const updateHeader = () => header?.classList.toggle('scrolled', window.scrollY > 12);
+  window.addEventListener('scroll', updateHeader, { passive: true });
+  updateHeader();
+
   if (year) year.textContent = new Date().getFullYear();
+  instalarAnimaciones();
   applyTheme(theme);
   applyLanguage(language);
 })();
