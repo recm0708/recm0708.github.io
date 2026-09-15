@@ -68,8 +68,7 @@ Las versiones web de los currículos son deliberadamente más amplias que los do
     ├── js/
     │   ├── home.js
     │   ├── cv-hub.js
-    │   ├── cv.js
-    │   └── main.js
+    │   └── cv.js
     ├── images/
     └── documents/
 ```
@@ -130,6 +129,7 @@ A partir de esta versión se aplican las siguientes reglas al código y document
 8. Los cambios importantes de recursos estáticos pueden utilizar un parámetro de versión (`?v=`) para evitar que el navegador conserve CSS o JavaScript obsoleto en caché.
 9. Los mensajes de commit creados durante el mantenimiento del portal se redactan preferentemente en español, manteniendo únicamente términos técnicos en inglés cuando sean nombres propios o convenciones ampliamente reconocidas.
 10. Las cadenas de la interfaz inglesa se conservan en inglés porque forman parte de la funcionalidad bilingüe; no se consideran documentación interna del repositorio.
+11. El código heredado que deje de ser utilizado debe eliminarse en lugar de conservarse como archivo huérfano.
 
 ## Modelo de publicación
 
