@@ -42,6 +42,7 @@
       generalSkill2: 'Soporte técnico',
       generalSkill3: 'Documentación',
       inPreparation: 'En preparación',
+      available: 'Disponible',
       aboutEyebrow: 'PERFIL',
       aboutTitle: 'Ingeniería e infraestructura desde dos perspectivas complementarias.',
       aboutP1: 'Mi formación combina sistemas eléctricos y automatización con redes informáticas. Esta integración me permite analizar infraestructura física y tecnológica con una visión transversal, estructurada y orientada a la operación.',
@@ -103,6 +104,7 @@
       generalSkill2: 'Technical support',
       generalSkill3: 'Documentation',
       inPreparation: 'In preparation',
+      available: 'Available',
       aboutEyebrow: 'PROFILE',
       aboutTitle: 'Engineering and infrastructure from two complementary perspectives.',
       aboutP1: 'My academic background combines electrical systems and automation with computer networks. This integration allows me to analyze physical and technological infrastructure through a cross-functional, structured and operations-oriented perspective.',
@@ -135,10 +137,16 @@
   const menuButton = document.querySelector('.menu-toggle');
   const mobileNav = document.querySelector('.mobile-nav');
   const year = document.querySelector('#current-year');
+  const electricalCard = document.querySelector('.profile-card.electrical');
+  const electricalStatus = electricalCard?.querySelector('.status-chip');
 
   const savedLang = localStorage.getItem('portfolio-language');
   const browserLang = navigator.language?.toLowerCase().startsWith('en') ? 'en' : 'es';
   let language = savedLang || browserLang;
+
+  function electricalUrl() {
+    return language === 'en' ? '/en/electrical/' : '/es/electrica/';
+  }
 
   function applyLanguage(lang) {
     language = translations[lang] ? lang : 'es';
@@ -147,8 +155,12 @@
       const key = node.dataset.i18n;
       if (translations[language][key]) node.textContent = translations[language][key];
     });
-    languageCurrent.textContent = language.toUpperCase();
-    languageAlt.textContent = language === 'es' ? 'EN' : 'ES';
+    if (languageCurrent) languageCurrent.textContent = language.toUpperCase();
+    if (languageAlt) languageAlt.textContent = language === 'es' ? 'EN' : 'ES';
+    if (electricalStatus) electricalStatus.textContent = translations[language].available;
+    if (electricalCard) {
+      electricalCard.setAttribute('aria-label', language === 'es' ? 'Abrir currículo de Eléctrica y Automatización' : 'Open Electrical & Automation résumé');
+    }
     document.title = language === 'es'
       ? 'Rubén Enrique Cañizares Miranda | Portafolio Profesional'
       : 'Rubén Enrique Cañizares Miranda | Professional Portfolio';
@@ -158,6 +170,18 @@
   languageButton?.addEventListener('click', () => {
     applyLanguage(language === 'es' ? 'en' : 'es');
   });
+
+  if (electricalCard) {
+    electricalCard.tabIndex = 0;
+    electricalCard.setAttribute('role', 'link');
+    electricalCard.style.cursor = 'pointer';
+    electricalCard.addEventListener('click', () => { window.location.href = electricalUrl(); });
+    electricalCard.addEventListener('keydown', (event) => {
+      if (event.key !== 'Enter' && event.key !== ' ') return;
+      event.preventDefault();
+      window.location.href = electricalUrl();
+    });
+  }
 
   const savedTheme = localStorage.getItem('portfolio-theme');
   const prefersLight = window.matchMedia?.('(prefers-color-scheme: light)').matches;
