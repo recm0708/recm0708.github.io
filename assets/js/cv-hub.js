@@ -5,6 +5,7 @@
   const THEME_KEY = 'portfolio-theme';
   const LANG_KEY = 'portfolio-language';
 
+  root.dataset.context = 'hub';
   document.body.classList.add('cv-hub-page');
   document.querySelector('.desktop-nav')?.remove();
   document.querySelector('#mobile-nav')?.remove();
@@ -12,7 +13,7 @@
   if (!document.querySelector('link[href^="/assets/css/palettes.css"]')) {
     const paleta = document.createElement('link');
     paleta.rel = 'stylesheet';
-    paleta.href = '/assets/css/palettes.css?v=20260916-1';
+    paleta.href = '/assets/css/palettes.css?v=20260916-2';
     document.head.appendChild(paleta);
   }
 
