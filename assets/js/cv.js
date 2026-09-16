@@ -5,17 +5,20 @@
      CURRÍCULOS — COMPORTAMIENTO COMPARTIDO
      Este archivo es reutilizado por los CV Eléctrico, Redes y General.
      Controla apariencia, impresión, navegación interna, retorno arriba
-     y la declaración de copyright común.
+     y la declaración única de copyright.
      ========================================================== */
 
   const root = document.documentElement;
   const themeButton = document.querySelector('[data-theme-toggle]');
   const printButton = document.querySelector('[data-print]');
   const year = document.querySelector('[data-year]');
+  const THEME_KEY = 'portfolio-theme';
 
-  const savedTheme = localStorage.getItem('portfolio-theme');
+  const savedTheme = localStorage.getItem(THEME_KEY);
   const prefersLight = window.matchMedia?.('(prefers-color-scheme: light)').matches;
-  let theme = savedTheme || (prefersLight ? 'light' : 'dark');
+  let theme = savedTheme === 'light' || savedTheme === 'dark'
+    ? savedTheme
+    : (prefersLight ? 'light' : 'dark');
 
   function instalarPaletaClara() {
     if (document.querySelector('#cv-light-palette')) return;
@@ -31,16 +34,24 @@
     document.head.appendChild(style);
   }
 
-  function applyTheme(nextTheme) {
+  function applyTheme(nextTheme, guardar = true) {
     theme = nextTheme === 'light' ? 'light' : 'dark';
     root.dataset.theme = theme;
-    localStorage.setItem('portfolio-theme', theme);
+    if (guardar) localStorage.setItem(THEME_KEY, theme);
+
     if (themeButton) {
       themeButton.textContent = theme === 'dark' ? '◐' : '◑';
       themeButton.setAttribute('aria-label', theme === 'dark' ? 'Cambiar a tema claro' : 'Cambiar a tema oscuro');
       themeButton.title = theme === 'dark' ? 'Tema claro' : 'Tema oscuro';
     }
   }
+
+  /* Sincroniza el tema cuando otra pestaña del mismo sitio lo cambia. */
+  window.addEventListener('storage', (event) => {
+    if (event.key === THEME_KEY && (event.newValue === 'light' || event.newValue === 'dark')) {
+      applyTheme(event.newValue, false);
+    }
+  });
 
   function volverAlInicio() {
     const previousBehavior = document.documentElement.style.scrollBehavior;
@@ -99,23 +110,23 @@
     });
   }
 
-  /* Copyright común para los seis currículos, también visible al imprimir. */
-  function instalarCopyright() {
-    if (document.querySelector('[data-site-copyright]')) return;
-    const style = document.createElement('style');
-    style.id = 'cv-copyright-styles';
-    style.textContent = `
-      .site-copyright{padding:18px 20px 22px;border-top:1px solid rgba(128,145,140,.2);text-align:center;color:var(--text-soft,#81908c);font:600 .68rem/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.02em}
-      html[data-theme="light"] .site-copyright{color:#66736f;border-top-color:rgba(35,65,57,.16)}
-      @media print{.site-copyright{padding:10px 0 0;border-top:1px solid #ccc;color:#555;font-size:8pt}}
-    `;
-    document.head.appendChild(style);
+  /*
+   * Convierte el pie existente en la declaración canónica de derechos.
+   * No se agrega un segundo bloque para evitar duplicados visuales.
+   */
+  function normalizarCopyright() {
+    const footer = document.querySelector('footer');
+    if (!footer) return;
+
+    const destino = footer.querySelector('p, span');
+    if (!destino) return;
+
     const english = document.documentElement.lang?.toLowerCase().startsWith('en');
-    const copyright = document.createElement('div');
-    copyright.className = 'site-copyright';
-    copyright.dataset.siteCopyright = '';
-    copyright.textContent = `© ${new Date().getFullYear()} Rubén Enrique Cañizares Miranda · ${english ? 'All rights reserved.' : 'Todos los derechos reservados.'}`;
-    document.body.appendChild(copyright);
+    destino.dataset.siteCopyright = '';
+    destino.textContent = `© ${new Date().getFullYear()} Rubén Enrique Cañizares Miranda · ${english ? 'All rights reserved.' : 'Todos los derechos reservados.'}`;
+
+    /* Limpia bloques heredados de versiones anteriores si existieran en caché del DOM. */
+    document.querySelectorAll('.site-copyright').forEach((elemento) => elemento.remove());
   }
 
   themeButton?.addEventListener('click', () => { applyTheme(theme === 'dark' ? 'light' : 'dark'); });
@@ -124,7 +135,7 @@
   instalarPaletaClara();
   instalarNavegacionInterna();
   instalarVolverArriba();
-  instalarCopyright();
+  normalizarCopyright();
   if (year) year.textContent = new Date().getFullYear();
-  applyTheme(theme);
+  applyTheme(theme, false);
 })();
