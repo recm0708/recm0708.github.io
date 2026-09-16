@@ -3,9 +3,8 @@
 
   /* ==========================================================
      CASCARÓN GLOBAL DEL SITIO
-     Utilidades compartidas para cabecera, pie, retorno al inicio y
-     simetría visual. La portada conserva su navegación completa;
-     el selector de CV y los currículos usan una cabecera minimalista.
+     Utilidades compartidas para cabecera, pie, retorno al inicio,
+     contexto visual y simetría entre páginas.
      ========================================================== */
 
   const THEME_KEY = 'portfolio-theme';
@@ -29,12 +28,34 @@
     return document.documentElement.lang?.toLowerCase().startsWith('en') ? 'en' : 'es';
   }
 
-  function cargarEstilos() {
-    if (document.querySelector('link[href^="/assets/css/site-shell.css"]')) return;
+  function cargarHoja(hrefBase, hrefVersionada) {
+    if (document.querySelector(`link[href^="${hrefBase}"]`)) return;
     const link = document.createElement('link');
     link.rel = 'stylesheet';
-    link.href = '/assets/css/site-shell.css?v=20260916-2';
+    link.href = hrefVersionada;
     document.head.appendChild(link);
+  }
+
+  function cargarEstilos() {
+    cargarHoja('/assets/css/site-shell.css', '/assets/css/site-shell.css?v=20260916-3');
+    cargarHoja('/assets/css/palettes.css', '/assets/css/palettes.css?v=20260916-1');
+  }
+
+  function contextualizarPagina() {
+    const body = document.body;
+    if (!body) return;
+    const path = window.location.pathname.replace(/\/+$/, '') || '/';
+
+    if (path === '/') body.classList.add('portal-home');
+    if (path === '/cv') body.classList.add('cv-hub-page');
+    if (path === '/404.html' || document.querySelector('main.error')) body.classList.add('error-page');
+
+    /* En el selector de CV no se muestra un enlace que apunte a sí mismo. */
+    if (body.classList.contains('cv-hub-page')) {
+      document.querySelector('.desktop-nav')?.remove();
+      document.querySelector('#mobile-nav')?.remove();
+      document.querySelector('[data-menu-toggle]')?.remove();
+    }
   }
 
   function iconoTema() {
@@ -159,6 +180,7 @@
 
   function normalizarPortada() {
     cargarEstilos();
+    contextualizarPagina();
     limpiarRetornosDuplicados();
     construirPie();
     activarMenu(document);
@@ -168,5 +190,8 @@
     observadorIdioma.observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
   }
 
-  window.SiteShell = { cargarEstilos, construirCabecera, construirPie, limpiarRetornosDuplicados, activarMenu, activarTema, volverArriba, normalizarPortada };
+  cargarEstilos();
+  contextualizarPagina();
+
+  window.SiteShell = { cargarEstilos, contextualizarPagina, construirCabecera, construirPie, limpiarRetornosDuplicados, activarMenu, activarTema, volverArriba, normalizarPortada };
 })();
