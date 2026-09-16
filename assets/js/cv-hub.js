@@ -4,18 +4,29 @@
   const root = document.documentElement;
   const THEME_KEY = 'portfolio-theme';
   const LANG_KEY = 'portfolio-language';
-  const langBtn = document.querySelector('[data-lang]');
 
+  document.body.classList.add('cv-hub-page');
+  document.querySelector('.desktop-nav')?.remove();
+  document.querySelector('#mobile-nav')?.remove();
+  document.querySelector('[data-menu-toggle]')?.remove();
+  if (!document.querySelector('link[href^="/assets/css/palettes.css"]')) {
+    const paleta = document.createElement('link');
+    paleta.rel = 'stylesheet';
+    paleta.href = '/assets/css/palettes.css?v=20260916-1';
+    document.head.appendChild(paleta);
+  }
+
+  const langBtn = document.querySelector('[data-lang]');
   const textos = {
     es: {
-      cv:'Currículum Vitae',kicker:'CURRÍCULUM VITAE',title:'Explora mis perfiles profesionales',
+      kicker:'CURRÍCULUM VITAE',title:'Explora mis perfiles profesionales',
       electrical:'Sistemas Eléctricos y Automatización',electricalTag:'ENERGÍA · CONTROL',
       network:'Redes Informáticas',networkTag:'NETWORKING · INFRAESTRUCTURA',
       integral:'Perfil Profesional Integral',integralTag:'PERFIL · TRANSVERSAL',
       footer:'Diseñado y construido por mí, con ayuda de buenas herramientas y muchas pruebas.',top:'Volver arriba ↑',rights:'Todos los derechos reservados.'
     },
     en: {
-      cv:'Curriculum Vitae',kicker:'CURRICULUM VITAE',title:'Explore my professional profiles',
+      kicker:'CURRICULUM VITAE',title:'Explore my professional profiles',
       electrical:'Electrical Systems & Automation',electricalTag:'ENERGY · CONTROL',
       network:'Computer Networks',networkTag:'NETWORKING · INFRASTRUCTURE',
       integral:'Comprehensive Professional Profile',integralTag:'CROSS-FUNCTIONAL · PROFILE',
@@ -52,7 +63,6 @@
   }
 
   langBtn?.addEventListener('click', () => aplicarIdioma(lang === 'es' ? 'en' : 'es'));
-  window.SiteShell?.activarMenu(document);
   window.SiteShell?.activarTema(document);
   document.querySelector('a[href="#top"]')?.addEventListener('click', (event) => { event.preventDefault(); window.SiteShell?.volverArriba(); });
 
