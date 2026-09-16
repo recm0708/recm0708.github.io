@@ -9,9 +9,11 @@
      ========================================================== */
 
   const raiz = document.documentElement;
-  const idioma = raiz.lang?.toLowerCase().startsWith('en') ? 'en' : 'es';
-
   const iconoTema = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 3a9 9 0 1 0 9 9c0-.5-.04-1-.12-1.48A7 7 0 0 1 12 3Z"/></svg>';
+
+  function idiomaActual() {
+    return raiz.lang?.toLowerCase().startsWith('en') ? 'en' : 'es';
+  }
 
   function normalizarTema() {
     const boton = document.querySelector('[data-theme-toggle], [data-theme]');
@@ -20,10 +22,14 @@
     boton.classList.add('site-theme-control');
     boton.innerHTML = iconoTema;
 
+    const idioma = idiomaActual();
     const tema = raiz.dataset.theme === 'light' ? 'light' : 'dark';
     boton.setAttribute('aria-label', idioma === 'en'
       ? (tema === 'dark' ? 'Switch to light theme' : 'Switch to dark theme')
       : (tema === 'dark' ? 'Cambiar a tema claro' : 'Cambiar a tema oscuro'));
+    boton.title = idioma === 'en'
+      ? (tema === 'dark' ? 'Light theme' : 'Dark theme')
+      : (tema === 'dark' ? 'Tema claro' : 'Tema oscuro');
   }
 
   function normalizarIdiomaCV() {
@@ -35,6 +41,7 @@
     const enlaces = Array.from(contenedor.querySelectorAll('a.cv-lang, a.net-lang, a.g-lang'));
     if (enlaces.length < 2) return;
 
+    const idioma = idiomaActual();
     const actual = enlaces.find((enlace) => enlace.matches('[aria-current="page"]'));
     const destino = enlaces.find((enlace) => enlace !== actual) || enlaces[0];
     if (!destino) return;
@@ -73,7 +80,6 @@
     const idiomaBtn = document.createElement('button');
     idiomaBtn.type = 'button';
     idiomaBtn.className = 'site-language-control';
-    idiomaBtn.textContent = idioma === 'en' ? 'EN / ES' : 'ES / EN';
 
     const temaBtn = document.createElement('button');
     temaBtn.type = 'button';
@@ -97,7 +103,8 @@
       }
     };
 
-    let estadoIdioma = idioma;
+    const guardado = localStorage.getItem('portfolio-language');
+    let estadoIdioma = guardado === 'en' || guardado === 'es' ? guardado : idiomaActual();
 
     function aplicarIdioma404() {
       const dic = textos[estadoIdioma];
@@ -110,6 +117,8 @@
       if (copyright) copyright.innerHTML = `© <span id="copyright-year">${new Date().getFullYear()}</span> Rubén Enrique Cañizares Miranda · ${dic.derechos}`;
       raiz.lang = estadoIdioma;
       idiomaBtn.textContent = estadoIdioma === 'en' ? 'EN / ES' : 'ES / EN';
+      idiomaBtn.setAttribute('aria-label', estadoIdioma === 'en' ? 'Cambiar a español' : 'Cambiar a inglés');
+      normalizarTema();
     }
 
     idiomaBtn.addEventListener('click', () => {
@@ -135,8 +144,10 @@
   normalizarTema();
   instalarControles404();
 
-  new MutationObserver(normalizarTema).observe(raiz, {
+  new MutationObserver(() => {
+    normalizarTema();
+  }).observe(raiz, {
     attributes: true,
-    attributeFilter: ['data-theme']
+    attributeFilter: ['data-theme', 'lang']
   });
 })();
