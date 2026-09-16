@@ -3,8 +3,8 @@
 
   /* ==========================================================
      CURRÍCULOS — COMPORTAMIENTO COMPARTIDO
-     Unifica tema, cabecera, pie, navegación interna y rutas de idioma.
-     El diseño de contenido sigue perteneciendo a cada especialidad.
+     Unifica tema, cabecera minimalista, pie, navegación interna y
+     rutas de idioma. El diseño de contenido pertenece a cada área.
      ========================================================== */
 
   const root = document.documentElement;
@@ -13,8 +13,6 @@
   if (guardado === 'light' || guardado === 'dark') root.dataset.theme = guardado;
 
   const paresIdioma = {
-    '/es/redes/': '/cv/en/networks/',
-    '/en/networks/': '/cv/es/redes/',
     '/cv/es/redes/': '/cv/en/networks/',
     '/cv/en/networks/': '/cv/es/redes/',
     '/es/electrica/': '/en/electrical/',
@@ -44,10 +42,10 @@
   }
 
   function prepararCascaron() {
-    return cargarScript('/assets/js/site-shell.js?v=20260916-1').then(() => {
+    return cargarScript('/assets/js/site-shell.js?v=20260916-2').then(() => {
       window.SiteShell?.cargarEstilos();
       const idiomaDestino = paresIdioma[rutaActual()] || null;
-      window.SiteShell?.construirCabecera({ languageHref: idiomaDestino, currentSection: 'cv' });
+      window.SiteShell?.construirCabecera({ languageHref: idiomaDestino, currentSection: 'cv', minimal: true });
       window.SiteShell?.construirPie();
       window.SiteShell?.limpiarRetornosDuplicados();
     });
