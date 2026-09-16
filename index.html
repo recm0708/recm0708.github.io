@@ -2,323 +2,169 @@
 <html lang="es" data-theme="dark">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Portafolio profesional de Rubén Enrique Cañizares Miranda: redes informáticas, infraestructura, automatización, sistemas eléctricos, proyectos y currículum vitae.">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Portafolio profesional de Rubén Enrique Cañizares Miranda: redes informáticas, infraestructura, sistemas eléctricos, automatización y trayectoria profesional.">
   <meta name="author" content="Rubén Enrique Cañizares Miranda">
-  <meta name="theme-color" content="#06100f">
-
-  <!-- Metadatos sociales: español como idioma predeterminado al compartir la URL principal. -->
+  <meta name="theme-color" content="#0f1214">
   <meta property="og:type" content="profile">
   <meta property="og:locale" content="es_PA">
-  <meta property="og:site_name" content="Rubén Cañizares | Portafolio profesional">
-  <meta property="og:title" content="Rubén Cañizares | Redes, Infraestructura y Automatización">
-  <meta property="og:description" content="Portafolio profesional de Rubén Cañizares: redes informáticas, infraestructura, automatización, sistemas eléctricos, proyectos y currículum vitae.">
+  <meta property="og:title" content="Rubén Cañizares | Portafolio profesional">
+  <meta property="og:description" content="Redes informáticas, infraestructura, soporte técnico, sistemas eléctricos y automatización.">
   <meta property="og:url" content="https://recm0708.github.io/">
   <meta property="og:image" content="https://avatars.githubusercontent.com/u/220997176?v=4">
-  <meta property="og:image:alt" content="Retrato de Rubén Cañizares">
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Rubén Cañizares | Redes, Infraestructura y Automatización">
-  <meta name="twitter:description" content="Portafolio profesional de Rubén Cañizares: redes informáticas, infraestructura, automatización, sistemas eléctricos y proyectos.">
-  <meta name="twitter:image" content="https://avatars.githubusercontent.com/u/220997176?v=4">
-
   <link rel="canonical" href="https://recm0708.github.io/">
-  <!-- Hojas visuales de la portada. La sección personal se mantiene separada para facilitar su evolución. -->
-  <link rel="stylesheet" href="/assets/css/home.css?v=20260915-2">
-  <link rel="stylesheet" href="/assets/css/personal.css?v=20260915-1">
-  <!-- Lógica de idioma, tema, secciones dinámicas y contenido biográfico. -->
-  <script defer src="/assets/js/home.js?v=20260915-2"></script>
-  <script defer src="/assets/js/personal.js?v=20260915-1"></script>
-  <title>Rubén Cañizares | Redes, Infraestructura y Automatización</title>
+  <link rel="stylesheet" href="/assets/css/site.css?v=1">
+  <script defer src="/assets/js/site.js?v=1"></script>
+  <title>Rubén Cañizares | Portafolio profesional</title>
 </head>
-<body id="top">
-  <a class="skip-link" href="#main" data-i18n="skip">Saltar al contenido principal</a>
+<body id="top" data-bilingual="true" data-title-es="Rubén Cañizares | Portafolio profesional" data-title-en="Rubén Cañizares | Professional portfolio">
+  <a class="skip-link" href="#main" data-lang-es="Saltar al contenido principal" data-lang-en="Skip to main content">Saltar al contenido principal</a>
 
-  <!-- Cabecera principal: navegación, idioma, tema y menú adaptable. -->
   <header class="site-header">
-    <div class="container nav-shell">
-      <a class="wordmark" href="/" aria-label="Inicio">
-        <span>rubén<span class="slash">/</span>cañizares</span>
-        <small>recm0708</small>
-      </a>
-
-      <nav class="desktop-nav" aria-label="Navegación principal">
-        <a href="#acerca" data-i18n="navAbout">Acerca de mí</a>
-        <a href="#areas" data-i18n="navAreas">Áreas</a>
-        <a href="#proyectos" data-i18n="navProjects">Proyectos</a>
-        <a class="nav-cv" href="/cv/" data-i18n="navCv">Currículum Vitae</a>
-        <a href="#contacto" data-i18n="navContact">Contacto</a>
+    <div class="container header-inner">
+      <a class="brand" href="/" aria-label="Inicio"><span>rubén<span class="slash">/</span>cañizares</span><small>recm0708</small></a>
+      <nav class="site-nav" aria-label="Navegación principal">
+        <a href="#acerca" data-lang-es="Acerca de mí" data-lang-en="About me">Acerca de mí</a>
+        <a href="#areas" data-lang-es="Áreas" data-lang-en="Areas">Áreas</a>
+        <a href="#proyectos" data-lang-es="Proyectos" data-lang-en="Projects">Proyectos</a>
+        <a class="cv-link" href="/cv/" data-lang-es="Currículum Vitae" data-lang-en="Curriculum Vitae">Currículum Vitae</a>
+        <a href="#contacto" data-lang-es="Contacto" data-lang-en="Contact">Contacto</a>
       </nav>
-
       <div class="header-actions">
-        <button class="control lang-control" type="button" data-lang-toggle aria-label="Cambiar idioma">ES / EN</button>
-        <button class="control theme-control" type="button" data-theme-toggle aria-label="Cambiar tema">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 3a9 9 0 1 0 9 9c0-.5-.04-1-.12-1.48A7 7 0 0 1 12 3Z"/></svg>
-        </button>
-        <button class="control menu-control" type="button" data-menu-toggle aria-expanded="false" aria-controls="mobile-nav" aria-label="Abrir menú">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-        </button>
+        <button class="ui-btn lang-btn" type="button" data-lang-toggle>ES / EN</button>
+        <button class="ui-btn theme-btn" type="button" data-theme-toggle aria-label="Cambiar tema"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3a9 9 0 1 0 9 9c0-.5-.04-1-.12-1.48A7 7 0 0 1 12 3Z"/></svg></button>
+        <button class="ui-btn menu-btn" type="button" data-menu-toggle aria-expanded="false" aria-label="Abrir menú"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
       </div>
+      <nav class="mobile-nav" data-mobile-nav aria-label="Navegación móvil">
+        <a href="#acerca" data-lang-es="Acerca de mí" data-lang-en="About me">Acerca de mí</a>
+        <a href="#areas" data-lang-es="Áreas" data-lang-en="Areas">Áreas</a>
+        <a href="#proyectos" data-lang-es="Proyectos" data-lang-en="Projects">Proyectos</a>
+        <a href="/cv/" data-lang-es="Currículum Vitae" data-lang-en="Curriculum Vitae">Currículum Vitae</a>
+        <a href="#contacto" data-lang-es="Contacto" data-lang-en="Contact">Contacto</a>
+      </nav>
     </div>
-
-    <nav class="mobile-nav" id="mobile-nav" aria-label="Navegación móvil" hidden>
-      <a href="#acerca" data-i18n="navAbout">Acerca de mí</a>
-      <a href="#areas" data-i18n="navAreas">Áreas</a>
-      <a href="#proyectos" data-i18n="navProjects">Proyectos</a>
-      <a href="#contacto" data-i18n="navContact">Contacto</a>
-      <a href="/cv/" data-i18n="navCv">Currículum Vitae</a>
-    </nav>
   </header>
 
-  <main id="main">
-    <!-- Presentación principal del portafolio. -->
+  <main id="main" class="home-main">
     <section class="hero">
-      <div class="container hero-layout">
-        <div class="hero-copy reveal">
-          <p class="preline" data-i18n="heroPre">DESDE PANAMÁ · CONSTRUYENDO EN RED</p>
-          <h1><span class="hello" data-i18n="heroHello">Hola, soy</span>Rubén<br><span class="surname">Cañizares</span></h1>
-          <p class="hero-intro"><span data-i18n="heroIntro">Soy un profesional de sistemas eléctricos y automatización que decidió ampliar su campo hacia las redes informáticas. Hoy conecto dos mundos que me apasionan: la infraestructura física que hace funcionar un entorno y la infraestructura digital que permite que todo se comunique.</span> <strong data-i18n="heroIntroStrong">Este sitio es mi espacio para mostrar quién soy, qué estoy construyendo y hacia dónde estoy llevando mi perfil profesional.</strong></p>
-          <div class="hero-links">
-            <a class="text-link primary" href="#acerca">
-              <span data-i18n="heroAbout">Conóceme</span>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="m7 17 10-10M8 7h9v9"/></svg>
-            </a>
-            <a class="text-link" href="#proyectos">
-              <span data-i18n="heroProjects">Ver proyectos</span>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-            </a>
+      <div class="vector-field" aria-hidden="true">
+        <svg viewBox="0 0 700 480" fill="none" stroke="currentColor"><path d="M60 350C180 120 360 100 640 185"/><path d="M90 390C240 180 420 170 650 250" stroke-dasharray="6 12"/><circle cx="132" cy="286" r="7"/><circle cx="315" cy="153" r="7"/><circle cx="522" cy="171" r="7"/><path d="M132 286 315 153 522 171"/></svg>
+      </div>
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow" data-lang-es="PANAMÁ · TECNOLOGÍA · INFRAESTRUCTURA" data-lang-en="PANAMA · TECHNOLOGY · INFRASTRUCTURE">PANAMÁ · TECNOLOGÍA · INFRAESTRUCTURA</p>
+          <h1><span data-lang-es="Hola, soy" data-lang-en="Hi, I’m">Hola, soy</span>Rubén Cañizares</h1>
+          <p class="hero-copy" data-lang-es="Soy Licenciado en Sistemas Eléctricos y Automatización y actualmente continúo mi formación en Redes Informáticas. Mi perfil conecta infraestructura física y digital, soporte técnico, redes, sistemas y automatización. Este es mi espacio profesional para reunir mi trayectoria, proyectos, credenciales y currículos." data-lang-en="I hold a degree in Electrical Systems and Automation and I am currently continuing my studies in Computer Networks. My profile connects physical and digital infrastructure, technical support, networking, systems and automation. This is my professional space for bringing together my career, projects, credentials and résumés.">Soy Licenciado en Sistemas Eléctricos y Automatización y actualmente continúo mi formación en Redes Informáticas. Mi perfil conecta infraestructura física y digital, soporte técnico, redes, sistemas y automatización. Este es mi espacio profesional para reunir mi trayectoria, proyectos, credenciales y currículos.</p>
+          <div class="hero-actions">
+            <a class="action primary" href="/cv/" data-lang-es="Ver currículos ↗" data-lang-en="View résumés ↗">Ver currículos ↗</a>
+            <a class="action" href="#acerca" data-lang-es="Conocer mi historia ↓" data-lang-en="Read my story ↓">Conocer mi historia ↓</a>
+            <a class="action" href="https://github.com/recm0708" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
           </div>
         </div>
-
-        <div class="portrait-stage reveal">
-          <svg class="topology" viewBox="0 0 600 680" fill="none" aria-hidden="true">
-            <path class="link" d="M70 105 188 160 300 88 445 148 520 74M188 160l-52 152 164 78 145-82 75 136M300 88v302M136 312 72 490l170 92 203-78M300 390l-58 192M445 308v196"/>
-            <circle class="node" cx="70" cy="105" r="7"/><circle class="node hot" cx="188" cy="160" r="7"/><circle class="node" cx="300" cy="88" r="7"/><circle class="node" cx="445" cy="148" r="7"/><circle class="node hot" cx="520" cy="74" r="7"/>
-            <circle class="node" cx="136" cy="312" r="7"/><circle class="node hot" cx="300" cy="390" r="7"/><circle class="node" cx="445" cy="308" r="7"/><circle class="node" cx="520" cy="444" r="7"/><circle class="node" cx="72" cy="490" r="7"/><circle class="node hot" cx="242" cy="582" r="7"/><circle class="node" cx="445" cy="504" r="7"/>
-          </svg>
-
-          <div class="portrait-frame">
-            <img src="https://avatars.githubusercontent.com/u/220997176?v=4" alt="Retrato de Rubén Enrique Cañizares Miranda" width="800" height="1000">
-            <div class="portrait-caption">
-              <div>
-                <strong>Rubén E. Cañizares Miranda</strong>
-                <span data-i18n="portraitRole">Redes Informáticas · Sistemas Eléctricos</span>
-              </div>
-              <div class="signal-badge"><span class="signal-dot" aria-hidden="true"></span><span data-i18n="portraitSignal">EN LÍNEA</span></div>
-            </div>
-          </div>
-          <span class="side-label" data-i18n="sideLabel">routing · switching · linux · automation</span>
-        </div>
+        <figure class="photo-card">
+          <img src="https://avatars.githubusercontent.com/u/220997176?v=4" alt="Retrato de Rubén Cañizares">
+          <figcaption class="photo-caption"><strong>Rubén Enrique Cañizares Miranda</strong><span data-lang-es="Arraiján · Panamá Oeste · Panamá" data-lang-en="Arraiján · Panamá Oeste · Panama">Arraiján · Panamá Oeste · Panamá</span></figcaption>
+        </figure>
       </div>
     </section>
 
-    <div class="marquee" aria-hidden="true">
-      <div class="marquee-track">
-        <span>NETWORKS</span><b>•</b><span>ROUTING</span><b>•</b><span>SWITCHING</span><b>•</b><span>LINUX</span><b>•</b><span>DOCKER</span><b>•</b><span>SDN</span><b>•</b><span>AUTOMATION</span><b>•</b><span>ELECTRICAL SYSTEMS</span><b>•</b>
-        <span>NETWORKS</span><b>•</b><span>ROUTING</span><b>•</b><span>SWITCHING</span><b>•</b><span>LINUX</span><b>•</b><span>DOCKER</span><b>•</b><span>SDN</span><b>•</b><span>AUTOMATION</span><b>•</b><span>ELECTRICAL SYSTEMS</span><b>•</b>
-      </div>
-    </div>
-
-    <!-- Perfil personal y contexto profesional. -->
     <section class="section" id="acerca">
-      <div class="container section-index">
-        <div class="index-col" data-i18n="aboutIndex">01 / ACERCA DE MÍ</div>
+      <div class="container section-grid">
+        <div class="section-index">01 / <span data-lang-es="ACERCA DE MÍ" data-lang-en="ABOUT ME">ACERCA DE MÍ</span></div>
         <div>
-          <div class="reveal">
-            <h2 class="section-title" data-i18n="aboutTitle">Mi camino empezó con la energía. Hoy también pasa por la red.</h2>
-            <p class="section-lead" data-i18n="aboutLead">No veo la electricidad y las redes como caminos separados. Para mí son capas distintas de una misma infraestructura: energía, control, conectividad, servicios y operación.</p>
-          </div>
-
-          <div class="about-grid">
-            <div class="about-copy reveal">
-              <p data-i18n="aboutP1">Soy Rubén Enrique Cañizares Miranda. Me gradué en Sistemas Eléctricos y Automatización en la Universidad Tecnológica de Panamá y actualmente curso la Licenciatura en Redes Informáticas. Esa segunda etapa de formación nació de algo bastante natural: quería entender no solo cómo alimentar y controlar una infraestructura, sino también cómo comunicarla, administrarla y hacerla más resiliente.</p>
-              <p data-i18n="aboutP2">Me interesa aprender haciendo. Gran parte de lo que encontrarás aquí nace de laboratorios, proyectos y entornos que he construido para practicar routing, switching, Linux, virtualización, contenedores, automatización, SDN y evaluación de redes. También conservo mi base eléctrica, porque sigue siendo una parte importante de mi perfil profesional.</p>
-              <p data-i18n="aboutP3">Este portal irá creciendo conmigo. Cada proyecto publicado, certificación, laboratorio o nueva experiencia que valga la pena documentar tendrá un espacio aquí.</p>
-            </div>
-
-            <div class="now-list reveal" aria-label="Situación actual">
-              <div class="now-item">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="m3 10 9-5 9 5-9 5-9-5Z"/><path d="M7 13v4c3 2 7 2 10 0v-4M21 10v6"/></svg>
-                <div><strong data-i18n="nowStudy">Ahora mismo</strong><span data-i18n="nowStudyText">Cuarto año de Redes Informáticas · UTP</span></div>
-              </div>
-              <div class="now-item">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="6" cy="12" r="2"/><circle cx="18" cy="6" r="2"/><circle cx="18" cy="18" r="2"/><path d="M8 12h4l4-5M12 12l4 5"/></svg>
-                <div><strong data-i18n="nowPath">Ruta técnica</strong><span data-i18n="nowPathText">Routing, switching y fundamentos alineados con CCNA</span></div>
-              </div>
-              <div class="now-item">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="4" y="5" width="16" height="14" rx="1"/><path d="m8 9 2 2-2 2M12 15h4"/></svg>
-                <div><strong data-i18n="nowLab">Laboratorio personal</strong><span data-i18n="nowLabText">Linux, Docker, virtualización, SDN y automatización</span></div>
-              </div>
-              <div class="now-item">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="m13 2-7 11h6l-1 9 7-12h-6l1-8Z"/></svg>
-                <div><strong data-i18n="nowBase">Base profesional</strong><span data-i18n="nowBaseText">Sistemas Eléctricos y Automatización</span></div>
-              </div>
-            </div>
+          <h2 data-lang-es="Una trayectoria construida entre curiosidad, familia y tecnología" data-lang-en="A path built through curiosity, family and technology">Una trayectoria construida entre curiosidad, familia y tecnología</h2>
+          <p class="section-lead" data-lang-es="Nací y crecí en Panamá y actualmente vivo en Arraiján, Panamá Oeste. Soy hijo único, muy cercano a mi familia, y buena parte de mis decisiones profesionales nacieron precisamente de personas que me enseñaron haciendo." data-lang-en="I was born and raised in Panama and currently live in Arraiján, Panamá Oeste. I am an only child, very close to my family, and many of my professional decisions grew out of people who taught me by doing.">Nací y crecí en Panamá y actualmente vivo en Arraiján, Panamá Oeste. Soy hijo único, muy cercano a mi familia, y buena parte de mis decisiones profesionales nacieron precisamente de personas que me enseñaron haciendo.</p>
+          <div class="copy-columns">
+            <div><p data-lang-es="Mi papá despertó mi interés por la electricidad al permitirme conocer de cerca el trabajo eléctrico. Con el tiempo esa curiosidad se convirtió en una carrera universitaria en Sistemas Eléctricos y Automatización." data-lang-en="My father sparked my interest in electricity by letting me see electrical work up close. Over time, that curiosity became a university degree in Electrical Systems and Automation.">Mi papá despertó mi interés por la electricidad al permitirme conocer de cerca el trabajo eléctrico. Con el tiempo esa curiosidad se convirtió en una carrera universitaria en Sistemas Eléctricos y Automatización.</p><p data-lang-es="Más adelante mi primo Humberto me acercó a la computación. Ese interés siguió creciendo hasta llevarme a estudiar Redes Informáticas, experimentar con servidores, virtualización, contenedores, sistemas operativos y redes." data-lang-en="Later, my cousin Humberto introduced me to computing. That interest kept growing until it led me to study Computer Networks and experiment with servers, virtualization, containers, operating systems and networking.">Más adelante mi primo Humberto me acercó a la computación. Ese interés siguió creciendo hasta llevarme a estudiar Redes Informáticas, experimentar con servidores, virtualización, contenedores, sistemas operativos y redes.</p></div>
+            <div><p data-lang-es="Me considero responsable, detallista, perseverante, curioso y directo. Me gusta entender por qué algo funciona, documentarlo y volver sobre ello hasta dejarlo mejor de como lo encontré." data-lang-en="I consider myself responsible, detail-oriented, persistent, curious and direct. I like understanding why something works, documenting it and revisiting it until I leave it better than I found it.">Me considero responsable, detallista, perseverante, curioso y directo. Me gusta entender por qué algo funciona, documentarlo y volver sobre ello hasta dejarlo mejor de como lo encontré.</p><p data-lang-es="Actualmente busco una oportunidad laboral formal y estable. Fuera del estudio dedico tiempo a cursos, proyectos técnicos, cine, películas y series, actividades familiares y a seguir aprendiendo por mi cuenta." data-lang-en="I am currently looking for a formal, stable job opportunity. Outside my studies I spend time on courses, technical projects, movies and series, family activities and continuous self-learning.">Actualmente busco una oportunidad laboral formal y estable. Fuera del estudio dedico tiempo a cursos, proyectos técnicos, cine, películas y series, actividades familiares y a seguir aprendiendo por mi cuenta.</p></div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Áreas técnicas principales. Las secciones Trayectoria y Laboratorio se insertan desde home.js. -->
     <section class="section" id="areas">
-      <div class="container section-index">
-        <div class="index-col" data-i18n="areasIndex">03 / ÁREAS</div>
+      <div class="container section-grid">
+        <div class="section-index">02 / <span data-lang-es="ÁREAS" data-lang-en="AREAS">ÁREAS</span></div>
         <div>
-          <div class="reveal">
-            <h2 class="section-title" data-i18n="areasTitle">Lo que estudio, practico y conecto.</h2>
-            <p class="section-lead" data-i18n="areasLead">Estas son las áreas que hoy definen mi perfil. Algunas vienen de mi primera carrera; otras forman parte de la especialización que estoy desarrollando en redes.</p>
-          </div>
-
-          <div class="area-list">
-            <article class="area-row reveal">
-              <span class="area-no">01</span><h3 data-i18n="area1">Redes informáticas</h3><p data-i18n="area1Desc">Routing, switching, IPv4, VLAN, OSPF, ACL, DHCP, NAT/PAT y diseño de topologías en entornos Cisco.</p>
-              <svg class="area-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="5" cy="12" r="2"/><circle cx="19" cy="6" r="2"/><circle cx="19" cy="18" r="2"/><path d="M7 12h5l5-5M12 12l5 5"/></svg>
-            </article>
-            <article class="area-row reveal">
-              <span class="area-no">02</span><h3 data-i18n="area2">Infraestructura y sistemas</h3><p data-i18n="area2Desc">Linux, servicios de red, virtualización, Proxmox, almacenamiento, Docker y operación de infraestructura.</p>
-              <svg class="area-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="4" y="3" width="16" height="6" rx="1"/><rect x="4" y="15" width="16" height="6" rx="1"/><path d="M8 6h.01M8 18h.01M12 9v6"/></svg>
-            </article>
-            <article class="area-row reveal">
-              <span class="area-no">03</span><h3 data-i18n="area3">Automatización y SDN</h3><p data-i18n="area3Desc">Automatización declarativa, contenedores, FRR, OVS, Faucet, telemetría y principios de redes programables.</p>
-              <svg class="area-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M8 5H5v3M16 5h3v3M8 19H5v-3M16 19h3v-3"/><circle cx="12" cy="12" r="3"/><path d="M12 5v4M12 15v4M5 12h4M15 12h4"/></svg>
-            </article>
-            <article class="area-row reveal">
-              <span class="area-no">04</span><h3 data-i18n="area4">Electricidad y control</h3><p data-i18n="area4Desc">Instalaciones eléctricas, mantenimiento, diagnóstico, documentación técnica, baja tensión y fundamentos de automatización.</p>
-              <svg class="area-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m13 2-7 11h6l-1 9 7-12h-6l1-8Z"/></svg>
-            </article>
+          <h2 data-lang-es="Tres capas de un mismo perfil" data-lang-en="Three layers of one professional profile">Tres capas de un mismo perfil</h2>
+          <p class="section-lead" data-lang-es="No intento convertirlas en una sola disciplina. Las uso como perspectivas complementarias para entender infraestructura, operación y soporte." data-lang-en="I do not try to turn them into one discipline. I use them as complementary perspectives for understanding infrastructure, operations and support.">No intento convertirlas en una sola disciplina. Las uso como perspectivas complementarias para entender infraestructura, operación y soporte.</p>
+          <div class="area-grid">
+            <article class="card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 18h16M6 18V9l6-4 6 4v9M9 13h6"/></svg><h3 data-lang-es="Redes e infraestructura" data-lang-en="Networks & infrastructure">Redes e infraestructura</h3><p data-lang-es="Networking, soporte técnico, sistemas, virtualización, Linux, Windows Server, contenedores y observabilidad." data-lang-en="Networking, technical support, systems, virtualization, Linux, Windows Server, containers and observability.">Networking, soporte técnico, sistemas, virtualización, Linux, Windows Server, contenedores y observabilidad.</p></article>
+            <article class="card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m13 2-7 11h5l-1 9 8-13h-5V2Z"/></svg><h3 data-lang-es="Sistemas eléctricos" data-lang-en="Electrical systems">Sistemas eléctricos</h3><p data-lang-es="Instalaciones, mantenimiento, diagnóstico, planos, tableros, baja tensión y fundamentos de automatización." data-lang-en="Installations, maintenance, diagnostics, drawings, panels, low voltage and automation fundamentals.">Instalaciones, mantenimiento, diagnóstico, planos, tableros, baja tensión y fundamentos de automatización.</p></article>
+            <article class="card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/></svg><h3 data-lang-es="Automatización y operación" data-lang-en="Automation & operations">Automatización y operación</h3><p data-lang-es="Python, Git, Docker, SDN, monitoreo, documentación, control de cambios y aprendizaje orientado a infraestructura." data-lang-en="Python, Git, Docker, SDN, monitoring, documentation, change control and infrastructure-oriented learning.">Python, Git, Docker, SDN, monitoreo, documentación, control de cambios y aprendizaje orientado a infraestructura.</p></article>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Interludio biográfico: presenta la dimensión personal sin mezclarla con el CV técnico. -->
-    <section class="personal-section" id="mas-de-mi">
-      <div class="container personal-shell">
-        <div class="personal-heading reveal">
-          <div>
-            <p class="personal-kicker" data-personal-key="kicker">MÁS ALLÁ DE LO TÉCNICO</p>
-            <h2 data-personal-key="title">También soy lo que pasa cuando cierro la terminal.</h2>
-          </div>
-          <p data-personal-key="lead">Mi carrera ocupa una parte importante de mi vida, pero no la resume completa. Detrás de las redes, los tableros, los servidores y los proyectos hay una historia familiar, curiosidad, gustos, voluntariado y metas que también explican cómo pienso y por qué sigo aprendiendo.</p>
-        </div>
-
-        <div class="personal-intro">
-          <article class="personal-story reveal">
-            <p data-personal-key="story1">Nací y crecí en Panamá y actualmente vivo en Panamá Oeste, Arraiján. Soy hijo único —sí, también el consentido de la familia— y disfruto mucho compartir tiempo con los míos. Mi familia ha estado presente en decisiones importantes de mi camino, incluso en el origen de mi primera vocación técnica.</p>
-            <p data-personal-key="story2">Me considero una persona curiosa, detallista, perseverante, responsable y bastante directa. Cuando algo no funciona, me cuesta dejarlo simplemente en “no sirve”: normalmente quiero entender qué pasó, probar otra ruta y aprender algo del proceso. Esa forma de ser termina apareciendo tanto en mis proyectos técnicos como en la manera en que organizo mis metas personales.</p>
-          </article>
-
-          <aside class="personal-facts reveal" aria-label="Datos personales públicos">
-            <div class="personal-fact">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 21s6-5.2 6-11a6 6 0 1 0-12 0c0 5.8 6 11 6 11Z"/><circle cx="12" cy="10" r="2"/></svg>
-              <div><strong data-personal-key="locationLabel">Base</strong><span data-personal-key="locationText">Panamá Oeste · Arraiján, Panamá</span></div>
-            </div>
-            <div class="personal-fact">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 20v-2a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-              <div><strong data-personal-key="statusLabel">En este momento</strong><span data-personal-key="statusText">En búsqueda de una oportunidad laboral formal y estable</span></div>
-            </div>
-            <div class="personal-fact">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M16 11c1.7 0 3-1.3 3-3s-1.3-3-3-3M8 11c-1.7 0-3-1.3-3-3s1.3-3 3-3M12 13a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM5 21v-2a4 4 0 0 1 4-4h6a4 4 0 0 1 4 4v2"/></svg>
-              <div><strong data-personal-key="familyLabel">Familia</strong><span data-personal-key="familyText">Hijo único, muy cercano a mi familia</span></div>
-            </div>
-          </aside>
-        </div>
-
-        <div class="personal-grid">
-          <article class="personal-card reveal"><span class="card-no">01</span><h3 data-personal-key="card1Title">Cuando tengo tiempo libre</h3><p data-personal-key="card1Text">Alterno entre tareas universitarias, cursos del INADEH, tiempo con mi familia, cine, series y películas. A veces descansar significa realmente descansar; otras veces significa abrir una VM, probar una configuración o empezar a investigar algo que me dio curiosidad.</p></article>
-          <article class="personal-card reveal"><span class="card-no">02</span><h3 data-personal-key="card2Title">Tecnología como afición</h3><p data-personal-key="card2Text">La tecnología no se queda en el aula. Me gusta experimentar con computadoras, redes domésticas, servidores, virtualización, electrónica, reparación de equipos, programación y proyectos que me permitan desmontar un problema y entenderlo por dentro.</p></article>
-          <article class="personal-card reveal"><span class="card-no">03</span><h3 data-personal-key="card3Title">Lo que suena de fondo</h3><p data-personal-key="card3Text">Mi música cambia bastante según el momento: salsa, merengue, clásicos de los años 80, música en inglés, música católica y alabanzas. Prefiero una biblioteca variada antes que encerrarme en un solo género.</p></article>
-          <article class="personal-card reveal"><span class="card-no">04</span><h3 data-personal-key="card4Title">Cine, series y pantalla</h3><p data-personal-key="card4Text">Disfruto ir al cine y ver películas o series en casa. También consumo contenido en YouTube relacionado con tecnología, aprendizaje y entretenimiento. Mi forma de desconectarme suele combinar una buena historia con alguna curiosidad nueva que termine investigando después.</p></article>
-          <article class="personal-card reveal"><span class="card-no">05</span><h3 data-personal-key="card5Title">Viajes que todavía faltan</h3><p data-personal-key="card5Text">Todavía no he tenido la oportunidad de viajar fuera de Panamá, pero sí está entre las experiencias que quiero vivir. Me interesa conocer otros países, culturas y formas de hacer las cosas, abrir nuevos caminos y acumular experiencias que no se aprenden detrás de una pantalla.</p></article>
-          <article class="personal-card reveal"><span class="card-no">06</span><h3 data-personal-key="card6Title">De dónde nació mi vocación</h3><p data-personal-key="card6Text">Mi papá me animó a acercarme al mundo eléctrico porque él realizaba trabajos de electricidad y aquello despertó mi interés. Más adelante, un primo me enseñó varias cosas de computación y ese segundo mundo también se quedó conmigo. Con el tiempo terminé uniendo ambos caminos: energía, automatización, computación y redes.</p></article>
-          <article class="personal-card reveal"><span class="card-no">07</span><h3 data-personal-key="goalsTitle">Lo que estoy construyendo a futuro</h3><p data-personal-key="goalsText">En los próximos años quiero completar mi formación en Redes Informáticas, fortalecer mi ruta de certificaciones —con CCNA como una referencia importante— y consolidarme en un empleo estable relacionado con redes, infraestructura, automatización, soporte avanzado o entornos de centros de datos. A largo plazo quiero tener un perfil capaz de integrar disciplinas, asumir proyectos de mayor responsabilidad y seguir aprendiendo sin quedar atado a una sola tecnología.</p></article>
-          <article class="personal-card reveal"><span class="card-no">08</span><h3 data-personal-key="valuesTitle">Lo que intento mantener en el camino</h3><p data-personal-key="valuesText">Responsabilidad, honestidad, disciplina, curiosidad, estabilidad, respeto por el trabajo bien hecho, cercanía con mi familia y disposición para seguir aprendiendo. No me interesa acumular tecnologías por nombre; prefiero entender para qué sirven, cómo se conectan y qué problema real resuelven.</p></article>
-        </div>
-
-        <div class="personal-volunteer reveal">
-          <h3 data-personal-key="volunteerTitle">Experiencias de voluntariado</h3>
-          <div class="volunteer-row"><strong>2019</strong><span data-personal-key="volunteer2019">Voluntario en JMJ Panamá 2019, una experiencia de servicio, organización y convivencia que forma parte de mi historia personal.</span></div>
-          <div class="volunteer-row"><strong>2020</strong><span data-personal-key="volunteer2020">Voluntario de Medios Digitales en ENRJ 2020, colaborando desde el área de comunicación y contenidos digitales.</span></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Proyectos públicos seleccionados. -->
     <section class="section" id="proyectos">
-      <div class="container section-index">
-        <div class="index-col" data-i18n="projectsIndex">05 / PROYECTOS</div>
+      <div class="container section-grid">
+        <div class="section-index">03 / <span data-lang-es="PROYECTOS" data-lang-en="PROJECTS">PROYECTOS</span></div>
         <div>
-          <div class="reveal">
-            <h2 class="section-title" data-i18n="projectsTitle">Aprendo mejor cuando tengo algo real que construir.</h2>
-            <p class="section-lead" data-i18n="projectsLead">Aquí iré conectando los repositorios y proyectos que representen mejor mi evolución. La lista crecerá a medida que publique más trabajo en GitHub.</p>
+          <h2 data-lang-es="Trabajo técnico que puedo mostrar" data-lang-en="Technical work I can show">Trabajo técnico que puedo mostrar</h2>
+          <p class="section-lead" data-lang-es="Una selección de implementaciones y ejercicios técnicos documentados en los que he aplicado redes, sistemas, infraestructura y automatización." data-lang-en="A selection of documented implementations and technical exercises where I have applied networking, systems, infrastructure and automation.">Una selección de implementaciones y ejercicios técnicos documentados en los que he aplicado redes, sistemas, infraestructura y automatización.</p>
+          <div class="project-grid">
+            <article class="card project-card"><div><small>SDN / OBSERVABILIDAD</small><h3>Faucet + Gauge + OVS</h3><p data-lang-es="Segmentación por VLAN, rutas principal/respaldo, Prometheus, Grafana y visualización de topología." data-lang-en="VLAN segmentation, primary/backup paths, Prometheus, Grafana and topology visualization.">Segmentación por VLAN, rutas principal/respaldo, Prometheus, Grafana y visualización de topología.</p></div></article>
+            <article class="card project-card"><div><small>ROUTING / AUTOMATION</small><h3>FRR + OSPF</h3><p data-lang-es="Source of truth, detección de configuration drift, reconciliación e intent assurance en contenedores." data-lang-en="Source of truth, configuration-drift detection, reconciliation and intent assurance in containers.">Source of truth, detección de configuration drift, reconciliación e intent assurance en contenedores.</p></div></article>
+            <article class="card project-card"><div><small>PERFORMANCE / KPI</small><h3>Evaluación de red</h3><p data-lang-es="Medición de latencia, pérdida y throughput con Debian, iperf3, tc/netem y Proxmox." data-lang-en="Latency, loss and throughput measurement with Debian, iperf3, tc/netem and Proxmox.">Medición de latencia, pérdida y throughput con Debian, iperf3, tc/netem y Proxmox.</p></div></article>
+            <article class="card project-card"><div><small>STORAGE / CONTAINERS</small><h3>NFS + iSCSI + Docker</h3><p data-lang-es="Persistencia remota con TrueNAS y servicios desplegados sobre almacenamiento de red." data-lang-en="Remote persistence with TrueNAS and services deployed on network storage.">Persistencia remota con TrueNAS y servicios desplegados sobre almacenamiento de red.</p></div></article>
           </div>
-
-          <div class="projects-wrap">
-            <a class="project-row reveal" href="https://github.com/recm0708/mi-retiro-proyectado" target="_blank" rel="noopener noreferrer">
-              <span class="project-kind" data-i18n="projectAppType">APLICACIÓN</span>
-              <h3 data-i18n="projectAppTitle">Mi Retiro Proyectado</h3>
-              <p data-i18n="projectAppDesc">Proyecto de software en evolución continua, con arquitectura, pruebas, diseño y mantenimiento versionado en GitHub.</p>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="m7 17 10-10M8 7h9v9"/></svg>
-            </a>
-            <a class="project-row reveal" href="https://github.com/recm0708/recm0708.github.io" target="_blank" rel="noopener noreferrer">
-              <span class="project-kind" data-i18n="projectSiteType">PORTAFOLIO</span>
-              <h3 data-i18n="projectSiteTitle">Este sitio</h3>
-              <p data-i18n="projectSiteDesc">Mi espacio profesional en GitHub Pages, construido en HTML, CSS y JavaScript y pensado para crecer junto con mis proyectos.</p>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="m7 17 10-10M8 7h9v9"/></svg>
-            </a>
-          </div>
-          <p class="project-note" data-i18n="projectNote">Más proyectos se irán incorporando aquí a medida que sus repositorios estén listos para mostrarse públicamente.</p>
         </div>
       </div>
     </section>
 
-    <!-- Acceso central al selector de currículos especializados. -->
-    <section class="cv-callout" id="curriculum">
-      <div class="container cv-layout reveal">
-        <div class="cv-code" data-i18n="cvCode">06 / CV</div>
+    <section class="section">
+      <div class="container section-grid">
+        <div class="section-index">04 / <span data-lang-es="MÁS PERSONAL" data-lang-en="PERSONAL SIDE">MÁS PERSONAL</span></div>
         <div>
-          <h2 data-i18n="cvTitle">Mi experiencia, según el contexto.</h2>
-          <p data-i18n="cvText">No utilizo un único currículo para todo. Organicé mi experiencia en tres perfiles distintos para que cada versión destaque lo realmente relevante para la oportunidad: Eléctrica y Automatización, Redes Informáticas y Perfil General.</p>
+          <h2 data-lang-es="También soy lo que pasa cuando cierro la terminal" data-lang-en="I am also what happens when I close the terminal">También soy lo que pasa cuando cierro la terminal</h2>
+          <div class="copy-columns">
+            <div><p data-lang-es="No practico deportes de forma habitual. Prefiero actividades tranquilas: salir con mi familia, ir al cine, ver películas y series y descubrir contenido en YouTube. Musicalmente escucho salsa, merengue, música de los años 80, música en inglés, música católica y alabanzas, entre otros géneros." data-lang-en="I do not regularly practice sports. I prefer quieter activities: spending time with my family, going to the movies, watching films and series and discovering content on YouTube. Musically I listen to salsa, merengue, 1980s music, English-language music, Catholic music and worship, among other genres.">No practico deportes de forma habitual. Prefiero actividades tranquilas: salir con mi familia, ir al cine, ver películas y series y descubrir contenido en YouTube. Musicalmente escucho salsa, merengue, música de los años 80, música en inglés, música católica y alabanzas, entre otros géneros.</p></div>
+            <div><p data-lang-es="Todavía no he tenido la oportunidad de viajar fuera de Panamá, pero es una meta personal: conocer nuevos lugares, culturas y formas de trabajar. También participé como voluntario en la Jornada Mundial de la Juventud Panamá 2019 y en medios digitales del ENRJ 2020." data-lang-en="I have not yet had the opportunity to travel outside Panama, but it is a personal goal: to discover new places, cultures and ways of working. I also volunteered at World Youth Day Panama 2019 and in digital media for ENRJ 2020.">Todavía no he tenido la oportunidad de viajar fuera de Panamá, pero es una meta personal: conocer nuevos lugares, culturas y formas de trabajar. También participé como voluntario en la Jornada Mundial de la Juventud Panamá 2019 y en medios digitales del ENRJ 2020.</p></div>
+          </div>
         </div>
-        <a class="cv-enter" href="/cv/"><span data-i18n="cvEnter">Entrar a Currículum Vitae</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
     </section>
 
-    <!-- Canales profesionales y perfiles sociales oficiales. -->
     <section class="section" id="contacto">
-      <div class="container section-index">
-        <div class="index-col" data-i18n="contactIndex">07 / CONTACTO</div>
+      <div class="container section-grid">
+        <div class="section-index">05 / <span data-lang-es="CONTACTO" data-lang-en="CONTACT">CONTACTO</span></div>
         <div>
-          <div class="reveal">
-            <h2 class="section-title" data-i18n="contactTitle">Si algo de lo que hago conecta contigo, hablemos.</h2>
+          <h2 data-lang-es="Dónde encontrarme" data-lang-en="Where to find me">Dónde encontrarme</h2>
+          <p class="section-lead" data-lang-es="Mantengo aquí los perfiles que mejor representan mi actividad profesional, formación y presencia digital." data-lang-en="These are the profiles that best represent my professional activity, learning and digital presence.">Mantengo aquí los perfiles que mejor representan mi actividad profesional, formación y presencia digital.</p>
+          <div class="social-grid">
+            <a class="card social-card" href="mailto:ruben.canizares@outlook.com"><span>Correo</span></a>
+            <a class="card social-card" href="https://www.linkedin.com/in/recm0708" target="_blank" rel="noopener noreferrer"><span>LinkedIn</span></a>
+            <a class="card social-card" href="https://github.com/recm0708" target="_blank" rel="noopener noreferrer"><span>GitHub</span></a>
+            <a class="card social-card" href="https://hub.docker.com/u/recm0708" target="_blank" rel="noopener noreferrer"><span>Docker Hub</span></a>
+            <a class="card social-card" href="https://community.cisco.com/t5/user/viewprofilepage/user-id/2111244" target="_blank" rel="noopener noreferrer"><span>Cisco Community</span></a>
+            <a class="card social-card" href="https://www.credly.com/users/recm0708/badges/credly" target="_blank" rel="noopener noreferrer"><span>Credly</span></a>
+            <a class="card social-card" href="https://learn.microsoft.com/es-es/users/recm0708/" target="_blank" rel="noopener noreferrer"><span>Microsoft Learn</span></a>
+            <a class="card social-card" href="https://www.youtube.com/@recm0708" target="_blank" rel="noopener noreferrer"><span>YouTube</span></a>
+            <a class="card social-card" href="https://www.instagram.com/recm0708" target="_blank" rel="noopener noreferrer"><span>Instagram</span></a>
+            <a class="card social-card" href="https://www.facebook.com/recm0708" target="_blank" rel="noopener noreferrer"><span>Facebook</span></a>
+            <a class="card social-card" href="https://gravatar.com/recm0708" target="_blank" rel="noopener noreferrer"><span>Gravatar</span></a>
+            <a class="card social-card" href="https://t.me/recm0708" target="_blank" rel="noopener noreferrer"><span>Telegram</span></a>
           </div>
-          <div class="contact-grid">
-            <div class="contact-copy reveal"><p data-i18n="contactLead">Puedes escribirme por correo, revisar mi actividad en GitHub o encontrar mi perfil profesional en LinkedIn. Para oportunidades laborales, colaboración técnica o simplemente conversar sobre infraestructura y redes, estos son mis canales principales.</p></div>
-            <div class="contact-links reveal">
-              <a class="contact-link" href="mailto:ruben.canizares@outlook.com">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="m4 7 8 6 8-6"/></svg>
-                <div><strong data-i18n="contactEmail">Correo</strong><span>ruben.canizares@outlook.com</span></div><span class="arrow">↗</span>
-              </a>
-              <a class="contact-link" href="https://www.linkedin.com/in/recm0708" target="_blank" rel="noopener noreferrer">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 10v6M8 8h.01M12 16v-3.2c0-1.8 3-2 3 0V16M12 10v6"/></svg>
-                <div><strong data-i18n="contactLinkedin">LinkedIn</strong><span>linkedin.com/in/recm0708</span></div><span class="arrow">↗</span>
-              </a>
-              <a class="contact-link" href="https://github.com/recm0708" target="_blank" rel="noopener noreferrer">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M9 19c-4.5 1.4-4.5-2.4-6-3m12 6v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.7-1.4 5.7-6.2 0-1.4-.5-2.5-1.3-3.4.1-.3.6-1.6-.1-3.3 0 0-1-.3-3.5 1.3a12 12 0 0 0-6.3 0C6.5 3.3 5.5 3.6 5.5 3.6c-.7 1.7-.2 3-.1 3.3A5 5 0 0 0 4 10.3c0 4.8 2.9 5.9 5.7 6.2-.5.5-.6 1-.5 2V22"/></svg>
-                <div><strong data-i18n="contactGithub">GitHub</strong><span>github.com/recm0708</span></div><span class="arrow">↗</span>
-              </a>
-            </div>
-          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cv-callout">
+      <div class="container">
+        <div class="card">
+          <div><p class="eyebrow">CURRÍCULUM VITAE</p><h2 data-lang-es="Tres perfiles, una misma trayectoria" data-lang-en="Three profiles, one career path">Tres perfiles, una misma trayectoria</h2><p class="section-lead" data-lang-es="Elige el currículo que mejor corresponda al contexto profesional que deseas revisar." data-lang-en="Choose the résumé that best matches the professional context you want to review.">Elige el currículo que mejor corresponda al contexto profesional que deseas revisar.</p></div>
+          <a class="action primary" href="/cv/" data-lang-es="Abrir currículos ↗" data-lang-en="Open résumés ↗">Abrir currículos ↗</a>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- Pie de página. El ancla apunta al body para que el retorno al inicio funcione aun sin JavaScript. -->
   <footer class="site-footer">
-    <div class="container footer-layout">
-      <div><strong>Rubén Enrique Cañizares Miranda</strong> · <span data-year></span></div>
-      <div data-i18n="footerText">Diseñado y construido por mí, con ayuda de buenas herramientas y muchas pruebas.</div>
-      <a href="#top" data-i18n="backTop">Volver arriba ↑</a>
+    <div class="container footer-inner">
+      <div data-lang-es="© 2026 Rubén Enrique Cañizares Miranda · Todos los derechos reservados." data-lang-en="© 2026 Rubén Enrique Cañizares Miranda · All rights reserved.">© 2026 Rubén Enrique Cañizares Miranda · Todos los derechos reservados.</div>
+      <div data-lang-es="Portafolio profesional personal" data-lang-en="Personal professional portfolio">Portafolio profesional personal</div>
+      <a href="#top" data-back-top data-lang-es="Volver arriba ↑" data-lang-en="Back to top ↑">Volver arriba ↑</a>
     </div>
   </footer>
 </body>
