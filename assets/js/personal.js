@@ -20,7 +20,7 @@
 
   cargarScript('/assets/js/personal-contenido.js?v=20260916-1')
     .then(() => cargarScript('/assets/js/ajustes-portada.js?v=20260916-4'))
-    .then(() => cargarScript('/assets/js/site-shell.js?v=20260916-2'))
+    .then(() => cargarScript('/assets/js/site-shell.js?v=20260916-3'))
     .then(() => window.SiteShell?.normalizarPortada())
     .catch((error) => console.error('No se pudo cargar la capa personal de la portada.', error));
 })();
