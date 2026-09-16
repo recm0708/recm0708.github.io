@@ -15,29 +15,41 @@
     document.querySelectorAll('[data-theme-icon]').forEach(icon => {
       icon.className = theme === 'dark' ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
     });
-    document.querySelectorAll('[data-theme-label]').forEach(el => {
+    document.querySelectorAll('[data-theme-toggle]').forEach(btn => {
       const lang = root.lang === 'en' ? 'en' : 'es';
-      el.textContent = theme === 'dark' ? (lang === 'es' ? 'Tema claro' : 'Light theme') : (lang === 'es' ? 'Tema oscuro' : 'Dark theme');
+      btn.setAttribute('aria-label', theme === 'dark' ? (lang === 'es' ? 'Cambiar a tema claro' : 'Switch to light theme') : (lang === 'es' ? 'Cambiar a tema oscuro' : 'Switch to dark theme'));
     });
   }
 
   function applyLanguage(lang, persist = true){
     root.lang = lang;
     if(persist) localStorage.setItem(LANG_KEY, lang);
+
     document.querySelectorAll('[data-lang]').forEach(el => {
       el.hidden = el.dataset.lang !== lang;
     });
+
     document.querySelectorAll('[data-lang-toggle]').forEach(btn => {
       btn.textContent = lang === 'es' ? 'ES / EN' : 'EN / ES';
+      btn.setAttribute('aria-label', lang === 'es' ? 'Cambiar idioma a inglés' : 'Switch language to Spanish');
     });
+
+    document.querySelectorAll('[data-href-es][data-href-en]').forEach(link => {
+      link.href = lang === 'es' ? link.dataset.hrefEs : link.dataset.hrefEn;
+    });
+
     document.querySelectorAll('[data-lang-link-es]').forEach(el => el.classList.toggle('active', lang === 'es'));
     document.querySelectorAll('[data-lang-link-en]').forEach(el => el.classList.toggle('active', lang === 'en'));
+
+    applyTheme(root.dataset.theme || systemTheme());
   }
 
   applyTheme(localStorage.getItem(THEME_KEY) || systemTheme());
+
   const defaultLang = document.body?.dataset.defaultLang || root.lang || 'es';
-  const hasInlineLanguage = !!document.querySelector('[data-lang]') || !!document.querySelector('[data-lang-toggle]');
-  applyLanguage(hasInlineLanguage ? (localStorage.getItem(LANG_KEY) || defaultLang) : defaultLang, hasInlineLanguage);
+  const canSwitchLanguage = !!document.querySelector('[data-lang-toggle]');
+  const initialLang = canSwitchLanguage ? (localStorage.getItem(LANG_KEY) || defaultLang) : defaultLang;
+  applyLanguage(initialLang, canSwitchLanguage);
 
   document.addEventListener('click', e => {
     const themeBtn = e.target.closest('[data-theme-toggle]');
@@ -45,11 +57,13 @@
       applyTheme(root.dataset.theme === 'dark' ? 'light' : 'dark');
       return;
     }
+
     const langBtn = e.target.closest('[data-lang-toggle]');
     if(langBtn){
       applyLanguage(root.lang === 'es' ? 'en' : 'es');
       return;
     }
+
     const menuBtn = e.target.closest('[data-menu-toggle]');
     if(menuBtn){
       const menu = document.querySelector('[data-mobile-nav]');
@@ -59,6 +73,7 @@
       }
       return;
     }
+
     if(e.target.closest('[data-mobile-nav] a')){
       document.querySelector('[data-mobile-nav]')?.classList.remove('open');
       document.querySelector('[data-menu-toggle]')?.setAttribute('aria-expanded','false');
