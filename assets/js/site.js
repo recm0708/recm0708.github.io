@@ -39,6 +39,39 @@
     }
   }
 
+  function syncHeroMetaLayout(){
+    const meta = document.querySelector('.hero-meta');
+    if(!meta) return;
+
+    const chips = [...meta.querySelectorAll(':scope > .meta-chip')];
+    const desktopLayout = window.matchMedia('(min-width: 721px)').matches;
+
+    if(desktopLayout){
+      meta.style.display = 'flex';
+      meta.style.flexWrap = 'wrap';
+      meta.style.width = 'max-content';
+      meta.style.maxWidth = '100%';
+      meta.style.justifyContent = 'flex-start';
+      meta.style.alignItems = 'center';
+
+      chips.forEach(chip => {
+        chip.style.flex = '0 0 auto';
+        chip.style.width = 'max-content';
+        chip.style.gridColumn = 'auto';
+      });
+      return;
+    }
+
+    ['display','flex-wrap','width','max-width','justify-content','align-items'].forEach(property => {
+      meta.style.removeProperty(property);
+    });
+    chips.forEach(chip => {
+      chip.style.removeProperty('flex');
+      chip.style.removeProperty('width');
+      chip.style.removeProperty('grid-column');
+    });
+  }
+
   function applyLanguage(lang, persist = true){
     root.lang = lang;
     if(persist) localStorage.setItem(LANG_KEY, lang);
@@ -63,6 +96,7 @@
   }
 
   refineHomeHero();
+  syncHeroMetaLayout();
   applyTheme(localStorage.getItem(THEME_KEY) || systemTheme());
 
   const defaultLang = document.body?.dataset.defaultLang || root.lang || 'es';
@@ -121,7 +155,10 @@
   };
   updateProgress();
   window.addEventListener('scroll', updateProgress, {passive:true});
-  window.addEventListener('resize', updateProgress);
+  window.addEventListener('resize', () => {
+    updateProgress();
+    syncHeroMetaLayout();
+  });
 
   if('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
     const observer = new IntersectionObserver(entries => {
