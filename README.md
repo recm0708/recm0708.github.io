@@ -6,13 +6,13 @@ Repositorio del sitio personal y portafolio profesional de **Rubén Enrique Cañ
 
 ## Contenido
 
-El portal reúne mi perfil profesional y personal, proyectos, trayectoria, formación y tres versiones de Currículum Vitae orientadas a distintas áreas:
+El portal reúne mi perfil profesional y personal, trayectoria, proyectos, formación y tres versiones de Currículum Vitae:
 
 - **Redes Informáticas e Infraestructura**
 - **Sistemas Eléctricos y Automatización**
 - **Perfil Profesional Integral**
 
-El sitio dispone de contenido en español e inglés, tema claro/oscuro global y secciones destinadas a proyectos, credenciales y certificaciones verificables.
+El sitio dispone de contenido en español e inglés y tema claro/oscuro global.
 
 ## Tecnologías
 
@@ -27,21 +27,23 @@ El sitio dispone de contenido en español e inglés, tema claro/oscuro global y 
 ```text
 /
 ├── index.html
+├── 404.html
 ├── cv/
+│   ├── index.html
 │   ├── es/
-│   │   └── redes/
+│   │   ├── redes/
+│   │   ├── electrica/
+│   │   └── integral/
 │   └── en/
-│       └── networks/
-├── es/
-│   ├── electrica/
-│   └── general/
-├── en/
-│   ├── electrical/
-│   └── general/
+│       ├── networks/
+│       ├── electrical/
+│       └── comprehensive/
 └── assets/
+    ├── css/
+    │   └── site.css
+    └── js/
+        └── site.js
 ```
-
-Las rutas de Eléctrica y del Perfil Profesional Integral se trasladarán bajo `/cv/es/` y `/cv/en/` cuando finalice su rediseño, evitando mantener páginas duplicadas durante la transición.
 
 ## Licencia
 
