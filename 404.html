@@ -4,34 +4,39 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="robots" content="noindex">
-  <meta name="theme-color" content="#0f1214">
-  <link rel="stylesheet" href="/assets/css/site.css?v=1">
-  <script defer src="/assets/js/site.js?v=1"></script>
+  <meta name="theme-color" content="#171918">
+  <script src="/assets/js/theme.js?v=2"></script>
+  <link rel="stylesheet" href="/assets/css/base.css?v=2">
+  <link rel="stylesheet" href="/assets/css/components.css?v=2">
+  <link rel="stylesheet" href="/assets/css/home.css?v=2">
+  <script defer src="/assets/js/site-v2.js?v=2"></script>
   <title>404 | Rubén Cañizares</title>
 </head>
-<body id="top" data-bilingual="true" data-title-es="404 | Rubén Cañizares" data-title-en="404 | Rubén Cañizares">
+<body id="top" data-bilingual data-title-es="404 | Rubén Cañizares" data-title-en="404 | Rubén Cañizares">
   <header class="site-header">
     <div class="container header-inner">
-      <a class="brand" href="/" aria-label="Inicio"><span>rubén<span class="slash">/</span>cañizares</span><small>recm0708</small></a>
+      <a class="brand" href="/" aria-label="Inicio"><strong>rubén<span class="slash">/</span>cañizares</strong><small>recm0708</small></a>
       <div></div>
       <div class="header-actions">
-        <button class="ui-btn lang-btn" type="button" data-lang-toggle>ES / EN</button>
-        <button class="ui-btn theme-btn" type="button" data-theme-toggle aria-label="Cambiar tema"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3a9 9 0 1 0 9 9c0-.5-.04-1-.12-1.48A7 7 0 0 1 12 3Z"/></svg></button>
+        <button class="text-btn" type="button" data-lang-toggle>ES / EN</button>
+        <button class="icon-btn" type="button" data-theme-toggle aria-label="Cambiar tema"></button>
       </div>
     </div>
   </header>
 
-  <main class="error-main">
-    <div class="vector-field" aria-hidden="true"><svg viewBox="0 0 700 480" fill="none" stroke="currentColor"><path d="M85 370 225 235l95 58 128-176 167 145" stroke-dasharray="8 14"/><circle cx="85" cy="370" r="7"/><circle cx="225" cy="235" r="7"/><circle cx="320" cy="293" r="7"/><circle cx="448" cy="117" r="7"/><circle cx="615" cy="262" r="7"/></svg></div>
-    <section class="container error-inner">
-      <p class="error-code">ROUTE_NOT_FOUND / 404</p>
-      <div class="error-number">404</div>
-      <h1 data-lang-es="Esta ruta no llegó a destino" data-lang-en="This route did not reach its destination">Esta ruta no llegó a destino</h1>
-      <p data-lang-es="La dirección que intentaste abrir no existe o ya no forma parte de este sitio. Puedes volver al portal o entrar directamente al selector de currículos." data-lang-en="The address you tried to open does not exist or is no longer part of this site. You can return to the portal or go directly to the résumé selector.">La dirección que intentaste abrir no existe o ya no forma parte de este sitio. Puedes volver al portal o entrar directamente al selector de currículos.</p>
-      <div class="hero-actions">
-        <a class="action primary" href="/" data-lang-es="← Volver al inicio" data-lang-en="← Back to home">← Volver al inicio</a>
-        <a class="action" href="/cv/" data-lang-es="Currículum Vitae →" data-lang-en="Curriculum Vitae →">Currículum Vitae →</a>
+  <main class="error-page">
+    <section class="container error-layout">
+      <div class="reveal">
+        <p class="eyebrow" data-lang-es="PÁGINA NO ENCONTRADA" data-lang-en="PAGE NOT FOUND">PÁGINA NO ENCONTRADA</p>
+        <div class="error-number">404</div>
+        <h1 class="section-title" data-lang-es="La dirección que buscas ya no está aquí" data-lang-en="The address you are looking for is no longer here">La dirección que buscas ya no está aquí</h1>
+        <p class="lead" data-lang-es="La ruta pudo cambiar o haber sido retirada durante la reorganización del portafolio. Puedes volver al inicio o entrar directamente a mis currículos." data-lang-en="The route may have changed or been removed during the portfolio reorganization. You can return home or go directly to my résumés.">La ruta pudo cambiar o haber sido retirada durante la reorganización del portafolio. Puedes volver al inicio o entrar directamente a mis currículos.</p>
+        <div class="button-row">
+          <a class="button primary" href="/" data-lang-es="Volver al inicio" data-lang-en="Back to home">Volver al inicio</a>
+          <a class="button" href="/cv/" data-lang-es="Ver currículos" data-lang-en="View résumés">Ver currículos</a>
+        </div>
       </div>
+      <div class="error-illustration reveal" aria-hidden="true"><img src="/assets/svg/404.svg" alt=""></div>
     </section>
   </main>
 
