@@ -16,16 +16,16 @@
 
   /* Carga la capa visual común de idioma y tema usada por todo el sitio. */
   function cargarControlesSitio() {
-    if (!document.querySelector('link[href="/assets/css/controles-sitio.css"]')) {
+    if (!document.querySelector('link[href^="/assets/css/controles-sitio.css"]')) {
       const css = document.createElement('link');
       css.rel = 'stylesheet';
-      css.href = '/assets/css/controles-sitio.css?v=20260916-1';
+      css.href = '/assets/css/controles-sitio.css?v=20260916-5';
       document.head.appendChild(css);
     }
 
     if (!document.querySelector('script[src^="/assets/js/controles-sitio.js"]')) {
       const script = document.createElement('script');
-      script.src = '/assets/js/controles-sitio.js?v=20260916-1';
+      script.src = '/assets/js/controles-sitio.js?v=20260916-5';
       script.defer = true;
       document.head.appendChild(script);
     }
