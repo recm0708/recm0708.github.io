@@ -37,6 +37,23 @@
   let lang = localStorage.getItem('portfolio-language') || 'es';
   let theme = localStorage.getItem(THEME_KEY);
 
+  /* Carga los mismos controles visuales de idioma y tema usados por la portada. */
+  function cargarControlesSitio() {
+    if (!document.querySelector('link[href="/assets/css/controles-sitio.css"]')) {
+      const css = document.createElement('link');
+      css.rel = 'stylesheet';
+      css.href = '/assets/css/controles-sitio.css?v=20260916-1';
+      document.head.appendChild(css);
+    }
+
+    if (!document.querySelector('script[src^="/assets/js/controles-sitio.js"]')) {
+      const script = document.createElement('script');
+      script.src = '/assets/js/controles-sitio.js?v=20260916-1';
+      script.defer = true;
+      document.head.appendChild(script);
+    }
+  }
+
   if (theme !== 'light' && theme !== 'dark') {
     theme = window.matchMedia?.('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
   }
@@ -114,6 +131,7 @@
   langBtn?.addEventListener('click', () => setLang(lang === 'es' ? 'en' : 'es'));
   themeBtn?.addEventListener('click', () => setTheme(theme === 'dark' ? 'light' : 'dark'));
 
+  cargarControlesSitio();
   instalarPaletaClara();
   instalarVolverArriba();
   setTheme(theme, false);
