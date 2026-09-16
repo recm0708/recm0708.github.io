@@ -21,9 +21,9 @@
     });
   }
 
-  function applyLanguage(lang){
+  function applyLanguage(lang, persist = true){
     root.lang = lang;
-    localStorage.setItem(LANG_KEY, lang);
+    if(persist) localStorage.setItem(LANG_KEY, lang);
     document.querySelectorAll('[data-lang]').forEach(el => {
       el.hidden = el.dataset.lang !== lang;
     });
@@ -36,7 +36,8 @@
 
   applyTheme(localStorage.getItem(THEME_KEY) || systemTheme());
   const defaultLang = document.body?.dataset.defaultLang || root.lang || 'es';
-  applyLanguage(localStorage.getItem(LANG_KEY) || defaultLang);
+  const hasInlineLanguage = !!document.querySelector('[data-lang]') || !!document.querySelector('[data-lang-toggle]');
+  applyLanguage(hasInlineLanguage ? (localStorage.getItem(LANG_KEY) || defaultLang) : defaultLang, hasInlineLanguage);
 
   document.addEventListener('click', e => {
     const themeBtn = e.target.closest('[data-theme-toggle]');
