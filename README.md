@@ -12,20 +12,17 @@ El sitio funciona como un blog personal y profesional. Reúne mi historia, traye
 - **Sistemas Eléctricos y Automatización**
 - **Perfil Profesional Integral**
 
-La interfaz permite alternar español/inglés y modo claro/oscuro. Los currículos mantienen una estructura común y utilizan una identidad cromática propia para cada área.
+La interfaz permite alternar español/inglés en las páginas generales y modo claro/oscuro. Los currículos mantienen una estructura común y utilizan una identidad cromática propia para cada área.
 
 ## Tecnologías
 
 - HTML5
 - CSS3
-- JavaScript ES Modules
-- React 18
-- Framer Motion
-- HTM
+- JavaScript moderno sin framework
 - Font Awesome
 - GitHub Pages
 
-React, Framer Motion y HTM se cargan como módulos ESM desde CDN, por lo que el sitio conserva el despliegue estático de GitHub Pages sin requerir un proceso de compilación.
+El sitio se mantiene completamente estático. No utiliza React ni PHP y no requiere un proceso de compilación.
 
 ## Arquitectura
 
@@ -45,13 +42,13 @@ React, Framer Motion y HTM se cargan como módulos ESM desde CDN, por lo que el 
 │       └── comprehensive/
 └── assets/
     ├── css/
-    │   └── app.css
+    │   ├── site.css
+    │   └── cv.css
     └── js/
-        ├── app.js
-        └── content.js
+        └── site.js
 ```
 
-`content.js` centraliza el contenido bilingüe y los datos de los perfiles. `app.js` contiene los componentes React, el enrutamiento por URL, el cambio de idioma/tema y las animaciones. `app.css` contiene el sistema visual completo.
+`site.css` contiene la identidad visual general del blog, selector de currículos, página 404, header y footer. `cv.css` contiene únicamente la estructura especializada de los currículos. `site.js` gestiona tema, idioma, navegación móvil, progreso de lectura y animaciones ligeras al hacer scroll.
 
 ## Licencia
 
