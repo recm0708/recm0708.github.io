@@ -3,9 +3,12 @@
 
   /* ==========================================================
      CONTROLES GLOBALES DEL SITIO
-     Normaliza el aspecto de idioma y tema en las subpáginas para que
-     coincidan con la portada. No modifica la identidad visual propia
-     de cada CV: únicamente unifica estos controles de navegación.
+     Unifica idioma y tema en las subpáginas sin modificar la
+     identidad visual de cada sección.
+
+     IMPORTANTE:
+     El elemento <html> usa data-theme para almacenar el tema activo.
+     Por eso esta capa solo puede seleccionar BOTONES con ese atributo.
      ========================================================== */
 
   const raiz = document.documentElement;
@@ -15,8 +18,12 @@
     return raiz.lang?.toLowerCase().startsWith('en') ? 'en' : 'es';
   }
 
+  function obtenerBotonTema() {
+    return document.querySelector('button[data-theme-toggle], button[data-theme]');
+  }
+
   function normalizarTema() {
-    const boton = document.querySelector('[data-theme-toggle], [data-theme]');
+    const boton = obtenerBotonTema();
     if (!boton) return;
 
     boton.classList.add('site-theme-control');
@@ -43,7 +50,6 @@
     if (!contenedor) return;
 
     contenedor.classList.add('site-control-group');
-
     const enlaces = Array.from(contenedor.querySelectorAll('a.cv-lang, a.net-lang, a.g-lang'));
     if (enlaces.length < 2) return;
 
@@ -59,7 +65,7 @@
     enlaceUnico.setAttribute('aria-label', idioma === 'en' ? 'Cambiar a español' : 'Cambiar a inglés');
 
     enlaces.forEach((enlace) => enlace.remove());
-    const botonTema = contenedor.querySelector('[data-theme-toggle]');
+    const botonTema = contenedor.querySelector('button[data-theme-toggle]');
     contenedor.insertBefore(enlaceUnico, botonTema || contenedor.firstChild);
   }
 
@@ -68,11 +74,8 @@
     if (!contenedor) return;
 
     contenedor.classList.add('site-control-group');
-    const idiomaBtn = contenedor.querySelector('[data-lang]');
-    const temaBtn = contenedor.querySelector('[data-theme]');
-
-    idiomaBtn?.classList.add('site-language-control');
-    temaBtn?.classList.add('site-theme-control');
+    contenedor.querySelector('button[data-lang]')?.classList.add('site-language-control');
+    contenedor.querySelector('button[data-theme]')?.classList.add('site-theme-control');
   }
 
   function instalarControles404() {
@@ -90,6 +93,7 @@
     const temaBtn = document.createElement('button');
     temaBtn.type = 'button';
     temaBtn.className = 'site-theme-control';
+    temaBtn.dataset.themeToggle = '';
     temaBtn.innerHTML = iconoTema;
 
     const textos = {
@@ -114,13 +118,17 @@
 
     function aplicarIdioma404() {
       const dic = textos[estadoIdioma];
-      document.querySelector('.content h2').textContent = dic.h2;
-      document.querySelector('.content > p:not(.code)').textContent = dic.p;
+      const titulo = document.querySelector('.content h2');
+      const parrafo = document.querySelector('.content > p:not(.code)');
       const enlaces = document.querySelectorAll('.links a');
+      const copyright = document.querySelector('.copyright');
+
+      if (titulo) titulo.textContent = dic.h2;
+      if (parrafo) parrafo.textContent = dic.p;
       if (enlaces[0]) enlaces[0].textContent = dic.inicio;
       if (enlaces[1]) enlaces[1].textContent = dic.cv;
-      const copyright = document.querySelector('.copyright');
       if (copyright) copyright.innerHTML = `© <span id="copyright-year">${new Date().getFullYear()}</span> Rubén Enrique Cañizares Miranda · ${dic.derechos}`;
+
       raiz.lang = estadoIdioma;
       idiomaBtn.textContent = estadoIdioma === 'en' ? 'EN / ES' : 'ES / EN';
       idiomaBtn.setAttribute('aria-label', estadoIdioma === 'en' ? 'Cambiar a español' : 'Cambiar a inglés');
@@ -150,9 +158,7 @@
   normalizarTema();
   instalarControles404();
 
-  new MutationObserver(() => {
-    normalizarTema();
-  }).observe(raiz, {
+  new MutationObserver(normalizarTema).observe(raiz, {
     attributes: true,
     attributeFilter: ['data-theme', 'lang']
   });
