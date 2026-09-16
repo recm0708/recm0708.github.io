@@ -4,8 +4,7 @@
   /* ==========================================================
      CARGADOR DE LA CAPA PERSONAL
      Mantiene el contenido biográfico separado de los ajustes globales
-     de la portada. Los scripts se cargan de forma secuencial para que
-     las redes sociales existan antes de ser ordenadas y normalizadas.
+     de la portada. Los scripts se cargan de forma secuencial.
      ========================================================== */
 
   function cargarScript(src) {
@@ -21,5 +20,7 @@
 
   cargarScript('/assets/js/personal-contenido.js?v=20260916-1')
     .then(() => cargarScript('/assets/js/ajustes-portada.js?v=20260916-3'))
+    .then(() => cargarScript('/assets/js/site-shell.js?v=20260916-1'))
+    .then(() => window.SiteShell?.normalizarPortada())
     .catch((error) => console.error('No se pudo cargar la capa personal de la portada.', error));
 })();
