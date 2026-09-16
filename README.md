@@ -10,7 +10,7 @@ El portal reúne mi perfil profesional y personal, proyectos, trayectoria, forma
 
 - **Redes Informáticas e Infraestructura**
 - **Sistemas Eléctricos y Automatización**
-- **Perfil General Multidisciplinario**
+- **Perfil Profesional Integral**
 
 El sitio dispone de contenido en español e inglés, tema claro/oscuro global y secciones destinadas a proyectos, credenciales y certificaciones verificables.
 
@@ -28,16 +28,20 @@ El sitio dispone de contenido en español e inglés, tema claro/oscuro global y 
 /
 ├── index.html
 ├── cv/
+│   ├── es/
+│   │   └── redes/
+│   └── en/
+│       └── networks/
 ├── es/
 │   ├── electrica/
-│   ├── redes/
 │   └── general/
 ├── en/
 │   ├── electrical/
-│   ├── networks/
 │   └── general/
 └── assets/
 ```
+
+Las rutas de Eléctrica y del Perfil Profesional Integral se trasladarán bajo `/cv/es/` y `/cv/en/` cuando finalice su rediseño, evitando mantener páginas duplicadas durante la transición.
 
 ## Licencia
 
