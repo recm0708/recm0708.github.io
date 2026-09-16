@@ -6,7 +6,7 @@
      - Sincroniza el tema seleccionado con el resto del sitio.
      - Ordena los perfiles sociales por categoría.
      - Evita duplicar LinkedIn y GitHub, ya mostrados en Contacto.
-     - Normaliza enlaces especiales de YouTube, Telegram, Credly y Udemy.
+     - Normaliza enlaces públicos confirmados.
      - Mantiene bilingües los encabezados de las categorías sociales.
      ========================================================== */
 
@@ -27,7 +27,7 @@
     const normalizado = tema === 'light' ? 'light' : 'dark';
     raiz.dataset.theme = normalizado;
 
-    const boton = document.querySelector('[data-theme-toggle]');
+    const boton = document.querySelector('button[data-theme-toggle]');
     if (boton) {
       boton.setAttribute('aria-label', normalizado === 'dark' ? 'Cambiar a tema claro' : 'Cambiar a tema oscuro');
       boton.title = normalizado === 'dark' ? 'Tema claro' : 'Tema oscuro';
@@ -77,6 +77,11 @@
       nombres: ['Spotify', 'Steam', 'YouTube']
     },
     {
+      clave: 'tecnico',
+      titulo: { es: 'Profesional y técnico', en: 'Professional & technical' },
+      nombres: ['Docker Hub', 'Gravatar', 'Microsoft Learn', 'WordPress']
+    },
+    {
       clave: 'formacion',
       titulo: { es: 'Formación y credenciales', en: 'Learning & credentials' },
       nombres: ['Credly', 'Udemy']
@@ -87,6 +92,41 @@
       nombres: ['Telegram']
     }
   ];
+
+  const iconosExtra = {
+    'Docker Hub': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 13h15c0 4-3 7-8 7-4 0-7-2-8-5"/><path d="M6 10h3v3H6zM10 10h3v3h-3zM14 10h3v3h-3zM10 6h3v3h-3z"/></svg>',
+    'Microsoft Learn': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M3 5.5 10 4v7H3V5.5ZM11 3.8 21 2v9h-10V3.8ZM3 12h7v7L3 17.8V12ZM11 12h10v9l-10-1.8V12Z"/></svg>',
+    'Gravatar': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="9" r="3"/><path d="M6.8 18c1.3-2.5 3-3.7 5.2-3.7s3.9 1.2 5.2 3.7"/></svg>'
+  };
+
+  const perfilesConfirmados = [
+    ['Docker Hub', 'https://hub.docker.com/u/recm0708'],
+    ['Microsoft Learn', 'https://learn.microsoft.com/es-es/users/recm0708/'],
+    ['Gravatar', 'https://gravatar.com/recm0708']
+  ];
+
+  function crearTarjetaPerfil(nombre, url) {
+    const enlace = document.createElement('a');
+    enlace.className = 'social-card';
+    enlace.href = url;
+    enlace.target = '_blank';
+    enlace.rel = 'noopener noreferrer';
+    enlace.dataset.socialProfile = nombre.toLowerCase().replace(/\s+/g, '-');
+    enlace.innerHTML = `${iconosExtra[nombre] || ''}<span><strong>${nombre}</strong></span>`;
+    return enlace;
+  }
+
+  function asegurarPerfilesConfirmados(grid) {
+    perfilesConfirmados.forEach(([nombre, url]) => {
+      const existente = Array.from(grid.querySelectorAll('a.social-card'))
+        .find((tarjeta) => tarjeta.querySelector('strong')?.textContent?.trim() === nombre);
+      if (existente) {
+        existente.href = url;
+        return;
+      }
+      grid.appendChild(crearTarjetaPerfil(nombre, url));
+    });
+  }
 
   function actualizarIdiomaSocial() {
     const idioma = idiomaActual();
@@ -113,6 +153,7 @@
     }
 
     instalarEstilosSociales();
+    asegurarPerfilesConfirmados(grid);
 
     const tarjetas = Array.from(grid.querySelectorAll('a.social-card'));
     const porNombre = new Map();
