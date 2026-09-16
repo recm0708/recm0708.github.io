@@ -14,6 +14,23 @@
   const year = document.querySelector('[data-year]');
   const THEME_KEY = 'portfolio-theme';
 
+  /* Carga la capa visual común de idioma y tema usada por todo el sitio. */
+  function cargarControlesSitio() {
+    if (!document.querySelector('link[href="/assets/css/controles-sitio.css"]')) {
+      const css = document.createElement('link');
+      css.rel = 'stylesheet';
+      css.href = '/assets/css/controles-sitio.css?v=20260916-1';
+      document.head.appendChild(css);
+    }
+
+    if (!document.querySelector('script[src^="/assets/js/controles-sitio.js"]')) {
+      const script = document.createElement('script');
+      script.src = '/assets/js/controles-sitio.js?v=20260916-1';
+      script.defer = true;
+      document.head.appendChild(script);
+    }
+  }
+
   const savedTheme = localStorage.getItem(THEME_KEY);
   const prefersLight = window.matchMedia?.('(prefers-color-scheme: light)').matches;
   let theme = savedTheme === 'light' || savedTheme === 'dark'
@@ -40,7 +57,6 @@
     if (guardar) localStorage.setItem(THEME_KEY, theme);
 
     if (themeButton) {
-      themeButton.textContent = theme === 'dark' ? '◐' : '◑';
       themeButton.setAttribute('aria-label', theme === 'dark' ? 'Cambiar a tema claro' : 'Cambiar a tema oscuro');
       themeButton.title = theme === 'dark' ? 'Tema claro' : 'Tema oscuro';
     }
@@ -125,13 +141,13 @@
     destino.dataset.siteCopyright = '';
     destino.textContent = `© ${new Date().getFullYear()} Rubén Enrique Cañizares Miranda · ${english ? 'All rights reserved.' : 'Todos los derechos reservados.'}`;
 
-    /* Limpia bloques heredados de versiones anteriores si existieran en caché del DOM. */
     document.querySelectorAll('.site-copyright').forEach((elemento) => elemento.remove());
   }
 
   themeButton?.addEventListener('click', () => { applyTheme(theme === 'dark' ? 'light' : 'dark'); });
   printButton?.addEventListener('click', () => window.print());
 
+  cargarControlesSitio();
   instalarPaletaClara();
   instalarNavegacionInterna();
   instalarVolverArriba();
