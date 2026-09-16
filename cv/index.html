@@ -5,50 +5,56 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="Selector de currículos profesionales de Rubén Enrique Cañizares Miranda.">
   <meta name="author" content="Rubén Enrique Cañizares Miranda">
-  <meta name="theme-color" content="#0f1214">
+  <meta name="theme-color" content="#171918">
   <link rel="canonical" href="https://recm0708.github.io/cv/">
-  <link rel="stylesheet" href="/assets/css/site.css?v=1">
-  <script defer src="/assets/js/site.js?v=1"></script>
+  <script src="/assets/js/theme.js?v=2"></script>
+  <link rel="stylesheet" href="/assets/css/base.css?v=2">
+  <link rel="stylesheet" href="/assets/css/components.css?v=2">
+  <link rel="stylesheet" href="/assets/css/home.css?v=2">
+  <script defer src="/assets/js/site-v2.js?v=2"></script>
   <title>Currículum Vitae | Rubén Cañizares</title>
 </head>
-<body id="top" data-bilingual="true" data-title-es="Currículum Vitae | Rubén Cañizares" data-title-en="Curriculum Vitae | Rubén Cañizares">
+<body id="top" data-bilingual data-title-es="Currículum Vitae | Rubén Cañizares" data-title-en="Curriculum Vitae | Rubén Cañizares">
+  <a class="skip-link" href="#main" data-lang-es="Saltar al contenido principal" data-lang-en="Skip to main content">Saltar al contenido principal</a>
+
   <header class="site-header">
     <div class="container header-inner">
-      <a class="brand" href="/" aria-label="Inicio"><span>rubén<span class="slash">/</span>cañizares</span><small>recm0708</small></a>
+      <a class="brand" href="/" aria-label="Inicio"><strong>rubén<span class="slash">/</span>cañizares</strong><small>recm0708</small></a>
       <div></div>
       <div class="header-actions">
-        <button class="ui-btn lang-btn" type="button" data-lang-toggle>ES / EN</button>
-        <button class="ui-btn theme-btn" type="button" data-theme-toggle aria-label="Cambiar tema"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3a9 9 0 1 0 9 9c0-.5-.04-1-.12-1.48A7 7 0 0 1 12 3Z"/></svg></button>
+        <button class="text-btn" type="button" data-lang-toggle>ES / EN</button>
+        <button class="icon-btn" type="button" data-theme-toggle aria-label="Cambiar tema"></button>
       </div>
     </div>
   </header>
 
-  <main class="hub-main">
-    <div class="vector-field" aria-hidden="true"><svg viewBox="0 0 700 480" fill="none" stroke="currentColor"><circle cx="470" cy="220" r="170"/><circle cx="470" cy="220" r="108" stroke-dasharray="5 11"/><path d="M110 390 300 210l170 10 130-105"/><circle cx="110" cy="390" r="6"/><circle cx="300" cy="210" r="6"/><circle cx="470" cy="220" r="6"/><circle cx="600" cy="115" r="6"/></svg></div>
-    <section class="container hub-wrap" aria-labelledby="hub-title">
-      <p class="eyebrow" data-lang-es="CURRÍCULUM VITAE" data-lang-en="CURRICULUM VITAE">CURRÍCULUM VITAE</p>
-      <h1 class="hub-title" id="hub-title" data-lang-es="Elige el perfil que deseas consultar" data-lang-en="Choose the profile you want to review">Elige el perfil que deseas consultar</h1>
-      <div class="hub-grid">
-        <a class="hub-card electrical" data-href-es="/cv/es/electrica/" data-href-en="/cv/en/electrical/" href="/cv/es/electrica/">
-          <span class="no">01</span>
-          <svg viewBox="0 0 180 180" fill="none" stroke="currentColor"><circle cx="90" cy="90" r="56"/><path d="M30 105h38l13-25 21 49 17-35h31"/><path d="m97 42-24 47h21l-8 49 28-57H93l4-39Z"/></svg>
-          <small data-lang-es="ENERGÍA · CONTROL" data-lang-en="ENERGY · CONTROL">ENERGÍA · CONTROL</small>
-          <h2 data-lang-es="Sistemas Eléctricos y Automatización" data-lang-en="Electrical Systems & Automation">Sistemas Eléctricos y Automatización</h2>
-          <span class="arrow">↗</span>
+  <main id="main" class="cv-hub">
+    <section class="container">
+      <div class="cv-hub-head reveal">
+        <div>
+          <p class="eyebrow" data-lang-es="CURRÍCULUM VITAE" data-lang-en="CURRICULUM VITAE">CURRÍCULUM VITAE</p>
+          <h1 class="editorial-title" data-lang-es="Elige el perfil que deseas consultar" data-lang-en="Choose the profile you want to review">Elige el perfil que deseas consultar</h1>
+        </div>
+        <p data-lang-es="Cada versión presenta la misma trayectoria desde una perspectiva profesional distinta. Selecciona el área más cercana a la oportunidad que deseas evaluar." data-lang-en="Each version presents the same career from a different professional perspective. Choose the area closest to the opportunity you want to evaluate.">Cada versión presenta la misma trayectoria desde una perspectiva profesional distinta. Selecciona el área más cercana a la oportunidad que deseas evaluar.</p>
+      </div>
+
+      <div class="cv-selector">
+        <a class="cv-choice electrical reveal" data-href-es="/cv/es/electrica/" data-href-en="/cv/en/electrical/" href="/cv/es/electrica/">
+          <span class="choice-number">01 · <span data-lang-es="ENERGÍA Y CONTROL" data-lang-en="ENERGY & CONTROL">ENERGÍA Y CONTROL</span></span>
+          <img class="choice-art" src="/assets/svg/electrical.svg" alt="" aria-hidden="true">
+          <div><h2 data-lang-es="Sistemas Eléctricos y Automatización" data-lang-en="Electrical Systems & Automation">Sistemas Eléctricos y Automatización</h2><p data-lang-es="Instalaciones, mantenimiento, baja tensión, planos, diagnóstico y automatización." data-lang-en="Installations, maintenance, low voltage, drawings, diagnostics and automation.">Instalaciones, mantenimiento, baja tensión, planos, diagnóstico y automatización.</p></div>
         </a>
-        <a class="hub-card network" data-href-es="/cv/es/redes/" data-href-en="/cv/en/networks/" href="/cv/es/redes/">
-          <span class="no">02</span>
-          <svg viewBox="0 0 180 180" fill="none" stroke="currentColor"><path d="M90 32 48 69m42-37 42 37M48 69l-17 50m17-50 42 43m42-43-42 43m42-43 17 50M90 112v35"/><circle cx="90" cy="32" r="8"/><circle cx="48" cy="69" r="7"/><circle cx="132" cy="69" r="7"/><circle cx="31" cy="119" r="7"/><circle cx="90" cy="112" r="8"/><circle cx="149" cy="119" r="7"/><circle cx="90" cy="147" r="6"/></svg>
-          <small>NETWORKING · INFRASTRUCTURE</small>
-          <h2 data-lang-es="Redes Informáticas" data-lang-en="Computer Networks">Redes Informáticas</h2>
-          <span class="arrow">↗</span>
+
+        <a class="cv-choice network reveal" data-href-es="/cv/es/redes/" data-href-en="/cv/en/networks/" href="/cv/es/redes/">
+          <span class="choice-number">02 · NETWORKING</span>
+          <img class="choice-art" src="/assets/svg/networks.svg" alt="" aria-hidden="true">
+          <div><h2 data-lang-es="Redes Informáticas" data-lang-en="Computer Networks">Redes Informáticas</h2><p data-lang-es="Soporte técnico, infraestructura, administración de redes, sistemas y virtualización." data-lang-en="Technical support, infrastructure, network administration, systems and virtualization.">Soporte técnico, infraestructura, administración de redes, sistemas y virtualización.</p></div>
         </a>
-        <a class="hub-card integral" data-href-es="/cv/es/integral/" data-href-en="/cv/en/comprehensive/" href="/cv/es/integral/">
-          <span class="no">03</span>
-          <svg viewBox="0 0 180 180" fill="none" stroke="currentColor"><circle cx="68" cy="72" r="31"/><circle cx="112" cy="72" r="31"/><circle cx="90" cy="111" r="31"/><rect x="75" y="77" width="30" height="30" rx="3"/><path d="M84 87h12M84 94h12M84 101h8"/></svg>
-          <small data-lang-es="PERFIL · TRANSVERSAL" data-lang-en="CROSS-FUNCTIONAL · PROFILE">PERFIL · TRANSVERSAL</small>
-          <h2 data-lang-es="Perfil Profesional Integral" data-lang-en="Comprehensive Professional Profile">Perfil Profesional Integral</h2>
-          <span class="arrow">↗</span>
+
+        <a class="cv-choice integral reveal" data-href-es="/cv/es/integral/" data-href-en="/cv/en/comprehensive/" href="/cv/es/integral/">
+          <span class="choice-number">03 · <span data-lang-es="PERFIL TRANSVERSAL" data-lang-en="CROSS-FUNCTIONAL PROFILE">PERFIL TRANSVERSAL</span></span>
+          <img class="choice-art" src="/assets/svg/integral.svg" alt="" aria-hidden="true">
+          <div><h2 data-lang-es="Perfil Profesional Integral" data-lang-en="Comprehensive Professional Profile">Perfil Profesional Integral</h2><p data-lang-es="Tecnología, electricidad, soporte, productividad, documentación y gestión reunidos en un solo perfil." data-lang-en="Technology, electrical systems, support, productivity, documentation and management in one profile.">Tecnología, electricidad, soporte, productividad, documentación y gestión reunidos en un solo perfil.</p></div>
         </a>
       </div>
     </section>
