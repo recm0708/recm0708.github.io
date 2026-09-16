@@ -42,9 +42,9 @@ body.cv-hub-page{
   --hub-ink:#f3efe6;
   --hub-muted:#a9a092;
   --hub-line:rgba(226,211,181,.15);
-  --hub-green:#ff9860;   /* Integral tropical */
-  --hub-yellow:#55c9ff;  /* Eléctrica azul/celeste */
-  --hub-blue:#68df8f;    /* Redes verde */
+  --hub-green:#ff9860;
+  --hub-yellow:#55c9ff;
+  --hub-blue:#68df8f;
   --bg:var(--hub-bg);
   --bg-alt:var(--hub-surface);
   --ink:var(--hub-ink);
@@ -182,4 +182,17 @@ html[data-theme="light"] body.cv-general{
   --line:rgba(144,82,43,.18);
   --signal:#c65f28;
   --signal-2:#b64f46;
+}
+
+/* El pie siempre usa exactamente el mismo ancho visual, incluso cuando
+   una hoja histórica tenga su propia regla .container. */
+body > .site-footer > .container,
+body > .shell-footer > .container{
+  width:min(calc(100% - 44px),1160px)!important;
+  max-width:1160px!important;
+  margin-inline:auto!important;
+}
+@media(max-width:620px){
+  body > .site-footer > .container,
+  body > .shell-footer > .container{width:min(calc(100% - 28px),1160px)!important}
 }
