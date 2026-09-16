@@ -1,0 +1,47 @@
+/* ==========================================================
+   PALETAS POR PERFIL PROFESIONAL
+   ----------------------------------------------------------
+   Solo cambian variables cromáticas. La estructura de los CV
+   permanece idéntica para conservar coherencia y simetría.
+   ========================================================== */
+
+body[data-cv="redes"] {
+  --cv-accent: #4f745d;
+  --cv-soft: #dfe8e1;
+}
+html[data-theme="dark"] body[data-cv="redes"] {
+  --cv-accent: #8eae97;
+  --cv-soft: #243229;
+}
+
+body[data-cv="electrica"] {
+  --cv-accent: #587b9a;
+  --cv-soft: #dfe8f0;
+}
+html[data-theme="dark"] body[data-cv="electrica"] {
+  --cv-accent: #91aec7;
+  --cv-soft: #24313c;
+}
+
+body[data-cv="integral"] {
+  --cv-accent: #a56c50;
+  --cv-soft: #efe1d7;
+}
+html[data-theme="dark"] body[data-cv="integral"] {
+  --cv-accent: #d39b79;
+  --cv-soft: #352821;
+}
+
+body[data-cv] .brand .slash,
+body[data-cv] .site-nav a[aria-current="page"] { color: var(--cv-accent); }
+body[data-cv] .icon-btn:hover,
+body[data-cv] .text-btn:hover { border-color: color-mix(in srgb, var(--cv-accent) 46%, var(--line)); }
+body[data-cv] ::selection { background: var(--cv-accent); color: var(--bg); }
+body[data-cv] {
+  scrollbar-color: var(--cv-accent) var(--bg);
+}
+body[data-cv]::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--cv-accent) 70%, var(--surface));
+}
+
+/* La portada, selector y 404 usan la paleta neutral definida en base.css. */
