@@ -20,6 +20,6 @@
   }
 
   cargarScript('/assets/js/personal-contenido.js?v=20260916-1')
-    .then(() => cargarScript('/assets/js/ajustes-portada.js?v=20260916-1'))
+    .then(() => cargarScript('/assets/js/ajustes-portada.js?v=20260916-2'))
     .catch((error) => console.error('No se pudo cargar la capa personal de la portada.', error));
 })();
