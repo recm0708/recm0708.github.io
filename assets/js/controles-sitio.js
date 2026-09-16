@@ -9,7 +9,7 @@
      ========================================================== */
 
   const raiz = document.documentElement;
-  const iconoTema = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 3a9 9 0 1 0 9 9c0-.5-.04-1-.12-1.48A7 7 0 0 1 12 3Z"/></svg>';
+  const iconoTema = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" width="18" height="18" style="width:18px;height:18px;display:block;max-width:18px;max-height:18px;flex:0 0 18px" aria-hidden="true"><path d="M12 3a9 9 0 1 0 9 9c0-.5-.04-1-.12-1.48A7 7 0 0 1 12 3Z"/></svg>';
 
   function idiomaActual() {
     return raiz.lang?.toLowerCase().startsWith('en') ? 'en' : 'es';
@@ -20,6 +20,12 @@
     if (!boton) return;
 
     boton.classList.add('site-theme-control');
+    boton.style.width = '40px';
+    boton.style.minWidth = '40px';
+    boton.style.maxWidth = '40px';
+    boton.style.height = '39px';
+    boton.style.minHeight = '39px';
+    boton.style.overflow = 'hidden';
     boton.innerHTML = iconoTema;
 
     const idioma = idiomaActual();
