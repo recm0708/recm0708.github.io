@@ -1,0 +1,87 @@
+/* ==========================================================
+   CASCARÓN GLOBAL DEL PORTAFOLIO
+   Mantiene simetría entre portada, centro de CV y currículos:
+   ancho, cabecera, navegación, controles, pie y barra de desplazamiento.
+   Cada área conserva su propia paleta mediante variables CSS.
+   ========================================================== */
+
+:root{
+  --shell-max:1240px;
+  --shell-bg:var(--bg,var(--cv-bg,#06100f));
+  --shell-bg-soft:var(--bg-alt,var(--cv-bg-soft,#0a1715));
+  --shell-ink:var(--ink,var(--text,var(--cv-ink,#eef7f6)));
+  --shell-muted:var(--muted,var(--text-soft,var(--cv-muted,#91aaa8)));
+  --shell-line:var(--line,var(--cv-line,rgba(180,255,239,.14)));
+  --shell-line-strong:var(--line-strong,var(--cv-line-strong,rgba(180,255,239,.28)));
+  --shell-accent:var(--signal,var(--cv-accent,var(--accent,#72f5cf)));
+}
+
+/* Ajustes por especialidad. */
+body.network-cv{--shell-bg:var(--cv-bg);--shell-bg-soft:var(--cv-bg-soft);--shell-ink:var(--cv-ink);--shell-muted:var(--cv-muted);--shell-line:var(--cv-line);--shell-line-strong:var(--cv-line-strong);--shell-accent:var(--cv-accent)}
+body.cv-electrical{--shell-bg:var(--bg);--shell-bg-soft:var(--bg-soft);--shell-ink:var(--text);--shell-muted:var(--text-soft);--shell-line:var(--line);--shell-accent:var(--cv-accent,#f4bd4f)}
+body.general-cv,body.cv-general{--shell-bg:var(--g-paper,var(--bg,#171b19));--shell-bg-soft:var(--g-card,var(--bg-soft,#202522));--shell-ink:var(--g-ink,var(--ink,#f2eee6));--shell-muted:var(--g-muted,var(--muted,#9d9a91));--shell-line:var(--g-line,var(--line,rgba(255,255,255,.14)));--shell-accent:var(--g-accent,var(--signal,#6de6c0))}
+
+/* Barra de desplazamiento coherente con el sitio. */
+html{scrollbar-width:thin;scrollbar-color:var(--shell-accent) var(--shell-bg-soft)}
+*::-webkit-scrollbar{width:12px;height:12px}
+*::-webkit-scrollbar-track{background:var(--shell-bg-soft)}
+*::-webkit-scrollbar-thumb{background:color-mix(in srgb,var(--shell-accent) 58%,var(--shell-bg-soft));border:3px solid var(--shell-bg-soft);border-radius:999px}
+*::-webkit-scrollbar-thumb:hover{background:color-mix(in srgb,var(--shell-accent) 78%,var(--shell-bg-soft))}
+
+/* Ancho global. */
+.site-header .container,
+.site-footer .container,
+.shell-header .container,
+.shell-footer .container{width:min(calc(100% - 44px),var(--shell-max));margin-inline:auto}
+
+/* Cabecera canónica. */
+.site-header,.shell-header{position:sticky;top:0;z-index:1400;border-bottom:1px solid var(--shell-line);background:color-mix(in srgb,var(--shell-bg) 91%,transparent);backdrop-filter:blur(18px)}
+.site-header .nav-shell,.shell-header .nav-shell{min-height:78px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:36px}
+.site-header .wordmark,.shell-header .wordmark{display:inline-flex;align-items:baseline;gap:9px;text-decoration:none;white-space:nowrap;font-weight:850;font-size:1rem;letter-spacing:-.03em;color:var(--shell-ink)}
+.site-header .wordmark .slash,.shell-header .wordmark .slash{color:var(--shell-accent)}
+.site-header .wordmark small,.shell-header .wordmark small{color:var(--shell-muted);font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.68rem;letter-spacing:.03em}
+.site-header .desktop-nav,.shell-header .desktop-nav{justify-self:end;display:flex;align-items:center;gap:26px}
+.site-header .desktop-nav a,.shell-header .desktop-nav a,.site-header .mobile-nav a,.shell-header .mobile-nav a{color:var(--shell-muted);text-decoration:none;font-size:.83rem;font-weight:750;transition:color .18s ease}
+.site-header .desktop-nav a:hover,.shell-header .desktop-nav a:hover,.site-header .desktop-nav a:focus-visible,.shell-header .desktop-nav a:focus-visible{color:var(--shell-ink)}
+.site-header .desktop-nav .nav-cv,.shell-header .desktop-nav .nav-cv{color:var(--shell-accent)}
+.site-header .header-actions,.shell-header .header-actions{display:flex;gap:8px;align-items:center;justify-self:end}
+.site-header .control,.shell-header .control{min-height:39px;border:1px solid var(--shell-line);background:transparent;color:var(--shell-ink);cursor:pointer;padding:0 11px;text-decoration:none;display:inline-flex;align-items:center;justify-content:center}
+.site-header .lang-control,.shell-header .lang-control{font:800 .72rem/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.08em;white-space:nowrap}
+.site-header .theme-control,.shell-header .theme-control{width:40px;min-width:40px;padding:0;display:grid;place-items:center}
+.site-header .theme-control svg,.shell-header .theme-control svg{width:18px;height:18px}
+.site-header .menu-control,.shell-header .menu-control{display:none;width:40px;padding:0;place-items:center}
+.site-header .menu-control svg,.shell-header .menu-control svg{width:20px;height:20px}
+.site-header .mobile-nav,.shell-header .mobile-nav{width:min(calc(100% - 32px),var(--shell-max));margin:0 auto 12px;border:1px solid var(--shell-line);background:var(--shell-bg-soft)}
+.site-header .mobile-nav a,.shell-header .mobile-nav a{display:block;padding:13px 16px;border-bottom:1px solid var(--shell-line)}
+.site-header .mobile-nav a:last-child,.shell-header .mobile-nav a:last-child{border-bottom:0;color:var(--shell-accent)}
+
+/* Pie canónico. */
+.site-footer,.shell-footer{border-top:1px solid var(--shell-line);background:color-mix(in srgb,var(--shell-bg-soft) 92%,transparent)}
+.site-footer .footer-layout,.shell-footer .footer-layout{min-height:92px;display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,1fr) auto;gap:32px;align-items:center;color:var(--shell-muted);font-size:.72rem}
+.site-footer .footer-layout strong,.shell-footer .footer-layout strong{color:var(--shell-ink);font-weight:700}
+.site-footer .footer-layout a,.shell-footer .footer-layout a{color:var(--shell-accent);text-decoration:none;white-space:nowrap;font-weight:760}
+.site-footer .footer-layout a:hover,.shell-footer .footer-layout a:hover{text-decoration:underline;text-underline-offset:4px}
+
+/* Un único retorno al inicio: el enlace del pie. */
+.site-back-top,[data-site-back-top],[data-back-top]{display:none!important}
+
+@media(max-width:980px){
+  .site-header .nav-shell,.shell-header .nav-shell{grid-template-columns:auto 1fr;gap:18px}
+  .site-header .desktop-nav,.shell-header .desktop-nav{display:none}
+  .site-header .menu-control,.shell-header .menu-control{display:grid}
+  .site-footer .footer-layout,.shell-footer .footer-layout{grid-template-columns:1fr auto}
+  .site-footer .footer-layout>div:nth-child(2),.shell-footer .footer-layout>div:nth-child(2){grid-column:1/-1;grid-row:2}
+}
+
+@media(max-width:620px){
+  .site-header .container,.site-footer .container,.shell-header .container,.shell-footer .container{width:min(calc(100% - 28px),var(--shell-max))}
+  .site-header .nav-shell,.shell-header .nav-shell{min-height:68px;gap:10px}
+  .site-header .wordmark,.shell-header .wordmark{font-size:.93rem}
+  .site-header .wordmark small,.shell-header .wordmark small{display:none}
+  .site-footer .footer-layout,.shell-footer .footer-layout{grid-template-columns:1fr;gap:12px;padding:22px 0;min-height:0}
+  .site-footer .footer-layout>div:nth-child(2),.shell-footer .footer-layout>div:nth-child(2){grid-column:auto;grid-row:auto}
+}
+
+@media print{
+  .site-header,.shell-header,.site-footer,.shell-footer{display:none!important}
+}
