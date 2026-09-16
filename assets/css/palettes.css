@@ -1,198 +1,49 @@
 /* ==========================================================
    PALETAS DEL PORTAFOLIO
    Separa visualmente portal, selector de CV, 404 y cada especialidad.
-   Las variables se aplican sobre el body para no mezclar identidades.
+   Las variables se aplican sobre el body y sobre el contexto del html.
    ========================================================== */
 
+/* CONTEXTO GLOBAL: cabecera, pie y barra de desplazamiento. */
+html[data-context="portal"]{--shell-bg:#0d0a12;--shell-bg-soft:#15101c;--shell-ink:#f5eff8;--shell-muted:#aaa0b2;--shell-line:rgba(224,196,244,.15);--shell-line-strong:rgba(224,196,244,.30);--shell-accent:#c995ff;scrollbar-color:#c995ff #15101c}
+html[data-theme="light"][data-context="portal"]{--shell-bg:#eee8f2;--shell-bg-soft:#e3dbe9;--shell-ink:#261d2d;--shell-muted:#6e6177;--shell-line:rgba(74,48,91,.16);--shell-line-strong:rgba(74,48,91,.30);--shell-accent:#7b3fb0;scrollbar-color:#7b3fb0 #e3dbe9}
+html[data-context="hub"]{--shell-bg:#11100e;--shell-bg-soft:#1a1815;--shell-ink:#f3efe6;--shell-muted:#a9a092;--shell-line:rgba(226,211,181,.15);--shell-line-strong:rgba(226,211,181,.30);--shell-accent:#c9a96a;scrollbar-color:#c9a96a #1a1815}
+html[data-theme="light"][data-context="hub"]{--shell-bg:#ece7de;--shell-bg-soft:#f6f1e9;--shell-ink:#29231c;--shell-muted:#6f665a;--shell-line:rgba(79,65,47,.16);--shell-line-strong:rgba(79,65,47,.30);--shell-accent:#8a682b;scrollbar-color:#8a682b #f6f1e9}
+html[data-context="error"]{--shell-bg:#160b0d;--shell-bg-soft:#211114;--shell-ink:#fff0ec;--shell-muted:#c1a29c;--shell-line:rgba(255,151,130,.16);--shell-line-strong:rgba(255,151,130,.32);--shell-accent:#ff735f;scrollbar-color:#ff735f #211114}
+html[data-theme="light"][data-context="error"]{--shell-bg:#f0e3df;--shell-bg-soft:#e6d5d0;--shell-ink:#3b211d;--shell-muted:#765d57;--shell-line:rgba(130,54,42,.16);--shell-line-strong:rgba(130,54,42,.30);--shell-accent:#b74436;scrollbar-color:#b74436 #e6d5d0}
+html[data-context="network"]{--shell-bg:#06110b;--shell-bg-soft:#09180f;--shell-ink:#effbf2;--shell-muted:#95ad9b;--shell-line:rgba(98,226,139,.15);--shell-line-strong:rgba(98,226,139,.31);--shell-accent:#62e28b;scrollbar-color:#62e28b #09180f}
+html[data-theme="light"][data-context="network"]{--shell-bg:#dce9df;--shell-bg-soft:#cfdfd3;--shell-ink:#193022;--shell-muted:#5f7667;--shell-line:rgba(35,116,68,.16);--shell-line-strong:rgba(35,116,68,.30);--shell-accent:#237444;scrollbar-color:#237444 #cfdfd3}
+html[data-context="electrical"]{--shell-bg:#07111e;--shell-bg-soft:#0b1a2a;--shell-ink:#eef8ff;--shell-muted:#96afc2;--shell-line:rgba(85,201,255,.16);--shell-line-strong:rgba(85,201,255,.32);--shell-accent:#55c9ff;scrollbar-color:#55c9ff #0b1a2a}
+html[data-theme="light"][data-context="electrical"]{--shell-bg:#dce9f1;--shell-bg-soft:#ccdde8;--shell-ink:#172b3a;--shell-muted:#5d7484;--shell-line:rgba(32,111,151,.16);--shell-line-strong:rgba(32,111,151,.30);--shell-accent:#147ba8;scrollbar-color:#147ba8 #ccdde8}
+html[data-context="integral"]{--shell-bg:#1a120d;--shell-bg-soft:#241811;--shell-ink:#f7ead9;--shell-muted:#c5a991;--shell-line:rgba(255,168,105,.18);--shell-line-strong:rgba(255,168,105,.32);--shell-accent:#ff9860;scrollbar-color:#ff9860 #241811}
+html[data-theme="light"][data-context="integral"]{--shell-bg:#f2e6d3;--shell-bg-soft:#e8d8c1;--shell-ink:#3d291d;--shell-muted:#796555;--shell-line:rgba(144,82,43,.18);--shell-line-strong:rgba(144,82,43,.30);--shell-accent:#c65f28;scrollbar-color:#c65f28 #e8d8c1}
+
 /* PORTAL PRINCIPAL — grafito, violeta y magenta sobrio. */
-body.portal-home{
-  --bg:#0d0a12;
-  --bg-alt:#15101c;
-  --panel:#1b1423;
-  --ink:#f5eff8;
-  --muted:#aaa0b2;
-  --line:rgba(224,196,244,.15);
-  --line-strong:rgba(224,196,244,.30);
-  --signal:#c995ff;
-  --signal-2:#f18ab8;
-  --signal-dim:rgba(201,149,255,.10);
-  --paper:#eee7f2;
-  --black:#100b15;
-}
-html[data-theme="light"] body.portal-home{
-  --bg:#eee8f2;
-  --bg-alt:#e3dbe9;
-  --panel:#f5f0f7;
-  --ink:#261d2d;
-  --muted:#6e6177;
-  --line:rgba(74,48,91,.16);
-  --line-strong:rgba(74,48,91,.30);
-  --signal:#7b3fb0;
-  --signal-2:#b94f7d;
-  --signal-dim:rgba(123,63,176,.09);
-  --paper:#ddd2e3;
-  --black:#211827;
-}
+body.portal-home{--bg:#0d0a12;--bg-alt:#15101c;--panel:#1b1423;--ink:#f5eff8;--muted:#aaa0b2;--line:rgba(224,196,244,.15);--line-strong:rgba(224,196,244,.30);--signal:#c995ff;--signal-2:#f18ab8;--signal-dim:rgba(201,149,255,.10);--paper:#eee7f2;--black:#100b15}
+body.portal-home::after{box-shadow:0 0 0 12vw rgba(201,149,255,.018),0 0 0 22vw rgba(241,138,184,.014)!important}
+body.portal-home .signal-dot{background:var(--signal)!important;box-shadow:0 0 14px var(--signal)!important}
+html[data-theme="light"] body.portal-home{--bg:#eee8f2;--bg-alt:#e3dbe9;--panel:#f5f0f7;--ink:#261d2d;--muted:#6e6177;--line:rgba(74,48,91,.16);--line-strong:rgba(74,48,91,.30);--signal:#7b3fb0;--signal-2:#b94f7d;--signal-dim:rgba(123,63,176,.09);--paper:#ddd2e3;--black:#211827}
 
-/* SELECTOR DE CV — grafito cálido y bronce. Las tarjetas heredan
-   los colores definitivos de cada especialidad. */
-body.cv-hub-page{
-  --hub-bg:#11100e;
-  --hub-surface:#1a1815;
-  --hub-ink:#f3efe6;
-  --hub-muted:#a9a092;
-  --hub-line:rgba(226,211,181,.15);
-  --hub-green:#ff9860;
-  --hub-yellow:#55c9ff;
-  --hub-blue:#68df8f;
-  --bg:var(--hub-bg);
-  --bg-alt:var(--hub-surface);
-  --ink:var(--hub-ink);
-  --muted:var(--hub-muted);
-  --line:var(--hub-line);
-  --line-strong:rgba(226,211,181,.30);
-  --signal:#c9a96a;
-}
-html[data-theme="light"] body.cv-hub-page{
-  --hub-bg:#ece7de;
-  --hub-surface:#f6f1e9;
-  --hub-ink:#29231c;
-  --hub-muted:#6f665a;
-  --hub-line:rgba(79,65,47,.16);
-  --hub-green:#c65f28;
-  --hub-yellow:#147ba8;
-  --hub-blue:#237444;
-  --bg:var(--hub-bg);
-  --bg-alt:var(--hub-surface);
-  --ink:var(--hub-ink);
-  --muted:var(--hub-muted);
-  --line:var(--hub-line);
-  --line-strong:rgba(79,65,47,.30);
-  --signal:#8a682b;
-}
+/* SELECTOR DE CV — grafito cálido y bronce. Las tarjetas heredan los colores definitivos de cada especialidad. */
+body.cv-hub-page{--hub-bg:#11100e;--hub-surface:#1a1815;--hub-ink:#f3efe6;--hub-muted:#a9a092;--hub-line:rgba(226,211,181,.15);--hub-green:#ff9860;--hub-yellow:#55c9ff;--hub-blue:#68df8f;--bg:var(--hub-bg);--bg-alt:var(--hub-surface);--ink:var(--hub-ink);--muted:var(--hub-muted);--line:var(--hub-line);--line-strong:rgba(226,211,181,.30);--signal:#c9a96a}
+html[data-theme="light"] body.cv-hub-page{--hub-bg:#ece7de;--hub-surface:#f6f1e9;--hub-ink:#29231c;--hub-muted:#6f665a;--hub-line:rgba(79,65,47,.16);--hub-green:#c65f28;--hub-yellow:#147ba8;--hub-blue:#237444;--bg:var(--hub-bg);--bg-alt:var(--hub-surface);--ink:var(--hub-ink);--muted:var(--hub-muted);--line:var(--hub-line);--line-strong:rgba(79,65,47,.30);--signal:#8a682b}
 
-/* 404 — vino oscuro y coral de alerta, sin compartir color con los CV. */
-body.error-page{
-  --bg:#160b0d;
-  --bg-alt:#211114;
-  --ink:#fff0ec;
-  --muted:#c1a29c;
-  --line:rgba(255,151,130,.16);
-  --line-strong:rgba(255,151,130,.32);
-  --signal:#ff735f;
-}
-html[data-theme="light"] body.error-page{
-  --bg:#f0e3df;
-  --bg-alt:#e6d5d0;
-  --ink:#3b211d;
-  --muted:#765d57;
-  --line:rgba(130,54,42,.16);
-  --line-strong:rgba(130,54,42,.30);
-  --signal:#b74436;
-}
+/* 404 — vino oscuro y coral de alerta. */
+body.error-page{--bg:#160b0d;--bg-alt:#211114;--ink:#fff0ec;--muted:#c1a29c;--line:rgba(255,151,130,.16);--line-strong:rgba(255,151,130,.32);--signal:#ff735f}
+html[data-theme="light"] body.error-page{--bg:#f0e3df;--bg-alt:#e6d5d0;--ink:#3b211d;--muted:#765d57;--line:rgba(130,54,42,.16);--line-strong:rgba(130,54,42,.30);--signal:#b74436}
 
 /* REDES — verde petróleo, esmeralda y lima técnica. */
-body.network-cv{
-  --cv-bg:#06110b;
-  --cv-bg-soft:#09180f;
-  --cv-surface:#0c1b12;
-  --cv-surface-strong:#11261a;
-  --cv-ink:#effbf2;
-  --cv-muted:#95ad9b;
-  --cv-line:rgba(98,226,139,.15);
-  --cv-line-strong:rgba(98,226,139,.31);
-  --cv-accent:#62e28b;
-  --cv-accent-2:#b8ef6f;
-  --cv-accent-3:#efd16c;
-  --net-side:#0a2617;
-  --net-sheet:#09170f;
-}
-html[data-theme="light"] body.network-cv{
-  --cv-bg:#dce9df;
-  --cv-bg-soft:#cfdfd3;
-  --cv-surface:#e9f1eb;
-  --cv-surface-strong:#f2f6f2;
-  --cv-ink:#193022;
-  --cv-muted:#5f7667;
-  --cv-line:rgba(35,116,68,.16);
-  --cv-line-strong:rgba(35,116,68,.30);
-  --cv-accent:#237444;
-  --cv-accent-2:#658d22;
-  --cv-accent-3:#8b711d;
-  --net-side:#c7dfcf;
-  --net-sheet:#edf4ef;
-}
+body.network-cv{--cv-bg:#06110b;--cv-bg-soft:#09180f;--cv-surface:#0c1b12;--cv-surface-strong:#11261a;--cv-ink:#effbf2;--cv-muted:#95ad9b;--cv-line:rgba(98,226,139,.15);--cv-line-strong:rgba(98,226,139,.31);--cv-accent:#62e28b;--cv-accent-2:#b8ef6f;--cv-accent-3:#efd16c;--net-side:#0a2617;--net-sheet:#09170f}
+html[data-theme="light"] body.network-cv{--cv-bg:#dce9df;--cv-bg-soft:#cfdfd3;--cv-surface:#e9f1eb;--cv-surface-strong:#f2f6f2;--cv-ink:#193022;--cv-muted:#5f7667;--cv-line:rgba(35,116,68,.16);--cv-line-strong:rgba(35,116,68,.30);--cv-accent:#237444;--cv-accent-2:#658d22;--cv-accent-3:#8b711d;--net-side:#c7dfcf;--net-sheet:#edf4ef}
 
 /* ELÉCTRICA — azul profundo, celeste y azul hielo. */
-body.cv-electrical{
-  --bg:#07111e;
-  --bg-soft:#0b1a2a;
-  --surface:#0d2033;
-  --surface-strong:#112a43;
-  --text:#eef8ff;
-  --text-soft:#96afc2;
-  --line:rgba(85,201,255,.16);
-  --line-strong:rgba(85,201,255,.32);
-  --cv-accent:#55c9ff;
-  --signal:#55c9ff;
-  --signal-2:#8bb8ff;
-}
-html[data-theme="light"] body.cv-electrical{
-  --bg:#dce9f1;
-  --bg-soft:#ccdde8;
-  --surface:#e9f2f7;
-  --surface-strong:#f1f7fa;
-  --text:#172b3a;
-  --text-soft:#5d7484;
-  --line:rgba(32,111,151,.16);
-  --line-strong:rgba(32,111,151,.30);
-  --cv-accent:#147ba8;
-  --signal:#147ba8;
-  --signal-2:#446da6;
-}
+body.cv-electrical{--bg:#07111e;--bg-soft:#0b1a2a;--surface:#0d2033;--surface-strong:#112a43;--text:#eef8ff;--text-soft:#96afc2;--line:rgba(85,201,255,.16);--line-strong:rgba(85,201,255,.32);--cv-accent:#55c9ff;--signal:#55c9ff;--signal-2:#8bb8ff}
+html[data-theme="light"] body.cv-electrical{--bg:#dce9f1;--bg-soft:#ccdde8;--surface:#e9f2f7;--surface-strong:#f1f7fa;--text:#172b3a;--text-soft:#5d7484;--line:rgba(32,111,151,.16);--line-strong:rgba(32,111,151,.30);--cv-accent:#147ba8;--signal:#147ba8;--signal-2:#446da6}
 
 /* PERFIL INTEGRAL — crema, mamey, coral y hoja tropical. */
-body.general-cv,body.cv-general{
-  --g-paper:#1a120d;
-  --g-card:#241811;
-  --g-ink:#f7ead9;
-  --g-muted:#c5a991;
-  --g-line:rgba(255,168,105,.18);
-  --g-accent:#ff9860;
-  --bg:#1a120d;
-  --bg-soft:#241811;
-  --ink:#f7ead9;
-  --muted:#c5a991;
-  --line:rgba(255,168,105,.18);
-  --signal:#ff9860;
-  --signal-2:#ff6f61;
-}
-html[data-theme="light"] body.general-cv,
-html[data-theme="light"] body.cv-general{
-  --g-paper:#f2e6d3;
-  --g-card:#f8efdf;
-  --g-ink:#3d291d;
-  --g-muted:#796555;
-  --g-line:rgba(144,82,43,.18);
-  --g-accent:#c65f28;
-  --bg:#f2e6d3;
-  --bg-soft:#e8d8c1;
-  --ink:#3d291d;
-  --muted:#796555;
-  --line:rgba(144,82,43,.18);
-  --signal:#c65f28;
-  --signal-2:#b64f46;
-}
+body.general-cv,body.cv-general{--g-paper:#1a120d;--g-card:#241811;--g-ink:#f7ead9;--g-muted:#c5a991;--g-line:rgba(255,168,105,.18);--g-accent:#ff9860;--bg:#1a120d;--bg-soft:#241811;--ink:#f7ead9;--muted:#c5a991;--line:rgba(255,168,105,.18);--signal:#ff9860;--signal-2:#ff6f61}
+html[data-theme="light"] body.general-cv,html[data-theme="light"] body.cv-general{--g-paper:#f2e6d3;--g-card:#f8efdf;--g-ink:#3d291d;--g-muted:#796555;--g-line:rgba(144,82,43,.18);--g-accent:#c65f28;--bg:#f2e6d3;--bg-soft:#e8d8c1;--ink:#3d291d;--muted:#796555;--line:rgba(144,82,43,.18);--signal:#c65f28;--signal-2:#b64f46}
 
-/* El pie siempre usa exactamente el mismo ancho visual, incluso cuando
-   una hoja histórica tenga su propia regla .container. */
-body > .site-footer > .container,
-body > .shell-footer > .container{
-  width:min(calc(100% - 44px),1160px)!important;
-  max-width:1160px!important;
-  margin-inline:auto!important;
-}
-@media(max-width:620px){
-  body > .site-footer > .container,
-  body > .shell-footer > .container{width:min(calc(100% - 28px),1160px)!important}
-}
+/* El pie siempre usa exactamente el mismo ancho visual, incluso cuando una hoja histórica tenga su propia regla .container. */
+body > .site-footer > .container,body > .shell-footer > .container{width:min(calc(100% - 44px),1160px)!important;max-width:1160px!important;margin-inline:auto!important}
+@media(max-width:620px){body > .site-footer > .container,body > .shell-footer > .container{width:min(calc(100% - 28px),1160px)!important}}
