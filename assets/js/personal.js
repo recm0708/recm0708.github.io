@@ -3,9 +3,9 @@
 
   /* ==========================================================
      CONTENIDO PERSONAL DE LA PORTADA
-     Esta capa traduce únicamente la sección «Más allá de lo técnico».
-     Se mantiene separada de home.js para que la biografía personal
-     pueda evolucionar sin mezclarla con la lógica general del sitio.
+     Esta capa traduce la sección «Más allá de lo técnico»,
+     compacta los accesos sociales y mantiene el copyright.
+     Se conserva separada de home.js para facilitar mantenimiento.
      ========================================================== */
 
   const textos = {
@@ -89,6 +89,70 @@
       const clave = elemento.dataset.personalKey;
       if (diccionario[clave]) elemento.textContent = diccionario[clave];
     });
+
+    actualizarCopyright();
+  }
+
+  /* Compacta la cuadrícula social y agrega perfiles con URL pública utilizable. */
+  function instalarRedesCompactas() {
+    const grid = document.querySelector('.social-grid');
+    if (!grid) return;
+
+    if (!document.querySelector('#social-compact-styles')) {
+      const style = document.createElement('style');
+      style.id = 'social-compact-styles';
+      style.textContent = `
+        .social-grid{grid-template-columns:repeat(4,minmax(0,1fr))!important}
+        .social-card{min-height:60px!important;padding:12px 15px!important;display:flex!important;align-items:center!important;gap:12px!important}
+        .social-card>svg:not(.out){width:19px!important;height:19px!important;flex:0 0 19px}
+        .social-card span{display:block!important}
+        .social-card strong{font-size:.84rem!important}
+        .social-card small,.social-card .out{display:none!important}
+        @media(max-width:1000px){.social-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important}}
+        @media(max-width:720px){.social-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+        @media(max-width:430px){.social-grid{grid-template-columns:1fr!important}}
+      `;
+      document.head.appendChild(style);
+    }
+
+    const iconos = {
+      instagram: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor" stroke="none"/></svg>',
+      threads: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M17.5 8.2c-1.1-2.3-3.1-3.5-5.6-3.5-3.8 0-6.3 2.7-6.3 7.2 0 4.7 2.4 7.4 6.2 7.4 3.4 0 5.7-1.9 5.7-4.6 0-2.4-1.7-4-4.6-4-2.5 0-4.1 1.2-4.1 3 0 1.5 1.2 2.6 3 2.6 2.8 0 4.6-2.1 4.6-5.2 0-1.1-.2-2.1-.6-3"/></svg>',
+      steam: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="16.5" cy="7.5" r="4"/><circle cx="6" cy="16.5" r="2.7"/><path d="m8.4 15.3 5.3-3.1M3.5 14.8l-2-1"/></svg>',
+      credly: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="m12 2 7 4v8l-7 4-7-4V6l7-4Z"/><path d="m9.5 18-1 4 3.5-2 3.5 2-1-4M9 10l2 2 4-4"/></svg>',
+      udemy: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M7 8v6c0 3 2 5 5 5s5-2 5-5V8M12 3l5 3-5 3-5-3 5-3Z"/></svg>'
+    };
+
+    const extras = [
+      ['instagram', 'Instagram', 'https://www.instagram.com/recm0708/'],
+      ['threads', 'Threads', 'https://www.threads.net/@recm0708'],
+      ['steam', 'Steam', 'https://steamcommunity.com/id/recm0708/'],
+      ['credly', 'Credly', 'https://www.credly.com/users/recm0708'],
+      ['udemy', 'Udemy', 'https://www.udemy.com/user/recm0708/']
+    ];
+
+    extras.forEach(([tipo, nombre, url]) => {
+      if (grid.querySelector(`[data-social-extra="${tipo}"]`)) return;
+      const enlace = document.createElement('a');
+      enlace.className = 'social-card';
+      enlace.dataset.socialExtra = tipo;
+      enlace.href = url;
+      enlace.target = '_blank';
+      enlace.rel = 'noopener noreferrer';
+      enlace.setAttribute('aria-label', nombre);
+      enlace.innerHTML = `${iconos[tipo]}<span><strong>${nombre}</strong></span>`;
+      grid.appendChild(enlace);
+    });
+  }
+
+  /* Mantiene una declaración de derechos clara en el pie de la portada. */
+  function actualizarCopyright() {
+    const destino = document.querySelector('.site-footer .footer-layout > div:first-child');
+    if (!destino) return;
+
+    const anio = new Date().getFullYear();
+    const ingles = idiomaActual() === 'en';
+    destino.textContent = `© ${anio} Rubén Enrique Cañizares Miranda · ${ingles ? 'All rights reserved.' : 'Todos los derechos reservados.'}`;
   }
 
   /* Reacciona tanto al cambio de lang como al botón ES / EN de la portada. */
@@ -104,5 +168,6 @@
   });
 
   window.addEventListener('storage', aplicarTextosPersonales);
+  instalarRedesCompactas();
   aplicarTextosPersonales();
 })();
