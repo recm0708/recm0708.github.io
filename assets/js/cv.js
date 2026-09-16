@@ -15,6 +15,10 @@
   const paresIdioma = {
     '/cv/es/redes/': '/cv/en/networks/',
     '/cv/en/networks/': '/cv/es/redes/',
+    '/cv/es/electrica/': '/cv/en/electrical/',
+    '/cv/en/electrical/': '/cv/es/electrica/',
+    '/cv/es/integral/': '/cv/en/comprehensive/',
+    '/cv/en/comprehensive/': '/cv/es/integral/',
     '/es/electrica/': '/en/electrical/',
     '/en/electrical/': '/es/electrica/',
     '/es/general/': '/en/general/',
@@ -41,9 +45,18 @@
     });
   }
 
+  function refrescarEstilosArea() {
+    if (document.body.classList.contains('network-cv')) {
+      const hoja = document.querySelector('link[href*="/assets/css/networks.css"]');
+      if (hoja) hoja.href = '/assets/css/networks.css?v=20260916-5';
+    }
+  }
+
   function prepararCascaron() {
-    return cargarScript('/assets/js/site-shell.js?v=20260916-2').then(() => {
+    refrescarEstilosArea();
+    return cargarScript('/assets/js/site-shell.js?v=20260916-3').then(() => {
       window.SiteShell?.cargarEstilos();
+      window.SiteShell?.contextualizarPagina();
       const idiomaDestino = paresIdioma[rutaActual()] || null;
       window.SiteShell?.construirCabecera({ languageHref: idiomaDestino, currentSection: 'cv', minimal: true });
       window.SiteShell?.construirPie();
