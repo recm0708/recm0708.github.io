@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="Blog personal y portafolio profesional de Rubén Enrique Cañizares Miranda: historia, metas, proyectos, redes informáticas, infraestructura, sistemas eléctricos y automatización.">
   <meta name="author" content="Rubén Enrique Cañizares Miranda">
-  <meta name="theme-color" content="#111216">
+  <meta name="theme-color" content="#0b0d12">
   <meta property="og:type" content="profile">
   <meta property="og:locale" content="es_PA">
   <meta property="og:title" content="Rubén Cañizares | Blog personal y portafolio">
@@ -13,13 +13,211 @@
   <meta property="og:url" content="https://recm0708.github.io/">
   <meta property="og:image" content="https://avatars.githubusercontent.com/u/220997176?v=4">
   <link rel="canonical" href="https://recm0708.github.io/">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-  <link rel="stylesheet" href="/assets/css/app.css?v=5">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="stylesheet" href="/assets/css/site.css?v=1">
   <title>Rubén Cañizares | Blog personal y portafolio</title>
 </head>
-<body id="top">
-  <div id="app"></div>
-  <noscript>Este sitio necesita JavaScript para mostrar la experiencia interactiva.</noscript>
-  <script type="module" src="/assets/js/app.js?v=5"></script>
+<body id="top" data-default-lang="es">
+  <div class="scroll-progress" aria-hidden="true"></div>
+  <div class="tech-bg" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="site-shell header-inner">
+      <a class="brand" href="/" aria-label="Inicio">
+        <span class="brand-symbol">RC</span>
+        <span class="brand-copy"><strong>Rubén Cañizares</strong><small>recm0708</small></span>
+      </a>
+      <nav class="main-nav" aria-label="Navegación principal">
+        <a href="#historia"><span data-lang="es">Historia</span><span data-lang="en">Story</span></a>
+        <a href="#recorrido"><span data-lang="es">Recorrido</span><span data-lang="en">Journey</span></a>
+        <a href="#perfiles"><span data-lang="es">Perfiles</span><span data-lang="en">Profiles</span></a>
+        <a href="#proyectos"><span data-lang="es">Proyectos</span><span data-lang="en">Projects</span></a>
+        <a href="#metas"><span data-lang="es">Metas</span><span data-lang="en">Goals</span></a>
+        <a href="#redes-sociales"><span data-lang="es">Perfiles públicos</span><span data-lang="en">Public profiles</span></a>
+      </nav>
+      <div class="header-actions">
+        <a class="action-btn" href="/cv/"><i class="fa-regular fa-file-lines"></i><span class="lang-text" data-lang="es">CV</span><span class="lang-text" data-lang="en">Résumé</span></a>
+        <button class="action-btn" type="button" data-lang-toggle>ES / EN</button>
+        <button class="action-btn icon" type="button" data-theme-toggle aria-label="Cambiar tema"><i data-theme-icon class="fa-solid fa-sun"></i></button>
+        <button class="action-btn icon menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-label="Abrir menú"><i class="fa-solid fa-bars"></i></button>
+      </div>
+    </div>
+    <nav class="mobile-nav" data-mobile-nav>
+      <a href="#historia">Historia / Story</a><a href="#recorrido">Recorrido / Journey</a><a href="#perfiles">Perfiles / Profiles</a><a href="#proyectos">Proyectos / Projects</a><a href="#metas">Metas / Goals</a><a href="#redes-sociales">Perfiles públicos / Public profiles</a><a href="/cv/">Currículum Vitae</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="site-shell hero-grid">
+        <div class="reveal">
+          <p class="eyebrow"><span data-lang="es">Hola, soy Rubén</span><span data-lang="en">Hi, I’m Rubén</span></p>
+          <h1 class="display">
+            <span data-lang="es">Tecnología, propósito y una historia que <span class="accent">sigue creciendo</span></span>
+            <span data-lang="en">Technology, purpose and a story that <span class="accent">keeps growing</span></span>
+          </h1>
+          <p class="hero-lead" data-lang="es">Soy Licenciado en Sistemas Eléctricos y Automatización y continúo mi formación en Redes Informáticas. Este es mi espacio personal para contar de dónde vengo, lo que he aprendido, lo que estoy construyendo y hacia dónde quiero ir.</p>
+          <p class="hero-lead" data-lang="en">I hold a degree in Electrical Systems and Automation and I am continuing my studies in Computer Networks. This is my personal space to share where I come from, what I have learned, what I am building and where I want to go.</p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#historia"><span data-lang="es">Conocer mi historia</span><span data-lang="en">Read my story</span><i class="fa-solid fa-arrow-down"></i></a>
+            <a class="btn" href="/cv/"><span data-lang="es">Ver currículos</span><span data-lang="en">View résumés</span><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            <a class="btn" href="#contacto"><span data-lang="es">Contactarme</span><span data-lang="en">Contact me</span></a>
+          </div>
+          <div class="hero-meta">
+            <span class="meta-chip"><i class="fa-solid fa-location-dot"></i> Arraiján · Panamá Oeste</span>
+            <span class="meta-chip"><i class="fa-solid fa-graduation-cap"></i><span data-lang="es">UTP · Redes Informáticas</span><span data-lang="en">UTP · Computer Networks</span></span>
+            <span class="meta-chip"><i class="fa-solid fa-circle-check"></i><span data-lang="es">Disponible para oportunidades</span><span data-lang="en">Open to opportunities</span></span>
+          </div>
+        </div>
+        <div class="hero-visual reveal">
+          <div class="photo-card">
+            <img src="https://avatars.githubusercontent.com/u/220997176?v=4" alt="Rubén Cañizares">
+            <div class="photo-overlay"><strong>Rubén Cañizares</strong><br><span data-lang="es">Panamá · Tecnología e infraestructura</span><span data-lang="en">Panama · Technology & infrastructure</span></div>
+          </div>
+          <div class="float-panel one"><strong data-lang="es">Redes Informáticas</strong><strong data-lang="en">Computer Networks</strong><span class="muted">UTP · 2026</span></div>
+          <div class="float-panel two"><strong data-lang="es">En búsqueda profesional</strong><strong data-lang="en">Open to work</strong><span class="muted">Support · Infrastructure</span></div>
+          <div class="float-panel three"><strong>CCNA · Linux · Docker</strong><span class="muted">Learning by doing</span></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="tech-strip" aria-hidden="true"><div class="tech-strip-track">
+      <span><b>✦</b>CCNA</span><span><b>✦</b>Networking</span><span><b>✦</b>Linux</span><span><b>✦</b>Docker</span><span><b>✦</b>Electricidad</span><span><b>✦</b>Automatización</span><span><b>✦</b>Python</span><span><b>✦</b>Virtualización</span><span><b>✦</b>Power BI</span><span><b>✦</b>GitHub</span><span><b>✦</b>CCNA</span><span><b>✦</b>Networking</span><span><b>✦</b>Linux</span><span><b>✦</b>Docker</span><span><b>✦</b>Electricidad</span><span><b>✦</b>Automatización</span><span><b>✦</b>Python</span><span><b>✦</b>Virtualización</span><span><b>✦</b>Power BI</span><span><b>✦</b>GitHub</span>
+    </div></div>
+
+    <section class="section" id="historia">
+      <div class="site-shell reveal">
+        <div class="section-head"><div class="section-index">01 · <span data-lang="es">Mi historia</span><span data-lang="en">My story</span></div><div><h2 class="display"><span data-lang="es">Mucho más que títulos, cursos y certificados</span><span data-lang="en">More than degrees, courses and certificates</span></h2><p data-lang="es">Mi trayectoria comenzó con la familia, la curiosidad y las ganas de entender cómo funcionan las cosas. Lo profesional vino después.</p><p data-lang="en">My journey began with family, curiosity and the desire to understand how things work. The professional side came later.</p></div></div>
+        <div class="grid-2">
+          <article class="card story-main">
+            <div><div class="icon-box"><i class="fa-solid fa-house-heart"></i></div><h3><span data-lang="es">Familia primero</span><span data-lang="en">Family first</span></h3><p data-lang="es">Nací y crecí en Panamá. Soy hijo único —sí, también el consentido de la familia— y disfruto compartir tiempo con los míos. Buena parte de mis decisiones importantes han estado acompañadas por ellos.</p><p data-lang="en">I was born and raised in Panama. I am an only child —and yes, the spoiled one in the family— and I genuinely enjoy spending time with the people closest to me.</p></div>
+            <div class="story-note"><strong><span data-lang="es">Curioso por naturaleza</span><span data-lang="en">Curious by nature</span></strong><p data-lang="es">Me gusta entender por qué algo funciona, documentarlo y volver a intentarlo hasta que quede mejor.</p><p data-lang="en">I like understanding why something works, documenting it and trying again until it gets better.</p></div>
+          </article>
+          <article class="card"><div class="icon-box"><i class="fa-solid fa-bolt"></i></div><h3><span data-lang="es">La electricidad llegó primero</span><span data-lang="en">Electricity came first</span></h3><p data-lang="es">Mi papá realizaba trabajos eléctricos y me animó a conocer ese mundo. La curiosidad terminó convirtiéndose en mi primera carrera universitaria.</p><p data-lang="en">My father did electrical work and encouraged me to discover that world. Curiosity eventually became my first university degree.</p></article>
+          <article class="card"><div class="icon-box"><i class="fa-solid fa-computer"></i></div><h3><span data-lang="es">Después llegó la computación</span><span data-lang="en">Then came computing</span></h3><p data-lang="es">Un primo me enseñó varias cosas de computación y ese interés creció hacia soporte, sistemas, servidores, virtualización y finalmente Redes Informáticas.</p><p data-lang="en">A cousin introduced me to computing, and that interest expanded into support, systems, servers, virtualization and eventually Computer Networks.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="recorrido">
+      <div class="site-shell reveal">
+        <div class="section-head"><div class="section-index">02 · <span data-lang="es">Recorrido</span><span data-lang="en">Journey</span></div><div><h2 class="display"><span data-lang="es">Una trayectoria que conecta distintas etapas</span><span data-lang="en">A journey connecting different stages</span></h2><p data-lang="es">No veo mi carrera como una línea recta. Cada etapa me dejó herramientas que hoy se complementan.</p><p data-lang="en">I do not see my career as a straight line. Every stage has given me tools that now complement one another.</p></div></div>
+        <div class="timeline">
+          <div class="timeline-row"><div class="timeline-year">2013</div><div class="timeline-content"><h3 data-lang="es">Primeras experiencias en soporte técnico</h3><h3 data-lang="en">First technical support experience</h3><p data-lang="es">Mantenimiento básico, instalación de software, periféricos y atención de incidencias.</p><p data-lang="en">Basic maintenance, software installation, peripherals and incident support.</p></div></div>
+          <div class="timeline-row"><div class="timeline-year">2016</div><div class="timeline-content"><h3 data-lang="es">Sistemas Eléctricos y Automatización</h3><h3 data-lang="en">Electrical Systems and Automation</h3><p data-lang="es">Inicio mi formación universitaria en la Universidad Tecnológica de Panamá.</p><p data-lang="en">I begin university studies at Universidad Tecnológica de Panamá.</p></div></div>
+          <div class="timeline-row"><div class="timeline-year">2019</div><div class="timeline-content"><h3 data-lang="es">Voluntariado JMJ Panamá</h3><h3 data-lang="en">World Youth Day Panama volunteer</h3><p data-lang="es">Una experiencia de servicio y organización fuera del aula.</p><p data-lang="en">A service and organizational experience beyond the classroom.</p></div></div>
+          <div class="timeline-row"><div class="timeline-year">2022</div><div class="timeline-content"><h3 data-lang="es">Título universitario + TECNASA</h3><h3 data-lang="en">University degree + TECNASA</h3><p data-lang="es">Completo la Licenciatura en Sistemas Eléctricos y Automatización y trabajo como Técnico en Microsistemas.</p><p data-lang="en">I complete my degree and work as a Microsystems Technician.</p></div></div>
+          <div class="timeline-row"><div class="timeline-year">2023</div><div class="timeline-content"><h3 data-lang="es">Inicio Redes Informáticas</h3><h3 data-lang="en">Computer Networks begins</h3><p data-lang="es">Comienzo mi segunda carrera y profundizo en soporte, networking e infraestructura.</p><p data-lang="en">I begin my second degree and focus more deeply on support, networking and infrastructure.</p></div></div>
+          <div class="timeline-row"><div class="timeline-year">2025–26</div><div class="timeline-content"><h3>Cisco · Linux · Docker · Python</h3><p data-lang="es">Amplío conocimientos en redes, ciberseguridad, sistemas, automatización, virtualización y datos.</p><p data-lang="en">I expand my knowledge in networking, cybersecurity, systems, automation, virtualization and data.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="perfiles">
+      <div class="site-shell reveal">
+        <div class="section-head"><div class="section-index">03 · <span data-lang="es">Perfiles</span><span data-lang="en">Profiles</span></div><div><h2 class="display"><span data-lang="es">Tres enfoques profesionales, una sola trayectoria</span><span data-lang="en">Three professional focuses, one journey</span></h2><p data-lang="es">Cada currículo prioriza lo que más aporta según el tipo de oportunidad.</p><p data-lang="en">Each résumé prioritizes what matters most for a different kind of opportunity.</p></div></div>
+        <div class="grid-3" data-lang="es">
+          <a class="card profile-card electrical" href="/cv/es/electrica/"><span class="open-icon"><i class="fa-solid fa-arrow-up-right-from-square"></i></span><div class="icon-box"><i class="fa-solid fa-bolt"></i></div><h3>Sistemas Eléctricos y Automatización</h3><p>Instalaciones, mantenimiento, diagnóstico, planos, baja tensión y fundamentos de automatización.</p></a>
+          <a class="card profile-card networks" href="/cv/es/redes/"><span class="open-icon"><i class="fa-solid fa-arrow-up-right-from-square"></i></span><div class="icon-box"><i class="fa-solid fa-network-wired"></i></div><h3>Redes Informáticas e Infraestructura</h3><p>Soporte técnico, networking, sistemas, virtualización, servidores y operación de infraestructura.</p></a>
+          <a class="card profile-card integral" href="/cv/es/integral/"><span class="open-icon"><i class="fa-solid fa-arrow-up-right-from-square"></i></span><div class="icon-box"><i class="fa-solid fa-layer-group"></i></div><h3>Perfil Profesional Integral</h3><p>Tecnología, electricidad, soporte, gestión, servicio y productividad desde una perspectiva transversal.</p></a>
+        </div>
+        <div class="grid-3" data-lang="en">
+          <a class="card profile-card electrical" href="/cv/en/electrical/"><span class="open-icon"><i class="fa-solid fa-arrow-up-right-from-square"></i></span><div class="icon-box"><i class="fa-solid fa-bolt"></i></div><h3>Electrical Systems & Automation</h3><p>Installations, maintenance, diagnostics, drawings, low voltage and automation fundamentals.</p></a>
+          <a class="card profile-card networks" href="/cv/en/networks/"><span class="open-icon"><i class="fa-solid fa-arrow-up-right-from-square"></i></span><div class="icon-box"><i class="fa-solid fa-network-wired"></i></div><h3>Computer Networks & Infrastructure</h3><p>Technical support, networking, systems, virtualization, servers and infrastructure operations.</p></a>
+          <a class="card profile-card integral" href="/cv/en/comprehensive/"><span class="open-icon"><i class="fa-solid fa-arrow-up-right-from-square"></i></span><div class="icon-box"><i class="fa-solid fa-layer-group"></i></div><h3>Comprehensive Professional Profile</h3><p>Technology, electrical systems, support, management, service and productivity in one profile.</p></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="proyectos">
+      <div class="site-shell reveal">
+        <div class="section-head"><div class="section-index">04 · <span data-lang="es">Proyectos</span><span data-lang="en">Projects</span></div><div><h2 class="display"><span data-lang="es">Aprender haciendo siempre me ha funcionado mejor</span><span data-lang="en">Learning by doing has always worked better for me</span></h2><p data-lang="es">Algunas implementaciones que muestran cómo convierto teoría en práctica y documentación.</p><p data-lang="en">A few implementations showing how I turn theory into practice and documentation.</p></div></div>
+        <div class="grid-3">
+          <article class="card project-card"><small>SDN / Observabilidad</small><h3>Faucet, Gauge, OVS, Prometheus y Grafana</h3><p data-lang="es">Topología SDN con rutas principal/respaldo, telemetría y visualización.</p><p data-lang="en">SDN topology with primary/backup paths, telemetry and visualization.</p><div class="project-tags"><span>SDN</span><span>OVS</span><span>Prometheus</span><span>Grafana</span></div></article>
+          <article class="card project-card"><small>Automatización de redes</small><h3>FRRouting, OSPF y control de drift</h3><p data-lang="es">Entorno declarativo con detección de desviaciones, reconciliación e intent assurance.</p><p data-lang="en">Declarative environment with drift detection, reconciliation and intent assurance.</p><div class="project-tags"><span>FRR</span><span>OSPF</span><span>Python</span><span>YAML</span></div></article>
+          <article class="card project-card"><small>Infraestructura</small><h3>Docker + NFS + iSCSI</h3><p data-lang="es">Almacenamiento de red para contenedores usando TrueNAS, NFS e iSCSI.</p><p data-lang="en">Network storage for containers using TrueNAS, NFS and iSCSI.</p><div class="project-tags"><span>Docker</span><span>TrueNAS</span><span>NFS</span><span>iSCSI</span></div></article>
+          <article class="card project-card"><small>Servidores</small><h3>Windows Server y servicios de red</h3><p>Active Directory, DNS, DHCP, RRAS e IIS/FTP.</p><div class="project-tags"><span>Windows Server</span><span>AD</span><span>DNS</span><span>RRAS</span></div></article>
+          <article class="card project-card"><small>Evaluación de red</small><h3>KPIs, iperf3 y netem</h3><p data-lang="es">Medición de desempeño, latencia, pérdida y condiciones degradadas.</p><p data-lang="en">Performance, latency, loss and degraded-condition measurements.</p><div class="project-tags"><span>iperf3</span><span>tc/netem</span><span>Debian</span><span>Proxmox</span></div></article>
+          <article class="card project-card"><small>Contenedores</small><h3>Servicios web y datos</h3><p data-lang="es">Nginx, MariaDB/MySQL, redes Docker, volúmenes y persistencia.</p><p data-lang="en">Nginx, MariaDB/MySQL, Docker networks, volumes and persistence.</p><div class="project-tags"><span>Docker</span><span>Nginx</span><span>MySQL</span><span>Linux</span></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="metas">
+      <div class="site-shell reveal">
+        <div class="section-head"><div class="section-index">05 · <span data-lang="es">Metas</span><span data-lang="en">Goals</span></div><div><h2 class="display"><span data-lang="es">Lo próximo también forma parte de mi historia</span><span data-lang="en">What comes next is part of my story too</span></h2></div></div>
+        <div class="grid-2">
+          <article class="card goal-feature"><h3 data-lang="es">Quiero una oportunidad estable donde pueda crecer de verdad</h3><h3 data-lang="en">I want a stable opportunity where I can genuinely grow</h3><p data-lang="es">Mi meta inmediata es incorporarme a un entorno profesional donde pueda convertir formación práctica en experiencia empresarial cada vez más sólida.</p><p data-lang="en">My immediate goal is to join a professional environment where I can turn practical training into increasingly solid enterprise experience.</p></article>
+          <div class="grid-2">
+            <article class="card"><div class="icon-box"><i class="fa-solid fa-graduation-cap"></i></div><h3 data-lang="es">Terminar Redes</h3><h3 data-lang="en">Finish Computer Networks</h3><p data-lang="es">Completar mi segunda carrera universitaria con un enfoque práctico.</p><p data-lang="en">Complete my second university degree with a practical focus.</p></article>
+            <article class="card"><div class="icon-box"><i class="fa-solid fa-certificate"></i></div><h3 data-lang="es">Seguir certificándome</h3><h3 data-lang="en">Keep earning credentials</h3><p>Cisco, Linux, cybersecurity, automation & infrastructure.</p></article>
+            <article class="card"><div class="icon-box"><i class="fa-solid fa-building"></i></div><h3 data-lang="es">Crecer en empresa</h3><h3 data-lang="en">Grow in enterprise</h3><p data-lang="es">Consolidar experiencia en soporte e infraestructura.</p><p data-lang="en">Consolidate experience in support and infrastructure.</p></article>
+            <article class="card"><div class="icon-box"><i class="fa-solid fa-plane-departure"></i></div><h3 data-lang="es">Conocer otros lugares</h3><h3 data-lang="en">Discover new places</h3><p data-lang="es">Viajar, conocer culturas y ampliar mi perspectiva.</p><p data-lang="en">Travel, experience cultures and broaden my perspective.</p></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="vida">
+      <div class="site-shell reveal">
+        <div class="section-head"><div class="section-index">06 · <span data-lang="es">Fuera de lo técnico</span><span data-lang="en">Beyond tech</span></div><div><h2 class="display"><span data-lang="es">También existe Rubén cuando cierro las máquinas virtuales</span><span data-lang="en">Rubén still exists when the virtual machines are closed</span></h2><p data-lang="es">La tecnología ocupa mucho espacio en mi vida, pero no todo gira alrededor de routers, Docker o una VM que decidió romperse de madrugada.</p><p data-lang="en">Technology takes up a lot of space in my life, but not everything revolves around routers, Docker or a VM breaking in the middle of the night.</p></div></div>
+        <div class="grid-3">
+          <article class="card"><div class="icon-box"><i class="fa-solid fa-people-roof"></i></div><h3 data-lang="es">Familia</h3><h3 data-lang="en">Family</h3><p data-lang="es">Compartir y salir con mi familia sigue siendo una de mis formas favoritas de desconectarme.</p><p data-lang="en">Spending time with my family remains one of my favorite ways to disconnect.</p></article>
+          <article class="card"><div class="icon-box"><i class="fa-solid fa-film"></i></div><h3 data-lang="es">Cine, películas y series</h3><h3 data-lang="en">Movies & series</h3><p data-lang="es">Una buena historia siempre tiene espacio en mi tiempo libre.</p><p data-lang="en">A good story always has a place in my free time.</p></article>
+          <article class="card"><div class="icon-box"><i class="fa-solid fa-music"></i></div><h3 data-lang="es">Música sin una sola etiqueta</h3><h3 data-lang="en">Music without one label</h3><p>Salsa · merengue · 80s · English music · música católica.</p></article>
+          <article class="card"><div class="icon-box"><i class="fa-solid fa-microchip"></i></div><h3 data-lang="es">Tecnología por gusto</h3><h3 data-lang="en">Technology for fun</h3><p data-lang="es">Computadoras, redes, servidores, electrónica y automatización también son hobbies.</p><p data-lang="en">Computers, networks, servers, electronics and automation are hobbies too.</p></article>
+          <article class="card"><div class="icon-box"><i class="fa-solid fa-plane"></i></div><h3 data-lang="es">Viajes pendientes</h3><h3 data-lang="en">Travel ahead</h3><p data-lang="es">Todavía no he viajado fuera de Panamá. Quiero cambiar eso.</p><p data-lang="en">I have not traveled outside Panama yet. I want to change that.</p></article>
+          <article class="card"><div class="icon-box"><i class="fa-solid fa-book-open-reader"></i></div><h3 data-lang="es">Siempre aprendiendo</h3><h3 data-lang="en">Always learning</h3><p data-lang="es">Casi siempre tengo un curso, documentación o proyecto esperando que lo termine.</p><p data-lang="en">There is almost always a course, documentation or project waiting for me to finish it.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="redes-sociales">
+      <div class="site-shell reveal">
+        <div class="section-head"><div class="section-index">07 · <span data-lang="es">Perfiles públicos</span><span data-lang="en">Public profiles</span></div><div><h2 class="display"><span data-lang="es">También me encuentras por aquí</span><span data-lang="en">You can also find me here</span></h2><p data-lang="es">Agrupo mis perfiles para que sea fácil identificar cuáles son realmente míos.</p><p data-lang="en">I group my public profiles so it is easy to identify which accounts are actually mine.</p></div></div>
+        <div class="social-categories">
+          <section class="social-category"><h3 data-lang="es">Redes sociales</h3><h3 data-lang="en">Social networks</h3><div class="social-grid">
+            <a class="social-link" href="https://www.facebook.com/recm0708" target="_blank" rel="noopener"><span class="social-icon"><i class="fa-brands fa-facebook-f"></i></span>Facebook</a>
+            <a class="social-link" href="https://www.instagram.com/recm0708/" target="_blank" rel="noopener"><span class="social-icon"><i class="fa-brands fa-instagram"></i></span>Instagram</a>
+            <a class="social-link" href="https://www.reddit.com/user/recm0708/" target="_blank" rel="noopener"><span class="social-icon"><i class="fa-brands fa-reddit-alien"></i></span>Reddit</a>
+            <a class="social-link" href="https://www.threads.net/@recm0708" target="_blank" rel="noopener"><span class="social-icon"><i class="fa-brands fa-threads"></i></span>Threads</a>
+            <a class="social-link" href="https://www.tiktok.com/@recm0708" target="_blank" rel="noopener"><span class="social-icon"><i class="fa-brands fa-tiktok"></i></span>TikTok</a>
+            <a class="social-link" href="https://x.com/recm0708" target="_blank" rel="noopener"><span class="social-icon"><i class="fa-brands fa-x-twitter"></i></span>X</a>
+          </div></section>
+          <section class="social-category"><h3 data-lang="es">Profesional y técnico</h3><h3 data-lang="en">Professional & technical</h3><div class="social-grid">
+            <a class="social-link" href="https://www.linkedin.com/in/recm0708" target="_blank" rel="noopener"><span class="social-icon"><i class="fa-brands fa-linkedin-in"></i></span>LinkedIn</a>
+            <a class="social-link" href="https://github.com/recm0708" target="_blank" rel="noopener"><span class="social-icon"><i class="fa-brands fa-github"></i></span>GitHub</a>
+            <a class="social-link" href="https://community.cisco.com/t5/user/viewprofilepage/user-id/2111244" target="_blank" rel="noopener"><span class="social-icon"><i class="fa-solid fa-signal"></i></span>Cisco Community</a>
+            <a class="social-link" href="https://hub.docker.com/u/recm0708" target="_blank" rel="noopener"><span class="social-icon"><i class="fa-brands fa-docker"></i></span>Docker Hub</a>
+            <a class="social-link" href="https://learn.microsoft.com/es-es/users/recm0708/" target="_blank" rel="noopener"><span class="social-icon"><i class="fa-brands fa-microsoft"></i></span>Microsoft Learn</a>
+            <a class="social-link" href="https://gravatar.com/recm0708" target="_blank" rel="noopener"><span class="social-icon"><i class="fa-solid fa-circle-user"></i></span>Gravatar</a>
+          </div></section>
+          <section class="social-category"><h3 data-lang="es">Formación y credenciales</h3><h3 data-lang="en">Learning & credentials</h3><div class="social-grid">
+            <a class="social-link" href="https://www.credly.com/users/recm0708/badges/credly" target="_blank" rel="noopener"><span class="social-icon"><i class="fa-solid fa-certificate"></i></span>Credly</a>
+            <a class="social-link" href="https://www.udemy.com/user/ruben-enrique-canizares-miranda/" target="_blank" rel="noopener"><span class="social-icon"><i class="fa-solid fa-graduation-cap"></i></span>Udemy</a>
+          </div></section>
+          <section class="social-category"><h3 data-lang="es">Contenido y entretenimiento</h3><h3 data-lang="en">Content & entertainment</h3><div class="social-grid">
+            <a class="social-link" href="https://open.spotify.com/user/ruben_sten" target="_blank" rel="noopener"><span class="social-icon"><i class="fa-brands fa-spotify"></i></span>Spotify</a>
+            <a class="social-link" href="https://www.youtube.com/@recm0708" target="_blank" rel="noopener"><span class="social-icon"><i class="fa-brands fa-youtube"></i></span>YouTube</a>
+          </div></section>
+          <section class="social-category"><h3 data-lang="es">Mensajería</h3><h3 data-lang="en">Messaging</h3><div class="social-grid"><a class="social-link" href="https://t.me/recm0708?text=Hola%20Rub%C3%A9n%2C%20vi%20tu%20portafolio%20profesional%20y%20quisiera%20ponerme%20en%20contacto%20contigo." target="_blank" rel="noopener"><span class="social-icon"><i class="fa-brands fa-telegram"></i></span>Telegram</a></div></section>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="contacto">
+      <div class="site-shell reveal"><div class="contact-panel"><div><p class="eyebrow"><span data-lang="es">Contacto</span><span data-lang="en">Contact</span></p><h2 class="display"><span data-lang="es">Si algo de lo que hago conecta contigo, conversemos</span><span data-lang="en">If something I do connects with you, let’s talk</span></h2><p data-lang="es">Para oportunidades laborales, colaboración técnica o conversaciones sobre infraestructura y tecnología, estos son mis canales principales.</p><p data-lang="en">For job opportunities, technical collaboration or conversations about infrastructure and technology, these are my main channels.</p></div><div class="contact-actions"><a class="btn primary" href="mailto:ruben.canizares@outlook.com"><i class="fa-regular fa-envelope"></i> Email</a><a class="btn" href="https://www.linkedin.com/in/recm0708" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin-in"></i> LinkedIn</a><a class="btn" href="https://github.com/recm0708" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a></div></div></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-shell footer-inner">
+      <div>© 2026 Rubén Enrique Cañizares Miranda · <span data-lang="es">Todos los derechos reservados.</span><span data-lang="en">All rights reserved.</span></div>
+      <div class="footer-social"><a href="https://github.com/recm0708" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a><a href="https://www.linkedin.com/in/recm0708" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a><a href="mailto:ruben.canizares@outlook.com" aria-label="Email"><i class="fa-regular fa-envelope"></i></a></div>
+      <a class="footer-top" href="#top"><span data-lang="es">Volver arriba</span><span data-lang="en">Back to top</span> ↑</a>
+    </div>
+  </footer>
+
+  <script defer src="/assets/js/site.js?v=1"></script>
 </body>
 </html>
