@@ -21,6 +21,24 @@
     });
   }
 
+  function refineHomeHero(){
+    const chips = document.querySelectorAll('.hero-meta > .meta-chip');
+    if(chips.length >= 3){
+      const icon = chips[2].querySelector('i');
+      const es = chips[2].querySelector('[data-lang="es"]');
+      const en = chips[2].querySelector('[data-lang="en"]');
+      if(icon) icon.className = 'fa-solid fa-briefcase';
+      if(es) es.textContent = 'En búsqueda laboral';
+      if(en) en.textContent = 'Open to work';
+    }
+
+    const floating = document.querySelector('.float-panel.two');
+    if(floating){
+      const es = floating.querySelector('strong[data-lang="es"]');
+      if(es) es.textContent = 'En búsqueda laboral';
+    }
+  }
+
   function applyLanguage(lang, persist = true){
     root.lang = lang;
     if(persist) localStorage.setItem(LANG_KEY, lang);
@@ -44,6 +62,7 @@
     applyTheme(root.dataset.theme || systemTheme());
   }
 
+  refineHomeHero();
   applyTheme(localStorage.getItem(THEME_KEY) || systemTheme());
 
   const defaultLang = document.body?.dataset.defaultLang || root.lang || 'es';
@@ -75,6 +94,20 @@
     }
 
     if(e.target.closest('[data-mobile-nav] a')){
+      document.querySelector('[data-mobile-nav]')?.classList.remove('open');
+      document.querySelector('[data-menu-toggle]')?.setAttribute('aria-expanded','false');
+      return;
+    }
+
+    const mobileMenu = document.querySelector('[data-mobile-nav].open');
+    if(mobileMenu && !e.target.closest('[data-mobile-nav]')){
+      mobileMenu.classList.remove('open');
+      document.querySelector('[data-menu-toggle]')?.setAttribute('aria-expanded','false');
+    }
+  });
+
+  document.addEventListener('keydown', e => {
+    if(e.key === 'Escape'){
       document.querySelector('[data-mobile-nav]')?.classList.remove('open');
       document.querySelector('[data-menu-toggle]')?.setAttribute('aria-expanded','false');
     }
