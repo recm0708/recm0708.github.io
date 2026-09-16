@@ -19,7 +19,7 @@
     });
   }
 
-  cargarScript('/assets/js/personal-contenido.js?v=20260915-2')
-    .then(() => cargarScript('/assets/js/ajustes-portada.js?v=20260915-2'))
+  cargarScript('/assets/js/personal-contenido.js?v=20260916-1')
+    .then(() => cargarScript('/assets/js/ajustes-portada.js?v=20260916-1'))
     .catch((error) => console.error('No se pudo cargar la capa personal de la portada.', error));
 })();
