@@ -6,13 +6,13 @@ Repositorio del sitio personal y portafolio profesional de **Rubén Enrique Cañ
 
 ## Contenido
 
-El portal reúne mi perfil profesional y personal, trayectoria, proyectos, formación y tres versiones de Currículum Vitae:
+El portal reúne mi perfil personal y profesional, trayectoria, proyectos, perfiles públicos y tres versiones de Currículum Vitae:
 
 - **Redes Informáticas e Infraestructura**
 - **Sistemas Eléctricos y Automatización**
 - **Perfil Profesional Integral**
 
-El sitio dispone de contenido en español e inglés y tema claro/oscuro global.
+El sitio dispone de contenido en español e inglés, tema claro/oscuro global y páginas especializadas para cada currículo.
 
 ## Tecnologías
 
@@ -21,6 +21,10 @@ El sitio dispone de contenido en español e inglés y tema claro/oscuro global.
 - JavaScript
 - SVG
 - GitHub Pages
+
+## Sistema visual
+
+El diseño utiliza una línea **editorial y profesional**, con una base neutral para el portal, el selector de currículos y la página 404. Cada currículo conserva la misma estructura visual y utiliza una paleta propia para diferenciar su área profesional.
 
 ## Estructura principal
 
@@ -40,9 +44,20 @@ El sitio dispone de contenido en español e inglés y tema claro/oscuro global.
 │       └── comprehensive/
 └── assets/
     ├── css/
-    │   └── site.css
-    └── js/
-        └── site.js
+    │   ├── base.css
+    │   ├── components.css
+    │   ├── home.css
+    │   ├── cv.css
+    │   └── themes.css
+    ├── js/
+    │   ├── theme.js
+    │   └── site-v2.js
+    └── svg/
+        ├── portfolio.svg
+        ├── networks.svg
+        ├── electrical.svg
+        ├── integral.svg
+        └── 404.svg
 ```
 
 ## Licencia
