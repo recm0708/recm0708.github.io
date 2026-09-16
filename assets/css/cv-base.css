@@ -1,0 +1,119 @@
+/* ==========================================================
+   BASE VISUAL COMÚN DE LOS CURRÍCULOS WEB
+   Define estructura, tipografía, navegación, controles, impresión
+   y componentes compartidos. Cada especialidad sobrescribe colores
+   y recursos gráficos en su propia hoja de estilos.
+   ========================================================== */
+
+:root{
+  --cv-max:1240px;
+  --cv-bg:#0b1114;
+  --cv-bg-soft:#10181c;
+  --cv-surface:#121c21;
+  --cv-surface-strong:#17242a;
+  --cv-ink:#f1f6f4;
+  --cv-muted:#9aada6;
+  --cv-line:rgba(205,235,225,.14);
+  --cv-line-strong:rgba(205,235,225,.28);
+  --cv-accent:#6de6c0;
+  --cv-accent-2:#6bb7ff;
+  --cv-accent-3:#f2c46d;
+  --cv-shadow:0 24px 80px rgba(0,0,0,.2);
+  color-scheme:dark;
+}
+
+html[data-theme="light"]{
+  --cv-bg:#dce6e3;
+  --cv-bg-soft:#d2ddda;
+  --cv-surface:#e8efed;
+  --cv-surface-strong:#f0f4f2;
+  --cv-ink:#172320;
+  --cv-muted:#5f716c;
+  --cv-line:rgba(23,63,53,.14);
+  --cv-line-strong:rgba(23,63,53,.28);
+  --cv-shadow:0 24px 70px rgba(28,56,48,.10);
+  color-scheme:light;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:88px}
+body{margin:0;min-width:320px;background:var(--cv-bg);color:var(--cv-ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.62;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:inherit}
+button{font:inherit}
+svg{display:block}
+
+.cv-container{width:min(calc(100% - 44px),var(--cv-max));margin-inline:auto}
+.cv-skip{position:fixed;left:12px;top:12px;z-index:9999;transform:translateY(-180%);padding:10px 14px;background:var(--cv-ink);color:var(--cv-bg);font-weight:800;text-decoration:none}
+.cv-skip:focus{transform:none}
+
+/* Cabecera común */
+.cv-header{position:sticky;top:0;z-index:1200;border-bottom:1px solid var(--cv-line);background:color-mix(in srgb,var(--cv-bg) 88%,transparent);backdrop-filter:blur(18px)}
+.cv-header-inner{min-height:72px;display:grid;grid-template-columns:auto 1fr auto;gap:28px;align-items:center}
+.cv-brand{display:flex;align-items:baseline;gap:9px;text-decoration:none;white-space:nowrap;font-weight:900;letter-spacing:-.045em}
+.cv-brand .slash{color:var(--cv-accent)}
+.cv-brand small{color:var(--cv-muted);font:700 .61rem/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.02em}
+.cv-primary-nav{display:flex;justify-content:center;align-items:center;gap:24px;min-width:0}
+.cv-primary-nav a{color:var(--cv-muted);font-size:.73rem;font-weight:760;text-decoration:none;white-space:nowrap}
+.cv-primary-nav a:hover,.cv-primary-nav a:focus-visible{color:var(--cv-accent)}
+.cv-header-actions{display:flex;align-items:center;gap:8px}
+.cv-print-control{min-height:39px;padding:0 11px;border:1px solid var(--cv-line);background:transparent;color:var(--cv-ink);cursor:pointer;display:inline-flex;align-items:center;gap:7px;font:800 .7rem/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+.cv-print-control:hover,.cv-print-control:focus-visible{border-color:var(--cv-line-strong);background:color-mix(in srgb,var(--cv-ink) 5%,transparent);outline:none}
+.cv-print-control svg{width:16px;height:16px}
+
+/* Estructura y títulos */
+.cv-section{padding:78px 0;border-bottom:1px solid var(--cv-line);scroll-margin-top:86px}
+.cv-section:last-of-type{border-bottom:0}
+.cv-section-head{display:grid;grid-template-columns:58px minmax(0,1fr);gap:16px;align-items:end;margin-bottom:30px}
+.cv-section-no{color:var(--cv-accent);font:900 .67rem/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.12em}
+.cv-section-title{margin:0;font-size:clamp(2rem,3.7vw,3.65rem);line-height:.96;letter-spacing:-.052em}
+.cv-section-lead{max-width:900px;margin:0;color:var(--cv-muted);font-size:1.02rem}
+.cv-section-lead strong{color:var(--cv-ink)}
+.cv-eyebrow{margin:0 0 16px;color:var(--cv-accent);font:850 .68rem/1.3 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.1em;text-transform:uppercase}
+
+/* Componentes comunes */
+.cv-card{border:1px solid var(--cv-line);background:var(--cv-surface);box-shadow:none}
+.cv-chip-row{display:flex;flex-wrap:wrap;gap:7px}
+.cv-chip{display:inline-flex;align-items:center;min-height:28px;padding:0 9px;border:1px solid var(--cv-line);color:var(--cv-muted);font:720 .66rem/1.2 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+.cv-chip.is-accent{border-color:color-mix(in srgb,var(--cv-accent) 45%,var(--cv-line));color:var(--cv-accent)}
+.cv-link{display:inline-flex;align-items:center;gap:7px;color:var(--cv-accent);font-weight:800;text-decoration:none}
+.cv-link:hover{text-decoration:underline;text-underline-offset:4px}
+.cv-link svg{width:15px;height:15px}
+
+/* Pie común */
+.cv-footer{border-top:1px solid var(--cv-line);background:var(--cv-bg-soft)}
+.cv-footer-inner{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:24px;color:var(--cv-muted);font-size:.72rem}
+.cv-footer a{color:var(--cv-accent);text-decoration:none}
+.cv-footer a:hover{text-decoration:underline;text-underline-offset:4px}
+
+@media(max-width:980px){
+  .cv-header-inner{grid-template-columns:auto 1fr;gap:18px}
+  .cv-primary-nav{display:none}
+  .cv-header-actions{justify-self:end}
+}
+
+@media(max-width:700px){
+  .cv-container{width:min(calc(100% - 28px),var(--cv-max))}
+  .cv-header-inner{min-height:64px;gap:10px}
+  .cv-brand small{display:none}
+  .cv-print-control span{display:none}
+  .cv-print-control{width:40px;padding:0;justify-content:center}
+  .cv-section{padding:58px 0}
+  .cv-section-head{grid-template-columns:40px 1fr;gap:10px}
+}
+
+@media(max-width:470px){
+  .cv-brand{font-size:.92rem}
+  .cv-header-actions{gap:5px}
+  .site-language-control{padding-inline:8px!important;font-size:.65rem!important}
+}
+
+@media print{
+  :root{--cv-bg:#fff;--cv-bg-soft:#fff;--cv-surface:#fff;--cv-surface-strong:#fff;--cv-ink:#111;--cv-muted:#444;--cv-line:#cfcfcf;--cv-line-strong:#aaa;--cv-accent:#075f7a;--cv-accent-2:#075f7a;--cv-shadow:none;color-scheme:light}
+  body{background:#fff!important;color:#111!important}
+  .cv-header,.site-back-top,.cv-print-control,.site-language-control,.site-theme-control{display:none!important}
+  .cv-container{width:100%;max-width:none}
+  .cv-section{padding:28px 0;border-color:#ccc;break-inside:auto}
+  .cv-card{background:#fff!important;box-shadow:none!important;border-color:#ccc!important}
+  .cv-footer{background:#fff;border-color:#ccc}
+  @page{margin:13mm}
+}
