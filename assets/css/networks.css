@@ -1,121 +1,86 @@
 /* ==========================================================
    CV REDES INFORMÁTICAS — IDENTIDAD VISUAL
-   Hereda estructura de cv-base.css y añade lenguaje de red:
-   topologías, CLI, rutas, métricas y acentos cian/verde.
+   Currículo digital profesional inspirado en el formato de los PDF,
+   con una hoja central, barra lateral y temática de redes.
    ========================================================== */
 
 :root{
   --cv-bg:#061015;
   --cv-bg-soft:#08161d;
-  --cv-surface:#0a1a22;
-  --cv-surface-strong:#0d222c;
+  --cv-surface:#0b1920;
+  --cv-surface-strong:#10232c;
   --cv-ink:#eefaff;
-  --cv-muted:#8aa8b3;
+  --cv-muted:#8da7b2;
   --cv-line:rgba(102,226,255,.14);
   --cv-line-strong:rgba(102,226,255,.30);
   --cv-accent:#66e2ff;
   --cv-accent-2:#71efb7;
   --cv-accent-3:#ffc96b;
+  --net-side:#0a2630;
+  --net-sheet:#0a171d;
 }
 
 html[data-theme="light"]{
-  --cv-bg:#dbe7e8;
-  --cv-bg-soft:#cfdddf;
-  --cv-surface:#e6edef;
-  --cv-surface-strong:#eef3f4;
-  --cv-ink:#11262d;
-  --cv-muted:#59737b;
+  --cv-bg:#d8e4e5;
+  --cv-bg-soft:#cedadd;
+  --cv-surface:#e7eef0;
+  --cv-surface-strong:#eff4f5;
+  --cv-ink:#14272e;
+  --cv-muted:#5c747d;
   --cv-line:rgba(17,79,96,.14);
   --cv-line-strong:rgba(17,79,96,.28);
   --cv-accent:#087b97;
-  --cv-accent-2:#13775c;
+  --cv-accent-2:#14775d;
   --cv-accent-3:#916006;
+  --net-side:#c8dde1;
+  --net-sheet:#edf3f4;
 }
 
 body.network-cv{position:relative;overflow-x:hidden}
-body.network-cv::before{content:"";position:fixed;inset:0;z-index:-3;background:radial-gradient(circle at 76% 8%,color-mix(in srgb,var(--cv-accent) 12%,transparent),transparent 28rem),radial-gradient(circle at 8% 64%,color-mix(in srgb,var(--cv-accent-2) 8%,transparent),transparent 31rem),var(--cv-bg)}
-body.network-cv::after{content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;background-image:linear-gradient(color-mix(in srgb,var(--cv-accent) 7%,transparent) 1px,transparent 1px),linear-gradient(90deg,color-mix(in srgb,var(--cv-accent) 7%,transparent) 1px,transparent 1px);background-size:44px 44px;mask-image:linear-gradient(to bottom,black,transparent 78%)}
+body.network-cv::before{content:"";position:fixed;inset:0;z-index:-3;background:radial-gradient(circle at 78% 8%,color-mix(in srgb,var(--cv-accent) 12%,transparent),transparent 30rem),radial-gradient(circle at 7% 70%,color-mix(in srgb,var(--cv-accent-2) 7%,transparent),transparent 32rem),var(--cv-bg)}
+body.network-cv::after{content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;background-image:linear-gradient(color-mix(in srgb,var(--cv-accent) 6%,transparent) 1px,transparent 1px),linear-gradient(90deg,color-mix(in srgb,var(--cv-accent) 6%,transparent) 1px,transparent 1px);background-size:44px 44px;mask-image:linear-gradient(to bottom,black,transparent 82%)}
 
-/* Cabecera */
-.network-cv .cv-header{border-bottom-color:var(--cv-line)}
-.network-cv .cv-brand{font-size:1rem}
 .network-cv .cv-primary-nav a[aria-current="true"]{color:var(--cv-accent)}
 
-/* Presentación */
-.net-hero{padding:92px 0 76px;border-bottom:1px solid var(--cv-line);position:relative;overflow:hidden}
-.net-hero-grid{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(360px,.68fr);gap:64px;align-items:center}
-.net-kicker{display:flex;align-items:center;gap:9px;color:var(--cv-accent-2);font:850 .7rem/1.2 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.09em;text-transform:uppercase}
-.net-kicker::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--cv-accent-2);box-shadow:0 0 14px color-mix(in srgb,var(--cv-accent-2) 76%,transparent)}
-.net-hero h1{margin:18px 0 0;font-size:clamp(3.45rem,6.6vw,6.85rem);line-height:.89;letter-spacing:-.068em;max-width:880px}
-.net-role{margin:22px 0 0;color:var(--cv-accent);font-size:clamp(1.05rem,1.8vw,1.34rem);font-weight:800}
-.net-summary{max-width:820px;margin:20px 0 0;color:var(--cv-muted);font-size:1.02rem}
-.net-contact{display:flex;flex-wrap:wrap;gap:10px 17px;margin-top:25px;color:var(--cv-muted);font-size:.78rem}
-.net-contact a{text-decoration:none;border-bottom:1px solid transparent}
-.net-contact a:hover{color:var(--cv-accent);border-color:currentColor}
-.net-actions-row{display:flex;flex-wrap:wrap;gap:9px;margin-top:28px}
-.net-cta{min-height:43px;display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:0 13px;border:1px solid var(--cv-line-strong);text-decoration:none;font-size:.78rem;font-weight:820}
-.net-cta.primary{background:var(--cv-accent);border-color:var(--cv-accent);color:#061015}
-html[data-theme="light"] .net-cta.primary{color:white}
-.net-cta:hover{transform:translateY(-2px)}
+/* Marco general del currículo */
+.net-page{padding:54px 0 84px}
+.net-resume{width:min(calc(100% - 44px),1160px);margin:auto;border:1px solid var(--cv-line-strong);background:var(--net-sheet);box-shadow:0 34px 110px rgba(0,0,0,.28);overflow:hidden}
+.net-resume-head{position:relative;padding:38px 42px 34px 320px;border-bottom:1px solid var(--cv-line);background:linear-gradient(120deg,color-mix(in srgb,var(--cv-accent) 7%,transparent),transparent 46%),var(--cv-surface)}
+.net-resume-head::before{content:"";position:absolute;left:0;top:0;bottom:0;width:280px;background:linear-gradient(145deg,color-mix(in srgb,var(--cv-accent) 13%,transparent),transparent 65%),var(--net-side);border-right:1px solid var(--cv-line-strong)}
+.net-resume-head::after{content:"";position:absolute;left:42px;top:50%;width:190px;height:190px;transform:translateY(-50%);border:1px solid var(--cv-line-strong);border-radius:50%;background:radial-gradient(circle at 50% 50%,color-mix(in srgb,var(--cv-accent) 16%,transparent),transparent 62%)}
+.net-resume-head h1{position:relative;margin:0;font-size:clamp(2.5rem,5vw,4.8rem);line-height:.94;letter-spacing:-.055em}
+.net-title{position:relative;margin:14px 0 0;color:var(--cv-accent);font-size:1.05rem;font-weight:820}
+.net-head-summary{position:relative;max-width:730px;margin:18px 0 0;color:var(--cv-muted);font-size:.94rem}
+.net-contact-row{position:relative;display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:20px;color:var(--cv-muted);font-size:.76rem}
+.net-contact-row a{text-decoration:none}.net-contact-row a:hover{color:var(--cv-accent)}
 
-.net-console{position:relative;min-height:468px;border:1px solid var(--cv-line-strong);background:linear-gradient(180deg,color-mix(in srgb,var(--cv-accent) 4%,transparent),transparent),var(--cv-surface);overflow:hidden;box-shadow:var(--cv-shadow)}
-.net-console-head{height:44px;border-bottom:1px solid var(--cv-line);display:flex;align-items:center;justify-content:space-between;padding:0 15px;color:var(--cv-muted);font:750 .62rem/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.08em}
-.net-console-dots{display:flex;gap:6px}.net-console-dots i{width:7px;height:7px;border-radius:50%;background:var(--cv-line-strong)}.net-console-dots i:first-child{background:var(--cv-accent-3)}.net-console-dots i:nth-child(2){background:var(--cv-accent-2)}
-.net-topology{height:270px;padding:24px 26px 0}.net-topology svg{width:100%;height:100%}.net-topology .link{stroke:var(--cv-line-strong);stroke-width:1.2;stroke-dasharray:5 7}.net-topology .node{fill:var(--cv-bg-soft);stroke:var(--cv-accent);stroke-width:1.5}.net-topology .node.core{fill:var(--cv-accent);filter:drop-shadow(0 0 9px color-mix(in srgb,var(--cv-accent) 70%,transparent))}.net-topology .node.service{stroke:var(--cv-accent-2)}.net-topology text{fill:var(--cv-muted);font:8px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
-.net-console-stats{display:grid;grid-template-columns:repeat(2,1fr);border-top:1px solid var(--cv-line)}
-.net-stat{padding:16px 17px;border-right:1px solid var(--cv-line);border-bottom:1px solid var(--cv-line)}
-.net-stat:nth-child(2n){border-right:0}.net-stat:nth-last-child(-n+2){border-bottom:0}
-.net-stat strong{display:block;color:var(--cv-accent);font:900 1.2rem/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}.net-stat span{display:block;margin-top:5px;color:var(--cv-muted);font-size:.7rem}
+.net-resume-body{display:grid;grid-template-columns:280px minmax(0,1fr)}
+.net-sidebar{padding:30px 26px;background:var(--net-side);border-right:1px solid var(--cv-line-strong)}
+.net-main{padding:32px 38px 42px;min-width:0}
 
-/* Índice lateral */
-.net-body{display:grid;grid-template-columns:228px minmax(0,1fr);gap:56px;padding:72px 0 110px}
-.net-index{position:relative}.net-index-inner{position:sticky;top:104px}
-.net-index-title{margin:0 0 14px;color:var(--cv-muted);font:850 .62rem/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.11em}
-.net-index nav{border-top:1px solid var(--cv-line)}
-.net-index a{display:grid;grid-template-columns:31px 1fr;gap:8px;padding:12px 0;border-bottom:1px solid var(--cv-line);color:var(--cv-muted);text-decoration:none;font-size:.74rem}
-.net-index a span:first-child{color:var(--cv-accent);font:850 .63rem/1.45 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}.net-index a:hover{color:var(--cv-ink)}
-.net-index-note{margin-top:26px;padding:15px;border:1px solid var(--cv-line);background:var(--cv-surface)}
-.net-index-note strong{display:block;color:var(--cv-accent-2);font:850 .63rem/1.3 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}.net-index-note p{margin:8px 0 0;color:var(--cv-muted);font-size:.71rem}
+.net-block+.net-block{margin-top:28px}.net-block-title{margin:0 0 14px;color:var(--cv-accent);font:900 .69rem/1.2 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.11em;text-transform:uppercase}.net-block-title::after{content:"";display:block;width:42px;height:2px;margin-top:9px;background:var(--cv-accent)}
+.net-list{margin:0;padding-left:17px;color:var(--cv-muted);font-size:.78rem}.net-list li+li{margin-top:7px}
+.net-data{margin:0}.net-data div{padding:8px 0;border-bottom:1px solid var(--cv-line)}.net-data div:last-child{border-bottom:0}.net-data dt{color:var(--cv-muted);font-size:.63rem;font-weight:760;text-transform:uppercase;letter-spacing:.06em}.net-data dd{margin:3px 0 0;color:var(--cv-ink);font-size:.78rem;font-weight:720}
+.net-tool-groups{display:grid;gap:14px}.net-tool-group h4{margin:0 0 7px;color:var(--cv-ink);font-size:.75rem}.net-tool-group p{margin:0;color:var(--cv-muted);font-size:.74rem;line-height:1.65}
+.net-lang-card{padding:13px;border:1px solid var(--cv-line);background:color-mix(in srgb,var(--cv-surface) 42%,transparent)}.net-lang-card strong{display:block;font-size:.82rem}.net-lang-card span{display:block;margin-top:5px;color:var(--cv-muted);font-size:.72rem;line-height:1.5}
 
-.net-content{min-width:0}.net-content .cv-section{padding-top:0;margin-bottom:72px;padding-bottom:72px}.net-content .cv-section:last-child{margin-bottom:0;padding-bottom:0}
+.net-section{padding-bottom:28px}.net-section+.net-section{padding-top:28px;border-top:1px solid var(--cv-line)}.net-section h2{margin:0 0 15px;font-size:1.05rem;letter-spacing:.01em;text-transform:uppercase}.net-section h2 span{color:var(--cv-accent)}.net-section p{margin:0;color:var(--cv-muted);font-size:.86rem}.net-section p+p{margin-top:11px}
+.net-objectives{margin:13px 0 0;padding-left:19px;color:var(--cv-muted);font-size:.84rem}.net-objectives li+li{margin-top:7px}
 
-/* Perfil y experiencia */
-.net-profile-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(260px,.75fr);gap:16px;margin-top:28px}
-.net-profile-copy,.net-profile-side{padding:24px}
-.net-profile-copy p{margin:0;color:var(--cv-muted);font-size:.94rem}.net-profile-copy p+p{margin-top:15px}.net-profile-copy strong{color:var(--cv-ink)}
-.net-profile-side dl{margin:0}.net-profile-side div{display:grid;grid-template-columns:112px 1fr;gap:10px;padding:10px 0;border-bottom:1px solid var(--cv-line)}.net-profile-side div:last-child{border-bottom:0}.net-profile-side dt{color:var(--cv-muted);font:760 .66rem/1.4 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}.net-profile-side dd{margin:0;font-size:.78rem;font-weight:720}
+.net-timeline{margin-top:8px}.net-entry{display:grid;grid-template-columns:145px minmax(0,1fr);gap:20px;padding:15px 0;border-bottom:1px solid var(--cv-line)}.net-entry:last-child{border-bottom:0}.net-entry-meta{color:var(--cv-accent);font:800 .66rem/1.5 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}.net-entry h3{margin:0;font-size:.94rem}.net-entry h4{margin:4px 0 0;color:var(--cv-muted);font-size:.77rem;font-weight:650}.net-entry p{margin:8px 0 0;font-size:.79rem}.net-entry ul{margin:8px 0 0;padding-left:18px;color:var(--cv-muted);font-size:.79rem}.net-entry li+li{margin-top:5px}
 
-.net-experience{margin-top:28px;border-top:1px solid var(--cv-line)}
-.net-job{display:grid;grid-template-columns:155px minmax(0,1fr);gap:26px;padding:24px 0;border-bottom:1px solid var(--cv-line)}
-.net-job time{color:var(--cv-accent);font:820 .67rem/1.45 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}.net-job h3{margin:0;font-size:1.08rem}.net-job h4{margin:4px 0 0;color:var(--cv-muted);font-size:.8rem}.net-job p{margin:11px 0 0;color:var(--cv-muted);font-size:.86rem}.net-job.is-secondary{opacity:.88}
+.net-course-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:12px}.net-course{padding:13px 14px;border:1px solid var(--cv-line);background:color-mix(in srgb,var(--cv-surface) 60%,transparent)}.net-course strong{display:block;font-size:.79rem;line-height:1.35}.net-course span{display:block;margin-top:5px;color:var(--cv-muted);font-size:.69rem;line-height:1.45}.net-course .status{color:var(--cv-accent-2);font-weight:800}.net-course .status.pending{color:var(--cv-accent-3)}
+.net-course-link{margin-top:13px}.net-course-link a{color:var(--cv-accent);font-size:.76rem;font-weight:800;text-decoration:none}.net-course-link a:hover{text-decoration:underline;text-underline-offset:4px}
 
-/* Competencias */
-.net-domain-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:28px}.net-domain{padding:22px}.net-domain-head{display:flex;align-items:center;gap:11px;margin-bottom:11px}.net-domain-head svg{width:22px;height:22px;color:var(--cv-accent)}.net-domain h3{margin:0;font-size:.98rem}.net-domain p{margin:0;color:var(--cv-muted);font-size:.84rem}.net-domain .cv-chip-row{margin-top:14px}
+.net-reference{padding:13px 15px;border-left:2px solid var(--cv-accent-2);background:linear-gradient(90deg,color-mix(in srgb,var(--cv-accent-2) 7%,transparent),transparent)}.net-reference p{font-size:.79rem}
 
-/* Proyectos */
-.net-projects{margin-top:28px;border-top:1px solid var(--cv-line)}
-.net-project{display:grid;grid-template-columns:74px minmax(190px,.58fr) minmax(0,1fr);gap:22px;padding:25px 0;border-bottom:1px solid var(--cv-line)}
-.net-project-id{color:var(--cv-accent-2);font:850 .66rem/1.4 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}.net-project h3{margin:0;font-size:1.08rem;line-height:1.2}.net-project p{margin:0;color:var(--cv-muted);font-size:.85rem}.net-project .cv-chip-row{margin-top:11px}
-
-/* Credenciales */
-.net-credential-summary{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:28px}.net-credential-metric{padding:18px}.net-credential-metric strong{display:block;color:var(--cv-accent);font:900 1.55rem/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}.net-credential-metric span{display:block;margin-top:7px;color:var(--cv-muted);font-size:.74rem}
-.net-credential-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:20px}.net-credential{display:grid;grid-template-columns:48px 1fr;gap:14px;padding:18px}.net-badge-placeholder{width:48px;height:48px;border:1px solid var(--cv-line-strong);display:grid;place-items:center;color:var(--cv-accent);background:linear-gradient(145deg,color-mix(in srgb,var(--cv-accent) 10%,transparent),transparent);font:900 .7rem/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}.net-credential h3{margin:0;font-size:.88rem;line-height:1.25}.net-credential p{margin:6px 0 0;color:var(--cv-muted);font-size:.72rem}.credential-status{display:inline-flex;margin-top:8px;color:var(--cv-accent-2);font:800 .62rem/1.2 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}.credential-status.pending{color:var(--cv-accent-3)}
-.net-paths{margin-top:18px;padding:20px}.net-paths h3{margin:0 0 13px;font-size:.94rem}.net-paths p{margin:0;color:var(--cv-muted);font-size:.82rem}
-
-/* Formación y herramientas */
-.net-education{margin-top:26px}.net-edu{display:grid;grid-template-columns:150px 1fr;gap:24px;padding:21px 0;border-top:1px solid var(--cv-line)}.net-edu:last-child{border-bottom:1px solid var(--cv-line)}.net-edu-meta{color:var(--cv-accent);font:820 .67rem/1.45 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}.net-edu h3{margin:0;font-size:1rem}.net-edu h4{margin:4px 0 0;color:var(--cv-muted);font-size:.8rem}.net-edu p{margin:10px 0 0;color:var(--cv-muted);font-size:.83rem}
-.net-stack-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:28px}.net-stack-box{padding:20px}.net-stack-box h3{margin:0 0 13px;color:var(--cv-accent);font:850 .7rem/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.06em}.net-stack-box ul{margin:0;padding-left:17px;color:var(--cv-muted);font-size:.8rem}.net-stack-box li+li{margin-top:6px}
-
-.net-note{margin-top:24px;padding:20px;border-left:2px solid var(--cv-accent-2);background:linear-gradient(90deg,color-mix(in srgb,var(--cv-accent-2) 7%,transparent),transparent)}.net-note p{margin:0;color:var(--cv-muted);font-size:.83rem}.net-note strong{color:var(--cv-ink)}
-
-@media(max-width:1040px){
-  .net-hero-grid{grid-template-columns:1fr}.net-console{min-height:430px}.net-body{grid-template-columns:1fr;gap:34px}.net-index-inner{position:static}.net-index nav{display:grid;grid-template-columns:repeat(4,1fr)}.net-index a{padding-right:12px}.net-index-note{display:none}.net-stack-grid{grid-template-columns:repeat(2,1fr)}
+@media(max-width:900px){
+  .net-resume-head{padding:34px 28px}.net-resume-head::before,.net-resume-head::after{display:none}.net-resume-body{grid-template-columns:1fr}.net-sidebar{border-right:0;border-bottom:1px solid var(--cv-line-strong);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px}.net-block+.net-block{margin-top:0}.net-main{padding:30px 28px}
 }
-@media(max-width:720px){
-  .net-hero{padding:64px 0 58px}.net-hero h1{font-size:clamp(3rem,14vw,5rem)}.net-console{min-height:390px}.net-profile-grid,.net-domain-grid,.net-credential-grid,.net-credential-summary{grid-template-columns:1fr}.net-index nav{grid-template-columns:repeat(2,1fr)}.net-job,.net-edu{grid-template-columns:1fr;gap:7px}.net-project{grid-template-columns:52px 1fr}.net-project>p{grid-column:2}.net-stack-grid{grid-template-columns:1fr}
+@media(max-width:650px){
+  .net-page{padding:28px 0 60px}.net-resume{width:min(calc(100% - 20px),1160px)}.net-resume-head{padding:28px 22px}.net-main{padding:26px 21px}.net-sidebar{grid-template-columns:1fr;padding:25px 21px}.net-block+.net-block{margin-top:8px}.net-entry{grid-template-columns:1fr;gap:5px}.net-course-grid{grid-template-columns:1fr}.net-contact-row{flex-direction:column;gap:6px}
 }
-@media(max-width:480px){.net-console{min-height:365px}.net-topology{height:235px;padding-inline:16px}.net-console-stats{grid-template-columns:1fr 1fr}.net-contact{display:grid;gap:6px}.net-index nav{grid-template-columns:1fr 1fr}}
 
 @media print{
-  body.network-cv::before,body.network-cv::after,.net-console,.net-index,.net-actions-row{display:none!important}.net-hero{padding:0 0 24px}.net-hero-grid,.net-body{display:block}.net-body{padding:28px 0}.net-content .cv-section{margin-bottom:34px;padding-bottom:28px}.net-profile-grid,.net-domain-grid,.net-credential-grid,.net-credential-summary,.net-stack-grid{grid-template-columns:1fr 1fr}.net-project,.net-job,.net-edu,.net-credential{break-inside:avoid}.net-summary,.net-profile-copy p,.net-job p,.net-domain p,.net-project p,.net-credential p,.net-edu p,.net-stack-box ul,.net-note p{color:#444!important}
+  body.network-cv::before,body.network-cv::after{display:none}.net-page{padding:0}.net-resume{width:100%;border:0;box-shadow:none;background:#fff}.net-resume-head{padding:22px 22px 20px 240px;background:#fff}.net-resume-head::before{display:block;width:215px;background:#e7f0f2;border-right:1px solid #bbb}.net-resume-head::after{display:none}.net-resume-body{grid-template-columns:215px 1fr}.net-sidebar{padding:22px 18px;background:#e7f0f2;border-color:#bbb}.net-main{padding:22px 25px}.net-block-title,.net-entry-meta,.net-title{color:#075f7a}.net-section+.net-section,.net-entry,.net-data div{border-color:#ccc}.net-section p,.net-objectives,.net-list,.net-tool-group p,.net-lang-card span,.net-entry h4,.net-entry p,.net-entry ul,.net-course span{color:#444}.net-course,.net-lang-card{background:#fff;border-color:#ccc}.cv-footer{display:none!important}@page{margin:10mm}
 }
