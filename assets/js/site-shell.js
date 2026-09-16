@@ -4,8 +4,8 @@
   /* ==========================================================
      CASCARÓN GLOBAL DEL SITIO
      Utilidades compartidas para cabecera, pie, retorno al inicio y
-     simetría visual. La portada conserva su propia lógica de idioma;
-     los currículos pueden reutilizar estas funciones.
+     simetría visual. La portada conserva su navegación completa;
+     el selector de CV y los currículos usan una cabecera minimalista.
      ========================================================== */
 
   const THEME_KEY = 'portfolio-theme';
@@ -33,7 +33,7 @@
     if (document.querySelector('link[href^="/assets/css/site-shell.css"]')) return;
     const link = document.createElement('link');
     link.rel = 'stylesheet';
-    link.href = '/assets/css/site-shell.css?v=20260916-1';
+    link.href = '/assets/css/site-shell.css?v=20260916-2';
     document.head.appendChild(link);
   }
 
@@ -45,13 +45,30 @@
     return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>';
   }
 
-  function construirCabecera({ languageHref = null, languageButtonAttr = '', currentSection = 'cv' } = {}) {
+  function construirCabecera({ languageHref = null, languageButtonAttr = '', currentSection = 'cv', minimal = null } = {}) {
     const lang = idiomaActual();
     const tx = textos[lang];
+    const esCv = minimal ?? currentSection === 'cv';
     const actual = (clave) => clave === currentSection ? ' aria-current="page"' : '';
     const idioma = languageHref
       ? `<a class="control lang-control" href="${languageHref}" aria-label="${tx.langLabel}">${tx.lang}</a>`
       : `<button class="control lang-control" type="button" ${languageButtonAttr} aria-label="${tx.langLabel}">${tx.lang}</button>`;
+
+    const navegacionEscritorio = esCv
+      ? `<nav class="desktop-nav cv-only" aria-label="${lang === 'en' ? 'Curriculum Vitae navigation' : 'Navegación de Currículum Vitae'}"><a class="nav-cv" href="/cv/" aria-current="page">${tx.cv}</a></nav>`
+      : `<nav class="desktop-nav" aria-label="${lang === 'en' ? 'Main navigation' : 'Navegación principal'}">
+          <a href="/#acerca"${actual('about')}>${tx.about}</a>
+          <a href="/#areas"${actual('areas')}>${tx.areas}</a>
+          <a href="/#proyectos"${actual('projects')}>${tx.projects}</a>
+          <a class="nav-cv" href="/cv/"${actual('cv')}>${tx.cv}</a>
+          <a href="/#contacto"${actual('contact')}>${tx.contact}</a>
+        </nav>`;
+
+    const navegacionMovil = esCv
+      ? `<nav class="mobile-nav cv-only" id="mobile-nav" aria-label="${lang === 'en' ? 'Curriculum Vitae navigation' : 'Navegación de Currículum Vitae'}" hidden><a href="/cv/">${tx.cv}</a></nav>`
+      : `<nav class="mobile-nav" id="mobile-nav" aria-label="${lang === 'en' ? 'Mobile navigation' : 'Navegación móvil'}" hidden>
+          <a href="/#acerca">${tx.about}</a><a href="/#areas">${tx.areas}</a><a href="/#proyectos">${tx.projects}</a><a href="/cv/">${tx.cv}</a><a href="/#contacto">${tx.contact}</a>
+        </nav>`;
 
     const header = document.querySelector('header') || document.createElement('header');
     header.className = 'site-header shell-header scrolled';
@@ -60,22 +77,14 @@
         <a class="wordmark" href="/" aria-label="${lang === 'en' ? 'Home' : 'Inicio'}">
           <span>rubén<span class="slash">/</span>cañizares</span><small>recm0708</small>
         </a>
-        <nav class="desktop-nav" aria-label="${lang === 'en' ? 'Main navigation' : 'Navegación principal'}">
-          <a href="/#acerca"${actual('about')}>${tx.about}</a>
-          <a href="/#areas"${actual('areas')}>${tx.areas}</a>
-          <a href="/#proyectos"${actual('projects')}>${tx.projects}</a>
-          <a class="nav-cv" href="/cv/"${actual('cv')}>${tx.cv}</a>
-          <a href="/#contacto"${actual('contact')}>${tx.contact}</a>
-        </nav>
+        ${navegacionEscritorio}
         <div class="header-actions">
           ${idioma}
           <button class="control theme-control" type="button" data-theme-toggle aria-label="${tx.theme}">${iconoTema()}</button>
           <button class="control menu-control" type="button" data-menu-toggle aria-expanded="false" aria-controls="mobile-nav" aria-label="${tx.menu}">${iconoMenu()}</button>
         </div>
       </div>
-      <nav class="mobile-nav" id="mobile-nav" aria-label="${lang === 'en' ? 'Mobile navigation' : 'Navegación móvil'}" hidden>
-        <a href="/#acerca">${tx.about}</a><a href="/#areas">${tx.areas}</a><a href="/#proyectos">${tx.projects}</a><a href="/cv/">${tx.cv}</a><a href="/#contacto">${tx.contact}</a>
-      </nav>`;
+      ${navegacionMovil}`;
 
     if (!header.isConnected) document.body.prepend(header);
     activarMenu(header);
