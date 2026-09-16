@@ -45,10 +45,19 @@
     });
   }
 
+  function cargarHoja(src) {
+    if (document.querySelector(`link[href^="${src.split('?')[0]}"]`)) return;
+    const hoja = document.createElement('link');
+    hoja.rel = 'stylesheet';
+    hoja.href = src;
+    document.head.appendChild(hoja);
+  }
+
   function refrescarEstilosArea() {
     if (document.body.classList.contains('network-cv')) {
       const hoja = document.querySelector('link[href*="/assets/css/networks.css"]');
       if (hoja) hoja.href = '/assets/css/networks.css?v=20260916-5';
+      cargarHoja('/assets/css/networks-enhanced.css?v=20260916-1');
     }
   }
 
