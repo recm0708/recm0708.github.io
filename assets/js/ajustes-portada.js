@@ -79,7 +79,7 @@
     {
       clave: 'tecnico',
       titulo: { es: 'Profesional y técnico', en: 'Professional & technical' },
-      nombres: ['Docker Hub', 'Gravatar', 'Microsoft Learn', 'WordPress']
+      nombres: ['Cisco Community', 'Docker Hub', 'Gravatar', 'Microsoft Learn', 'WordPress']
     },
     {
       clave: 'formacion',
@@ -94,12 +94,14 @@
   ];
 
   const iconosExtra = {
+    'Cisco Community': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 14v-4M7 17V7M10 19V5M13 19V5M16 17V7M19 14v-4"/></svg>',
     'Docker Hub': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 13h15c0 4-3 7-8 7-4 0-7-2-8-5"/><path d="M6 10h3v3H6zM10 10h3v3h-3zM14 10h3v3h-3zM10 6h3v3h-3z"/></svg>',
     'Microsoft Learn': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M3 5.5 10 4v7H3V5.5ZM11 3.8 21 2v9h-10V3.8ZM3 12h7v7L3 17.8V12ZM11 12h10v9l-10-1.8V12Z"/></svg>',
     'Gravatar': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="9" r="3"/><path d="M6.8 18c1.3-2.5 3-3.7 5.2-3.7s3.9 1.2 5.2 3.7"/></svg>'
   };
 
   const perfilesConfirmados = [
+    ['Cisco Community', 'https://community.cisco.com/t5/user/viewprofilepage/user-id/2111244'],
     ['Docker Hub', 'https://hub.docker.com/u/recm0708'],
     ['Microsoft Learn', 'https://learn.microsoft.com/es-es/users/recm0708/'],
     ['Gravatar', 'https://gravatar.com/recm0708']
