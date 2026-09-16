@@ -1,0 +1,194 @@
+/* ==========================================================
+   CV REDES — SEGUNDA CAPA VISUAL
+   Refuerza el currículo como pieza editorial técnica: cortes en ángulo,
+   ejes verticales, topología y espacio reservado para la fotografía.
+   ========================================================== */
+
+body.network-cv::before{
+  background:
+    radial-gradient(circle at 82% 8%,color-mix(in srgb,var(--cv-accent) 14%,transparent),transparent 31rem),
+    radial-gradient(circle at 6% 72%,color-mix(in srgb,var(--cv-accent-2) 8%,transparent),transparent 34rem),
+    linear-gradient(135deg,transparent 0 63%,color-mix(in srgb,var(--cv-accent) 4%,transparent) 63% 64%,transparent 64%),
+    var(--cv-bg);
+}
+body.network-cv::after{background-size:52px 52px;opacity:.72}
+
+.net-page{padding:62px 0 92px}
+.net-resume{
+  position:relative;
+  width:min(calc(100% - 44px),1160px);
+  border:1px solid var(--cv-line-strong);
+  background:var(--net-sheet);
+  box-shadow:0 38px 120px rgba(0,0,0,.30);
+  overflow:hidden;
+}
+.net-resume::before{
+  content:"";
+  position:absolute;
+  z-index:5;
+  left:279px;
+  top:0;
+  bottom:0;
+  width:1px;
+  background:linear-gradient(to bottom,var(--cv-accent),transparent 22%,var(--cv-line-strong) 52%,transparent 84%,var(--cv-accent));
+  opacity:.55;
+  pointer-events:none;
+}
+.net-resume::after{
+  content:"";
+  position:absolute;
+  z-index:1;
+  right:-170px;
+  top:120px;
+  width:430px;
+  height:1px;
+  background:var(--cv-line-strong);
+  transform:rotate(-34deg);
+  transform-origin:center;
+  box-shadow:0 110px 0 color-mix(in srgb,var(--cv-accent) 9%,transparent),0 220px 0 color-mix(in srgb,var(--cv-accent) 5%,transparent);
+  pointer-events:none;
+}
+
+/* Encabezado con reserva real para la fotografía futura. */
+.net-resume-head{
+  min-height:318px;
+  padding:52px 52px 42px 334px;
+  overflow:hidden;
+  background:
+    linear-gradient(115deg,color-mix(in srgb,var(--cv-accent) 10%,transparent),transparent 45%),
+    linear-gradient(160deg,transparent 0 70%,color-mix(in srgb,var(--cv-accent-2) 5%,transparent) 70% 100%),
+    var(--cv-surface);
+}
+.net-resume-head::before{
+  width:280px;
+  background:
+    linear-gradient(150deg,color-mix(in srgb,var(--cv-accent) 16%,transparent),transparent 56%),
+    linear-gradient(195deg,transparent 0 73%,color-mix(in srgb,var(--cv-accent-2) 9%,transparent) 73% 100%),
+    var(--net-side);
+  clip-path:polygon(0 0,100% 0,90% 100%,0 100%);
+}
+.net-resume-head::after{
+  content:"FOTO";
+  left:42px;
+  top:34px;
+  width:190px;
+  height:232px;
+  transform:none;
+  border:1px solid var(--cv-line-strong);
+  border-radius:0;
+  clip-path:polygon(0 0,86% 0,100% 12%,100% 100%,14% 100%,0 88%);
+  display:grid;
+  place-items:end center;
+  padding:0 0 18px;
+  color:var(--cv-muted);
+  font:800 .62rem/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  letter-spacing:.16em;
+  background:
+    radial-gradient(circle at 32% 28%,color-mix(in srgb,var(--cv-accent) 18%,transparent),transparent 26%),
+    linear-gradient(35deg,transparent 0 49%,color-mix(in srgb,var(--cv-accent) 12%,transparent) 49% 50%,transparent 50%),
+    linear-gradient(90deg,color-mix(in srgb,var(--cv-accent) 5%,transparent) 1px,transparent 1px),
+    linear-gradient(color-mix(in srgb,var(--cv-accent) 5%,transparent) 1px,transparent 1px),
+    var(--cv-bg-soft);
+  background-size:auto,auto,22px 22px,22px 22px,auto;
+  box-shadow:18px 18px 0 color-mix(in srgb,var(--cv-accent) 5%,transparent);
+}
+.net-resume-head h1{max-width:760px;font-size:clamp(2.8rem,5.2vw,5rem);line-height:.91}
+.net-title{display:inline-flex;align-items:center;gap:12px;margin-top:18px;letter-spacing:.015em}
+.net-title::before{content:"";width:34px;height:2px;background:var(--cv-accent);transform:skewX(-28deg)}
+.net-head-summary{max-width:760px;font-size:.96rem;line-height:1.72}
+.net-contact-row{margin-top:24px;padding-top:15px;border-top:1px solid var(--cv-line);gap:9px 18px}
+.net-contact-row span,.net-contact-row a{position:relative}
+.net-contact-row span:not(:last-child)::after,.net-contact-row a:not(:last-child)::after{content:"/";position:absolute;right:-12px;color:var(--cv-line-strong)}
+
+/* Columna lateral: bloques con cortes diagonales y más jerarquía. */
+.net-sidebar{position:relative;padding:36px 28px 42px;background:linear-gradient(180deg,var(--net-side),color-mix(in srgb,var(--net-side) 90%,var(--cv-bg)));}
+.net-sidebar::before{
+  content:"";
+  position:absolute;
+  left:0;right:0;top:0;height:12px;
+  background:linear-gradient(110deg,var(--cv-accent) 0 32%,transparent 32% 66%,var(--cv-accent-2) 66% 74%,transparent 74%);
+  opacity:.75;
+}
+.net-block{position:relative;padding-left:4px}
+.net-block+.net-block{margin-top:31px;padding-top:4px}
+.net-block+.net-block::before{content:"";position:absolute;left:-28px;right:-28px;top:-14px;height:1px;background:linear-gradient(90deg,var(--cv-line-strong),transparent 84%);transform:skewY(-1.3deg)}
+.net-block-title{display:flex;align-items:center;gap:10px}
+.net-block-title::before{content:"";width:8px;height:8px;border:1px solid var(--cv-accent);transform:rotate(45deg);flex:0 0 auto}
+.net-block-title::after{width:34px;margin-top:0;margin-left:auto;transform:skewX(-30deg)}
+.net-data div{padding:9px 0 10px}
+.net-data dd{font-size:.8rem}
+.net-list{padding-left:18px}
+.net-list li::marker{color:var(--cv-accent)}
+.net-tool-group{padding-left:12px;border-left:1px solid var(--cv-line)}
+.net-tool-group h4{color:var(--cv-accent-2);letter-spacing:.01em}
+.net-lang-card{position:relative;overflow:hidden}
+.net-lang-card::after{content:"";position:absolute;right:-15px;top:-18px;width:42px;height:42px;border:1px solid var(--cv-line-strong);transform:rotate(45deg)}
+
+/* Cuerpo principal con eje vertical, nodos y separadores angulares. */
+.net-main{position:relative;padding:38px 44px 48px 46px}
+.net-main::before{content:"";position:absolute;left:19px;top:40px;bottom:46px;width:1px;background:linear-gradient(var(--cv-accent),var(--cv-line) 12%,var(--cv-line) 88%,var(--cv-accent));opacity:.42}
+.net-section{position:relative;padding-left:10px;padding-bottom:32px}
+.net-section::before{content:"";position:absolute;left:-31px;top:7px;width:9px;height:9px;background:var(--net-sheet);border:2px solid var(--cv-accent);transform:rotate(45deg);box-shadow:0 0 0 5px color-mix(in srgb,var(--cv-accent) 5%,transparent)}
+.net-section+.net-section{padding-top:34px;border-top:0}
+.net-section+.net-section::after{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,var(--cv-accent) 0 12%,var(--cv-line) 12% 78%,transparent 78%);transform:skewX(-22deg);transform-origin:left center}
+.net-section h2{display:flex;align-items:baseline;gap:8px;font-size:1.02rem;letter-spacing:.035em}
+.net-section h2 span{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.78em}
+
+.net-objectives{padding-left:22px}
+.net-objectives li::marker{color:var(--cv-accent)}
+
+.net-timeline{position:relative;padding-left:14px}
+.net-timeline::before{content:"";position:absolute;left:4px;top:18px;bottom:18px;width:1px;background:var(--cv-line-strong)}
+.net-entry{position:relative;grid-template-columns:132px minmax(0,1fr);gap:24px;padding:18px 0 18px 18px;border-bottom:0}
+.net-entry::before{content:"";position:absolute;left:0;top:25px;width:9px;height:9px;border-radius:50%;background:var(--net-sheet);border:2px solid var(--cv-accent)}
+.net-entry+.net-entry{border-top:1px solid var(--cv-line)}
+.net-entry-meta{padding-top:1px;color:var(--cv-accent-2)}
+.net-entry h3{font-size:.98rem;letter-spacing:-.012em}
+
+.net-course-grid{gap:12px}
+.net-course{position:relative;min-height:118px;padding:15px 16px 14px 18px;overflow:hidden;background:linear-gradient(135deg,color-mix(in srgb,var(--cv-accent) 4%,transparent),transparent 56%),color-mix(in srgb,var(--cv-surface) 62%,transparent);transition:transform .18s ease,border-color .18s ease}
+.net-course::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--cv-accent)}
+.net-course::after{content:"";position:absolute;right:-20px;bottom:-22px;width:64px;height:64px;border:1px solid var(--cv-line);transform:rotate(45deg)}
+.net-course:hover{transform:translateY(-2px);border-color:var(--cv-line-strong)}
+.net-course strong{font-size:.8rem;padding-right:18px}
+.net-course .status{margin-top:8px}
+.net-course .status.pending{color:var(--cv-accent-3)}
+
+.net-reference{position:relative;padding:15px 18px 15px 20px;border-left:0;overflow:hidden}
+.net-reference::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(var(--cv-accent),var(--cv-accent-2))}
+
+/* Hover muy discreto para conservar aspecto de currículo. */
+@media(hover:hover){
+  .net-entry:hover h3{color:var(--cv-accent)}
+  .net-tool-group:hover{border-left-color:var(--cv-accent)}
+}
+
+@media(max-width:900px){
+  .net-resume::before{display:none}
+  .net-resume-head{min-height:0;padding:34px 28px 34px 190px}
+  .net-resume-head::before{width:160px;clip-path:none}
+  .net-resume-head::after{left:24px;top:31px;width:112px;height:138px;box-shadow:10px 10px 0 color-mix(in srgb,var(--cv-accent) 5%,transparent)}
+  .net-sidebar{grid-template-columns:repeat(2,minmax(0,1fr));padding:31px 28px}
+  .net-main{padding:32px 34px 42px 42px}
+}
+
+@media(max-width:650px){
+  .net-page{padding:30px 0 62px}
+  .net-resume-head{padding:190px 22px 28px}
+  .net-resume-head::before{width:100%;height:168px;bottom:auto;clip-path:polygon(0 0,100% 0,100% 82%,0 100%)}
+  .net-resume-head::after{left:22px;top:21px;width:108px;height:132px}
+  .net-contact-row span:not(:last-child)::after,.net-contact-row a:not(:last-child)::after{display:none}
+  .net-main{padding:29px 23px 36px 38px}
+  .net-main::before{left:16px}
+  .net-section::before{left:-28px}
+  .net-entry{grid-template-columns:1fr;padding-left:18px}
+  .net-sidebar{grid-template-columns:1fr;padding:27px 22px 32px}
+}
+
+@media print{
+  .net-resume::before,.net-resume::after,.net-main::before,.net-section::before,.net-section+.net-section::after,.net-sidebar::before,.net-course::after{display:none!important}
+  .net-resume-head{min-height:0;padding:22px 22px 20px 240px}
+  .net-resume-head::after{display:none}
+  .net-entry::before,.net-timeline::before{display:none}
+  .net-entry{padding-left:0}
+}
