@@ -1,12 +1,12 @@
 /* ==========================================================
    CASCARÓN GLOBAL DEL PORTAFOLIO
-   Mantiene simetría entre portada, centro de CV y currículos:
+   Mantiene simetría entre portada, selector de CV y currículos:
    ancho, cabecera, navegación, controles, pie y barra de desplazamiento.
    Cada área conserva su propia paleta mediante variables CSS.
    ========================================================== */
 
 :root{
-  --shell-max:1240px;
+  --shell-max:1160px;
   --shell-bg:var(--bg,var(--cv-bg,#06100f));
   --shell-bg-soft:var(--bg-alt,var(--cv-bg-soft,#0a1715));
   --shell-ink:var(--ink,var(--text,var(--cv-ink,#eef7f6)));
@@ -33,7 +33,7 @@ html{scrollbar-width:thin;scrollbar-color:var(--shell-accent) var(--shell-bg-sof
 *::-webkit-scrollbar-thumb{background:color-mix(in srgb,var(--shell-accent) 58%,var(--shell-bg-soft));border:3px solid var(--shell-bg-soft);border-radius:999px}
 *::-webkit-scrollbar-thumb:hover{background:color-mix(in srgb,var(--shell-accent) 78%,var(--shell-bg-soft))}
 
-/* Ancho global. */
+/* Ancho canónico del cascarón. */
 .site-header .container,
 .site-footer .container,
 .shell-header .container,
@@ -49,6 +49,8 @@ html{scrollbar-width:thin;scrollbar-color:var(--shell-accent) var(--shell-bg-sof
 .site-header .desktop-nav a,.shell-header .desktop-nav a,.site-header .mobile-nav a,.shell-header .mobile-nav a{color:var(--shell-muted);text-decoration:none;font-size:.83rem;font-weight:750;transition:color .18s ease}
 .site-header .desktop-nav a:hover,.shell-header .desktop-nav a:hover,.site-header .desktop-nav a:focus-visible,.shell-header .desktop-nav a:focus-visible{color:var(--shell-ink)}
 .site-header .desktop-nav .nav-cv,.shell-header .desktop-nav .nav-cv{color:var(--shell-accent)}
+.site-header .desktop-nav.cv-only,.shell-header .desktop-nav.cv-only{justify-self:center}
+.site-header .desktop-nav.cv-only a,.shell-header .desktop-nav.cv-only a{color:var(--shell-accent);font-weight:820}
 .site-header .header-actions,.shell-header .header-actions{display:flex;gap:8px;align-items:center;justify-self:end}
 .site-header .control,.shell-header .control{min-height:39px;border:1px solid var(--shell-line);background:transparent;color:var(--shell-ink);cursor:pointer;padding:0 11px;text-decoration:none;display:inline-flex;align-items:center;justify-content:center}
 .site-header .lang-control,.shell-header .lang-control{font:800 .72rem/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.08em;white-space:nowrap}
@@ -59,8 +61,9 @@ html{scrollbar-width:thin;scrollbar-color:var(--shell-accent) var(--shell-bg-sof
 .site-header .mobile-nav,.shell-header .mobile-nav{width:min(calc(100% - 32px),var(--shell-max));margin:0 auto 12px;border:1px solid var(--shell-line);background:var(--shell-bg-soft)}
 .site-header .mobile-nav a,.shell-header .mobile-nav a{display:block;padding:13px 16px;border-bottom:1px solid var(--shell-line)}
 .site-header .mobile-nav a:last-child,.shell-header .mobile-nav a:last-child{border-bottom:0;color:var(--shell-accent)}
+.site-header .mobile-nav.cv-only,.shell-header .mobile-nav.cv-only{text-align:center}
 
-/* Pie canónico. */
+/* Pie canónico: mismo ancho, altura y distribución en todo el sitio. */
 .site-footer,.shell-footer{border-top:1px solid var(--shell-line);background:color-mix(in srgb,var(--shell-bg-soft) 92%,transparent)}
 .site-footer .footer-layout,.shell-footer .footer-layout{min-height:92px;display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,1fr) auto;gap:32px;align-items:center;color:var(--shell-muted);font-size:.72rem}
 .site-footer .footer-layout strong,.shell-footer .footer-layout strong{color:var(--shell-ink);font-weight:700}
