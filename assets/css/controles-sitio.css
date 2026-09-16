@@ -1,0 +1,59 @@
+/* ==========================================================
+   CONTROLES GLOBALES DEL SITIO
+   Replica en las subpáginas el patrón visual de la portada para
+   idioma y tema. Cada página conserva su propia paleta y composición.
+   ========================================================== */
+
+.site-control-group{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.site-language-control,
+.site-theme-control{
+  min-height:39px;
+  border:1px solid color-mix(in srgb,currentColor 18%,transparent);
+  background:transparent;
+  color:inherit;
+  text-decoration:none;
+  cursor:pointer;
+  transition:border-color .18s ease,background .18s ease,color .18s ease;
+}
+
+.site-language-control{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:0 11px;
+  font:800 .72rem/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  letter-spacing:.08em;
+  white-space:nowrap;
+}
+
+.site-theme-control{
+  width:40px;
+  padding:0;
+  display:grid;
+  place-items:center;
+}
+
+.site-theme-control svg{
+  width:18px;
+  height:18px;
+  display:block;
+}
+
+.site-language-control:hover,
+.site-language-control:focus-visible,
+.site-theme-control:hover,
+.site-theme-control:focus-visible{
+  border-color:color-mix(in srgb,currentColor 42%,transparent);
+  background:color-mix(in srgb,currentColor 6%,transparent);
+  outline:none;
+}
+
+@media print{
+  .site-language-control,
+  .site-theme-control{display:none!important}
+}
