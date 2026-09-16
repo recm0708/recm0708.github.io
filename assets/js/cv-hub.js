@@ -8,15 +8,17 @@
 
   const textos = {
     es: {
-      about:'Acerca de mí',areas:'Áreas',projects:'Proyectos',cv:'Currículum Vitae',contact:'Contacto',
-      kicker:'CURRÍCULUM VITAE',title:'Selecciona un perfil profesional.',
-      electrical:'Sistemas Eléctricos y Automatización',network:'Redes Informáticas',integral:'Perfil Profesional Integral',
+      cv:'Currículum Vitae',kicker:'CURRÍCULUM VITAE',title:'Explora mis perfiles profesionales',
+      electrical:'Sistemas Eléctricos y Automatización',electricalTag:'ENERGÍA · CONTROL',
+      network:'Redes Informáticas',networkTag:'NETWORKING · INFRAESTRUCTURA',
+      integral:'Perfil Profesional Integral',integralTag:'PERFIL · TRANSVERSAL',
       footer:'Diseñado y construido por mí, con ayuda de buenas herramientas y muchas pruebas.',top:'Volver arriba ↑',rights:'Todos los derechos reservados.'
     },
     en: {
-      about:'About me',areas:'Areas',projects:'Projects',cv:'Curriculum Vitae',contact:'Contact',
-      kicker:'CURRICULUM VITAE',title:'Select a professional profile.',
-      electrical:'Electrical Systems & Automation',network:'Computer Networks',integral:'Comprehensive Professional Profile',
+      cv:'Curriculum Vitae',kicker:'CURRICULUM VITAE',title:'Explore my professional profiles',
+      electrical:'Electrical Systems & Automation',electricalTag:'ENERGY · CONTROL',
+      network:'Computer Networks',networkTag:'NETWORKING · INFRASTRUCTURE',
+      integral:'Comprehensive Professional Profile',integralTag:'CROSS-FUNCTIONAL · PROFILE',
       footer:'Designed and built by me, with the help of good tools and plenty of testing.',top:'Back to top ↑',rights:'All rights reserved.'
     }
   };
