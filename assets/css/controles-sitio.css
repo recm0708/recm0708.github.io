@@ -32,16 +32,29 @@
 }
 
 .site-theme-control{
-  width:40px;
-  padding:0;
-  display:grid;
-  place-items:center;
+  width:40px!important;
+  min-width:40px!important;
+  max-width:40px!important;
+  height:39px!important;
+  min-height:39px!important;
+  max-height:39px!important;
+  padding:0!important;
+  display:grid!important;
+  place-items:center!important;
+  overflow:hidden!important;
+  flex:0 0 40px!important;
 }
 
-.site-theme-control svg{
-  width:18px;
-  height:18px;
-  display:block;
+.site-theme-control svg,
+.site-theme-control > svg{
+  width:18px!important;
+  min-width:18px!important;
+  max-width:18px!important;
+  height:18px!important;
+  min-height:18px!important;
+  max-height:18px!important;
+  display:block!important;
+  flex:0 0 18px!important;
 }
 
 .site-language-control:hover,
