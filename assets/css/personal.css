@@ -1,0 +1,22 @@
+/* ==========================================================
+   SECCIÓN PERSONAL DE LA PORTADA
+   Complementa el perfil técnico con aspectos humanos, intereses,
+   voluntariado y metas. El idioma visible depende del atributo
+   lang del elemento <html>, que gestiona la portada principal.
+   ========================================================== */
+.personal-section{position:relative;overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:radial-gradient(circle at 12% 18%,color-mix(in srgb,var(--accent) 10%,transparent),transparent 34%),radial-gradient(circle at 88% 78%,color-mix(in srgb,var(--accent) 7%,transparent),transparent 30%),var(--bg)}
+.personal-shell{padding-top:clamp(76px,8vw,124px);padding-bottom:clamp(76px,8vw,124px)}
+.personal-heading{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(280px,.8fr);gap:clamp(28px,6vw,90px);align-items:end;margin-bottom:54px}
+.personal-kicker{margin:0 0 14px;color:var(--accent);font-size:.72rem;font-weight:900;letter-spacing:.14em;text-transform:uppercase}
+.personal-heading h2{margin:0;max-width:830px;font-size:clamp(2.6rem,6vw,6rem);line-height:.95;letter-spacing:-.058em}
+.personal-heading>p{margin:0;color:var(--text-soft);font-size:clamp(.98rem,1.35vw,1.12rem);line-height:1.78}
+.personal-intro{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(280px,.85fr);gap:18px;margin-bottom:18px}
+.personal-story,.personal-facts{border:1px solid var(--line);border-radius:24px;background:color-mix(in srgb,var(--surface) 88%,transparent)}
+.personal-story{padding:clamp(26px,4vw,48px)}
+.personal-story p{margin:0;color:var(--text-soft);font-size:1rem;line-height:1.86}
+.personal-story p+p{margin-top:18px}.personal-story strong{color:var(--text)}
+.personal-facts{display:grid;align-content:start;overflow:hidden}.personal-fact{display:grid;grid-template-columns:38px 1fr;gap:14px;padding:22px 24px;border-bottom:1px solid var(--line)}.personal-fact:last-child{border-bottom:0}.personal-fact svg{width:24px;height:24px;color:var(--accent)}.personal-fact strong{display:block;margin-bottom:4px;font-size:.8rem;letter-spacing:.02em}.personal-fact span{color:var(--text-soft);font-size:.82rem;line-height:1.55}
+.personal-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:18px}.personal-card{position:relative;min-height:220px;padding:26px;border:1px solid var(--line);border-radius:22px;background:color-mix(in srgb,var(--surface) 86%,transparent);overflow:hidden}.personal-card:nth-child(1),.personal-card:nth-child(4){grid-column:span 7}.personal-card:nth-child(2),.personal-card:nth-child(3){grid-column:span 5}.personal-card:nth-child(5),.personal-card:nth-child(6),.personal-card:nth-child(7),.personal-card:nth-child(8){grid-column:span 6}.personal-card:after{content:"";position:absolute;right:-42px;bottom:-64px;width:150px;height:150px;border:1px solid color-mix(in srgb,var(--accent) 22%,transparent);border-radius:50%;pointer-events:none}.personal-card .card-no{display:inline-block;margin-bottom:34px;color:var(--accent);font-size:.68rem;font-weight:900;letter-spacing:.12em}.personal-card h3{margin:0 0 10px;max-width:580px;font-size:clamp(1.3rem,2vw,1.8rem);line-height:1.05;letter-spacing:-.025em}.personal-card p{position:relative;z-index:1;margin:0;max-width:680px;color:var(--text-soft);font-size:.88rem;line-height:1.72}
+.personal-volunteer{margin-top:18px;padding:26px;border:1px solid var(--line);border-radius:22px;background:color-mix(in srgb,var(--surface) 90%,transparent)}.personal-volunteer h3{margin:0 0 18px;font-size:1.05rem}.volunteer-row{display:grid;grid-template-columns:88px minmax(0,1fr);gap:18px;padding:15px 0;border-top:1px solid var(--line)}.volunteer-row strong{color:var(--accent);font-size:.76rem;letter-spacing:.06em}.volunteer-row span{color:var(--text-soft);font-size:.86rem;line-height:1.6}
+@media(max-width:920px){.personal-heading,.personal-intro{grid-template-columns:1fr}.personal-card,.personal-card:nth-child(n){grid-column:span 12}}
+@media(max-width:620px){.personal-heading{margin-bottom:34px}.personal-heading h2{font-size:clamp(2.45rem,14vw,4rem)}.personal-story,.personal-card,.personal-volunteer{border-radius:18px}.personal-story{padding:24px 20px}.personal-card{min-height:auto;padding:22px 20px}.personal-fact{padding:18px 20px}.volunteer-row{grid-template-columns:64px 1fr;gap:12px}}

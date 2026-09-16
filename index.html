@@ -22,10 +22,12 @@
   <meta name="twitter:image" content="https://avatars.githubusercontent.com/u/220997176?v=4">
 
   <link rel="canonical" href="https://recm0708.github.io/">
-  <!-- Hoja visual exclusiva de la página principal. El parámetro de versión evita caché obsoleta tras cambios importantes. -->
+  <!-- Hojas visuales de la portada. La sección personal se mantiene separada para facilitar su evolución. -->
   <link rel="stylesheet" href="/assets/css/home.css?v=20260915-2">
-  <!-- Lógica de idioma, tema, secciones dinámicas y navegación de la portada. -->
+  <link rel="stylesheet" href="/assets/css/personal.css?v=20260915-1">
+  <!-- Lógica de idioma, tema, secciones dinámicas y contenido biográfico. -->
   <script defer src="/assets/js/home.js?v=20260915-2"></script>
+  <script defer src="/assets/js/personal.js?v=20260915-1"></script>
   <title>Rubén Cañizares | Redes, Infraestructura y Automatización</title>
 </head>
 <body id="top">
@@ -184,6 +186,58 @@
               <svg class="area-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m13 2-7 11h6l-1 9 7-12h-6l1-8Z"/></svg>
             </article>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interludio biográfico: presenta la dimensión personal sin mezclarla con el CV técnico. -->
+    <section class="personal-section" id="mas-de-mi">
+      <div class="container personal-shell">
+        <div class="personal-heading reveal">
+          <div>
+            <p class="personal-kicker" data-personal-key="kicker">MÁS ALLÁ DE LO TÉCNICO</p>
+            <h2 data-personal-key="title">También soy lo que pasa cuando cierro la terminal.</h2>
+          </div>
+          <p data-personal-key="lead">Mi carrera ocupa una parte importante de mi vida, pero no la resume completa. Detrás de las redes, los tableros, los servidores y los proyectos hay una historia familiar, curiosidad, gustos, voluntariado y metas que también explican cómo pienso y por qué sigo aprendiendo.</p>
+        </div>
+
+        <div class="personal-intro">
+          <article class="personal-story reveal">
+            <p data-personal-key="story1">Nací y crecí en Panamá y actualmente vivo en Panamá Oeste, Arraiján. Soy hijo único —sí, también el consentido de la familia— y disfruto mucho compartir tiempo con los míos. Mi familia ha estado presente en decisiones importantes de mi camino, incluso en el origen de mi primera vocación técnica.</p>
+            <p data-personal-key="story2">Me considero una persona curiosa, detallista, perseverante, responsable y bastante directa. Cuando algo no funciona, me cuesta dejarlo simplemente en “no sirve”: normalmente quiero entender qué pasó, probar otra ruta y aprender algo del proceso. Esa forma de ser termina apareciendo tanto en mis proyectos técnicos como en la manera en que organizo mis metas personales.</p>
+          </article>
+
+          <aside class="personal-facts reveal" aria-label="Datos personales públicos">
+            <div class="personal-fact">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 21s6-5.2 6-11a6 6 0 1 0-12 0c0 5.8 6 11 6 11Z"/><circle cx="12" cy="10" r="2"/></svg>
+              <div><strong data-personal-key="locationLabel">Base</strong><span data-personal-key="locationText">Panamá Oeste · Arraiján, Panamá</span></div>
+            </div>
+            <div class="personal-fact">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 20v-2a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              <div><strong data-personal-key="statusLabel">En este momento</strong><span data-personal-key="statusText">En búsqueda de una oportunidad laboral formal y estable</span></div>
+            </div>
+            <div class="personal-fact">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M16 11c1.7 0 3-1.3 3-3s-1.3-3-3-3M8 11c-1.7 0-3-1.3-3-3s1.3-3 3-3M12 13a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM5 21v-2a4 4 0 0 1 4-4h6a4 4 0 0 1 4 4v2"/></svg>
+              <div><strong data-personal-key="familyLabel">Familia</strong><span data-personal-key="familyText">Hijo único, muy cercano a mi familia</span></div>
+            </div>
+          </aside>
+        </div>
+
+        <div class="personal-grid">
+          <article class="personal-card reveal"><span class="card-no">01</span><h3 data-personal-key="card1Title">Cuando tengo tiempo libre</h3><p data-personal-key="card1Text">Alterno entre tareas universitarias, cursos del INADEH, tiempo con mi familia, cine, series y películas. A veces descansar significa realmente descansar; otras veces significa abrir una VM, probar una configuración o empezar a investigar algo que me dio curiosidad.</p></article>
+          <article class="personal-card reveal"><span class="card-no">02</span><h3 data-personal-key="card2Title">Tecnología como afición</h3><p data-personal-key="card2Text">La tecnología no se queda en el aula. Me gusta experimentar con computadoras, redes domésticas, servidores, virtualización, electrónica, reparación de equipos, programación y proyectos que me permitan desmontar un problema y entenderlo por dentro.</p></article>
+          <article class="personal-card reveal"><span class="card-no">03</span><h3 data-personal-key="card3Title">Lo que suena de fondo</h3><p data-personal-key="card3Text">Mi música cambia bastante según el momento: salsa, merengue, clásicos de los años 80, música en inglés, música católica y alabanzas. Prefiero una biblioteca variada antes que encerrarme en un solo género.</p></article>
+          <article class="personal-card reveal"><span class="card-no">04</span><h3 data-personal-key="card4Title">Cine, series y pantalla</h3><p data-personal-key="card4Text">Disfruto ir al cine y ver películas o series en casa. También consumo contenido en YouTube relacionado con tecnología, aprendizaje y entretenimiento. Mi forma de desconectarme suele combinar una buena historia con alguna curiosidad nueva que termine investigando después.</p></article>
+          <article class="personal-card reveal"><span class="card-no">05</span><h3 data-personal-key="card5Title">Viajes que todavía faltan</h3><p data-personal-key="card5Text">Todavía no he tenido la oportunidad de viajar fuera de Panamá, pero sí está entre las experiencias que quiero vivir. Me interesa conocer otros países, culturas y formas de hacer las cosas, abrir nuevos caminos y acumular experiencias que no se aprenden detrás de una pantalla.</p></article>
+          <article class="personal-card reveal"><span class="card-no">06</span><h3 data-personal-key="card6Title">De dónde nació mi vocación</h3><p data-personal-key="card6Text">Mi papá me animó a acercarme al mundo eléctrico porque él realizaba trabajos de electricidad y aquello despertó mi interés. Más adelante, un primo me enseñó varias cosas de computación y ese segundo mundo también se quedó conmigo. Con el tiempo terminé uniendo ambos caminos: energía, automatización, computación y redes.</p></article>
+          <article class="personal-card reveal"><span class="card-no">07</span><h3 data-personal-key="goalsTitle">Lo que estoy construyendo a futuro</h3><p data-personal-key="goalsText">En los próximos años quiero completar mi formación en Redes Informáticas, fortalecer mi ruta de certificaciones —con CCNA como una referencia importante— y consolidarme en un empleo estable relacionado con redes, infraestructura, automatización, soporte avanzado o entornos de centros de datos. A largo plazo quiero tener un perfil capaz de integrar disciplinas, asumir proyectos de mayor responsabilidad y seguir aprendiendo sin quedar atado a una sola tecnología.</p></article>
+          <article class="personal-card reveal"><span class="card-no">08</span><h3 data-personal-key="valuesTitle">Lo que intento mantener en el camino</h3><p data-personal-key="valuesText">Responsabilidad, honestidad, disciplina, curiosidad, estabilidad, respeto por el trabajo bien hecho, cercanía con mi familia y disposición para seguir aprendiendo. No me interesa acumular tecnologías por nombre; prefiero entender para qué sirven, cómo se conectan y qué problema real resuelven.</p></article>
+        </div>
+
+        <div class="personal-volunteer reveal">
+          <h3 data-personal-key="volunteerTitle">Experiencias de voluntariado</h3>
+          <div class="volunteer-row"><strong>2019</strong><span data-personal-key="volunteer2019">Voluntario en JMJ Panamá 2019, una experiencia de servicio, organización y convivencia que forma parte de mi historia personal.</span></div>
+          <div class="volunteer-row"><strong>2020</strong><span data-personal-key="volunteer2020">Voluntario de Medios Digitales en ENRJ 2020, colaborando desde el área de comunicación y contenidos digitales.</span></div>
         </div>
       </div>
     </section>
