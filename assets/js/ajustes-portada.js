@@ -7,10 +7,15 @@
      - Ordena los perfiles sociales por categoría.
      - Evita duplicar LinkedIn y GitHub, ya mostrados en Contacto.
      - Normaliza enlaces especiales de YouTube y Telegram.
+     - Mantiene bilingües los encabezados de las categorías sociales.
      ========================================================== */
 
   const CLAVE_TEMA = 'portfolio-theme';
   const raiz = document.documentElement;
+
+  function idiomaActual() {
+    return raiz.lang?.toLowerCase().startsWith('en') ? 'en' : 'es';
+  }
 
   function temaGuardado() {
     const guardado = localStorage.getItem(CLAVE_TEMA);
@@ -60,9 +65,52 @@
     document.head.appendChild(style);
   }
 
+  const categorias = [
+    {
+      clave: 'social',
+      titulo: { es: 'Redes sociales', en: 'Social networks' },
+      nombres: ['Facebook', 'Instagram', 'Reddit', 'Threads', 'TikTok', 'X']
+    },
+    {
+      clave: 'contenido',
+      titulo: { es: 'Contenido y entretenimiento', en: 'Content & entertainment' },
+      nombres: ['Spotify', 'Steam', 'YouTube']
+    },
+    {
+      clave: 'formacion',
+      titulo: { es: 'Formación y credenciales', en: 'Learning & credentials' },
+      nombres: ['Credly', 'Udemy']
+    },
+    {
+      clave: 'mensajeria',
+      titulo: { es: 'Mensajería', en: 'Messaging' },
+      nombres: ['Telegram']
+    }
+  ];
+
+  function actualizarIdiomaSocial() {
+    const idioma = idiomaActual();
+
+    categorias.forEach((categoria) => {
+      const titulo = document.querySelector(`[data-social-category="${categoria.clave}"] .social-category-title`);
+      if (titulo) titulo.textContent = categoria.titulo[idioma];
+    });
+
+    document.querySelectorAll('.social-category-grid .social-card').forEach((tarjeta) => {
+      const nombre = tarjeta.querySelector('strong')?.textContent?.trim();
+      if (!nombre) return;
+      tarjeta.setAttribute('aria-label', idioma === 'en' ? `Open ${nombre}` : `Abrir ${nombre}`);
+    });
+  }
+
   function normalizarRedesSociales() {
     const grid = document.querySelector('.social-grid');
-    if (!grid || grid.dataset.organizada === 'true') return;
+    if (!grid) return;
+
+    if (grid.dataset.organizada === 'true') {
+      actualizarIdiomaSocial();
+      return;
+    }
 
     instalarEstilosSociales();
 
@@ -96,30 +144,11 @@
       telegram.href = `https://t.me/recm0708?text=${encodeURIComponent(mensaje)}`;
     }
 
-    const categorias = [
-      {
-        titulo: 'Redes sociales',
-        nombres: ['Facebook', 'Instagram', 'Reddit', 'Threads', 'TikTok', 'X']
-      },
-      {
-        titulo: 'Contenido y entretenimiento',
-        nombres: ['Spotify', 'Steam', 'YouTube']
-      },
-      {
-        titulo: 'Formación y credenciales',
-        nombres: ['Credly', 'Udemy']
-      },
-      {
-        titulo: 'Mensajería',
-        nombres: ['Telegram']
-      }
-    ];
-
     grid.innerHTML = '';
     grid.classList.add('social-groups');
 
-    categorias.forEach(({ titulo, nombres }) => {
-      const disponibles = nombres
+    categorias.forEach((categoria) => {
+      const disponibles = categoria.nombres
         .filter((nombre) => porNombre.has(nombre))
         .sort((a, b) => a.localeCompare(b, 'es', { sensitivity: 'base' }));
 
@@ -127,11 +156,10 @@
 
       const seccion = document.createElement('section');
       seccion.className = 'social-category';
-      seccion.setAttribute('aria-label', titulo);
+      seccion.dataset.socialCategory = categoria.clave;
 
       const encabezado = document.createElement('h3');
       encabezado.className = 'social-category-title';
-      encabezado.textContent = titulo;
 
       const lista = document.createElement('div');
       lista.className = 'social-category-grid';
@@ -140,7 +168,6 @@
         const tarjeta = porNombre.get(nombre);
         tarjeta.target = '_blank';
         tarjeta.rel = 'noopener noreferrer';
-        tarjeta.setAttribute('aria-label', `Abrir ${nombre}`);
         lista.appendChild(tarjeta);
       });
 
@@ -149,7 +176,12 @@
     });
 
     grid.dataset.organizada = 'true';
+    actualizarIdiomaSocial();
   }
+
+  new MutationObserver(() => {
+    actualizarIdiomaSocial();
+  }).observe(raiz, { attributes: true, attributeFilter: ['lang'] });
 
   function inicializar() {
     aplicarTemaGlobal(temaGuardado());
