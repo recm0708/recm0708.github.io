@@ -6,44 +6,41 @@
   <meta name="robots" content="noindex">
   <meta name="theme-color" content="#06100f">
   <title>404 | Rubén Cañizares</title>
-  <link rel="stylesheet" href="/assets/css/controles-sitio.css?v=20260916-5">
+  <link rel="stylesheet" href="/assets/css/site-shell.css?v=20260916-1">
   <script>
-    /* Aplica desde el inicio el tema elegido en cualquier página del sitio. */
-    (() => {
-      const clave = 'portfolio-theme';
-      const guardado = localStorage.getItem(clave);
-      const tema = guardado === 'light' || guardado === 'dark'
-        ? guardado
-        : (window.matchMedia?.('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
-      document.documentElement.dataset.theme = tema;
-    })();
+    (()=>{const t=localStorage.getItem('portfolio-theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t;})();
   </script>
-  <script defer src="/assets/js/controles-sitio.js?v=20260916-5"></script>
+  <script defer src="/assets/js/site-shell.js?v=20260916-1"></script>
   <style>
-    :root{--bg:#06100f;--ink:#eef7f6;--muted:#91aaa8;--line:rgba(180,255,239,.16);--signal:#72f5cf}
-    html[data-theme="light"]{--bg:#dfe6e4;--ink:#152421;--muted:#5f716d;--line:rgba(25,72,62,.16);--signal:#0d7d67}
-    *{box-sizing:border-box}body{margin:0;min-width:320px;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.error{min-height:100svh;display:grid;place-items:center;padding:34px;overflow:hidden;position:relative}.grid{position:absolute;inset:0;opacity:.5;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:72px 72px;mask-image:radial-gradient(circle at center,#000,transparent 74%)}.node{position:absolute;width:9px;height:9px;border:1px solid var(--signal);border-radius:50%;box-shadow:0 0 16px rgba(114,245,207,.35)}.n1{left:14%;top:22%}.n2{right:17%;top:28%}.n3{left:23%;bottom:18%}.n4{right:23%;bottom:15%}.content{position:relative;z-index:2;width:min(920px,100%)}.code{margin:0 0 18px;color:var(--signal);font:800 .72rem/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.14em}.content h1{margin:0;font-size:clamp(5.5rem,22vw,16rem);line-height:.72;letter-spacing:-.09em}.content h2{margin:32px 0 0;font-size:clamp(1.8rem,4vw,3.6rem);line-height:1;letter-spacing:-.045em}.content p{max-width:650px;color:var(--muted);font-size:1rem}.links{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}.links a{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;border:1px solid var(--line);color:var(--ink);text-decoration:none;font-size:.82rem;font-weight:800}.links a:first-child{color:var(--signal);border-color:color-mix(in srgb,var(--signal) 45%,transparent)}.links a:hover{background:color-mix(in srgb,var(--signal) 8%,transparent)}.copyright{position:absolute;left:34px;right:34px;bottom:20px;z-index:3;color:var(--muted);font:600 .68rem/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.02em;text-align:center}
+    :root{--bg:#06100f;--bg-alt:#0a1715;--ink:#eef7f6;--muted:#91aaa8;--line:rgba(180,255,239,.16);--line-strong:rgba(180,255,239,.28);--signal:#72f5cf}
+    html[data-theme="light"]{--bg:#dfe6e4;--bg-alt:#d5dfdc;--ink:#152421;--muted:#5f716d;--line:rgba(25,72,62,.16);--line-strong:rgba(25,72,62,.30);--signal:#0d7d67}
+    *{box-sizing:border-box}body{margin:0;min-width:320px;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.error{min-height:calc(100svh - 170px);display:grid;place-items:center;padding:54px 34px;overflow:hidden;position:relative}.grid{position:absolute;inset:0;opacity:.5;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:72px 72px;mask-image:radial-gradient(circle at center,#000,transparent 74%)}.node{position:absolute;width:9px;height:9px;border:1px solid var(--signal);border-radius:50%;box-shadow:0 0 16px color-mix(in srgb,var(--signal) 45%,transparent)}.n1{left:14%;top:22%}.n2{right:17%;top:28%}.n3{left:23%;bottom:18%}.n4{right:23%;bottom:15%}.content{position:relative;z-index:2;width:min(920px,100%)}.code{margin:0 0 18px;color:var(--signal);font:800 .72rem/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.14em}.content h1{margin:0;font-size:clamp(5.5rem,22vw,16rem);line-height:.72;letter-spacing:-.09em}.content h2{margin:32px 0 0;font-size:clamp(1.8rem,4vw,3.6rem);line-height:1;letter-spacing:-.045em}.content p{max-width:650px;color:var(--muted);font-size:1rem}.links{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}.links a{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;border:1px solid var(--line);color:var(--ink);text-decoration:none;font-size:.82rem;font-weight:800}.links a:first-child{color:var(--signal);border-color:color-mix(in srgb,var(--signal) 45%,transparent)}.links a:hover{background:color-mix(in srgb,var(--signal) 8%,transparent)}
   </style>
 </head>
-<body>
+<body id="top">
+  <header class="site-header shell-header scrolled">
+    <div class="container nav-shell">
+      <a class="wordmark" href="/" aria-label="Inicio"><span>rubén<span class="slash">/</span>cañizares</span><small>recm0708</small></a>
+      <nav class="desktop-nav" aria-label="Navegación principal"><a href="/#acerca" data-nav="about">Acerca de mí</a><a href="/#areas" data-nav="areas">Áreas</a><a href="/#proyectos" data-nav="projects">Proyectos</a><a class="nav-cv" href="/cv/" data-nav="cv">Currículum Vitae</a><a href="/#contacto" data-nav="contact">Contacto</a></nav>
+      <div class="header-actions"><button class="control lang-control" type="button" data-lang>ES / EN</button><button class="control theme-control" type="button" data-theme-toggle aria-label="Cambiar tema"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 3a9 9 0 1 0 9 9c0-.5-.04-1-.12-1.48A7 7 0 0 1 12 3Z"/></svg></button><button class="control menu-control" type="button" data-menu-toggle aria-expanded="false" aria-controls="mobile-nav" aria-label="Abrir menú"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button></div>
+    </div>
+    <nav class="mobile-nav" id="mobile-nav" hidden><a href="/#acerca" data-nav="about">Acerca de mí</a><a href="/#areas" data-nav="areas">Áreas</a><a href="/#proyectos" data-nav="projects">Proyectos</a><a href="/cv/" data-nav="cv">Currículum Vitae</a><a href="/#contacto" data-nav="contact">Contacto</a></nav>
+  </header>
+
   <main class="error">
-    <div class="grid" aria-hidden="true"></div>
-    <span class="node n1" aria-hidden="true"></span><span class="node n2" aria-hidden="true"></span><span class="node n3" aria-hidden="true"></span><span class="node n4" aria-hidden="true"></span>
-    <section class="content">
-      <p class="code">ROUTE_NOT_FOUND / 404</p>
-      <h1>404</h1>
-      <h2>Esta ruta no llegó a destino.</h2>
-      <p>La dirección que intentaste abrir no existe, cambió de ubicación o todavía no forma parte de mi sitio. Puedes volver al inicio o entrar directamente al área de Currículum Vitae.</p>
-      <div class="links"><a href="/">← Volver al inicio</a><a href="/cv/">Currículum Vitae →</a></div>
-    </section>
-    <div class="copyright">© <span id="copyright-year"></span> Rubén Enrique Cañizares Miranda · Todos los derechos reservados.</div>
+    <div class="grid" aria-hidden="true"></div><span class="node n1" aria-hidden="true"></span><span class="node n2" aria-hidden="true"></span><span class="node n3" aria-hidden="true"></span><span class="node n4" aria-hidden="true"></span>
+    <section class="content"><p class="code">ROUTE_NOT_FOUND / 404</p><h1>404</h1><h2 data-title>Esta ruta no llegó a destino.</h2><p data-copy>La dirección que intentaste abrir no existe, cambió de ubicación o todavía no forma parte de mi sitio. Puedes volver al inicio o entrar directamente al área de Currículum Vitae.</p><div class="links"><a href="/" data-home>← Volver al inicio</a><a href="/cv/" data-cv>Currículum Vitae →</a></div></section>
   </main>
+
+  <footer class="site-footer shell-footer"><div class="container footer-layout"><div data-rights>© 2026 Rubén Enrique Cañizares Miranda · Todos los derechos reservados.</div><div data-footer>Diseñado y construido por mí, con ayuda de buenas herramientas y muchas pruebas.</div><a href="#top" data-top>Volver arriba ↑</a></div></footer>
+
   <script>
-    document.querySelector('#copyright-year').textContent = new Date().getFullYear();
-    window.addEventListener('storage', (evento) => {
-      if (evento.key === 'portfolio-theme' && (evento.newValue === 'light' || evento.newValue === 'dark')) {
-        document.documentElement.dataset.theme = evento.newValue;
-      }
+    window.addEventListener('DOMContentLoaded',()=>{
+      const s={es:{about:'Acerca de mí',areas:'Áreas',projects:'Proyectos',cv:'Currículum Vitae',contact:'Contacto',title:'Esta ruta no llegó a destino.',copy:'La dirección que intentaste abrir no existe, cambió de ubicación o todavía no forma parte de mi sitio. Puedes volver al inicio o entrar directamente al área de Currículum Vitae.',home:'← Volver al inicio',cvLink:'Currículum Vitae →',footer:'Diseñado y construido por mí, con ayuda de buenas herramientas y muchas pruebas.',top:'Volver arriba ↑',rights:'Todos los derechos reservados.'},en:{about:'About me',areas:'Areas',projects:'Projects',cv:'Curriculum Vitae',contact:'Contact',title:'This route did not reach its destination.',copy:'The address you tried to open does not exist, moved, or is not yet part of my site. You can return home or go directly to the Curriculum Vitae area.',home:'← Back to home',cvLink:'Curriculum Vitae →',footer:'Designed and built by me, with the help of good tools and plenty of testing.',top:'Back to top ↑',rights:'All rights reserved.'}};
+      let lang=localStorage.getItem('portfolio-language')==='en'?'en':'es';
+      const apply=()=>{const t=s[lang];document.documentElement.lang=lang;document.querySelectorAll('[data-nav]').forEach(a=>a.textContent=t[a.dataset.nav]);document.querySelector('[data-title]').textContent=t.title;document.querySelector('[data-copy]').textContent=t.copy;document.querySelector('[data-home]').textContent=t.home;document.querySelector('[data-cv]').textContent=t.cvLink;document.querySelector('[data-footer]').textContent=t.footer;document.querySelector('[data-top]').textContent=t.top;document.querySelector('[data-rights]').textContent=`© ${new Date().getFullYear()} Rubén Enrique Cañizares Miranda · ${t.rights}`;document.querySelector('[data-lang]').textContent=lang==='es'?'ES / EN':'EN / ES';};
+      document.querySelector('[data-lang]').addEventListener('click',()=>{lang=lang==='es'?'en':'es';localStorage.setItem('portfolio-language',lang);apply();});
+      window.SiteShell?.activarMenu(document);window.SiteShell?.activarTema(document);document.querySelector('[data-top]').addEventListener('click',e=>{e.preventDefault();window.SiteShell?.volverArriba();});apply();
     });
   </script>
 </body>
