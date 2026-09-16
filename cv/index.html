@@ -7,22 +7,18 @@
   <meta name="author" content="Rubén Enrique Cañizares Miranda">
   <meta name="theme-color" content="#06100f">
   <link rel="canonical" href="https://recm0708.github.io/cv/">
-  <link rel="stylesheet" href="/assets/css/site-shell.css?v=20260916-1">
-  <link rel="stylesheet" href="/assets/css/cv-hub.css?v=20260916-4">
-  <script defer src="/assets/js/site-shell.js?v=20260916-1"></script>
-  <script defer src="/assets/js/cv-hub.js?v=20260916-4"></script>
+  <link rel="stylesheet" href="/assets/css/site-shell.css?v=20260916-2">
+  <link rel="stylesheet" href="/assets/css/cv-hub.css?v=20260916-5">
+  <script defer src="/assets/js/site-shell.js?v=20260916-2"></script>
+  <script defer src="/assets/js/cv-hub.js?v=20260916-5"></script>
   <title>Currículum Vitae | Rubén Cañizares</title>
 </head>
 <body id="top">
   <header class="site-header shell-header scrolled">
     <div class="container nav-shell">
       <a class="wordmark" href="/" aria-label="Inicio"><span>rubén<span class="slash">/</span>cañizares</span><small>recm0708</small></a>
-      <nav class="desktop-nav" aria-label="Navegación principal">
-        <a href="/#acerca" data-i18n="about">Acerca de mí</a>
-        <a href="/#areas" data-i18n="areas">Áreas</a>
-        <a href="/#proyectos" data-i18n="projects">Proyectos</a>
+      <nav class="desktop-nav cv-only" aria-label="Navegación de Currículum Vitae">
         <a class="nav-cv" href="/cv/" aria-current="page" data-i18n="cv">Currículum Vitae</a>
-        <a href="/#contacto" data-i18n="contact">Contacto</a>
       </nav>
       <div class="header-actions">
         <button class="control lang-control" type="button" data-lang aria-label="Cambiar idioma">ES / EN</button>
@@ -30,28 +26,53 @@
         <button class="control menu-control" type="button" data-menu-toggle aria-expanded="false" aria-controls="mobile-nav" aria-label="Abrir menú"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
       </div>
     </div>
-    <nav class="mobile-nav" id="mobile-nav" aria-label="Navegación móvil" hidden>
-      <a href="/#acerca" data-i18n="about">Acerca de mí</a><a href="/#areas" data-i18n="areas">Áreas</a><a href="/#proyectos" data-i18n="projects">Proyectos</a><a href="/cv/" data-i18n="cv">Currículum Vitae</a><a href="/#contacto" data-i18n="contact">Contacto</a>
-    </nav>
+    <nav class="mobile-nav cv-only" id="mobile-nav" aria-label="Navegación de Currículum Vitae" hidden><a href="/cv/" data-i18n="cv">Currículum Vitae</a></nav>
   </header>
 
   <main class="hub-main">
     <section class="hub-selector" aria-labelledby="hub-title">
       <div class="container">
         <p class="hub-kicker" data-i18n="kicker">CURRÍCULUM VITAE</p>
-        <h1 id="hub-title" data-i18n="title">Selecciona un perfil profesional.</h1>
+        <h1 id="hub-title" data-i18n="title">Explora mis perfiles profesionales</h1>
         <div class="hub-grid">
           <a class="hub-card electrical" href="/es/electrica/" data-electrical-link>
-            <span class="hub-no">01</span><span class="hub-icon" aria-hidden="true">⚡</span>
-            <h2 data-i18n="electrical">Sistemas Eléctricos y Automatización</h2><span class="hub-arrow">↗</span>
+            <span class="hub-no">01</span>
+            <span class="hub-visual" aria-hidden="true">
+              <svg viewBox="0 0 180 180" fill="none" stroke="currentColor">
+                <path d="M26 92h39l13-26 22 52 17-34h37"/>
+                <path d="M24 38h28v24H24zM128 116h28v26h-28z"/>
+                <circle cx="90" cy="90" r="66"/><circle cx="90" cy="90" r="43" stroke-dasharray="4 8"/>
+                <path d="m96 38-25 49h22l-9 54 30-61H91l5-42Z"/>
+              </svg>
+            </span>
+            <div class="hub-card-copy"><small data-i18n="electricalTag">ENERGÍA · CONTROL</small><h2 data-i18n="electrical">Sistemas Eléctricos y Automatización</h2></div>
+            <span class="hub-arrow">↗</span>
           </a>
+
           <a class="hub-card network" href="/cv/es/redes/" data-network-link>
-            <span class="hub-no">02</span><span class="hub-icon" aria-hidden="true">⌁</span>
-            <h2 data-i18n="network">Redes Informáticas</h2><span class="hub-arrow">↗</span>
+            <span class="hub-no">02</span>
+            <span class="hub-visual" aria-hidden="true">
+              <svg viewBox="0 0 180 180" fill="none" stroke="currentColor">
+                <path d="M90 32 46 69m44-37 44 37M46 69l-16 52m16-52 44 44m44-44-44 44m44-44 16 52M90 113v34"/>
+                <circle cx="90" cy="32" r="9"/><circle cx="46" cy="69" r="8"/><circle cx="134" cy="69" r="8"/><circle cx="30" cy="121" r="8"/><circle cx="90" cy="113" r="9"/><circle cx="150" cy="121" r="8"/><circle cx="90" cy="147" r="7"/>
+              </svg>
+            </span>
+            <div class="hub-card-copy"><small data-i18n="networkTag">NETWORKING · INFRAESTRUCTURA</small><h2 data-i18n="network">Redes Informáticas</h2></div>
+            <span class="hub-arrow">↗</span>
           </a>
+
           <a class="hub-card integral" href="/es/general/" data-general-link>
-            <span class="hub-no">03</span><span class="hub-icon" aria-hidden="true">◆</span>
-            <h2 data-i18n="integral">Perfil Profesional Integral</h2><span class="hub-arrow">↗</span>
+            <span class="hub-no">03</span>
+            <span class="hub-visual" aria-hidden="true">
+              <svg viewBox="0 0 180 180" fill="none" stroke="currentColor">
+                <circle cx="65" cy="68" r="34"/><circle cx="115" cy="68" r="34"/><circle cx="90" cy="111" r="34"/>
+                <path d="M90 45v91M45 91h90" stroke-dasharray="5 7"/>
+                <rect x="73" y="73" width="34" height="34" rx="4"/>
+                <path d="M82 84h16M82 91h16M82 98h10"/>
+              </svg>
+            </span>
+            <div class="hub-card-copy"><small data-i18n="integralTag">PERFIL · TRANSVERSAL</small><h2 data-i18n="integral">Perfil Profesional Integral</h2></div>
+            <span class="hub-arrow">↗</span>
           </a>
         </div>
       </div>
