@@ -6,7 +6,7 @@
      - Sincroniza el tema seleccionado con el resto del sitio.
      - Ordena los perfiles sociales por categoría.
      - Evita duplicar LinkedIn y GitHub, ya mostrados en Contacto.
-     - Normaliza enlaces especiales de YouTube y Telegram.
+     - Normaliza enlaces especiales de YouTube, Telegram, Credly y Udemy.
      - Mantiene bilingües los encabezados de las categorías sociales.
      ========================================================== */
 
@@ -121,7 +121,6 @@
       const nombre = tarjeta.querySelector('strong')?.textContent?.trim();
       if (!nombre) return;
 
-      /* Si una integración previa creó el mismo perfil dos veces, se conserva uno. */
       if (porNombre.has(nombre)) {
         tarjeta.remove();
         return;
@@ -143,6 +142,12 @@
       const mensaje = 'Hola Rubén, vi tu portafolio profesional y quisiera ponerme en contacto contigo.';
       telegram.href = `https://t.me/recm0708?text=${encodeURIComponent(mensaje)}`;
     }
+
+    const credly = porNombre.get('Credly');
+    if (credly) credly.href = 'https://www.credly.com/users/recm0708/badges/credly';
+
+    const udemy = porNombre.get('Udemy');
+    if (udemy) udemy.href = 'https://www.udemy.com/user/ruben-enrique-canizares-miranda/';
 
     grid.innerHTML = '';
     grid.classList.add('social-groups');
