@@ -4,8 +4,7 @@
   /* ==========================================================
      CENTRO DE CURRÍCULUM VITAE
      Controla idioma, apariencia, enlaces a cada perfil, retorno arriba
-     y la declaración de copyright.
-     La documentación interna del código se mantiene en español.
+     y una única declaración de copyright.
      ========================================================== */
 
   const t = {
@@ -34,8 +33,13 @@
   const root = document.documentElement;
   const langBtn = document.querySelector('[data-lang]');
   const themeBtn = document.querySelector('[data-theme]');
+  const THEME_KEY = 'portfolio-theme';
   let lang = localStorage.getItem('portfolio-language') || 'es';
-  let theme = localStorage.getItem('portfolio-theme') || 'dark';
+  let theme = localStorage.getItem(THEME_KEY);
+
+  if (theme !== 'light' && theme !== 'dark') {
+    theme = window.matchMedia?.('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+  }
 
   function instalarPaletaClara() {
     if (document.querySelector('#cv-hub-light-palette')) return;
@@ -72,20 +76,12 @@
     window.addEventListener('scroll', update, { passive: true }); update();
   }
 
-  /* Copyright del centro de currículos. */
-  function instalarCopyright() {
-    if (document.querySelector('[data-hub-copyright]')) return;
-    const style = document.createElement('style');
-    style.id = 'cv-hub-copyright-styles';
-    style.textContent = `.hub-copyright{padding:16px 20px 22px;border-top:1px solid var(--line);text-align:center;color:var(--muted);font:600 .68rem/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.02em}`;
-    document.head.appendChild(style);
-    const copyright = document.createElement('div');
-    copyright.className = 'hub-copyright'; copyright.dataset.hubCopyright = ''; document.body.appendChild(copyright);
-  }
-
   function actualizarCopyright() {
-    const copyright = document.querySelector('[data-hub-copyright]');
-    if (copyright) copyright.textContent = `© ${new Date().getFullYear()} Rubén Enrique Cañizares Miranda · ${lang === 'en' ? 'All rights reserved.' : 'Todos los derechos reservados.'}`;
+    const destino = document.querySelector('.hub-footer span');
+    if (!destino) return;
+    destino.dataset.siteCopyright = '';
+    destino.textContent = `© ${new Date().getFullYear()} Rubén Enrique Cañizares Miranda · ${lang === 'en' ? 'All rights reserved.' : 'Todos los derechos reservados.'}`;
+    document.querySelectorAll('.hub-copyright').forEach((elemento) => elemento.remove());
   }
 
   function setLang(next) {
@@ -99,13 +95,27 @@
     if (network) network.href = lang === 'es' ? '/es/redes/' : '/en/networks/';
     if (general) general.href = lang === 'es' ? '/es/general/' : '/en/general/';
     document.title = lang === 'es' ? 'Currículum Vitae | Rubén Cañizares' : 'Curriculum Vitae | Rubén Cañizares';
-    localStorage.setItem('portfolio-language', lang); actualizarCopyright();
+    localStorage.setItem('portfolio-language', lang);
+    actualizarCopyright();
   }
 
-  function setTheme(next) { theme = next === 'light' ? 'light' : 'dark'; root.dataset.theme = theme; localStorage.setItem('portfolio-theme', theme); }
+  function setTheme(next, guardar = true) {
+    theme = next === 'light' ? 'light' : 'dark';
+    root.dataset.theme = theme;
+    if (guardar) localStorage.setItem(THEME_KEY, theme);
+  }
+
+  window.addEventListener('storage', (event) => {
+    if (event.key === THEME_KEY && (event.newValue === 'light' || event.newValue === 'dark')) {
+      setTheme(event.newValue, false);
+    }
+  });
 
   langBtn?.addEventListener('click', () => setLang(lang === 'es' ? 'en' : 'es'));
   themeBtn?.addEventListener('click', () => setTheme(theme === 'dark' ? 'light' : 'dark'));
 
-  instalarPaletaClara(); instalarVolverArriba(); instalarCopyright(); setTheme(theme); setLang(lang);
+  instalarPaletaClara();
+  instalarVolverArriba();
+  setTheme(theme, false);
+  setLang(lang);
 })();
