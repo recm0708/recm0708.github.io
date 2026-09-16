@@ -144,7 +144,6 @@
   function limpiarRetornosDuplicados() {
     document.querySelectorAll('.site-back-top,[data-site-back-top],[data-back-top]').forEach((elemento) => elemento.remove());
     document.querySelectorAll('#cv-back-top-styles,#cv-hub-back-top-styles,#home-extra-styles').forEach((style) => {
-      /* home-extra-styles contiene más reglas que el botón; no se elimina. */
       if (style.id !== 'home-extra-styles') style.remove();
     });
   }
@@ -154,8 +153,10 @@
     limpiarRetornosDuplicados();
     construirPie();
     activarMenu(document);
-    const observador = new MutationObserver(() => limpiarRetornosDuplicados());
-    observador.observe(document.body, { childList: true, subtree: true });
+    const observadorBotones = new MutationObserver(() => limpiarRetornosDuplicados());
+    observadorBotones.observe(document.body, { childList: true, subtree: true });
+    const observadorIdioma = new MutationObserver(() => construirPie());
+    observadorIdioma.observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
   }
 
   window.SiteShell = { cargarEstilos, construirCabecera, construirPie, limpiarRetornosDuplicados, activarMenu, activarTema, volverArriba, normalizarPortada };
