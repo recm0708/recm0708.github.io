@@ -38,17 +38,32 @@
 
   function cargarEstilos() {
     cargarHoja('/assets/css/site-shell.css', '/assets/css/site-shell.css?v=20260916-3');
-    cargarHoja('/assets/css/palettes.css', '/assets/css/palettes.css?v=20260916-1');
+    cargarHoja('/assets/css/palettes.css', '/assets/css/palettes.css?v=20260916-2');
   }
 
   function contextualizarPagina() {
     const body = document.body;
     if (!body) return;
     const path = window.location.pathname.replace(/\/+$/, '') || '/';
+    let contexto = 'portal';
 
-    if (path === '/') body.classList.add('portal-home');
-    if (path === '/cv') body.classList.add('cv-hub-page');
-    if (path === '/404.html' || document.querySelector('main.error')) body.classList.add('error-page');
+    if (path === '/') {
+      body.classList.add('portal-home');
+      contexto = 'portal';
+    }
+    if (path === '/cv') {
+      body.classList.add('cv-hub-page');
+      contexto = 'hub';
+    }
+    if (path === '/404.html' || document.querySelector('main.error')) {
+      body.classList.add('error-page');
+      contexto = 'error';
+    }
+    if (body.classList.contains('network-cv')) contexto = 'network';
+    if (body.classList.contains('cv-electrical')) contexto = 'electrical';
+    if (body.classList.contains('general-cv') || body.classList.contains('cv-general')) contexto = 'integral';
+
+    document.documentElement.dataset.context = contexto;
 
     /* En el selector de CV no se muestra un enlace que apunte a sí mismo. */
     if (body.classList.contains('cv-hub-page')) {
