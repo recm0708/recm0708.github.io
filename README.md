@@ -14,6 +14,7 @@ El sitio se encuentra en desarrollo continuo y actualmente incluye:
 - Identidad visual principal orientada a redes, infraestructura y automatización.
 - Integración de fotografía de perfil.
 - Secciones de perfil personal, trayectoria, áreas técnicas, laboratorio, proyectos, currículum y contacto.
+- Sección biográfica «Más allá de lo técnico» con origen, familia, intereses, tiempo libre, metas y voluntariado.
 - Perfiles sociales oficiales reunidos en la portada.
 - Centro independiente de Currículum Vitae.
 - CV de Sistemas Eléctricos y Automatización — español / inglés.
@@ -60,6 +61,7 @@ Las versiones web de los currículos son deliberadamente más amplias que los do
 └── assets/
     ├── css/
     │   ├── home.css
+    │   ├── personal.css
     │   ├── cv-hub.css
     │   ├── electrical.css
     │   ├── networks.css
@@ -67,6 +69,7 @@ Las versiones web de los currículos son deliberadamente más amplias que los do
     │   └── global.css
     ├── js/
     │   ├── home.js
+    │   ├── personal.js
     │   ├── cv-hub.js
     │   └── cv.js
     ├── images/
@@ -129,7 +132,7 @@ A partir de esta versión se aplican las siguientes reglas al código y document
 8. Los cambios importantes de recursos estáticos pueden utilizar un parámetro de versión (`?v=`) para evitar que el navegador conserve CSS o JavaScript obsoleto en caché.
 9. Los mensajes de commit creados durante el mantenimiento del portal se redactan preferentemente en español, manteniendo únicamente términos técnicos en inglés cuando sean nombres propios o convenciones ampliamente reconocidas.
 10. Las cadenas de la interfaz inglesa se conservan en inglés porque forman parte de la funcionalidad bilingüe; no se consideran documentación interna del repositorio.
-11. El código heredado que deje de ser utilizado debe eliminarse en lugar de conservarse como archivo huérfano.
+11. El código huérfano o perteneciente a diseños descartados debe eliminarse cuando se confirme que ninguna página vigente lo utiliza.
 
 ## Modelo de publicación
 
@@ -142,7 +145,7 @@ GitHub Pages publica directamente desde la rama `main` y desde la raíz del repo
 
 Entre las ampliaciones previstas se encuentran:
 
-- Enriquecer la página personal con historia, metas, intereses, pasatiempos, viajes, experiencias y otros elementos personales que se aprueben para publicación.
+- Seguir enriqueciendo la página personal con historia, metas, intereses, pasatiempos, viajes y experiencias aprobadas para publicación.
 - Ampliar el CV Eléctrico más allá de su estructura inicial derivada del formato ATS.
 - Crear una sección dedicada de credenciales y certificaciones.
 - Publicar certificados y diplomas aprobados en formato PDF.
@@ -155,7 +158,7 @@ Entre las ampliaciones previstas se encuentran:
 
 Este repositorio es público. Solo debe almacenarse información profesional o personal que haya sido aprobada expresamente para publicación abierta.
 
-No deben publicarse documentos de identificación sensibles, registros privados, información confidencial de empleadores, contraseñas, direcciones privadas ni otros datos innecesarios.
+No deben publicarse documentos de identificación sensibles, registros privados, información confidencial de empleadores, contraseñas, direcciones privadas, horarios rutinarios, información bancaria, datos médicos, infraestructura doméstica detallada ni otros datos innecesarios.
 
 Los archivos PDF quedan reservados principalmente para documentos profesionales aprobados, tales como:
 
