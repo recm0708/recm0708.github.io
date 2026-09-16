@@ -1,3 +1,5 @@
+@import url('/assets/css/networks-enhanced.css?v=20260916-1');
+
 /* ==========================================================
    CV REDES INFORMÁTICAS — IDENTIDAD VISUAL
    Currículo digital profesional inspirado en un documento editorial,
@@ -5,35 +7,35 @@
    ========================================================== */
 
 :root{
-  --cv-bg:#061015;
-  --cv-bg-soft:#08161d;
-  --cv-surface:#0b1920;
-  --cv-surface-strong:#10232c;
-  --cv-ink:#eefaff;
-  --cv-muted:#8da7b2;
-  --cv-line:rgba(102,226,255,.14);
-  --cv-line-strong:rgba(102,226,255,.30);
-  --cv-accent:#66e2ff;
-  --cv-accent-2:#71efb7;
-  --cv-accent-3:#ffc96b;
-  --net-side:#0a2630;
-  --net-sheet:#0a171d;
+  --cv-bg:#06110b;
+  --cv-bg-soft:#09180f;
+  --cv-surface:#0c1b12;
+  --cv-surface-strong:#11261a;
+  --cv-ink:#effbf2;
+  --cv-muted:#95ad9b;
+  --cv-line:rgba(98,226,139,.15);
+  --cv-line-strong:rgba(98,226,139,.31);
+  --cv-accent:#62e28b;
+  --cv-accent-2:#b8ef6f;
+  --cv-accent-3:#efd16c;
+  --net-side:#0a2617;
+  --net-sheet:#09170f;
 }
 
 html[data-theme="light"]{
-  --cv-bg:#d8e4e5;
-  --cv-bg-soft:#cedadd;
-  --cv-surface:#e7eef0;
-  --cv-surface-strong:#eff4f5;
-  --cv-ink:#14272e;
-  --cv-muted:#5c747d;
-  --cv-line:rgba(17,79,96,.14);
-  --cv-line-strong:rgba(17,79,96,.28);
-  --cv-accent:#087b97;
-  --cv-accent-2:#14775d;
-  --cv-accent-3:#916006;
-  --net-side:#c8dde1;
-  --net-sheet:#edf3f4;
+  --cv-bg:#dce9df;
+  --cv-bg-soft:#cfdfd3;
+  --cv-surface:#e9f1eb;
+  --cv-surface-strong:#f2f6f2;
+  --cv-ink:#193022;
+  --cv-muted:#5f7667;
+  --cv-line:rgba(35,116,68,.16);
+  --cv-line-strong:rgba(35,116,68,.30);
+  --cv-accent:#237444;
+  --cv-accent-2:#658d22;
+  --cv-accent-3:#8b711d;
+  --net-side:#c7dfcf;
+  --net-sheet:#edf4ef;
 }
 
 body.network-cv{position:relative;overflow-x:hidden}
