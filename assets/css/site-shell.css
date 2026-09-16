@@ -21,6 +21,11 @@ body.network-cv{--shell-bg:var(--cv-bg);--shell-bg-soft:var(--cv-bg-soft);--shel
 body.cv-electrical{--shell-bg:var(--bg);--shell-bg-soft:var(--bg-soft);--shell-ink:var(--text);--shell-muted:var(--text-soft);--shell-line:var(--line);--shell-accent:var(--cv-accent,#f4bd4f)}
 body.general-cv,body.cv-general{--shell-bg:var(--g-paper,var(--bg,#171b19));--shell-bg-soft:var(--g-card,var(--bg-soft,#202522));--shell-ink:var(--g-ink,var(--ink,#f2eee6));--shell-muted:var(--g-muted,var(--muted,#9d9a91));--shell-line:var(--g-line,var(--line,rgba(255,255,255,.14)));--shell-accent:var(--g-accent,var(--signal,#6de6c0))}
 
+/* Mientras Eléctrica y el perfil integral terminan su rediseño, su tema claro
+   hereda una paleta mineral suave en lugar de blanco puro. */
+html[data-theme="light"] body.cv-electrical{--bg:#dde6e3;--bg-soft:#d2ddda;--surface:rgba(231,238,236,.92);--surface-strong:#e9efed;--text:#17231f;--text-soft:#5a6d67;--line:rgba(24,64,57,.16);--shadow:0 24px 70px rgba(35,62,56,.11)}
+html[data-theme="light"] body.general-cv,html[data-theme="light"] body.cv-general{--g-paper:#e4ded2;--g-card:#ece7dc;--g-ink:#202724;--g-muted:#656e69;--g-line:#bbb7ab;--bg:#e4ded2;--bg-soft:#d8d1c4;--ink:#202724;--muted:#656e69;--line:#bbb7ab}
+
 /* Barra de desplazamiento coherente con el sitio. */
 html{scrollbar-width:thin;scrollbar-color:var(--shell-accent) var(--shell-bg-soft)}
 *::-webkit-scrollbar{width:12px;height:12px}
