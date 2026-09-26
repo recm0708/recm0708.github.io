@@ -1,30 +1,28 @@
-# Blog personal y portafolio profesional de Rubén Cañizares
+# Sitio personal y profesional de Rubén Cañizares
 
-Repositorio del sitio personal y portafolio profesional de **Rubén Enrique Cañizares Miranda**, publicado mediante GitHub Pages.
+Este repositorio contiene mi sitio web personal y profesional. Lo utilizo como un espacio central para presentar quién soy, mi trayectoria, los campos en los que me he formado, los proyectos que voy desarrollando, mis credenciales públicas y las distintas versiones de mi perfil profesional.
 
-**Sitio:** https://recm0708.github.io/
+**Sitio publicado:** https://recm0708.github.io/
 
-## Propósito
+## Sobre este espacio
 
-El sitio funciona como un blog personal y profesional. Reúne mi historia, trayectoria, metas, proyectos, intereses, voluntariado, perfiles públicos y tres versiones de mi Currículum Vitae:
+Mi trayectoria combina sistemas eléctricos y automatización, redes informáticas, soporte técnico, infraestructura y formación complementaria en otras áreas. Este sitio me permite reunir esa evolución en un solo lugar y mostrarla de una forma más completa que un currículum tradicional.
+
+La página principal presenta parte de mi historia personal, experiencias, logros, intereses, metas, proyectos y perfiles públicos. Desde el mismo sitio también se puede consultar mi trayectoria desde tres enfoques profesionales:
 
 - **Redes Informáticas e Infraestructura**
 - **Sistemas Eléctricos y Automatización**
 - **Perfil Profesional Integral**
 
-La interfaz permite alternar español/inglés en las páginas generales y modo claro/oscuro. Los currículos mantienen una estructura común y utilizan una identidad cromática propia para cada área.
+Cada perfil cuenta con una versión en español y otra en inglés.
 
-## Tecnologías
+## Qué quiero representar aquí
 
-- HTML5
-- CSS3
-- JavaScript moderno sin framework
-- Font Awesome
-- GitHub Pages
+Este repositorio no corresponde a una asignación académica ni a un proyecto de clase. Es parte de mi presencia profesional en Internet y seguirá evolucionando a medida que incorpore nuevas experiencias, certificaciones, proyectos y material que considere útil publicar.
 
-El sitio se mantiene completamente estático. No utiliza React ni PHP y no requiere un proceso de compilación.
+GitHub funciona como repositorio del sitio y GitHub Pages como medio de publicación. Los documentos originales o información personal sensible no forman parte del repositorio público; cuando se publique material de respaldo, deberá tratarse de una versión revisada y adecuada para exposición pública.
 
-## Arquitectura
+## Estructura principal
 
 ```text
 /
@@ -48,10 +46,18 @@ El sitio se mantiene completamente estático. No utiliza React ni PHP y no requi
         └── site.js
 ```
 
-`site.css` contiene la identidad visual general del blog, selector de currículos, página 404, header y footer. `cv.css` contiene únicamente la estructura especializada de los currículos. `site.js` gestiona tema, idioma, navegación móvil, progreso de lectura y animaciones ligeras al hacer scroll.
+El sitio está desarrollado con **HTML, CSS y JavaScript**, sin framework de aplicación ni proceso de compilación. Incluye modo claro/oscuro, contenido bilingüe, navegación responsive, animaciones ligeras y una página 404 personalizada.
 
-## Licencia
+## Rutas profesionales
+
+| Perfil | Español | English |
+| --- | --- | --- |
+| Redes Informáticas e Infraestructura | `/cv/es/redes/` | `/cv/en/networks/` |
+| Sistemas Eléctricos y Automatización | `/cv/es/electrica/` | `/cv/en/electrical/` |
+| Perfil Profesional Integral | `/cv/es/integral/` | `/cv/en/comprehensive/` |
+
+## Derechos de autor
 
 © 2026 Rubén Enrique Cañizares Miranda. Todos los derechos reservados.
 
-Consulta [`LICENSE`](LICENSE) para los términos aplicables al código, diseño y contenido del repositorio.
+El código, diseño, textos, currículos, imágenes y demás materiales originales de este repositorio están sujetos a los términos indicados en [LICENSE](LICENSE).
