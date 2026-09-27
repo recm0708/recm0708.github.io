@@ -38,15 +38,22 @@ GitHub funciona como repositorio del sitio y GitHub Pages como medio de publicac
 │       ├── networks/
 │       ├── electrical/
 │       └── comprehensive/
-└── assets/
-    ├── css/
-    │   ├── site.css
-    │   └── cv.css
-    └── js/
-        └── site.js
+├── assets/
+│   ├── css/
+│   │   ├── site.css
+│   │   └── cv.css
+│   ├── icons/
+│   │   ├── favicon.svg
+│   │   ├── profile-icons.svg
+│   │   └── project-icons.svg
+│   └── js/
+│       └── site.js
+├── robots.txt
+├── sitemap.xml
+└── site.webmanifest
 ```
 
-El sitio está desarrollado con **HTML, CSS y JavaScript**, sin framework de aplicación ni proceso de compilación. Incluye modo claro/oscuro, contenido bilingüe, navegación responsive, animaciones ligeras y una página 404 personalizada.
+El sitio está desarrollado con **HTML, CSS y JavaScript**, sin framework de aplicación ni proceso de compilación. Incluye modo claro/oscuro, contenido bilingüe, navegación responsive, animaciones ligeras, recursos SVG propios, favicon/manifest y una página 404 personalizada.
 
 ## Rutas profesionales
 
