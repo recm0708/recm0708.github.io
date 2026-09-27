@@ -1,4 +1,4 @@
-# recm0708.github.io
+# Sitio profesional en GitHub Pages — Rubén Cañizares
 
 Repositorio fuente del sitio web personal y profesional de **Rubén Enrique Cañizares Miranda**, publicado mediante **GitHub Pages**.
 
