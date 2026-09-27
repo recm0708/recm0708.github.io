@@ -342,9 +342,10 @@
     document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
   }
 
-  const navLinks = [...document.querySelectorAll('.main-nav a[href^="#"]')];
+  const navLinks = [...document.querySelectorAll('.main-nav a[href^="#"], .mobile-nav a[href^="#"]')];
   if(navLinks.length){
-    const sections = navLinks.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+    const sectionSelectors = [...new Set(navLinks.map(a => a.getAttribute('href')))];
+    const sections = sectionSelectors.map(selector => document.querySelector(selector)).filter(Boolean);
     const spy = () => {
       let current = '';
       sections.forEach(section => {
