@@ -266,6 +266,13 @@
   setupLastUpdated();
 
   document.addEventListener('click', e => {
+    const resetBtn = e.target.closest('[data-reset-preferences]');
+    if(resetBtn){
+      [THEME_KEY, LANG_KEY, LEGAL_KEY].forEach(key => localStorage.removeItem(key));
+      window.location.reload();
+      return;
+    }
+
     const themeBtn = e.target.closest('[data-theme-toggle]');
     if(themeBtn){
       applyTheme(root.dataset.theme === 'dark' ? 'light' : 'dark', true);
