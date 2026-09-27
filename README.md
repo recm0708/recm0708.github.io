@@ -10,7 +10,7 @@ Este repositorio existe para mantener y publicar el sitio web. Su función princ
 
 - el código fuente de las páginas públicas;
 - los estilos, scripts, iconos y demás recursos visuales;
-- las rutas en español e inglés de los perfiles profesionales;
+- las rutas bilingües de los perfiles profesionales, con cambio ES/EN sin modificar la URL;
 - los archivos necesarios para publicación, indexación y compatibilidad web;
 - la configuración y documentación técnica mínima necesaria para mantener el sitio.
 
@@ -41,22 +41,13 @@ El sitio es estático y no requiere proceso de compilación, framework de aplica
 ├── 404.html
 ├── cv/
 │   ├── index.html
-│   ├── es/
-│   │   ├── redes/
-│   │   ├── electrica/
-│   │   └── integral/
-│   └── en/
-│       ├── networks/
-│       ├── electrical/
-│       └── comprehensive/
+│   ├── redes/
+│   ├── electrica/
+│   └── integral/
 ├── legal/
 │   ├── index.html
-│   ├── es/
-│   │   ├── terminos/
-│   │   └── privacidad/
-│   └── en/
-│       ├── terms/
-│       └── privacy/
+│   ├── terminos/
+│   └── privacidad/
 ├── assets/
 │   ├── css/
 │   │   ├── site.css
@@ -74,14 +65,15 @@ El sitio es estático y no requiere proceso de compilación, framework de aplica
 
 ## Rutas principales
 
-| Contenido | Español | English |
-| --- | --- | --- |
-| Sitio principal | `/` | `/` |
-| Selector de perfiles | `/cv/` | `/cv/` |
-| Redes Informáticas e Infraestructura | `/cv/es/redes/` | `/cv/en/networks/` |
-| Sistemas Eléctricos y Automatización | `/cv/es/electrica/` | `/cv/en/electrical/` |
-| Perfil Profesional Integral | `/cv/es/integral/` | `/cv/en/comprehensive/` |
-| Información legal | `/legal/es/terminos/` y `/legal/es/privacidad/` | `/legal/en/terms/` y `/legal/en/privacy/` |
+| Contenido | Ruta única bilingüe |
+| --- | --- |
+| Sitio principal | `/` |
+| Selector de perfiles | `/cv/` |
+| Redes Informáticas e Infraestructura | `/cv/redes/` |
+| Sistemas Eléctricos y Automatización | `/cv/electrica/` |
+| Perfil Profesional Integral | `/cv/integral/` |
+| Términos de uso | `/legal/terminos/` |
+| Privacidad y almacenamiento | `/legal/privacidad/` |
 
 ## Características técnicas
 
