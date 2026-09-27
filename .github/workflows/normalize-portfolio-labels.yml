@@ -1,0 +1,73 @@
+name: Normalize portfolio labels
+
+on:
+  push:
+    paths:
+      - ".github/workflows/normalize-portfolio-labels.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  normalize:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Normalize labels
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          rename_or_create() {
+            local old="$1"
+            local new="$2"
+            local color="$3"
+            local description="$4"
+            local old_encoded new_encoded
+            old_encoded="$(jq -rn --arg v "$old" '$v|@uri')"
+            new_encoded="$(jq -rn --arg v "$new" '$v|@uri')"
+
+            if gh api "repos/$GH_REPO/labels/$new_encoded" >/dev/null 2>&1; then
+              gh api --method PATCH "repos/$GH_REPO/labels/$new_encoded" \
+                -f new_name="$new" \
+                -f color="$color" \
+                -f description="$description" >/dev/null
+              if gh api "repos/$GH_REPO/labels/$old_encoded" >/dev/null 2>&1; then
+                gh api --method DELETE "repos/$GH_REPO/labels/$old_encoded" >/dev/null
+              fi
+            elif gh api "repos/$GH_REPO/labels/$old_encoded" >/dev/null 2>&1; then
+              gh api --method PATCH "repos/$GH_REPO/labels/$old_encoded" \
+                -f new_name="$new" \
+                -f color="$color" \
+                -f description="$description" >/dev/null
+            else
+              gh api --method POST "repos/$GH_REPO/labels" \
+                -f name="$new" \
+                -f color="$color" \
+                -f description="$description" >/dev/null
+            fi
+          }
+
+          delete_if_exists() {
+            local name="$1"
+            local encoded
+            encoded="$(jq -rn --arg v "$name" '$v|@uri')"
+            if gh api "repos/$GH_REPO/labels/$encoded" >/dev/null 2>&1; then
+              gh api --method DELETE "repos/$GH_REPO/labels/$encoded" >/dev/null
+            fi
+          }
+
+          rename_or_create "bug" "type:bug" "d73a4a" "Error funcional o regresión que requiere corrección."
+          rename_or_create "enhancement" "type:enhancement" "a2eeef" "Mejora o capacidad nueva del sitio o repositorio."
+
+          for label in             "accessibility"             "documentation"             "duplicate"             "good first issue"             "help wanted"             "invalid"             "question"             "wontfix"
+          do
+            delete_if_exists "$label"
+          done
+
+          echo "===== LABELS FINALES ====="
+          gh api "repos/$GH_REPO/labels?per_page=100" --jq '.[] | "\(.name) | #\(.color) | \(.description // "")"' | sort
