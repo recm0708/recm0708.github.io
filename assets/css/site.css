@@ -177,6 +177,8 @@ html[lang='es'] [data-lang='en'],html[lang='en'] [data-lang='es']{display:none!i
 .selector-visual .profile-symbol{color:var(--accent)}
 
 /* PROJECTS */
+.project-icon{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;margin-bottom:16px;background:color-mix(in srgb,var(--primary) 10%,var(--surface));border:1px solid color-mix(in srgb,var(--primary) 22%,var(--line));color:var(--primary)}
+.project-icon svg{width:25px;height:25px;display:block}
 .project-card small{color:var(--accent);font-weight:800;letter-spacing:.09em;text-transform:uppercase}
 .project-tags{display:flex;gap:7px;flex-wrap:wrap;margin-top:18px}
 .project-tags span{font-size:.68rem;border:1px solid var(--line);border-radius:999px;padding:6px 9px;color:var(--muted)}
