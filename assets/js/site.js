@@ -5,6 +5,7 @@
   const LANG_KEY = 'recm0708-lang';
   const LEGAL_KEY = 'recm0708-legal-notice-v1';
   const root = document.documentElement;
+  let lastUpdatedDate = null;
 
   function systemTheme(){
     return window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
@@ -93,6 +94,15 @@
     document.querySelectorAll('[data-lang-link-es]').forEach(el => el.classList.toggle('active', lang === 'es'));
     document.querySelectorAll('[data-lang-link-en]').forEach(el => el.classList.toggle('active', lang === 'en'));
 
+    const pageTitle = lang === 'en' ? document.body?.dataset.titleEn : document.body?.dataset.titleEs;
+    if(pageTitle) document.title = pageTitle;
+
+    if(lastUpdatedDate) renderLastUpdated();
+
+    requestAnimationFrame(() => {
+      document.querySelectorAll(`.localized-page[data-lang="${lang}"] .reveal`).forEach(el => el.classList.add('visible'));
+    });
+
     applyTheme(root.dataset.theme || systemTheme(), false);
   }
 
@@ -140,13 +150,58 @@
     });
   }
 
+
+  function renderLastUpdated(){
+    const el = document.querySelector('[data-last-updated]');
+    if(!el || !lastUpdatedDate) return;
+    const lang = root.lang === 'en' ? 'en' : 'es';
+    const formatter = new Intl.DateTimeFormat(lang === 'en' ? 'en-US' : 'es-PA', {
+      dateStyle:'medium',
+      timeStyle:'short',
+      timeZone:'America/Panama'
+    });
+    el.textContent = lang === 'en'
+      ? `Updated: ${formatter.format(lastUpdatedDate)} (Panama time)`
+      : `Actualizado: ${formatter.format(lastUpdatedDate)} (hora de Panamá)`;
+  }
+
+  async function setupLastUpdated(){
+    const host = document.querySelector('.footer-meta');
+    if(!host) return;
+
+    let el = host.querySelector('[data-last-updated]');
+    if(!el){
+      el = document.createElement('div');
+      el.className = 'footer-updated';
+      el.dataset.lastUpdated = '';
+      host.insertBefore(el, host.querySelector('.footer-legal'));
+    }
+
+    try{
+      const response = await fetch('https://api.github.com/repos/recm0708/recm0708.github.io/commits/main', {
+        headers:{'Accept':'application/vnd.github+json'}
+      });
+      if(!response.ok) throw new Error('GitHub API unavailable');
+      const data = await response.json();
+      const stamp = data?.commit?.committer?.date || data?.commit?.author?.date;
+      if(!stamp) throw new Error('Commit timestamp unavailable');
+      lastUpdatedDate = new Date(stamp);
+    } catch(error){
+      const fallback = new Date(document.lastModified);
+      if(!Number.isNaN(fallback.getTime())) lastUpdatedDate = fallback;
+    }
+
+    if(lastUpdatedDate) renderLastUpdated();
+    else el.hidden = true;
+  }
+
   function setupLegalNotice(){
     if(location.pathname.startsWith('/legal/')) return;
     if(localStorage.getItem(LEGAL_KEY) === 'acknowledged') return;
 
     const lang = root.lang === 'en' ? 'en' : 'es';
-    const termsHref = lang === 'en' ? '/legal/en/terms/' : '/legal/es/terminos/';
-    const privacyHref = lang === 'en' ? '/legal/en/privacy/' : '/legal/es/privacidad/';
+    const termsHref = '/legal/terminos/';
+    const privacyHref = '/legal/privacidad/';
 
     const backdrop = document.createElement('div');
     backdrop.className = 'legal-notice-backdrop';
@@ -208,6 +263,7 @@
   const initialLang = canSwitchLanguage ? (localStorage.getItem(LANG_KEY) || defaultLang) : defaultLang;
   applyLanguage(initialLang, false);
   setupLegalNotice();
+  setupLastUpdated();
 
   document.addEventListener('click', e => {
     const themeBtn = e.target.closest('[data-theme-toggle]');
