@@ -172,6 +172,9 @@ html[lang='es'] [data-lang='en'],html[lang='en'] [data-lang='es']{display:none!i
 .profile-card.networks{--accent:#2f8f6b;--accent-soft:rgba(47,143,107,.12)}
 .profile-card.electrical{--accent:#2d7fe7;--accent-soft:rgba(45,127,231,.12)}
 .profile-card.integral{--accent:#d07a54;--accent-soft:rgba(208,122,84,.12)}
+.profile-symbol{width:24px;height:24px;color:var(--accent);display:block}
+.selector-symbol{width:82px;height:82px;position:relative;z-index:2}
+.selector-visual .profile-symbol{color:var(--accent)}
 
 /* PROJECTS */
 .project-card small{color:var(--accent);font-weight:800;letter-spacing:.09em;text-transform:uppercase}
