@@ -1,26 +1,37 @@
-# Sitio personal y profesional de Rubén Cañizares
+# recm0708.github.io
 
-Este repositorio contiene mi sitio web personal y profesional. Lo utilizo como un espacio central para presentar quién soy, mi trayectoria, los campos en los que me he formado, los proyectos que voy desarrollando, mis credenciales públicas y las distintas versiones de mi perfil profesional.
+Repositorio fuente del sitio web personal y profesional de **Rubén Enrique Cañizares Miranda**, publicado mediante **GitHub Pages**.
 
-**Sitio publicado:** https://recm0708.github.io/
+**Sitio público:** https://recm0708.github.io/
 
-## Sobre este espacio
+## Propósito del repositorio
 
-Mi trayectoria combina sistemas eléctricos y automatización, redes informáticas, soporte técnico, infraestructura y formación complementaria en otras áreas. Este sitio me permite reunir esa evolución en un solo lugar y mostrarla de una forma más completa que un currículum tradicional.
+Este repositorio existe para mantener y publicar el sitio web. Su función principal es concentrar:
 
-La página principal presenta parte de mi historia personal, experiencias, logros, intereses, metas, proyectos y perfiles públicos. Desde el mismo sitio también se puede consultar mi trayectoria desde tres enfoques profesionales:
+- el código fuente de las páginas públicas;
+- los estilos, scripts, iconos y demás recursos visuales;
+- las rutas en español e inglés de los perfiles profesionales;
+- los archivos necesarios para publicación, indexación y compatibilidad web;
+- la configuración y documentación técnica mínima necesaria para mantener el sitio.
 
-- **Redes Informáticas e Infraestructura**
-- **Sistemas Eléctricos y Automatización**
-- **Perfil Profesional Integral**
+El contenido biográfico, profesional y narrativo se presenta directamente en el sitio publicado. El README se limita a documentar el repositorio y su funcionamiento.
 
-Cada perfil cuenta con una versión en español y otra en inglés.
+## Arquitectura de publicación
 
-## Qué quiero representar aquí
+El repositorio corresponde a un **GitHub User Site**, por lo que la rama principal se publica en:
 
-Este repositorio no corresponde a una asignación académica ni a un proyecto de clase. Es parte de mi presencia profesional en Internet y seguirá evolucionando a medida que incorpore nuevas experiencias, certificaciones, proyectos y material que considere útil publicar.
+`https://recm0708.github.io/`
 
-GitHub funciona como repositorio del sitio y GitHub Pages como medio de publicación. Los documentos originales o información personal sensible no forman parte del repositorio público; cuando se publique material de respaldo, deberá tratarse de una versión revisada y adecuada para exposición pública.
+El sitio es estático y no requiere proceso de compilación, framework de aplicación ni backend.
+
+### Tecnologías principales
+
+- HTML5
+- CSS3
+- JavaScript
+- SVG
+- Font Awesome
+- GitHub Pages
 
 ## Estructura principal
 
@@ -53,18 +64,55 @@ GitHub funciona como repositorio del sitio y GitHub Pages como medio de publicac
 └── site.webmanifest
 ```
 
-El sitio está desarrollado con **HTML, CSS y JavaScript**, sin framework de aplicación ni proceso de compilación. Incluye modo claro/oscuro, contenido bilingüe, navegación responsive, animaciones ligeras, recursos SVG propios, favicon/manifest y una página 404 personalizada.
+## Rutas principales
 
-## Rutas profesionales
-
-| Perfil | Español | English |
+| Contenido | Español | English |
 | --- | --- | --- |
+| Sitio principal | `/` | `/` |
+| Selector de perfiles | `/cv/` | `/cv/` |
 | Redes Informáticas e Infraestructura | `/cv/es/redes/` | `/cv/en/networks/` |
 | Sistemas Eléctricos y Automatización | `/cv/es/electrica/` | `/cv/en/electrical/` |
 | Perfil Profesional Integral | `/cv/es/integral/` | `/cv/en/comprehensive/` |
 
-## Derechos de autor
+## Características técnicas
+
+El sitio mantiene, entre otras, las siguientes capacidades:
+
+- diseño responsive;
+- modo claro y oscuro;
+- contenido bilingüe ES/EN;
+- navegación y estados de foco accesibles;
+- iconografía SVG propia para perfiles y proyectos;
+- página 404 personalizada;
+- `sitemap.xml` y `robots.txt`;
+- favicon y `site.webmanifest`;
+- metadata SEO, canonical y Open Graph en las rutas públicas correspondientes.
+
+## Mantenimiento
+
+La rama de publicación es `main`.
+
+Los cambios del sitio se controlan mediante Git y las tareas de evolución, revisión y cierre se documentan mediante GitHub Issues. Los recursos CSS y JavaScript pueden utilizar parámetros de versión en sus URLs para invalidar caché cuando se realizan cambios relevantes.
+
+Antes de considerar una versión terminada se revisan, según corresponda:
+
+- contenido y equivalencia ES/EN;
+- enlaces y rutas;
+- accesibilidad básica;
+- comportamiento responsive;
+- temas claro/oscuro;
+- metadata y archivos de indexación;
+- recursos visuales;
+- publicación final en GitHub Pages.
+
+## Contenido público y privacidad
+
+Este repositorio contiene únicamente material destinado a exposición pública.
+
+Documentos originales, certificados sin sanear, fotografías fuente y otros archivos con información personal o sensible no deben almacenarse aquí. Cuando sea necesario publicar evidencia documental, se utilizarán copias revisadas y apropiadas para acceso público.
+
+## Licencia y derechos de autor
 
 © 2026 Rubén Enrique Cañizares Miranda. Todos los derechos reservados.
 
-El código, diseño, textos, currículos, imágenes y demás materiales originales de este repositorio están sujetos a los términos indicados en [LICENSE](LICENSE).
+El código, diseño, textos y demás materiales originales están sujetos a los términos definidos en [LICENSE](LICENSE).
