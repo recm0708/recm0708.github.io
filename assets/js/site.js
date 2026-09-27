@@ -87,12 +87,6 @@
       btn.setAttribute('aria-label', lang === 'es' ? 'Cambiar idioma a inglés' : 'Switch language to Spanish');
     });
 
-    document.querySelectorAll('[data-href-es][data-href-en]').forEach(link => {
-      link.href = lang === 'es' ? link.dataset.hrefEs : link.dataset.hrefEn;
-    });
-
-    document.querySelectorAll('[data-lang-link-es]').forEach(el => el.classList.toggle('active', lang === 'es'));
-    document.querySelectorAll('[data-lang-link-en]').forEach(el => el.classList.toggle('active', lang === 'en'));
 
     const pageTitle = lang === 'en' ? document.body?.dataset.titleEn : document.body?.dataset.titleEs;
     if(pageTitle) document.title = pageTitle;
