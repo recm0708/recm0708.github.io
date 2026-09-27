@@ -49,6 +49,14 @@ El sitio es estático y no requiere proceso de compilación, framework de aplica
 │       ├── networks/
 │       ├── electrical/
 │       └── comprehensive/
+├── legal/
+│   ├── index.html
+│   ├── es/
+│   │   ├── terminos/
+│   │   └── privacidad/
+│   └── en/
+│       ├── terms/
+│       └── privacy/
 ├── assets/
 │   ├── css/
 │   │   ├── site.css
@@ -73,6 +81,7 @@ El sitio es estático y no requiere proceso de compilación, framework de aplica
 | Redes Informáticas e Infraestructura | `/cv/es/redes/` | `/cv/en/networks/` |
 | Sistemas Eléctricos y Automatización | `/cv/es/electrica/` | `/cv/en/electrical/` |
 | Perfil Profesional Integral | `/cv/es/integral/` | `/cv/en/comprehensive/` |
+| Información legal | `/legal/es/terminos/` y `/legal/es/privacidad/` | `/legal/en/terms/` y `/legal/en/privacy/` |
 
 ## Características técnicas
 
@@ -86,7 +95,9 @@ El sitio mantiene, entre otras, las siguientes capacidades:
 - página 404 personalizada;
 - `sitemap.xml` y `robots.txt`;
 - favicon y `site.webmanifest`;
-- metadata SEO, canonical y Open Graph en las rutas públicas correspondientes.
+- metadata SEO, canonical y Open Graph en las rutas públicas correspondientes;
+- aviso de primera visita, términos de uso y política de privacidad/almacenamiento;
+- medidas de disuasión contra copia e impresión de contenido.
 
 ## Mantenimiento
 
