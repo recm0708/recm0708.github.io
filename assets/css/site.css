@@ -246,8 +246,8 @@ html[data-theme='dark'] .profile-card.integral{--accent:#fb923c;--accent-soft:rg
 .footer-inner{min-height:74px;display:flex;align-items:center;justify-content:center;text-align:center;padding:12px 0;font-size:.76rem;color:var(--muted)}
 .footer-inner .footer-meta{justify-items:center}
 .footer-inner .footer-legal{justify-content:center}
-.footer-top{position:fixed;right:18px;bottom:18px;z-index:1200;display:inline-flex;align-items:center;justify-content:center;width:max-content;text-align:center;font-weight:800;color:var(--text);border:1px solid color-mix(in srgb,var(--accent) 30%,var(--line));border-radius:999px;padding:9px 13px;background:color-mix(in srgb,var(--surface) 92%,transparent);box-shadow:var(--shadow-sm);backdrop-filter:blur(14px);opacity:0;transform:translateY(12px);pointer-events:none;transition:opacity .2s ease,transform .2s ease,border-color .18s ease,color .18s ease}
-.footer-top.is-visible{opacity:1;transform:none;pointer-events:auto}
+.footer-top{position:fixed;right:18px;bottom:18px;z-index:1200;display:inline-flex;align-items:center;justify-content:center;width:max-content;text-align:center;font-weight:800;color:var(--text);border:1px solid color-mix(in srgb,var(--accent) 30%,var(--line));border-radius:999px;padding:9px 13px;background:color-mix(in srgb,var(--surface) 92%,transparent);box-shadow:var(--shadow-sm);backdrop-filter:blur(14px);opacity:0;visibility:hidden;transform:translateY(12px);pointer-events:none;transition:opacity .2s ease,transform .2s ease,border-color .18s ease,color .18s ease,visibility .2s ease}
+.footer-top.is-visible{opacity:1;visibility:visible;transform:none;pointer-events:auto}
 .footer-top:hover{color:var(--accent);border-color:var(--accent)}
 
 /* REVEAL */
