@@ -407,7 +407,12 @@
       sections.forEach(section => {
         if(window.scrollY >= section.offsetTop - 130) current = `#${section.id}`;
       });
-      navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === current));
+      navLinks.forEach(a => {
+        const active = a.getAttribute('href') === current;
+        a.classList.toggle('active', active);
+        if(active) a.setAttribute('aria-current','location');
+        else a.removeAttribute('aria-current');
+      });
     };
     spy();
     window.addEventListener('scroll', spy, {passive:true});
