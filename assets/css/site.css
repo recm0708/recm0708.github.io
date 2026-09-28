@@ -458,8 +458,11 @@ body.legal-notice-open{overflow:hidden}
 .legal-hero p{max-width:780px;color:var(--muted);margin:0}
 .legal-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
 .legal-card{display:flex;flex-direction:column;min-height:250px}
+.legal-card .icon-box{margin-bottom:16px}
+.legal-card h2{font:700 1.42rem/1.18 'Space Grotesk';margin:0 0 12px}
+.legal-card p{margin:0 0 20px}
 .legal-card .btn{margin-top:auto;width:max-content}
-.legal-article{max-width:920px;border:1px solid var(--line);background:var(--surface);border-radius:var(--radius);padding:42px;box-shadow:var(--shadow-sm)}
+.legal-article{width:100%;max-width:920px;margin-inline:auto;border:1px solid var(--line);background:var(--surface);border-radius:var(--radius);padding:42px;box-shadow:var(--shadow-sm)}
 .legal-article h2{position:relative;font:700 1.45rem 'Space Grotesk';margin:32px 0 10px}
 .legal-article h2:first-child{margin-top:0}
 .legal-article h2:not(:first-child){padding-top:18px}
