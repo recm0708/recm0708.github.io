@@ -478,7 +478,9 @@ body.legal-notice-open{overflow:hidden}
 .legal-notice-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
 .legal-notice-links{display:flex;gap:14px;flex-wrap:wrap;margin-top:16px;font-size:.78rem;font-weight:800}
 .legal-notice-links a{color:var(--accent)}
-.protection-toast{position:fixed;z-index:5200;left:50%;bottom:22px;transform:translate(-50%,18px);opacity:0;pointer-events:none;max-width:min(560px,calc(100% - 28px));padding:10px 14px;border:1px solid var(--line);border-radius:12px;background:var(--surface);color:var(--text);box-shadow:var(--shadow-sm);font-size:.76rem;font-weight:750;transition:.2s}
+.protection-toast{position:fixed;z-index:5200;left:50%;bottom:22px;transform:translate(-50%,18px);opacity:0;pointer-events:none;display:flex;align-items:center;justify-content:center;gap:9px;text-align:center;max-width:min(560px,calc(100% - 28px));padding:11px 16px;border:1px solid color-mix(in srgb,var(--accent) 42%,var(--line));border-radius:13px;background:color-mix(in srgb,var(--surface) 94%,var(--accent-soft));color:var(--text);box-shadow:var(--shadow-sm);font-size:.76rem;font-weight:750;line-height:1.45;transition:.2s}
+.protection-toast i{color:var(--accent);font-size:.88rem;flex:0 0 auto}
+.protection-toast span{display:block}
 .protection-toast.show{opacity:1;transform:translate(-50%,0)}
 @media(max-width:720px){
   .legal-main{padding:52px 0 76px}
