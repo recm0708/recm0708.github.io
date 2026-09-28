@@ -248,6 +248,8 @@
     const termsHref = '/legal/terminos/';
     const privacyHref = '/legal/privacidad/';
 
+    const previousFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+
     const backdrop = document.createElement('div');
     backdrop.className = 'legal-notice-backdrop';
     backdrop.innerHTML = lang === 'en'
@@ -303,6 +305,14 @@
       inertSiblings.forEach(({el, wasInert}) => { el.inert = wasInert; });
       document.body.classList.remove('legal-notice-open');
       backdrop.remove();
+
+      const fallbackFocus = document.querySelector('.brand[href], a.brand, main a[href], main button');
+      const target = previousFocus && previousFocus !== document.body && previousFocus.isConnected
+        ? previousFocus
+        : fallbackFocus;
+      if(target instanceof HTMLElement){
+        requestAnimationFrame(() => target.focus({preventScroll:true}));
+      }
     });
     requestAnimationFrame(() => acknowledge.focus());
   }
