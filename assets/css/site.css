@@ -248,6 +248,15 @@ html[data-theme='dark'] .profile-card.integral{--accent:#d07a54;--accent-soft:rg
 
 /* TABLET / MOBILE */
 @media (min-width:981px){
+  body.home-page .section{padding:84px 0}
+  body.home-page .section-head{margin-bottom:36px}
+
+  body.home-page #historia .story-main{grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;align-items:stretch;min-height:0;padding:20px}
+  body.home-page #historia .story-main > div:first-child{padding:24px;border-radius:18px;background:var(--surface-2);border:1px solid var(--line)}
+  body.home-page #historia .story-main > div:first-child .icon-box{margin-bottom:20px}
+  body.home-page #historia .story-side{display:contents}
+  body.home-page #historia .story-note{height:100%}
+
   body.home-page .profile-card .profile-symbol{width:28px;height:28px}
   body.home-page .project-icon{width:48px;height:48px}
   body.home-page .project-icon svg{width:29px;height:29px}
