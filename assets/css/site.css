@@ -247,6 +247,12 @@ html[data-theme='dark'] .profile-card.integral{--accent:#d07a54;--accent-soft:rg
 .reveal.visible{opacity:1;transform:none}
 
 /* TABLET / MOBILE */
+@media (min-width:981px){
+  body.home-page .profile-card .profile-symbol{width:28px;height:28px}
+  body.home-page .project-icon{width:48px;height:48px}
+  body.home-page .project-icon svg{width:29px;height:29px}
+}
+
 @media (max-width:980px){
   body.has-mobile-menu .main-nav{display:none}.menu-toggle{display:inline-flex}
   .header-inner{grid-template-columns:auto 1fr auto}.hero-grid{grid-template-columns:1fr;gap:42px}.hero-visual{min-height:470px}.section-head{grid-template-columns:1fr;gap:8px}.section-index{padding:0}.selector-grid{grid-template-columns:1fr}.social-categories{grid-template-columns:1fr}.contact-panel{grid-template-columns:1fr}.contact-actions{flex-direction:row;flex-wrap:wrap}.story-main{grid-template-columns:1fr}.milestone-grid{grid-template-columns:repeat(2,1fr)}.mobile-nav{position:absolute;top:var(--header-h);left:0;right:0;background:var(--surface);border-bottom:1px solid var(--line);padding:12px 20px}.mobile-nav.open{display:grid}.mobile-nav a{padding:11px 4px;border-bottom:1px solid var(--line);font-weight:800;font-size:.86rem}
