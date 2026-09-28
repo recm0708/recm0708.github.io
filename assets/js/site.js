@@ -7,6 +7,32 @@
   const root = document.documentElement;
   let lastUpdatedDate = null;
 
+  function storageGet(key){
+    try{
+      return localStorage.getItem(key);
+    } catch(error){
+      return null;
+    }
+  }
+
+  function storageSet(key, value){
+    try{
+      localStorage.setItem(key, value);
+      return true;
+    } catch(error){
+      return false;
+    }
+  }
+
+  function storageRemove(key){
+    try{
+      storageRemove(key);
+      return true;
+    } catch(error){
+      return false;
+    }
+  }
+
   function systemTheme(){
     return window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
   }
@@ -34,7 +60,10 @@
 
   function applyTheme(theme, persist = false){
     root.dataset.theme = theme;
-    if(persist) localStorage.setItem(THEME_KEY, theme);
+    document.querySelectorAll('meta[name="theme-color"]').forEach(meta => {
+      meta.setAttribute('content', theme === 'dark' ? '#0b0d12' : '#f5f7fb');
+    });
+    if(persist) storageSet(THEME_KEY, theme);
     document.querySelectorAll('[data-theme-icon]').forEach(icon => {
       icon.className = theme === 'dark' ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
     });
@@ -97,7 +126,7 @@
 
   function applyLanguage(lang, persist = true){
     root.lang = lang;
-    if(persist) localStorage.setItem(LANG_KEY, lang);
+    if(persist) storageSet(LANG_KEY, lang);
 
     document.querySelectorAll('[data-lang]').forEach(el => {
       el.hidden = el.dataset.lang !== lang;
@@ -213,7 +242,7 @@
 
   function setupLegalNotice(){
     if(location.pathname.startsWith('/legal/')) return;
-    if(localStorage.getItem(LEGAL_KEY) === 'acknowledged') return;
+    if(storageGet(LEGAL_KEY) === 'acknowledged') return;
 
     const lang = root.lang === 'en' ? 'en' : 'es';
     const termsHref = '/legal/terminos/';
@@ -270,7 +299,7 @@
 
     dialog.addEventListener('keydown', trapFocus);
     acknowledge.addEventListener('click', () => {
-      localStorage.setItem(LEGAL_KEY,'acknowledged');
+      storageSet(LEGAL_KEY,'acknowledged');
       inertSiblings.forEach(({el, wasInert}) => { el.inert = wasInert; });
       document.body.classList.remove('legal-notice-open');
       backdrop.remove();
@@ -282,11 +311,11 @@
 
   refineHomeHero();
   syncHeroMetaLayout();
-  applyTheme(localStorage.getItem(THEME_KEY) || systemTheme(), false);
+  applyTheme(storageGet(THEME_KEY) || systemTheme(), false);
 
   const defaultLang = document.body?.dataset.defaultLang || root.lang || 'es';
   const canSwitchLanguage = !!document.querySelector('[data-lang-toggle]');
-  const initialLang = canSwitchLanguage ? (localStorage.getItem(LANG_KEY) || defaultLang) : defaultLang;
+  const initialLang = canSwitchLanguage ? (storageGet(LANG_KEY) || defaultLang) : defaultLang;
   applyLanguage(initialLang, false);
   setupLegalNotice();
   setupLastUpdated();
@@ -294,7 +323,7 @@
   document.addEventListener('click', e => {
     const resetBtn = e.target.closest('[data-reset-preferences]');
     if(resetBtn){
-      [THEME_KEY, LANG_KEY, LEGAL_KEY].forEach(key => localStorage.removeItem(key));
+      [THEME_KEY, LANG_KEY, LEGAL_KEY].forEach(key => storageRemove(key));
       window.location.assign('/');
       return;
     }
