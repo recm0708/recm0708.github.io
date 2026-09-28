@@ -61,7 +61,7 @@
   function applyTheme(theme, persist = false){
     root.dataset.theme = theme;
     document.querySelectorAll('meta[name="theme-color"]').forEach(meta => {
-      meta.setAttribute('content', theme === 'dark' ? '#0b0d12' : '#f5f7fb');
+      meta.setAttribute('content', theme === 'dark' ? '#091017' : '#f6f8fb');
     });
     if(persist) storageSet(THEME_KEY, theme);
     document.querySelectorAll('[data-theme-icon]').forEach(icon => {
@@ -408,15 +408,20 @@
   });
 
   const progress = document.querySelector('.scroll-progress');
-  const updateProgress = () => {
-    if(!progress) return;
+  const backToTop = document.querySelector('.footer-top');
+  const updateScrollUI = () => {
     const max = document.documentElement.scrollHeight - window.innerHeight;
-    progress.style.width = `${max > 0 ? (window.scrollY / max) * 100 : 0}%`;
+    if(progress) progress.style.width = `${max > 0 ? (window.scrollY / max) * 100 : 0}%`;
+    if(backToTop){
+      const visible = window.scrollY > Math.max(520, window.innerHeight * .75);
+      backToTop.classList.toggle('is-visible', visible);
+      backToTop.tabIndex = visible ? 0 : -1;
+    }
   };
-  updateProgress();
-  window.addEventListener('scroll', updateProgress, {passive:true});
+  updateScrollUI();
+  window.addEventListener('scroll', updateScrollUI, {passive:true});
   window.addEventListener('resize', () => {
-    updateProgress();
+    updateScrollUI();
     syncHeroMetaLayout();
   });
 
