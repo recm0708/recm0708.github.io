@@ -200,12 +200,22 @@
     const el = document.querySelector('[data-last-updated]');
     if(!el || !lastUpdatedDate) return;
     const lang = root.lang === 'en' ? 'en' : 'es';
-    const formatter = new Intl.DateTimeFormat(lang === 'en' ? 'en-US' : 'es-PA', {
-      dateStyle:'medium'
-    });
+    const parts = new Intl.DateTimeFormat('en-CA', {
+      timeZone:'America/Panama',
+      year:'numeric',
+      month:'2-digit',
+      day:'2-digit'
+    }).formatToParts(lastUpdatedDate);
+    const dateParts = Object.fromEntries(
+      parts.filter(part => part.type !== 'literal').map(part => [part.type, part.value])
+    );
+    const monthIndex = Number(dateParts.month) - 1;
+    const day = Number(dateParts.day);
+    const monthsEs = ['ene','feb','mar','abr','may','jun','jul','ago','sept','oct','nov','dic'];
+    const monthsEn = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
     el.textContent = lang === 'en'
-      ? `Updated: ${formatter.format(lastUpdatedDate)}`
-      : `Actualizado: ${formatter.format(lastUpdatedDate)}`;
+      ? `Updated: ${monthsEn[monthIndex]} ${day}, ${dateParts.year}`
+      : `Actualizado: ${day} ${monthsEs[monthIndex]} ${dateParts.year}`;
   }
 
   async function setupLastUpdated(){
