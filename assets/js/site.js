@@ -263,7 +263,7 @@
     const resetBtn = e.target.closest('[data-reset-preferences]');
     if(resetBtn){
       [THEME_KEY, LANG_KEY, LEGAL_KEY].forEach(key => localStorage.removeItem(key));
-      window.location.reload();
+      window.location.assign('/');
       return;
     }
 
