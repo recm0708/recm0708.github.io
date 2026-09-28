@@ -313,7 +313,98 @@ html[data-theme='dark'] .profile-card.integral{--accent:#d07a54;--accent-soft:rg
   .selector-card{min-height:auto}
   .tech-strip-track{gap:28px}
 }
+
+/* HOME MOBILE DENSITY — isolated from CV/legal/404 */
+@media (max-width:720px){
+  body.home-page .hero{min-height:auto;padding:42px 0 48px}
+  body.home-page .hero-grid{gap:30px}
+  body.home-page .hero h1{font-size:clamp(2.55rem,11.8vw,4rem);margin:8px 0 18px;line-height:.98}
+  body.home-page .hero-lead{font-size:1rem;line-height:1.6}
+  body.home-page .hero-actions{margin-top:24px}
+  body.home-page .hero-meta{margin-top:22px}
+
+  body.home-page .section{padding:52px 0}
+  body.home-page .section-head{margin-bottom:28px}
+  body.home-page .section-head h2{font-size:clamp(2.05rem,9.8vw,2.8rem);line-height:1.05}
+  body.home-page .section-head p{margin-top:11px}
+  body.home-page .grid-2,
+  body.home-page .grid-3{gap:14px}
+
+  body.home-page .card{padding:20px}
+  body.home-page .card h3{font-size:1.18rem}
+  body.home-page .card p{font-size:.92rem;line-height:1.55}
+  body.home-page .icon-box{width:46px;height:46px;margin-bottom:18px;font-size:1.12rem}
+
+  body.home-page .story-main{min-height:0;gap:14px}
+  body.home-page .story-side{gap:10px}
+  body.home-page .story-note{padding:18px}
+  body.home-page .story-note strong{font-size:1.16rem}
+
+  body.home-page .timeline{gap:14px}
+  body.home-page .timeline-row{row-gap:7px}
+  body.home-page .timeline-content{padding:14px 16px;gap:10px;grid-template-columns:38px minmax(0,1fr)}
+  body.home-page .timeline-icon{width:36px;height:36px;font-size:.9rem}
+  body.home-page .timeline-kicker{font-size:.63rem}
+  body.home-page .timeline-content h3{font-size:.96rem}
+  body.home-page .timeline-content p{font-size:.82rem;line-height:1.5}
+
+  body.home-page .milestone-grid{gap:14px}
+  body.home-page .milestone-card{min-height:0;padding:20px}
+  body.home-page .milestone-top{margin-bottom:18px}
+  body.home-page .milestone-icon{width:42px;height:42px}
+  body.home-page .milestone-card h3{font-size:1.12rem}
+  body.home-page .milestone-card p{font-size:.84rem;line-height:1.5}
+  body.home-page .milestone-link{margin-top:12px}
+
+  body.home-page .profile-card{min-height:0}
+  body.home-page .profile-card:before{width:150px;height:150px;right:-62px;top:-62px}
+  body.home-page .profile-card .open-icon{right:16px;top:16px;width:34px;height:34px}
+
+  body.home-page .project-icon{width:40px;height:40px;margin-bottom:13px}
+  body.home-page .project-tags{margin-top:13px;gap:6px}
+  body.home-page .project-tags span{padding:5px 8px;font-size:.64rem}
+
+  body.home-page .goal-feature{min-height:0;padding:26px}
+  body.home-page .goal-feature h3{font-size:1.8rem;line-height:1.03;margin-bottom:14px}
+  body.home-page #metas > .site-shell > .grid-2 > .grid-2{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+  body.home-page #metas > .site-shell > .grid-2 > .grid-2 .card{padding:16px}
+  body.home-page #metas > .site-shell > .grid-2 > .grid-2 .icon-box{width:40px;height:40px;margin-bottom:12px}
+  body.home-page #metas > .site-shell > .grid-2 > .grid-2 h3{font-size:1rem}
+  body.home-page #metas > .site-shell > .grid-2 > .grid-2 p{font-size:.8rem;line-height:1.45}
+
+  body.home-page #vida .grid-3{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+  body.home-page #vida .card{padding:16px}
+  body.home-page #vida .icon-box{width:40px;height:40px;margin-bottom:12px}
+  body.home-page #vida .card h3{font-size:1rem}
+  body.home-page #vida .card p{font-size:.8rem;line-height:1.45}
+
+  body.home-page .social-categories{gap:12px}
+  body.home-page .social-category{padding:12px}
+  body.home-page .social-grid:has(.social-link:nth-child(4)){grid-template-columns:repeat(4,minmax(0,1fr))}
+  body.home-page .social-grid:has(.social-link:nth-child(6)) .social-link:nth-last-child(-n+2){grid-column:span 2}
+  body.home-page .social-grid:has(.social-link:nth-child(3)) .social-link{min-height:66px;padding:7px 3px;font-size:.62rem;gap:5px}
+  body.home-page .social-grid:has(.social-link:nth-child(3)) .social-icon{width:28px;height:28px;flex-basis:28px;font-size:.82rem}
+
+  body.home-page .contact-panel{padding:24px;gap:22px}
+  body.home-page .contact-panel h2{font-size:clamp(2rem,9vw,2.65rem);line-height:1.05}
+  body.home-page .contact-panel p{font-size:.92rem;line-height:1.55}
+  body.home-page .contact-actions{gap:7px}
+  body.home-page .contact-actions .btn{padding:11px 13px;font-size:.78rem}
+}
 @media (max-width:420px){
+  body.home-page .hero{padding:36px 0 42px}
+  body.home-page .hero-grid{gap:26px}
+  body.home-page .hero h1{font-size:clamp(2.4rem,11.5vw,3.4rem)}
+  body.home-page .section{padding:48px 0}
+  body.home-page .section-head{margin-bottom:24px}
+  body.home-page .section-head h2{font-size:clamp(1.95rem,9.2vw,2.4rem)}
+  body.home-page .card{padding:18px}
+  body.home-page .goal-feature{padding:22px}
+  body.home-page .goal-feature h3{font-size:1.65rem}
+  body.home-page .social-category{padding:11px}
+  body.home-page .social-grid:has(.social-link:nth-child(3)) .social-link{min-height:62px;font-size:.59rem;padding:6px 2px}
+  body.home-page .contact-panel{padding:22px}
+
   .hero-meta{gap:7px}
   .hero-meta .meta-chip{font-size:.66rem;padding:7px 8px}
   .social-category{padding:14px}
