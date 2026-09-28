@@ -4,14 +4,14 @@
   --surface:#ffffff;
   --surface-2:#f4f6fa;
   --text:#111827;
-  --muted:#687386;
+  --muted:#647084;
   --line:#dfe4ec;
-  --accent:#5b6cff;
+  --accent:#4f60ed;
   --accent-2:#7c3aed;
-  --accent-soft:rgba(91,108,255,.10);
-  --nav-active-bg:rgba(91,108,255,.17);
-  --nav-active-border:rgba(91,108,255,.34);
-  --nav-active-shadow:0 5px 16px rgba(91,108,255,.10);
+  --accent-soft:rgba(79,96,237,.10);
+  --nav-active-bg:rgba(79,96,237,.17);
+  --nav-active-border:rgba(79,96,237,.34);
+  --nav-active-shadow:0 5px 16px rgba(79,96,237,.10);
   --shadow:0 22px 60px rgba(15,23,42,.10);
   --shadow-sm:0 10px 28px rgba(15,23,42,.07);
   --radius:24px;
@@ -173,9 +173,12 @@ html[lang='es'] [data-lang='en'],html[lang='en'] [data-lang='es']{display:none!i
 .profile-card{min-height:300px;position:relative;overflow:hidden}
 .profile-card:before{content:'';position:absolute;width:180px;height:180px;border-radius:50%;right:-70px;top:-70px;background:var(--accent-soft)}
 .profile-card .open-icon{position:absolute;right:20px;top:20px;width:36px;height:36px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center}
-.profile-card.networks{--accent:#2f8f6b;--accent-soft:rgba(47,143,107,.12)}
-.profile-card.electrical{--accent:#2d7fe7;--accent-soft:rgba(45,127,231,.12)}
-.profile-card.integral{--accent:#d07a54;--accent-soft:rgba(208,122,84,.12)}
+.profile-card.networks{--accent:#287a5d;--accent-soft:rgba(40,122,93,.12)}
+.profile-card.electrical{--accent:#276fcd;--accent-soft:rgba(39,111,205,.12)}
+.profile-card.integral{--accent:#b2593c;--accent-soft:rgba(178,89,60,.12)}
+html[data-theme='dark'] .profile-card.networks{--accent:#4f9f79;--accent-soft:rgba(79,159,121,.14)}
+html[data-theme='dark'] .profile-card.electrical{--accent:#5598ef;--accent-soft:rgba(85,152,239,.14)}
+html[data-theme='dark'] .profile-card.integral{--accent:#d07a54;--accent-soft:rgba(208,122,84,.14)}
 .profile-symbol{width:24px;height:24px;color:var(--accent);display:block}
 .selector-symbol{width:82px;height:82px;position:relative;z-index:2}
 .selector-visual .profile-symbol{color:var(--accent)}
