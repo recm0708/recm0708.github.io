@@ -363,8 +363,17 @@
       return;
     }
 
-    if(e.target.closest('[data-mobile-nav] a')){
-      closeMobileMenu({restoreFocus:true});
+    const mobileNavLink = e.target.closest('[data-mobile-nav] a');
+    if(mobileNavLink){
+      const href = mobileNavLink.getAttribute('href') || '';
+      closeMobileMenu();
+      if(href.startsWith('#')){
+        const target = document.querySelector(href);
+        if(target instanceof HTMLElement){
+          if(!target.hasAttribute('tabindex')) target.setAttribute('tabindex','-1');
+          requestAnimationFrame(() => target.focus({preventScroll:true}));
+        }
+      }
       return;
     }
 
