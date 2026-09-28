@@ -26,7 +26,7 @@
 
   function storageRemove(key){
     try{
-      storageRemove(key);
+      localStorage.removeItem(key);
       return true;
     } catch(error){
       return false;
