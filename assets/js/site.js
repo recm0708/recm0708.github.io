@@ -165,6 +165,10 @@
     return !!target?.closest?.('input,textarea,select,[contenteditable="true"]');
   }
 
+  function isContextMenuAllowedTarget(target){
+    return !!target?.closest?.('a[href],button,input,textarea,select,[contenteditable="true"]');
+  }
+
   let protectionToastTimer;
   function showProtectionNotice(){
     let toast = document.querySelector('[data-protection-toast]');
@@ -176,21 +180,28 @@
       toast.setAttribute('aria-live','polite');
       document.body.appendChild(toast);
     }
-    toast.textContent = root.lang === 'en'
-      ? 'Protected content. Copying and printing are restricted by the site owner.'
-      : 'Contenido protegido. La copia y la impresión están restringidas por el propietario del sitio.';
+    const message = root.lang === 'en'
+      ? 'Protected content. Copying, downloading and printing this content are restricted.'
+      : 'Contenido protegido. La copia, descarga e impresión de este contenido están restringidas.';
+    toast.innerHTML = `<i class="fa-solid fa-shield-halved" aria-hidden="true"></i><span>${message}</span>`;
     toast.classList.add('show');
     clearTimeout(protectionToastTimer);
     protectionToastTimer = setTimeout(() => toast.classList.remove('show'), 2200);
   }
 
   function enableContentProtection(){
-    ['copy','cut','contextmenu','dragstart'].forEach(type => {
+    ['copy','cut','dragstart'].forEach(type => {
       document.addEventListener(type, e => {
         if(isEditableTarget(e.target)) return;
         e.preventDefault();
         showProtectionNotice();
       });
+    });
+
+    document.addEventListener('contextmenu', e => {
+      if(isContextMenuAllowedTarget(e.target)) return;
+      e.preventDefault();
+      showProtectionNotice();
     });
 
     document.addEventListener('keydown', e => {
