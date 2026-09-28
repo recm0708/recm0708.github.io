@@ -76,6 +76,8 @@ html[lang='es'] [data-lang='en'],html[lang='en'] [data-lang='es']{display:none!i
 .menu-toggle{display:none}
 .mobile-nav{display:none}
 .scroll-progress{position:fixed;z-index:1100;top:0;left:0;height:2px;width:0;background:linear-gradient(90deg,var(--accent),var(--accent-2));transition:width .08s linear}
+.skip-link{position:fixed;z-index:1400;top:10px;left:10px;transform:translateY(-160%);padding:10px 14px;border-radius:10px;background:var(--text);color:var(--bg);font-weight:800;box-shadow:var(--shadow);transition:transform .18s ease}
+.skip-link:focus-visible{transform:translateY(0);outline:3px solid var(--accent);outline-offset:3px}
 
 /* BACKGROUND */
 .tech-bg{position:fixed;inset:0;z-index:-2;pointer-events:none;background:radial-gradient(circle at 12% 12%,var(--accent-soft),transparent 28%),radial-gradient(circle at 88% 24%,rgba(124,58,237,.07),transparent 24%),linear-gradient(var(--bg),var(--bg))}
