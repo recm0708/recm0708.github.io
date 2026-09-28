@@ -124,6 +124,13 @@
     });
   }
 
+  function syncLocalizedContactLinks(lang){
+    document.querySelectorAll('[data-contact-href-es][data-contact-href-en]').forEach(link => {
+      const nextHref = lang === 'en' ? link.dataset.contactHrefEn : link.dataset.contactHrefEs;
+      if(nextHref) link.setAttribute('href', nextHref);
+    });
+  }
+
   function applyLanguage(lang, persist = true){
     root.lang = lang;
     if(persist) storageSet(LANG_KEY, lang);
@@ -131,6 +138,8 @@
     document.querySelectorAll('[data-lang]').forEach(el => {
       el.hidden = el.dataset.lang !== lang;
     });
+
+    syncLocalizedContactLinks(lang);
 
     document.querySelectorAll('[data-lang-toggle]').forEach(btn => {
       btn.textContent = lang === 'es' ? 'ES / EN' : 'EN / ES';
