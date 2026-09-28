@@ -201,13 +201,11 @@
     if(!el || !lastUpdatedDate) return;
     const lang = root.lang === 'en' ? 'en' : 'es';
     const formatter = new Intl.DateTimeFormat(lang === 'en' ? 'en-US' : 'es-PA', {
-      dateStyle:'medium',
-      timeStyle:'short',
-      timeZone:'America/Panama'
+      dateStyle:'medium'
     });
     el.textContent = lang === 'en'
-      ? `Updated: ${formatter.format(lastUpdatedDate)} (Panama time)`
-      : `Actualizado: ${formatter.format(lastUpdatedDate)} (hora de Panamá)`;
+      ? `Updated: ${formatter.format(lastUpdatedDate)}`
+      : `Actualizado: ${formatter.format(lastUpdatedDate)}`;
   }
 
   async function setupLastUpdated(){
