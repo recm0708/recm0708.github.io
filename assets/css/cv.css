@@ -6,6 +6,11 @@ html[data-theme='dark'] body.cv-page{--profile:#34d399;--profile-2:#6ee7b7;--pro
 html[data-theme='dark'] body.cv-page[data-profile='electrical']{--profile:#4ea1ff;--profile-2:#79bdff;--profile-soft:rgba(78,161,255,.15)}
 html[data-theme='dark'] body.cv-page[data-profile='integral']{--profile:#fb923c;--profile-2:#fdba74;--profile-soft:rgba(251,146,60,.15)}
 
+body.cv-page .main-nav{gap:6px}
+body.cv-page .main-nav a{border:1px solid transparent}
+body.cv-page .main-nav a:hover{background:var(--profile-soft);border-color:color-mix(in srgb,var(--profile) 24%,var(--line));color:var(--text)}
+body.cv-page .main-nav a.active{background:color-mix(in srgb,var(--profile) 16%,var(--surface));border-color:color-mix(in srgb,var(--profile) 48%,var(--line));box-shadow:0 6px 18px color-mix(in srgb,var(--profile) 14%,transparent);color:var(--text)}
+
 .cv-main{padding:54px 0 90px}
 .cv-sheet{border:1px solid var(--line);background:var(--surface);border-radius:28px;overflow:hidden;box-shadow:var(--shadow)}
 .cv-cover{position:relative;display:grid;grid-template-columns:260px 1fr;min-height:340px;background:linear-gradient(135deg,var(--surface),var(--surface-2));border-bottom:1px solid var(--line)}
