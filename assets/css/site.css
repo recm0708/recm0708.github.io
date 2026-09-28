@@ -282,7 +282,7 @@ html[data-theme='dark'] .profile-card.integral{--accent:#d07a54;--accent-soft:rg
   .float-panel.one{left:0;top:0}
   .float-panel.two{right:0;top:118px;bottom:auto}
   .float-panel.three{left:0;bottom:136px}
-  .grid-2,.grid-3,
+  .grid-2,.grid-3{grid-template-columns:1fr}
   .story-main{grid-column:auto}
   .milestone-grid{grid-template-columns:1fr}
   .timeline{gap:22px}
