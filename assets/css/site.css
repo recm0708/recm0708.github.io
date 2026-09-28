@@ -240,7 +240,7 @@ html[data-theme='dark'] .profile-card.integral{--accent:#d07a54;--accent-soft:rg
 .footer-social{display:flex;gap:8px}
 .footer-social a{width:34px;height:34px;border-radius:10px;border:1px solid var(--line);display:grid;place-items:center;color:var(--text);transition:.18s}
 .footer-social a:hover{color:var(--accent);border-color:var(--accent);transform:translateY(-2px)}
-.footer-top{text-align:right;font-weight:800;color:var(--text)}
+.footer-top{justify-self:end;width:max-content;text-align:right;font-weight:800;color:var(--text)}
 
 /* REVEAL */
 .reveal{opacity:0;transform:translateY(22px);transition:opacity .65s cubic-bezier(.22,1,.36,1),transform .65s cubic-bezier(.22,1,.36,1)}
@@ -256,6 +256,8 @@ html[data-theme='dark'] .profile-card.integral{--accent:#d07a54;--accent-soft:rg
   body.home-page #historia .story-main > div:first-child .icon-box{margin-bottom:20px}
   body.home-page #historia .story-side{display:contents}
   body.home-page #historia .story-note{height:100%}
+
+  body.home-page #redes-sociales .social-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
 
   body.home-page .profile-card .profile-symbol{width:28px;height:28px}
   body.home-page .project-icon{width:48px;height:48px}
@@ -322,7 +324,7 @@ html[data-theme='dark'] .profile-card.integral{--accent:#d07a54;--accent-soft:rg
   .footer-meta{justify-items:center}
   .footer-legal{justify-content:center}
   .footer-social{justify-content:center}
-  .footer-top{text-align:center}
+  .footer-top{justify-self:center;text-align:center}
   .section{padding:76px 0}
   .contact-panel{padding:28px}
   .selector-card{min-height:auto}
@@ -440,6 +442,8 @@ body.legal-notice-open{overflow:hidden}
 .footer-legal a{color:var(--muted);font-weight:750}
 .footer-legal a+a::before{content:'·';display:inline-block;margin:0 10px;color:var(--muted);font-weight:700}
 .footer-legal a:hover{color:var(--accent)}
+.footer-legal a:focus-visible{outline:none}
+.footer-legal a:focus-visible [data-lang]{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
 .footer-updated{font-size:.68rem;color:var(--muted)}
 .legal-main{padding:72px 0 96px}
 .legal-hero{max-width:900px;margin-bottom:34px}
