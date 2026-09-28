@@ -243,13 +243,19 @@ html[lang='es'] [data-lang='en'],html[lang='en'] [data-lang='es']{display:none!i
 
 /* TABLET / MOBILE */
 @media (max-width:980px){
-  .main-nav{display:none}.menu-toggle{display:inline-flex}
+  body.has-mobile-menu .main-nav{display:none}.menu-toggle{display:inline-flex}
   .header-inner{grid-template-columns:auto 1fr auto}.hero-grid{grid-template-columns:1fr;gap:42px}.hero-visual{min-height:470px}.section-head{grid-template-columns:1fr;gap:8px}.section-index{padding:0}.selector-grid{grid-template-columns:1fr}.social-categories{grid-template-columns:1fr}.contact-panel{grid-template-columns:1fr}.contact-actions{flex-direction:row;flex-wrap:wrap}.story-main{grid-template-columns:1fr}.milestone-grid{grid-template-columns:repeat(2,1fr)}.mobile-nav{position:absolute;top:var(--header-h);left:0;right:0;background:var(--surface);border-bottom:1px solid var(--line);padding:12px 20px}.mobile-nav.open{display:grid}.mobile-nav a{padding:11px 4px;border-bottom:1px solid var(--line);font-weight:800;font-size:.86rem}
 }
 @media (max-width:720px){
   .float-panel.four,.float-panel.five{display:none}
   .site-shell{width:min(100% - 28px,var(--shell))}
   .header-inner{display:flex;justify-content:space-between;align-items:center;gap:10px}
+  body:not(.has-mobile-menu) .header-inner{height:auto;min-height:var(--header-h);display:grid;grid-template-columns:auto 1fr;grid-template-areas:"brand actions" "nav nav";gap:8px 12px;padding:10px 0}
+  body:not(.has-mobile-menu) .brand{grid-area:brand}
+  body:not(.has-mobile-menu) .header-actions{grid-area:actions;justify-self:end;margin-left:0}
+  body:not(.has-mobile-menu) .main-nav{grid-area:nav;display:flex;justify-content:flex-start;overflow-x:auto;max-width:100%;padding-bottom:2px;scrollbar-width:none}
+  body:not(.has-mobile-menu) .main-nav::-webkit-scrollbar{display:none}
+  body:not(.has-mobile-menu) .main-nav a{white-space:nowrap;flex:0 0 auto}
   .brand-copy{display:none}
   .header-actions{margin-left:auto;gap:6px;justify-content:flex-end}
   .header-actions .lang-text{display:none}
