@@ -1,7 +1,10 @@
-body.cv-page{--profile:#2f8f6b;--profile-2:#69b993;--profile-soft:rgba(47,143,107,.12)}
-body.cv-page[data-profile='electrical']{--profile:#2d7fe7;--profile-2:#6cc8ff;--profile-soft:rgba(45,127,231,.12)}
-body.cv-page[data-profile='integral']{--profile:#d07a54;--profile-2:#e8b06f;--profile-soft:rgba(208,122,84,.13)}
+body.cv-page{--profile:#287a5d;--profile-2:#69b993;--profile-soft:rgba(40,122,93,.12)}
+body.cv-page[data-profile='electrical']{--profile:#276fcd;--profile-2:#6cc8ff;--profile-soft:rgba(39,111,205,.12)}
+body.cv-page[data-profile='integral']{--profile:#b2593c;--profile-2:#e8b06f;--profile-soft:rgba(178,89,60,.13)}
 body.cv-page{--accent:var(--profile);--accent-2:var(--profile-2);--accent-soft:var(--profile-soft)}
+html[data-theme='dark'] body.cv-page{--profile:#4f9f79;--profile-2:#69b993;--profile-soft:rgba(79,159,121,.14)}
+html[data-theme='dark'] body.cv-page[data-profile='electrical']{--profile:#5598ef;--profile-2:#6cc8ff;--profile-soft:rgba(85,152,239,.14)}
+html[data-theme='dark'] body.cv-page[data-profile='integral']{--profile:#d07a54;--profile-2:#e8b06f;--profile-soft:rgba(208,122,84,.14)}
 
 .cv-main{padding:54px 0 90px}
 .cv-sheet{border:1px solid var(--line);background:var(--surface);border-radius:28px;overflow:hidden;box-shadow:var(--shadow)}
