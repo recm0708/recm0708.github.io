@@ -236,8 +236,11 @@ html[data-theme='dark'] .profile-card.integral{--accent:#d07a54;--accent-soft:rg
 
 /* FOOTER EDGE-TO-EDGE */
 .site-footer{width:100%;border-top:1px solid var(--line);background:var(--surface)}
-.footer-inner{min-height:96px;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;font-size:.77rem;color:var(--muted)}
-.footer-top{justify-self:end;width:max-content;text-align:right;font-weight:800;color:var(--text)}
+.footer-inner{min-height:118px;display:grid;grid-template-columns:1fr;gap:10px;align-items:center;justify-items:center;text-align:center;padding:20px 0;font-size:.77rem;color:var(--muted)}
+.footer-inner .footer-meta{justify-items:center}
+.footer-inner .footer-legal{justify-content:center}
+.footer-top{justify-self:center;display:inline-flex;align-items:center;justify-content:center;width:max-content;text-align:center;font-weight:800;color:var(--text);border:1px solid var(--line);border-radius:999px;padding:8px 12px;transition:.18s}
+.footer-top:hover{color:var(--accent);border-color:var(--accent);transform:translateY(-1px)}
 
 /* REVEAL */
 .reveal{opacity:0;transform:translateY(22px);transition:opacity .65s cubic-bezier(.22,1,.36,1),transform .65s cubic-bezier(.22,1,.36,1)}
