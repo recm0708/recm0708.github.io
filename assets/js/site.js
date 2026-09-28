@@ -11,6 +11,27 @@
     return window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
   }
 
+  function updateMobileMenuButton(open = false){
+    const btn = document.querySelector('[data-menu-toggle]');
+    if(!btn) return;
+    const lang = root.lang === 'en' ? 'en' : 'es';
+    btn.setAttribute('aria-expanded', String(open));
+    btn.setAttribute('aria-label',
+      open
+        ? (lang === 'es' ? 'Cerrar menú' : 'Close menu')
+        : (lang === 'es' ? 'Abrir menú' : 'Open menu')
+    );
+  }
+
+  function closeMobileMenu({restoreFocus = false} = {}){
+    const menu = document.querySelector('[data-mobile-nav]');
+    const btn = document.querySelector('[data-menu-toggle]');
+    if(!menu || !btn) return;
+    menu.classList.remove('open');
+    updateMobileMenuButton(false);
+    if(restoreFocus) btn.focus({preventScroll:true});
+  }
+
   function applyTheme(theme, persist = false){
     root.dataset.theme = theme;
     if(persist) localStorage.setItem(THEME_KEY, theme);
@@ -87,6 +108,7 @@
       btn.setAttribute('aria-label', lang === 'es' ? 'Cambiar idioma a inglés' : 'Switch language to Spanish');
     });
 
+    updateMobileMenuButton(!!document.querySelector('[data-mobile-nav].open'));
 
     const pageTitle = lang === 'en' ? document.body?.dataset.titleEn : document.body?.dataset.titleEs;
     if(pageTitle) document.title = pageTitle;
@@ -200,25 +222,34 @@
     const backdrop = document.createElement('div');
     backdrop.className = 'legal-notice-backdrop';
     backdrop.innerHTML = lang === 'en'
-      ? `<section class="legal-notice" role="dialog" aria-modal="true" aria-labelledby="legal-notice-title">
+      ? `<section class="legal-notice" role="dialog" aria-modal="true" aria-labelledby="legal-notice-title" aria-describedby="legal-notice-description">
           <div class="eyebrow">Site notice</div>
           <h2 id="legal-notice-title">Before you continue</h2>
-          <p>This professional site is owned, managed and maintained by Rubén Enrique Cañizares Miranda. Original content is protected by copyright and technical measures are used to discourage unauthorized copying or printing.</p>
-          <p>The current version uses local browser storage for functional preferences and to remember this notice. No advertising or analytics cookies are currently implemented by this site.</p>
+          <div id="legal-notice-description">
+            <p>This professional site is owned, managed and maintained by Rubén Enrique Cañizares Miranda. Original content is protected by copyright and technical measures are used to discourage unauthorized copying or printing.</p>
+            <p>The current version uses local browser storage for functional preferences and to remember this notice. No advertising or analytics cookies are currently implemented by this site.</p>
+          </div>
           <div class="legal-notice-links"><a href="${termsHref}">Terms of Use</a><a href="${privacyHref}">Privacy & storage</a></div>
           <div class="legal-notice-actions"><button class="btn primary" type="button" data-legal-ack>Acknowledge and continue</button></div>
         </section>`
-      : `<section class="legal-notice" role="dialog" aria-modal="true" aria-labelledby="legal-notice-title">
+      : `<section class="legal-notice" role="dialog" aria-modal="true" aria-labelledby="legal-notice-title" aria-describedby="legal-notice-description">
           <div class="eyebrow">Aviso del sitio</div>
           <h2 id="legal-notice-title">Antes de continuar</h2>
-          <p>Este sitio profesional pertenece, es administrado y mantenido por Rubén Enrique Cañizares Miranda. El contenido original está protegido por derechos de autor y se utilizan medidas técnicas para disuadir la copia o impresión no autorizada.</p>
-          <p>La versión actual utiliza almacenamiento local del navegador para preferencias funcionales y para recordar este aviso. Este sitio no implementa actualmente cookies de publicidad ni analítica.</p>
+          <div id="legal-notice-description">
+            <p>Este sitio profesional pertenece, es administrado y mantenido por Rubén Enrique Cañizares Miranda. El contenido original está protegido por derechos de autor y se utilizan medidas técnicas para disuadir la copia o impresión no autorizada.</p>
+            <p>La versión actual utiliza almacenamiento local del navegador para preferencias funcionales y para recordar este aviso. Este sitio no implementa actualmente cookies de publicidad ni analítica.</p>
+          </div>
           <div class="legal-notice-links"><a href="${termsHref}">Términos de uso</a><a href="${privacyHref}">Privacidad y almacenamiento</a></div>
           <div class="legal-notice-actions"><button class="btn primary" type="button" data-legal-ack>Entendido y continuar</button></div>
         </section>`;
 
     document.body.appendChild(backdrop);
     document.body.classList.add('legal-notice-open');
+
+    const inertSiblings = [...document.body.children]
+      .filter(el => el !== backdrop && el.tagName !== 'SCRIPT')
+      .map(el => ({el, wasInert: el.inert}));
+    inertSiblings.forEach(({el}) => { el.inert = true; });
 
     const dialog = backdrop.querySelector('.legal-notice');
     const acknowledge = backdrop.querySelector('[data-legal-ack]');
@@ -240,6 +271,7 @@
     dialog.addEventListener('keydown', trapFocus);
     acknowledge.addEventListener('click', () => {
       localStorage.setItem(LEGAL_KEY,'acknowledged');
+      inertSiblings.forEach(({el, wasInert}) => { el.inert = wasInert; });
       document.body.classList.remove('legal-notice-open');
       backdrop.remove();
     });
@@ -284,28 +316,29 @@
       const menu = document.querySelector('[data-mobile-nav]');
       if(menu){
         const open = menu.classList.toggle('open');
-        menuBtn.setAttribute('aria-expanded', String(open));
+        updateMobileMenuButton(open);
+        if(open && e.detail === 0){
+          requestAnimationFrame(() => menu.querySelector('a[href]')?.focus());
+        }
       }
       return;
     }
 
     if(e.target.closest('[data-mobile-nav] a')){
-      document.querySelector('[data-mobile-nav]')?.classList.remove('open');
-      document.querySelector('[data-menu-toggle]')?.setAttribute('aria-expanded','false');
+      closeMobileMenu({restoreFocus:true});
       return;
     }
 
     const mobileMenu = document.querySelector('[data-mobile-nav].open');
     if(mobileMenu && !e.target.closest('[data-mobile-nav]')){
-      mobileMenu.classList.remove('open');
-      document.querySelector('[data-menu-toggle]')?.setAttribute('aria-expanded','false');
+      closeMobileMenu();
     }
   });
 
   document.addEventListener('keydown', e => {
-    if(e.key === 'Escape'){
-      document.querySelector('[data-mobile-nav]')?.classList.remove('open');
-      document.querySelector('[data-menu-toggle]')?.setAttribute('aria-expanded','false');
+    if(e.key === 'Escape' && document.querySelector('[data-mobile-nav].open')){
+      e.preventDefault();
+      closeMobileMenu({restoreFocus:true});
     }
   });
 
