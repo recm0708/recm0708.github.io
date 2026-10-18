@@ -47,7 +47,8 @@ El sitio es estático y no requiere proceso de compilación, framework de aplica
 ├── legal/
 │   ├── index.html
 │   ├── terminos/
-│   └── privacidad/
+│   ├── privacidad/
+│   └── acceso/
 ├── assets/
 │   ├── css/
 │   │   ├── site.css
@@ -74,6 +75,7 @@ El sitio es estático y no requiere proceso de compilación, framework de aplica
 | Perfil Profesional Integral | `/cv/integral/` |
 | Términos de uso | `/legal/terminos/` |
 | Política de privacidad | `/legal/privacidad/` |
+| Acceso no confirmado (no indexable) | `/legal/acceso/` |
 
 ## Características técnicas
 
@@ -89,6 +91,8 @@ El sitio mantiene, entre otras, las siguientes capacidades:
 - favicon y `site.webmanifest`;
 - metadata SEO, canonical y Open Graph en las rutas públicas correspondientes;
 - aviso de primera visita, términos de uso y política de privacidad;
+- salida explícita del aviso inicial y página legal de acceso no confirmado;
+- realce de foco de teclado opcional y persistente en el navegador;
 - medidas de disuasión contra copia e impresión de contenido.
 
 ## Mantenimiento

@@ -3,6 +3,7 @@
 
   const THEME_KEY = 'recm0708-theme';
   const LANG_KEY = 'recm0708-lang';
+  const FOCUS_KEY = 'recm0708-focus-mode';
   const LEGAL_KEY = 'recm0708-legal-notice-v2';
   const LEGACY_LEGAL_KEYS = ['recm0708-legal-notice-v1'];
   const root = document.documentElement;
@@ -71,6 +72,22 @@
     document.querySelectorAll('[data-theme-toggle]').forEach(btn => {
       const lang = root.lang === 'en' ? 'en' : 'es';
       btn.setAttribute('aria-label', theme === 'dark' ? (lang === 'es' ? 'Cambiar a tema claro' : 'Switch to light theme') : (lang === 'es' ? 'Cambiar a tema oscuro' : 'Switch to dark theme'));
+    });
+  }
+
+  function applyFocusMode(mode, persist = false){
+    const normalized = mode === 'enhanced' ? 'enhanced' : 'auto';
+    root.dataset.focusMode = normalized;
+    if(persist) storageSet(FOCUS_KEY, normalized);
+    document.querySelectorAll('[data-focus-toggle]').forEach(btn => {
+      const en = root.lang === 'en';
+      const enhanced = normalized === 'enhanced';
+      const label = en
+        ? (enhanced ? 'Use automatic keyboard focus' : 'Enable enhanced keyboard focus')
+        : (enhanced ? 'Usar foco de teclado automático' : 'Activar foco de teclado reforzado');
+      btn.setAttribute('aria-label', label);
+      btn.setAttribute('title', label);
+      btn.setAttribute('aria-pressed', String(enhanced));
     });
   }
 
@@ -159,6 +176,7 @@
     });
 
     applyTheme(root.dataset.theme || systemTheme(), false);
+    applyFocusMode(root.dataset.focusMode || 'auto', false);
   }
 
 
@@ -276,30 +294,33 @@
     const lang = root.lang === 'en' ? 'en' : 'es';
     const termsHref = '/legal/terminos/';
     const privacyHref = '/legal/privacidad/';
+    const exitHref = '/legal/acceso/';
 
     const previousFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null;
 
     const backdrop = document.createElement('div');
     backdrop.className = 'legal-notice-backdrop';
     backdrop.innerHTML = lang === 'en'
-      ? `<section class="legal-notice" role="dialog" aria-modal="true" aria-labelledby="legal-notice-title" aria-describedby="legal-notice-description">
+      ? `<section class="legal-notice" tabindex="-1" role="dialog" aria-modal="true" aria-labelledby="legal-notice-title" aria-describedby="legal-notice-description">
+          <button class="legal-notice-close" type="button" data-legal-exit aria-label="Do not continue" title="Do not continue"><span aria-hidden="true">×</span></button>
           <div class="eyebrow">Site notice</div>
           <h2 id="legal-notice-title">Before you continue</h2>
           <div id="legal-notice-description">
             <p>This professional site is owned, managed and maintained by Rubén Enrique Cañizares Miranda. Original content is protected by copyright and technical measures are used to discourage unauthorized copying or printing.</p>
             <p>The current version uses local browser storage for functional preferences and to remember this notice. Details are explained in the Privacy Policy.</p>
           </div>
-          <div class="legal-notice-links"><a href="${termsHref}">Terms of Use</a><a href="${privacyHref}">Privacy Policy</a></div>
+          <div class="legal-notice-links"><a href="${termsHref}">Terms of Use</a><span class="legal-link-separator" aria-hidden="true">·</span><a href="${privacyHref}">Privacy Policy</a></div>
           <div class="legal-notice-actions"><button class="btn primary" type="button" data-legal-ack>Acknowledge and continue</button></div>
         </section>`
-      : `<section class="legal-notice" role="dialog" aria-modal="true" aria-labelledby="legal-notice-title" aria-describedby="legal-notice-description">
+      : `<section class="legal-notice" tabindex="-1" role="dialog" aria-modal="true" aria-labelledby="legal-notice-title" aria-describedby="legal-notice-description">
+          <button class="legal-notice-close" type="button" data-legal-exit aria-label="No continuar" title="No continuar"><span aria-hidden="true">×</span></button>
           <div class="eyebrow">Aviso del sitio</div>
           <h2 id="legal-notice-title">Antes de continuar</h2>
           <div id="legal-notice-description">
             <p>Este sitio profesional pertenece, es administrado y mantenido por Rubén Enrique Cañizares Miranda. El contenido original está protegido por derechos de autor y se utilizan medidas técnicas para disuadir la copia o impresión no autorizada.</p>
             <p>La versión actual utiliza almacenamiento local del navegador para preferencias funcionales y para recordar este aviso. Los detalles se explican en la Política de privacidad.</p>
           </div>
-          <div class="legal-notice-links"><a href="${termsHref}">Términos de uso</a><a href="${privacyHref}">Política de privacidad</a></div>
+          <div class="legal-notice-links"><a href="${termsHref}">Términos de uso</a><span class="legal-link-separator" aria-hidden="true">·</span><a href="${privacyHref}">Política de privacidad</a></div>
           <div class="legal-notice-actions"><button class="btn primary" type="button" data-legal-ack>Entendido y continuar</button></div>
         </section>`;
 
@@ -313,12 +334,18 @@
 
     const dialog = backdrop.querySelector('.legal-notice');
     const acknowledge = backdrop.querySelector('[data-legal-ack]');
+    backdrop.querySelector('[data-legal-exit]').addEventListener('click', () => window.location.assign(exitHref));
     const focusable = [...dialog.querySelectorAll('a[href],button:not([disabled])')];
 
     const trapFocus = e => {
       if(e.key !== 'Tab' || focusable.length === 0) return;
       const first = focusable[0];
       const last = focusable[focusable.length - 1];
+      if(document.activeElement === dialog){
+        e.preventDefault();
+        (e.shiftKey ? last : first).focus();
+        return;
+      }
       if(e.shiftKey && document.activeElement === first){
         e.preventDefault();
         last.focus();
@@ -344,7 +371,7 @@
         requestAnimationFrame(() => target.focus({preventScroll:true}));
       }
     });
-    requestAnimationFrame(() => acknowledge.focus());
+    requestAnimationFrame(() => dialog.focus({preventScroll:true}));
   }
 
   enableContentProtection();
@@ -352,6 +379,7 @@
   refineHomeHero();
   syncHeroMetaLayout();
   applyTheme(storageGet(THEME_KEY) || systemTheme(), false);
+  applyFocusMode(storageGet(FOCUS_KEY) || 'auto', false);
 
   const defaultLang = document.body?.dataset.defaultLang || root.lang || 'es';
   const canSwitchLanguage = !!document.querySelector('[data-lang-toggle]');
@@ -363,8 +391,14 @@
   document.addEventListener('click', e => {
     const resetBtn = e.target.closest('[data-reset-preferences]');
     if(resetBtn){
-      [THEME_KEY, LANG_KEY, LEGAL_KEY, ...LEGACY_LEGAL_KEYS].forEach(key => storageRemove(key));
+      [THEME_KEY, LANG_KEY, FOCUS_KEY, LEGAL_KEY, ...LEGACY_LEGAL_KEYS].forEach(key => storageRemove(key));
       window.location.assign('/');
+      return;
+    }
+
+    const focusBtn = e.target.closest('[data-focus-toggle]');
+    if(focusBtn){
+      applyFocusMode(root.dataset.focusMode === 'enhanced' ? 'auto' : 'enhanced', true);
       return;
     }
 
