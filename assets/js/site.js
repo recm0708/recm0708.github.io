@@ -3,7 +3,8 @@
 
   const THEME_KEY = 'recm0708-theme';
   const LANG_KEY = 'recm0708-lang';
-  const LEGAL_KEY = 'recm0708-legal-notice-v1';
+  const LEGAL_KEY = 'recm0708-legal-notice-v2';
+  const LEGACY_LEGAL_KEYS = ['recm0708-legal-notice-v1'];
   const root = document.documentElement;
   let lastUpdatedDate = null;
 
@@ -286,9 +287,9 @@
           <h2 id="legal-notice-title">Before you continue</h2>
           <div id="legal-notice-description">
             <p>This professional site is owned, managed and maintained by Rubén Enrique Cañizares Miranda. Original content is protected by copyright and technical measures are used to discourage unauthorized copying or printing.</p>
-            <p>The current version uses local browser storage for functional preferences and to remember this notice. No advertising or analytics cookies are currently implemented by this site.</p>
+            <p>The current version uses local browser storage for functional preferences and to remember this notice. Details are explained in the Privacy Policy.</p>
           </div>
-          <div class="legal-notice-links"><a href="${termsHref}">Terms of Use</a><a href="${privacyHref}">Privacy & storage</a></div>
+          <div class="legal-notice-links"><a href="${termsHref}">Terms of Use</a><a href="${privacyHref}">Privacy Policy</a></div>
           <div class="legal-notice-actions"><button class="btn primary" type="button" data-legal-ack>Acknowledge and continue</button></div>
         </section>`
       : `<section class="legal-notice" role="dialog" aria-modal="true" aria-labelledby="legal-notice-title" aria-describedby="legal-notice-description">
@@ -296,9 +297,9 @@
           <h2 id="legal-notice-title">Antes de continuar</h2>
           <div id="legal-notice-description">
             <p>Este sitio profesional pertenece, es administrado y mantenido por Rubén Enrique Cañizares Miranda. El contenido original está protegido por derechos de autor y se utilizan medidas técnicas para disuadir la copia o impresión no autorizada.</p>
-            <p>La versión actual utiliza almacenamiento local del navegador para preferencias funcionales y para recordar este aviso. Este sitio no implementa actualmente cookies de publicidad ni analítica.</p>
+            <p>La versión actual utiliza almacenamiento local del navegador para preferencias funcionales y para recordar este aviso. Los detalles se explican en la Política de privacidad.</p>
           </div>
-          <div class="legal-notice-links"><a href="${termsHref}">Términos de uso</a><a href="${privacyHref}">Privacidad y almacenamiento</a></div>
+          <div class="legal-notice-links"><a href="${termsHref}">Términos de uso</a><a href="${privacyHref}">Política de privacidad</a></div>
           <div class="legal-notice-actions"><button class="btn primary" type="button" data-legal-ack>Entendido y continuar</button></div>
         </section>`;
 
@@ -330,6 +331,7 @@
     dialog.addEventListener('keydown', trapFocus);
     acknowledge.addEventListener('click', () => {
       storageSet(LEGAL_KEY,'acknowledged');
+      LEGACY_LEGAL_KEYS.forEach(key => storageRemove(key));
       inertSiblings.forEach(({el, wasInert}) => { el.inert = wasInert; });
       document.body.classList.remove('legal-notice-open');
       backdrop.remove();
@@ -361,7 +363,7 @@
   document.addEventListener('click', e => {
     const resetBtn = e.target.closest('[data-reset-preferences]');
     if(resetBtn){
-      [THEME_KEY, LANG_KEY, LEGAL_KEY].forEach(key => storageRemove(key));
+      [THEME_KEY, LANG_KEY, LEGAL_KEY, ...LEGACY_LEGAL_KEYS].forEach(key => storageRemove(key));
       window.location.assign('/');
       return;
     }
@@ -420,10 +422,13 @@
 
   const progress = document.querySelector('.scroll-progress');
   const backToTop = document.querySelector('.footer-top');
+  const footer = document.querySelector('.site-footer');
   const updateScrollUI = () => {
     const max = document.documentElement.scrollHeight - window.innerHeight;
     if(progress) progress.style.width = `${max > 0 ? (window.scrollY / max) * 100 : 0}%`;
     if(backToTop){
+      const footerOverlap = footer ? Math.max(0, window.innerHeight - footer.getBoundingClientRect().top) : 0;
+      backToTop.style.setProperty('--footer-overlap', `${Math.ceil(footerOverlap)}px`);
       const visible = window.scrollY > Math.max(520, window.innerHeight * .75);
       backToTop.classList.toggle('is-visible', visible);
       backToTop.tabIndex = visible ? 0 : -1;
