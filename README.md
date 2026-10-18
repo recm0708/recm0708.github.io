@@ -73,7 +73,7 @@ El sitio es estático y no requiere proceso de compilación, framework de aplica
 | Sistemas Eléctricos y Automatización | `/cv/electrica/` |
 | Perfil Profesional Integral | `/cv/integral/` |
 | Términos de uso | `/legal/terminos/` |
-| Privacidad y almacenamiento | `/legal/privacidad/` |
+| Política de privacidad | `/legal/privacidad/` |
 
 ## Características técnicas
 
@@ -88,7 +88,7 @@ El sitio mantiene, entre otras, las siguientes capacidades:
 - `sitemap.xml` y `robots.txt`;
 - favicon y `site.webmanifest`;
 - metadata SEO, canonical y Open Graph en las rutas públicas correspondientes;
-- aviso de primera visita, términos de uso y política de privacidad/almacenamiento;
+- aviso de primera visita, términos de uso y política de privacidad;
 - medidas de disuasión contra copia e impresión de contenido.
 
 ## Mantenimiento
